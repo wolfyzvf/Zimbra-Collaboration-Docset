@@ -1,0 +1,2268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="generator" content="JsDoc Toolkit"/>
+		
+		<a class="dashingAutolink" name="autolink-105"></a><a class="dashAnchor" name="//apple_ref/cpp/Class/%20ZmApp"></a><title>Zimlet JavaScript API Reference - ZmApp</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmApp
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br/>
+				This object represents a Zimbra Application. This class is a base class for application classes.
+&#34;App&#34; is a useful abstraction for a set of related functionality, such as mail,
+address book, or calendar. Looked at another way, an app is a collection of one or more controllers.
+				<br/>
+				
+					<br/><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_core_ZmApp.js.html">ZmApp.js</a>.<br/>
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmApp.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription">
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmApp.html#constructor">ZmApp</a></b>(name, container, parentController)
+							</div>
+							<div class="description">Creates the application.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmApp.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.BRIEFCASE">BRIEFCASE</a></b>
+								</div>
+								<div class="description">Defines the &#34;briefcase&#34; application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.CALENDAR">CALENDAR</a></b>
+								</div>
+								<div class="description">Defines the &#34;calendar&#34; application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.CONTACTS">CONTACTS</a></b>
+								</div>
+								<div class="description">Defines the &#34;address book&#34; application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.MAIL">MAIL</a></b>
+								</div>
+								<div class="description">Defines the &#34;mail&#34; application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.PORTAL">PORTAL</a></b>
+								</div>
+								<div class="description">Defines the &#34;portal&#34; application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmApp.<b><a href="../symbols/ZmApp.html#.PREFERENCES">PREFERENCES</a></b>
+								</div>
+								<div class="description">Defines the &#34;preferences&#34; application.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmApp.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#activate">activate</a></b>(active, viewId)
+								</div>
+								<div class="description">Activates the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#addDeferredFolder">addDeferredFolder</a></b>(params)
+								</div>
+								<div class="description">Adds a deferred folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#createView">createView</a></b>(params)
+								</div>
+								<div class="description">Creates the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#deleteSessionController">deleteSessionController</a></b>(params, controllerClass, sessionId, searchResultsController)
+								</div>
+								<div class="description">Deletes a controller of the given type, class, and sessionId.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#disposeTreeControllers">disposeTreeControllers</a></b>()
+								</div>
+								<div class="description">Disposes of the tree controllers (right now mainly gets rid of change listeners.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getDisplayName">getDisplayName</a></b>()
+								</div>
+								<div class="description">Gets the application display name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getInitialSearchType">getInitialSearchType</a></b>()
+								</div>
+								<div class="description">Gets the initial search type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getLimit">getLimit</a></b>(offset)
+								</div>
+								<div class="description">Gets the limit for the search triggered by the application launch or an overview click.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getName">getName</a></b>()
+								</div>
+								<div class="description">Gets the application name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getNumSessionControllers">getNumSessionControllers</a></b>(type)
+								</div>
+								<div class="description">Gets the number of active session controllers</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getOverview">getOverview</a></b>()
+								</div>
+								<div class="description">Gets the current overview, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getOverviewContainer">getOverviewContainer</a></b>(dontCreate)
+								</div>
+								<div class="description">Gets the overview container.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getOverviewId">getOverviewId</a></b>(account)
+								</div>
+								<div class="description">Gets the overview id of the current <a href="../symbols/ZmOverview.html">ZmOverview</a>, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getOverviewPanelContent">getOverviewPanelContent</a></b>()
+								</div>
+								<div class="description">Creates the overview content for this app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getRemoteFolderIds">getRemoteFolderIds</a></b>(account)
+								</div>
+								<div class="description">Gets the remote folder ids.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getSearchParams">getSearchParams</a></b>(params)
+								</div>
+								<div class="description">Gets the search parameters.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getSessionController">getSessionController</a></b>(params, controllerClass, sessionId, searchResultsController)
+								</div>
+								<div class="description">Returns a controller of the given type and class.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#getTypeFromController">getTypeFromController</a></b>(params, controllerClass, sessionId, searchResultsController)
+								</div>
+								<div class="description">Evaluates the controller class and returns the default view type from that controller.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#isActive">isActive</a></b>()
+								</div>
+								<div class="description">Checks if the application is active.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#launch">launch</a></b>(params, callback)
+								</div>
+								<div class="description">Launches the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#popView">popView</a></b>(force, viewId, skipHistory)
+								</div>
+								<div class="description">Pops the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#pushView">pushView</a></b>(name, force)
+								</div>
+								<div class="description">Pushes the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#reset">reset</a></b>(active)
+								</div>
+								<div class="description">Resets the application state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#resetOverview">resetOverview</a></b>(overviewId)
+								</div>
+								<div class="description">Resets the current overview, preserving expansion.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#resetWebClientOfflineOperations">resetWebClientOfflineOperations</a></b>()
+								</div>
+								<div class="description">Handle the common aspects of a transition from online to offline and offline to online, and also do so
+when an app is activated</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmApp.<b><a href="../symbols/ZmApp.html#.runAppFunction">runAppFunction</a></b>(funcName, mixed)
+								</div>
+								<div class="description">Runs the given function for all known (e.g.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#setAppView">setAppView</a></b>(view)
+								</div>
+								<div class="description">Sets the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#setOverviewPanelContent">setOverviewPanelContent</a></b>(reset)
+								</div>
+								<div class="description">Sets the overview tree to display overview content for this application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#setView">setView</a></b>(name, force)
+								</div>
+								<div class="description">Sets the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#stageView">stageView</a></b>(name)
+								</div>
+								<div class="description">Stages the application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#startAlert">startAlert</a></b>()
+								</div>
+								<div class="description">Starts an alert on the application tab.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#stopAlert">stopAlert</a></b>()
+								</div>
+								<div class="description">Stops an alert on the application tab.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmApp.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmApp</b>(name, container, parentController)
+				</div>
+				
+				<div class="description">
+					Creates the application.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>name</b>
+								
+							</dt>
+								<dd>the application name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>  <b>container</b>
+								
+							</dt>
+								<dd>the control that contains components</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span>  <b>parentController</b>
+								
+							</dt>
+								<dd>the parent window controller (set by the child window)</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".BRIEFCASE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>BRIEFCASE</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;briefcase&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_briefcase_ZmBriefcaseApp.js.html">ZmBriefcaseApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".CALENDAR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>CALENDAR</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;calendar&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_ZmCalendarApp.js.html">ZmCalendarApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".CONTACTS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>CONTACTS</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;address book&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_abook_ZmContactsApp.js.html">ZmContactsApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".MAIL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>MAIL</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;mail&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_ZmMailApp.js.html">ZmMailApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".PORTAL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>PORTAL</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;portal&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_portal_ZmPortalApp.js.html">ZmPortalApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".PREFERENCES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>PREFERENCES</b>
+					
+					</div>
+					<div class="description">
+						Defines the &#34;preferences&#34; application.
+						
+							<br/>
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_prefs_ZmPreferencesApp.js.html">ZmPreferencesApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="activate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>activate</b>(active, viewId)
+					
+					</div>
+					<div class="description">
+						Activates the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>active</b>
+									
+								</dt>
+								<dd><code>true</code> if the application is active</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>viewId</b>
+									
+								</dt>
+								<dd>ID of view becoming active</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="addDeferredFolder"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addDeferredFolder</b>(params)
+					
+					</div>
+					<div class="description">
+						Adds a deferred folder.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="createView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createView</b>(params)
+					
+					</div>
+					<div class="description">
+						Creates the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html">ZmAppViewMgr</a></dd>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html#createView">ZmAppViewMgr#createView</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="deleteSessionController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>deleteSessionController</b>(params, controllerClass, sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						Deletes a controller of the given type, class, and sessionId.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>controllerClass</b>
+									
+								</dt>
+								<dd>string name of controller class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>unique identifier for this controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>containing controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="disposeTreeControllers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>disposeTreeControllers</b>()
+					
+					</div>
+					<div class="description">
+						Disposes of the tree controllers (right now mainly gets rid of change listeners.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getDisplayName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getDisplayName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the application display name.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the display name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getInitialSearchType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<b>getInitialSearchType</b>()
+					
+					</div>
+					<div class="description">
+						Gets the initial search type.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <code>null</code> since only set if different from the default</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getLimit"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{int}</span>
+					<b>getLimit</b>(offset)
+					
+					</div>
+					<div class="description">
+						Gets the limit for the search triggered by the application launch or an overview click.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>offset</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> the limit</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the application name.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getNumSessionControllers"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getNumSessionControllers</b>(type)
+					
+					</div>
+					<div class="description">
+						Gets the number of active session controllers
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the number of active session controllers</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getOverview"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmOverview.html">ZmOverview</a>}</span>
+					<b>getOverview</b>()
+					
+					</div>
+					<div class="description">
+						Gets the current overview, if any. Subclasses should ensure that a <a href="../symbols/ZmOverview.html">ZmOverview</a> is returned.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmOverview.html">ZmOverview</a>}</span> the overview</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getOverviewContainer"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmOverview.html">ZmOverview</a>}</span>
+					<b>getOverviewContainer</b>(dontCreate)
+					
+					</div>
+					<div class="description">
+						Gets the overview container.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>dontCreate</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmOverview.html">ZmOverview</a>}</span> the overview container</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getOverviewId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOverviewId</b>(account)
+					
+					</div>
+					<div class="description">
+						Gets the overview id of the current <a href="../symbols/ZmOverview.html">ZmOverview</a>, if any.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span> <b>account</b>
+									
+								</dt>
+								<dd>the account</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getOverviewPanelContent"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOverviewPanelContent</b>()
+					
+					</div>
+					<div class="description">
+						Creates the overview content for this app. The default implementation creates
+a <a href="../symbols/ZmOverview.html">ZmOverview</a> with standard options. Other apps may want to use different
+options, or create a <a href="../symbols/DwtComposite.html">DwtComposite</a> instead.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the content</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getRemoteFolderIds"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getRemoteFolderIds</b>(account)
+					
+					</div>
+					<div class="description">
+						Gets the remote folder ids.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>account</b>
+									
+								</dt>
+								<dd>the account</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of {String} ids</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getSearchParams"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getSearchParams</b>(params)
+					
+					</div>
+					<div class="description">
+						Gets the search parameters.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of arguments for the search</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmSearchController.html">ZmSearchController</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="getSessionController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getSessionController</b>(params, controllerClass, sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						Returns a controller of the given type and class. If no sessionId is provided, then
+the controller&#39;s session ID will be an incremental number. If a sessionId is given,
+then a check is made for an existing controller with that session ID. If none is
+found, one is created and given that session ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>controllerClass</b>
+									
+								</dt>
+								<dd>string name of controller class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>unique identifier for this controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>containing controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getTypeFromController"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getTypeFromController</b>(params, controllerClass, sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						Evaluates the controller class and returns the default view type from that controller.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>controllerClass</b>
+									
+								</dt>
+								<dd>string name of controller class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>unique identifier for this controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>containing controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> default view type</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isActive"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isActive</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the application is active.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the application is active</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="launch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>launch</b>(params, callback)
+					
+					</div>
+					<div class="description">
+						Launches the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="popView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>popView</b>(force, viewId, skipHistory)
+					
+					</div>
+					<div class="description">
+						Pops the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd><code>true</code> to force the view off the stack</dd>
+							
+								<dt>
+									<b>viewId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>skipHistory</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html#popView">ZmAppViewMgr#popView</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="pushView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>pushView</b>(name, force)
+					
+					</div>
+					<div class="description">
+						Pushes the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the view name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd><code>true</code> to force the view onto the stack</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html#pushView">ZmAppViewMgr#pushView</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="reset"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>reset</b>(active)
+					
+					</div>
+					<div class="description">
+						Resets the application state.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>active</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the application is active</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="resetOverview"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetOverview</b>(overviewId)
+					
+					</div>
+					<div class="description">
+						Resets the current overview, preserving expansion.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>overviewId</b>
+									
+								</dt>
+								<dd>the id of overview to reset</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="resetWebClientOfflineOperations"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetWebClientOfflineOperations</b>()
+					
+					</div>
+					<div class="description">
+						Handle the common aspects of a transition from online to offline and offline to online, and also do so
+when an app is activated
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".runAppFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmApp.</span><b>runAppFunction</b>(funcName, mixed)
+					
+					</div>
+					<div class="description">
+						Runs the given function for all known (e.g. part of ZmApp.CLASS)
+app classes, passing args.
+NOTE: This runs class functions only, not instance (prototype) functions.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>funcName</b>
+									
+								</dt>
+								<dd>{String} The name of the function we will run on each
+application.</dd>
+							
+								<dt>
+									<b>mixed</b>
+									
+								</dt>
+								<dd>{mixed} 0 to n additional arguments are passed to funcName
+via apply.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="setAppView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAppView</b>(view)
+					
+					</div>
+					<div class="description">
+						Sets the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html">ZmAppViewMgr</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="setOverviewPanelContent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setOverviewPanelContent</b>(reset)
+					
+					</div>
+					<div class="description">
+						Sets the overview tree to display overview content for this application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>reset</b>
+									
+								</dt>
+								<dd>if <code>true</code>, clear the content first</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="setView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setView</b>(name, force)
+					
+					</div>
+					<div class="description">
+						Sets the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the view name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd><code>true</code> to force the view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html#setView">ZmAppViewMgr#setView</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="stageView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>stageView</b>(name)
+					
+					</div>
+					<div class="description">
+						Stages the application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the view name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmAppViewMgr.html#stageView">ZmAppViewMgr#stageView</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name="startAlert"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>startAlert</b>()
+					
+					</div>
+					<div class="description">
+						Starts an alert on the application tab.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="stopAlert"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>stopAlert</b>()
+					
+					</div>
+					<div class="description">
+						Stops an alert on the application tab.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr/>
+		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Feb 09 2015 18:59:26 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</tbody></table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	
+
+</body></html>

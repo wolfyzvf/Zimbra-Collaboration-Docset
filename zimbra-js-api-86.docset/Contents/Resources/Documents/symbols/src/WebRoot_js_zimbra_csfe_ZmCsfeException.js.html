@@ -1,0 +1,240 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class="line">  1</span> <span class="COMM">/*
+<span class="line">  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class="line">  3</span>  * Zimbra Collaboration Suite Web Client
+<span class="line">  4</span>  * Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc.
+<span class="line">  5</span>  * 
+<span class="line">  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the &#34;License&#34;);
+<span class="line">  7</span>  * you may not use this file except in compliance with the License. 
+<span class="line">  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class="line">  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class="line"> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class="line"> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class="line"> 12</span>  * 
+<span class="line"> 13</span>  * Software distributed under the License is distributed on an &#34;AS IS&#34; basis, 
+<span class="line"> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class="line"> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class="line"> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class="line"> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class="line"> 18</span>  * All portions of the code are Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+<span class="line"> 19</span>  * ***** END LICENSE BLOCK *****
+<span class="line"> 20</span>  */</span><span class="WHIT">
+<span class="line"> 21</span> 
+<span class="line"> 22</span> </span><span class="COMM">/**
+<span class="line"> 23</span>  * @overview
+<span class="line"> 24</span>  * This file contains the exception class.
+<span class="line"> 25</span>  */</span><span class="WHIT">
+<span class="line"> 26</span> </span><span class="COMM">/**
+<span class="line"> 27</span>  * Creates an exception.
+<span class="line"> 28</span>  * @class
+<span class="line"> 29</span>  * This class represents an exception returned by the server as a response, generally as a fault. The fault
+<span class="line"> 30</span>  * data is converted to properties of the exception.
+<span class="line"> 31</span>  *
+<span class="line"> 32</span>  * @param {Hash}	params	a hash of parameters
+<span class="line"> 33</span>  * @param {String}      params.msg		the explanation (Fault.Reason.Text)
+<span class="line"> 34</span>  * @param {String}      params.code		the error code (Fault.Detail.Error.Code)
+<span class="line"> 35</span>  * @param {String}      params.method	the request name
+<span class="line"> 36</span>  * @param {String}      params.detail	the Fault.Code.Value
+<span class="line"> 37</span>  * @param {Object}      [params.data]		an optional structured fault data (Fault.Detail.Error.a)
+<span class="line"> 38</span>  * @param {String}      params.trace		the trace info (Fault.Detail.Error.Trace)
+<span class="line"> 39</span>  * @param {String}       params.request	the SOAP or JSON that represents the request
+<span class="line"> 40</span>  * 
+<span class="line"> 41</span>  * @extends		AjxException
+<span class="line"> 42</span>  */</span><span class="WHIT">
+<span class="line"> 43</span> </span><span class="NAME">ZmCsfeException</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 44</span> 
+<span class="line"> 45</span> </span><span class="WHIT">	</span><span class="NAME">params</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Dwt.getParams</span><span class="PUNC">(</span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ZmCsfeException.PARAMS</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 46</span> 
+<span class="line"> 47</span> </span><span class="WHIT">	</span><span class="NAME">AjxException.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params.msg</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params.code</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params.method</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params.detail</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 48</span> </span><span class="WHIT">	
+<span class="line"> 49</span> 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">params.data</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 50</span> </span><span class="WHIT">		</span><span class="NAME">this.data</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 51</span> </span><span class="WHIT">		</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">params.data.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 52</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">item</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.data</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 53</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">key</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">item.n</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 54</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.data</span><span class="PUNC">[</span><span class="NAME">key</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 55</span> </span><span class="WHIT">				</span><span class="NAME">this.data</span><span class="PUNC">[</span><span class="NAME">key</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 56</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 57</span> </span><span class="WHIT">			</span><span class="NAME">this.data</span><span class="PUNC">[</span><span class="NAME">key</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">push</span><span class="PUNC">(</span><span class="NAME">item._content</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 58</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 59</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 60</span> </span><span class="WHIT">	
+<span class="line"> 61</span> 	</span><span class="NAME">this.trace</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.trace</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 62</span> </span><span class="WHIT">	</span><span class="NAME">this.request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.request</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 63</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 64</span> 
+<span class="line"> 65</span> </span><span class="NAME">ZmCsfeException.PARAMS</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">&#34;msg&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;code&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;method&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;detail&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;data&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;trace&#34;</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 66</span> 
+<span class="line"> 67</span> </span><span class="NAME">ZmCsfeException.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxException</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 68</span> </span><span class="NAME">ZmCsfeException.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmCsfeException</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 69</span> </span><span class="NAME">ZmCsfeException.prototype.isZmCsfeException</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 70</span> 
+<span class="line"> 71</span> </span><span class="COMM">/**
+<span class="line"> 72</span>  * Returns a string representation of the object.
+<span class="line"> 73</span>  * 
+<span class="line"> 74</span>  * @return		{String}		a string representation of the object
+<span class="line"> 75</span>  */</span><span class="WHIT">
+<span class="line"> 76</span> </span><span class="NAME">ZmCsfeException.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line"> 77</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 78</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">&#34;ZmCsfeException&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 79</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 80</span> 
+<span class="line"> 81</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 82</span> </span><span class="COMM">// Constants</span><span class="WHIT">
+<span class="line"> 83</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 84</span> 
+<span class="line"> 85</span> </span><span class="COMM">// structured data keys</span><span class="WHIT">
+<span class="line"> 86</span> </span><span class="NAME">ZmCsfeException.MAIL_SEND_ADDRESS_FAILURE_INVALID</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;invalid&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 87</span> </span><span class="NAME">ZmCsfeException.MAIL_SEND_ADDRESS_FAILURE_UNSENT</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;unsent&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 88</span> 
+<span class="line"> 89</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 90</span> </span><span class="COMM">// Static functions</span><span class="WHIT">
+<span class="line"> 91</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 92</span> 
+<span class="line"> 93</span> </span><span class="COMM">/**
+<span class="line"> 94</span>  * Gets the error messages.
+<span class="line"> 95</span>  * 
+<span class="line"> 96</span>  * @param	{String}	code	the code
+<span class="line"> 97</span>  * @param	{Array}	args		the message format args
+<span class="line"> 98</span>  * 
+<span class="line"> 99</span>  * @return	{String}	the message
+<span class="line">100</span>  */</span><span class="WHIT">
+<span class="line">101</span> </span><span class="NAME">ZmCsfeException.getErrorMsg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">102</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">103</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">msg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZMsg</span><span class="PUNC">[</span><span class="NAME">code</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">104</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">msg</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">105</span> </span><span class="WHIT">		</span><span class="NAME">ZmCsfeException._unknownFormat</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmCsfeException._unknownFormat</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxMessageFormat</span><span class="PUNC">(</span><span class="NAME">ZMsg.unknownError</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">106</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmCsfeException._unknownFormat.format</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">107</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">108</span> </span><span class="WHIT">	</span><span class="NAME">this.msg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.msg</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">msg</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">109</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">args</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">AjxMessageFormat.format</span><span class="PUNC">(</span><span class="NAME">msg</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">msg</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">110</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">111</span> 
+<span class="line">112</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line">113</span> </span><span class="COMM">// Public methods</span><span class="WHIT">
+<span class="line">114</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line">115</span> 
+<span class="line">116</span> </span><span class="COMM">/**
+<span class="line">117</span>  * Gets the error message.
+<span class="line">118</span>  * 
+<span class="line">119</span>  * @param	{Array}	args		the message format args
+<span class="line">120</span>  * @return	{String}	the message
+<span class="line">121</span>  */</span><span class="WHIT">
+<span class="line">122</span> </span><span class="NAME">ZmCsfeException.prototype.getErrorMsg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">123</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">args</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">124</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmCsfeException.getErrorMsg</span><span class="PUNC">(</span><span class="NAME">this.code</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">125</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">126</span> 
+<span class="line">127</span> </span><span class="COMM">/**
+<span class="line">128</span>  * Gets the data.
+<span class="line">129</span>  * 
+<span class="line">130</span>  * @param	{Object}	key		the key
+<span class="line">131</span>  * 
+<span class="line">132</span>  * @return	{Object}	the data
+<span class="line">133</span>  */</span><span class="WHIT">
+<span class="line">134</span> </span><span class="NAME">ZmCsfeException.prototype.getData</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">135</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">key</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">136</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.data</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">this.data</span><span class="PUNC">[</span><span class="NAME">key</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">137</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">138</span> 
+<span class="line">139</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line">140</span> </span><span class="COMM">// Constants for server exceptions</span><span class="WHIT">
+<span class="line">141</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line">142</span> 
+<span class="line">143</span> </span><span class="NAME">ZmCsfeException.AUTH_TOKEN_CHANGED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;AUTH_TOKEN_CHANGED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">144</span> </span><span class="NAME">ZmCsfeException.BAD_JSON_RESPONSE</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;BAD_JSON_RESPONSE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">145</span> </span><span class="NAME">ZmCsfeException.CSFE_SVC_ERROR</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;CSFE_SVC_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">146</span> </span><span class="NAME">ZmCsfeException.EMPTY_RESPONSE</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;EMPTY_RESPONSE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">147</span> </span><span class="NAME">ZmCsfeException.NETWORK_ERROR</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;NETWORK_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">148</span> </span><span class="NAME">ZmCsfeException.NO_AUTH_TOKEN</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;NO_AUTH_TOKEN&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">149</span> </span><span class="NAME">ZmCsfeException.SOAP_ERROR</span><span class="WHIT">							</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;SOAP_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">150</span> 
+<span class="line">151</span> </span><span class="NAME">ZmCsfeException.LICENSE_ERROR</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.LICENSE_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">152</span> </span><span class="NAME">ZmCsfeException.SVC_ALREADY_IN_PROGRESS</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.ALREADY_IN_PROGRESS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">153</span> </span><span class="NAME">ZmCsfeException.SVC_AUTH_EXPIRED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.AUTH_EXPIRED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">154</span> </span><span class="NAME">ZmCsfeException.SVC_AUTH_REQUIRED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.AUTH_REQUIRED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">155</span> </span><span class="NAME">ZmCsfeException.SVC_FAILURE</span><span class="WHIT">							</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.FAILURE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">156</span> </span><span class="NAME">ZmCsfeException.SVC_INVALID_REQUEST</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.INVALID_REQUEST&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">157</span> </span><span class="NAME">ZmCsfeException.SVC_PARSE_ERROR</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.PARSE_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">158</span> </span><span class="NAME">ZmCsfeException.SVC_PERM_DENIED</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.PERM_DENIED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">159</span> </span><span class="NAME">ZmCsfeException.SVC_RESOURCE_UNREACHABLE</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.RESOURCE_UNREACHABLE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">160</span> </span><span class="NAME">ZmCsfeException.SVC_UNKNOWN_DOCUMENT</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.UNKNOWN_DOCUMENT&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">161</span> </span><span class="NAME">ZmCsfeException.SVC_TEMPORARILY_UNAVAILABLE</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.TEMPORARILY_UNAVAILABLE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">162</span> </span><span class="NAME">ZmCsfeException.SVC_WRONG_HOST</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;service.WRONG_HOST&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">163</span> 
+<span class="line">164</span> </span><span class="NAME">ZmCsfeException.ACCT_AUTH_FAILED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.AUTH_FAILED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">165</span> </span><span class="NAME">ZmCsfeException.ACCT_CHANGE_PASSWORD</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.CHANGE_PASSWORD&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">166</span> </span><span class="NAME">ZmCsfeException.ACCT_EXISTS</span><span class="WHIT">							</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.ACCOUNT_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">167</span> </span><span class="NAME">ZmCsfeException.ACCT_TOO_MANY_ACCOUNTS</span><span class="WHIT">      		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.TOO_MANY_ACCOUNTS&#34;</span><span class="WHIT"> </span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">168</span> </span><span class="NAME">ZmCsfeException.ACCT_INVALID_ATTR_VALUE</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.INVALID_ATTR_VALUE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">169</span> </span><span class="NAME">ZmCsfeException.ACCT_INVALID_PASSWORD</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.INVALID_PASSWORD&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">170</span> </span><span class="NAME">ZmCsfeException.ACCT_INVALID_PREF_NAME</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.INVALID_PREF_NAME&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">171</span> </span><span class="NAME">ZmCsfeException.ACCT_INVALID_PREF_VALUE</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.INVALID_PREF_VALUE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">172</span> </span><span class="NAME">ZmCsfeException.ACCT_MAINTENANCE_MODE</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.MAINTENANCE_MODE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">173</span> </span><span class="NAME">ZmCsfeException.ACCT_NO_SUCH_ACCOUNT</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.NO_SUCH_ACCOUNT&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">174</span> </span><span class="NAME">ZmCsfeException.ACCT_NO_SUCH_SAVED_SEARCH</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.NO_SUCH_SAVED_SEARCH&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">175</span> </span><span class="NAME">ZmCsfeException.ACCT_NO_SUCH_TAG</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.ACCT_NO_SUCH_TAG&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">176</span> </span><span class="NAME">ZmCsfeException.ACCT_PASS_CHANGE_TOO_SOON</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.PASSWORD_CHANGE_TOO_SOON&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">177</span> </span><span class="NAME">ZmCsfeException.ACCT_PASS_LOCKED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.PASSWORD_LOCKED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">178</span> </span><span class="NAME">ZmCsfeException.ACCT_PASS_RECENTLY_USED</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.PASSWORD_RECENTLY_USED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">179</span> </span><span class="NAME">ZmCsfeException.COS_EXISTS</span><span class="WHIT">							</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.COS_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">180</span> </span><span class="NAME">ZmCsfeException.DISTRIBUTION_LIST_EXISTS</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.DISTRIBUTION_LIST_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">181</span> </span><span class="NAME">ZmCsfeException.DOMAIN_EXISTS</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.DOMAIN_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">182</span> </span><span class="NAME">ZmCsfeException.DOMAIN_NOT_EMPTY</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.DOMAIN_NOT_EMPTY&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">183</span> </span><span class="NAME">ZmCsfeException.IDENTITY_EXISTS</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.IDENTITY_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">184</span> </span><span class="NAME">ZmCsfeException.NO_SUCH_DISTRIBUTION_LIST</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.NO_SUCH_DISTRIBUTION_LIST&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">185</span> </span><span class="NAME">ZmCsfeException.NO_SUCH_DOMAIN</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.NO_SUCH_DOMAIN&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">186</span> </span><span class="NAME">ZmCsfeException.MAINTENANCE_MODE</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.MAINTENANCE_MODE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">187</span> </span><span class="NAME">ZmCsfeException.TOO_MANY_IDENTITIES</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.TOO_MANY_IDENTITIES&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">188</span> </span><span class="NAME">ZmCsfeException.TOO_MANY_SEARCH_RESULTS</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.TOO_MANY_SEARCH_RESULTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">189</span> </span><span class="NAME">ZmCsfeException.NO_SUCH_COS</span><span class="WHIT"> 						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.NO_SUCH_COS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">190</span> </span><span class="NAME">ZmCsfeException.SIGNATURE_EXISTS</span><span class="WHIT">                    </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;account.SIGNATURE_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">191</span> 
+<span class="line">192</span> </span><span class="NAME">ZmCsfeException.CANNOT_CHANGE_VOLUME</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;volume.CANNOT_CHANGE_TYPE_OF_CURRVOL&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">193</span> </span><span class="NAME">ZmCsfeException.CANNOT_DELETE_VOLUME_IN_USE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;volume.CANNOT_DELETE_VOLUME_IN_USE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">194</span> </span><span class="NAME">ZmCsfeException.NO_SUCH_VOLUME</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;volume.NO_SUCH_VOLUME&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">195</span> </span><span class="NAME">ZmCsfeException.ALREADY_EXISTS</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;volume.ALREADY_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">196</span> </span><span class="NAME">ZmCsfeException.VOLUME_NO_SUCH_PATH</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;volume.NO_SUCH_PATH&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">197</span> 
+<span class="line">198</span> </span><span class="NAME">ZmCsfeException.MAIL_ALREADY_EXISTS</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.ALREADY_EXISTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">199</span> </span><span class="NAME">ZmCsfeException.MAIL_IMMUTABLE</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.IMMUTABLE_OBJECT&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">200</span> </span><span class="NAME">ZmCsfeException.MAIL_INVALID_NAME</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.INVALID_NAME&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">201</span> </span><span class="NAME">ZmCsfeException.MAIL_INVITE_OUT_OF_DATE</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.INVITE_OUT_OF_DATE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">202</span> </span><span class="NAME">ZmCsfeException.MAIL_MAINTENANCE_MODE</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MAINTENANCE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">203</span> </span><span class="NAME">ZmCsfeException.MAIL_MESSAGE_TOO_BIG</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MESSAGE_TOO_BIG&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">204</span> </span><span class="NAME">ZmCsfeException.MAIL_MUST_RESYNC</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MUST_RESYNC&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">205</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_CALITEM</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_CALITEM&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">206</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_CONV</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_CONV&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">207</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_FOLDER</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_FOLDER&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">208</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_ITEM</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_ITEM&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">209</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_MOUNTPOINT</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_MOUNTPOINT&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">210</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_MSG</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_MSG&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">211</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_PART</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_PART&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">212</span> </span><span class="NAME">ZmCsfeException.MAIL_NO_SUCH_TAG</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.NO_SUCH_TAG&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">213</span> </span><span class="NAME">ZmCsfeException.MAIL_QUERY_PARSE_ERROR</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.QUERY_PARSE_ERROR&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">214</span> </span><span class="NAME">ZmCsfeException.MAIL_QUOTA_EXCEEDED</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.QUOTA_EXCEEDED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">215</span> </span><span class="NAME">ZmCsfeException.MAIL_SEND_ABORTED_ADDRESS_FAILURE</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.SEND_ABORTED_ADDRESS_FAILURE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">216</span> </span><span class="NAME">ZmCsfeException.MAIL_SEND_FAILURE</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.SEND_FAILURE&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">217</span> </span><span class="NAME">ZmCsfeException.MAIL_TOO_MANY_CONTACTS</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.TOO_MANY_CONTACTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">218</span> </span><span class="NAME">ZmCsfeException.MAIL_TOO_MANY_TERMS</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.TOO_MANY_QUERY_TERMS_EXPANDED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">219</span> </span><span class="NAME">ZmCsfeException.MAIL_UNABLE_TO_IMPORT_APPOINTMENTS</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MAIL_UNABLE_TO_IMPORT_APPOINTMENTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">220</span> </span><span class="NAME">ZmCsfeException.MAIL_UNABLE_TO_IMPORT_CONTACTS</span><span class="WHIT">		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.UNABLE_TO_IMPORT_CONTACTS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">221</span> </span><span class="NAME">ZmCsfeException.MODIFY_CONFLICT</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MODIFY_CONFLICT&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">222</span> </span><span class="NAME">ZmCsfeException.TOO_MANY_TAGS</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.TOO_MANY_TAGS&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">223</span> </span><span class="NAME">ZmCsfeException.CANNOT_RENAME</span><span class="WHIT">                       </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.CANNOT_RENAME&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">224</span> </span><span class="NAME">ZmCsfeException.CANNOT_UNLOCK</span><span class="WHIT">                       </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.CANNOT_UNLOCK&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">225</span> </span><span class="NAME">ZmCsfeException.CANNOT_LOCK</span><span class="WHIT">                         </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.CANNOT_LOCK&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">226</span> </span><span class="NAME">ZmCsfeException.LOCKED</span><span class="WHIT">                              </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.LOCKED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">227</span> </span><span class="NAME">ZmCsfeException.UPLOAD_REJECTED</span><span class="WHIT">						</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.UPLOAD_REJECTED&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">228</span> 
+<span class="line">229</span> </span><span class="NAME">ZmCsfeException.MUST_BE_ORGANIZER</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;mail.MUST_BE_ORGANIZER&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">230</span> 
+<span class="line">231</span> 
+<span class="line">232</span> </span><span class="NAME">ZmCsfeException.OFFLINE_ONLINE_ONLY_OP</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">&#34;offline.ONLINE_ONLY_OP&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">233</span> </span></pre></body></html>

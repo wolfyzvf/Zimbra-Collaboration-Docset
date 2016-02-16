@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="generator" content="JsDoc Toolkit"/>
+		
+		<a class="dashingAutolink" name="autolink-131"></a><a class="dashAnchor" name="//apple_ref/cpp/Class/%20ZmBriefcaseBaseItem"></a><title>Zimlet JavaScript API Reference - ZmBriefcaseBaseItem</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmBriefcaseBaseItem
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br/>Extends
+					<a href="../symbols/ZmItem.html">ZmItem</a>.<br/>
+				
+				<br/>
+				This class is a base class for briefcase item classes.
+				<br/>
+				
+					<br/><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_briefcase_model_ZmBriefcaseItem.js.html">ZmBriefcaseItem.js</a>.<br/>
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmBriefcaseBaseItem.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription">
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmBriefcaseBaseItem.html#constructor">ZmBriefcaseBaseItem</a></b>(id, list, noCache, type)
+							</div>
+							<div class="description">Abstract class</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmBriefcaseBaseItem.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#createFromAttachment">createFromAttachment</a></b>(msgId, partId, name, folderId, attribs)
+								</div>
+								<div class="description">Creates an item from an attachment.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getBriefcaseFolder">getBriefcaseFolder</a></b>()
+								</div>
+								<div class="description">Gets the briefcase folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getContentType">getContentType</a></b>()
+								</div>
+								<div class="description">Gets the content type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getFolder">getFolder</a></b>()
+								</div>
+								<div class="description">Gets the folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getIcon">getIcon</a></b>(large)
+								</div>
+								<div class="description">Gets the icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getPath">getPath</a></b>(dontIncludeThisName)
+								</div>
+								<div class="description">Gets the path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#getRestUrl">getRestUrl</a></b>(dontIncludeThisName, ignoreCustomDocs, includeVersion)
+								</div>
+								<div class="description">Gets the REST URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#isDownloadable">isDownloadable</a></b>()
+								</div>
+								<div class="description">Checks if this item is an document which can only be downloaded and cannot be rendered by browser</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if this item is read only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#isRealFile">isRealFile</a></b>()
+								</div>
+								<div class="description">Checks if this item is a real file.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#isShared">isShared</a></b>()
+								</div>
+								<div class="description">Checks if this item is shared.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmBriefcaseBaseItem.html#isWebDoc">isWebDoc</a></b>()
+								</div>
+								<div class="description">Checks if this item is a web doc.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmItem.html">ZmItem</a>: </dt><dd><a href="../symbols/ZmItem.html#cache">cache</a>, <a href="../symbols/ZmItem.html#canAddTag">canAddTag</a>, <a href="../symbols/ZmItem.html#clear">clear</a>, <a href="../symbols/ZmItem.html#create">create</a>, <a href="../symbols/ZmItem.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmItem.html#flagLocal">flagLocal</a>, <a href="../symbols/ZmItem.html#getById">getById</a>, <a href="../symbols/ZmItem.html#getDefaultDndAction">getDefaultDndAction</a>, <a href="../symbols/ZmItem.html#getFolderId">getFolderId</a>, <a href="../symbols/ZmItem.html#getTagImageFromIds">getTagImageFromIds</a>, <a href="../symbols/ZmItem.html#getTagImageInfo">getTagImageInfo</a>, <a href="../symbols/ZmItem.html#hasTag">hasTag</a>, <a href="../symbols/ZmItem.html#modify">modify</a>, <a href="../symbols/ZmItem.html#move">move</a>, <a href="../symbols/ZmItem.html#moveLocal">moveLocal</a>, <a href="../symbols/ZmItem.html#removeAllTagsLocal">removeAllTagsLocal</a>, <a href="../symbols/ZmItem.html#rename">rename</a>, <a href="../symbols/ZmItem.html#setFlag">setFlag</a>, <a href="../symbols/ZmItem.html#tagLocal">tagLocal</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmBriefcaseBaseItem</b>(id, list, noCache, type)
+				</div>
+				
+				<div class="description">
+					Abstract class
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>id</b>
+								
+							</dt>
+								<dd>the unique id</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmList.html">ZmList</a>}</span>  <b>list</b>
+								
+							</dt>
+								<dd>a list that contains this item</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>noCache</b>
+								
+							</dt>
+								<dd>if <code>true</code>, do not cache this item</dd>
+						
+							<dt>
+								 <b>type</b>
+								
+							</dt>
+								<dd></dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/ZmBriefcaseBaseItem.html">ZmBriefcaseBaseItem</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="createFromAttachment"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createFromAttachment</b>(msgId, partId, name, folderId, attribs)
+					
+					</div>
+					<div class="description">
+						Creates an item from an attachment.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>msgId</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>partId</b>
+									
+								</dt>
+								<dd>the message part</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the item name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderId</b>
+									
+								</dt>
+								<dd>the folder id</dd>
+							
+								<dt>
+									<b>attribs</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getBriefcaseFolder"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmBriefcase.html">ZmBriefcase</a>}</span>
+					<b>getBriefcaseFolder</b>()
+					
+					</div>
+					<div class="description">
+						Gets the briefcase folder.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmBriefcase.html">ZmBriefcase</a>}</span> the folder</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getContentType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getContentType</b>()
+					
+					</div>
+					<div class="description">
+						Gets the content type.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the content type</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getFolder"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span>
+					<b>getFolder</b>()
+					
+					</div>
+					<div class="description">
+						Gets the folder.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> the folder</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getIcon"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIcon</b>(large)
+					
+					</div>
+					<div class="description">
+						Gets the icon.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>large</b>
+									
+								</dt>
+								<dd>if <code>true</code>, return the large icon</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getPath"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getPath</b>(dontIncludeThisName)
+					
+					</div>
+					<div class="description">
+						Gets the path.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>dontIncludeThisName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not include this item name in the path</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the path</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="getRestUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRestUrl</b>(dontIncludeThisName, ignoreCustomDocs, includeVersion)
+					
+					</div>
+					<div class="description">
+						Gets the REST URL.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>dontIncludeThisName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not include this item name in the path</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>ignoreCustomDocs</b>
+									
+								</dt>
+								<dd>if <code>true</code>, ignore custom docs</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>includeVersion</b>
+									
+								</dt>
+								<dd>if <code>true</code> include the version if exists (it&#39;s latest for the base item)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the REST URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isDownloadable"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isDownloadable</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is an document which can only be downloaded and cannot be rendered by browser
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is downloadable</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is read only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is read only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isRealFile"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isRealFile</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is a real file.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is a real file (not a web doc or folder)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isShared"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isShared</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is shared.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is shared</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name="isWebDoc"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isWebDoc</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is a web doc.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is a web doc</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr/>
+		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Feb 09 2015 18:59:25 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</tbody></table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	
+
+</body></html>

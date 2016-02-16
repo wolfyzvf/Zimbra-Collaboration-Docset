@@ -1,0 +1,116 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class="line">  1</span> <span class="COMM">/*
+<span class="line">  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class="line">  3</span>  * Zimbra Collaboration Suite Web Client
+<span class="line">  4</span>  * Copyright (C) 2007, 2009, 2010, 2013, 2014 Zimbra, Inc.
+<span class="line">  5</span>  * 
+<span class="line">  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the &#34;License&#34;);
+<span class="line">  7</span>  * you may not use this file except in compliance with the License. 
+<span class="line">  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class="line">  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class="line"> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class="line"> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class="line"> 12</span>  * 
+<span class="line"> 13</span>  * Software distributed under the License is distributed on an &#34;AS IS&#34; basis, 
+<span class="line"> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class="line"> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class="line"> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class="line"> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class="line"> 18</span>  * All portions of the code are Copyright (C) 2007, 2009, 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+<span class="line"> 19</span>  * ***** END LICENSE BLOCK *****
+<span class="line"> 20</span>  */</span><span class="WHIT">
+<span class="line"> 21</span> 
+<span class="line"> 22</span> </span><span class="COMM">/**
+<span class="line"> 23</span>  * Creates an empty preferences section of the given type.
+<span class="line"> 24</span>  * @constructor
+<span class="line"> 25</span>  * @class
+<span class="line"> 26</span>  * This class represents a single page of preferences available by selecting one of the
+<span class="line"> 27</span>  * preference tabs. During construction, skeleton HTML is created. The preferences
+<span class="line"> 28</span>  * aren&#39;t added until the page becomes visible.
+<span class="line"> 29</span>  *
+<span class="line"> 30</span>  * @param {DwtControl}	parent			the containing widget
+<span class="line"> 31</span>  * @param {constant}	section			the preferences page
+<span class="line"> 32</span>  * @param {ZmController}	controller		the prefs controller
+<span class="line"> 33</span>  * 
+<span class="line"> 34</span>  * @extends		DwtTabViewPage
+<span class="line"> 35</span>  * 
+<span class="line"> 36</span>  * @private
+<span class="line"> 37</span>  */</span><span class="WHIT">
+<span class="line"> 38</span> </span><span class="NAME">ZmPrefSection</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">section</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">controller</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 39</span> </span><span class="WHIT">	</span><span class="NAME">DwtTabViewPage.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;ZmPreferencesPage&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 40</span> 
+<span class="line"> 41</span> </span><span class="WHIT">	</span><span class="NAME">this._section</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">section</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 42</span> </span><span class="WHIT">	</span><span class="NAME">this._controller</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">controller</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 43</span> </span><span class="WHIT">	</span><span class="NAME">this._title</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">ZmMsg.zimbraTitle</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">controller.getApp</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getDisplayName</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">section.title</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">join</span><span class="PUNC">(</span><span class="STRN">&#34;: &#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 44</span> 
+<span class="line"> 45</span> </span><span class="WHIT">	</span><span class="NAME">this._rendered</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// for DwtTabViewPage</span><span class="WHIT">
+<span class="line"> 46</span> </span><span class="WHIT">	</span><span class="NAME">this.hasRendered</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 47</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 48</span> 
+<span class="line"> 49</span> </span><span class="NAME">ZmPrefSection.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtTabViewPage</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 50</span> </span><span class="NAME">ZmPrefSection.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmPrefSection</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 51</span> 
+<span class="line"> 52</span> </span><span class="NAME">ZmPrefSection.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line"> 53</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 54</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">&#34;ZmPrefSection&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 55</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 56</span> 
+<span class="line"> 57</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 58</span> </span><span class="COMM">// Public methods</span><span class="WHIT">
+<span class="line"> 59</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 60</span> 
+<span class="line"> 61</span> </span><span class="COMM">// DwtTabViewPage methods</span><span class="WHIT">
+<span class="line"> 62</span> 
+<span class="line"> 63</span> </span><span class="NAME">ZmPrefSection.prototype.showMe</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line"> 64</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 65</span> </span><span class="WHIT">	</span><span class="NAME">Dwt.setTitle</span><span class="PUNC">(</span><span class="NAME">this._title</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 66</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.hasRendered</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 67</span> 
+<span class="line"> 68</span> </span><span class="WHIT">    </span><span class="COMM">// expand section template</span><span class="WHIT">
+<span class="line"> 69</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">templateId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._section.templateId</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 70</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">data</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this._htmlElId</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 71</span> </span><span class="WHIT">    </span><span class="NAME">data.isEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxCallback.simpleClosure</span><span class="PUNC">(</span><span class="NAME">this._isEnabled</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 72</span> </span><span class="WHIT">    </span><span class="NAME">data.expandField</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxCallback.simpleClosure</span><span class="PUNC">(</span><span class="NAME">this._expandField</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 73</span> 
+<span class="line"> 74</span> </span><span class="WHIT">    </span><span class="NAME">this._contentEl.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxTemplate.expand</span><span class="PUNC">(</span><span class="NAME">templateId</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 75</span> 
+<span class="line"> 76</span> </span><span class="WHIT">    </span><span class="COMM">// create controls</span><span class="WHIT">
+<span class="line"> 77</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">details</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmPreferencesApp</span><span class="PUNC">[</span><span class="NAME">this._section.id</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 78</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">prefs</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">details</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">details.prefs</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 79</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">prefs</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 80</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">prefs.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 81</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">settingId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">prefs</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 82</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 83</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 84</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 85</span> 
+<span class="line"> 86</span> </span><span class="COMM">/**
+<span class="line"> 87</span>  * Gets the title.
+<span class="line"> 88</span>  * 
+<span class="line"> 89</span>  * @return	{String}		the title
+<span class="line"> 90</span>  */</span><span class="WHIT">
+<span class="line"> 91</span> </span><span class="NAME">ZmPrefSection.prototype.getTitle</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line"> 92</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 93</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._title</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 94</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 95</span> 
+<span class="line"> 96</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 97</span> </span><span class="COMM">// Protected methods</span><span class="WHIT">
+<span class="line"> 98</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class="line"> 99</span> 
+<span class="line">100</span> </span><span class="NAME">ZmPrefSection.prototype._isEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">101</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">prefId</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">102</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._controller.checkPreCondition</span><span class="PUNC">(</span><span class="NAME">ZmPref.SETUP</span><span class="PUNC">[</span><span class="NAME">prefId</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">103</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">104</span> 
+<span class="line">105</span> </span><span class="NAME">ZmPrefSection.prototype._expandField</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">106</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">data</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">prefId</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">107</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">templateId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._section.templateId.replace</span><span class="PUNC">(</span><span class="REGX">/#.*$/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#34;#&#34;</span><span class="PUNC">+</span><span class="NAME">prefId</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">108</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">AjxTemplate.expand</span><span class="PUNC">(</span><span class="NAME">templateId</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">109</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

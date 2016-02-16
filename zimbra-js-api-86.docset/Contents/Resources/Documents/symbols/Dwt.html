@@ -1,0 +1,3880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="generator" content="JsDoc Toolkit"/>
+		
+		<a class="dashingAutolink" name="autolink-23"></a><a class="dashAnchor" name="//apple_ref/cpp/Class/%20Dwt"></a><title>Zimlet JavaScript API Reference - Dwt</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class Dwt
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br/>
+				Dwt is a static class that defines a number of constants and helper methods that
+support the <code>ajax.dwt.*</code> package.
+				<br/>
+				
+					<br/><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_core_Dwt.js.html">Dwt.js</a>.<br/>
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Dwt.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription">
+							<div class="fixedFont">
+								<b><a href="../symbols/Dwt.html#constructor">Dwt</a></b>()
+							</div>
+							<div class="description">Default constructor.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Dwt.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.ABSOLUTE_STYLE">ABSOLUTE_STYLE</a></b>
+								</div>
+								<div class="description">Absolute position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.CLEAR">CLEAR</a></b>
+								</div>
+								<div class="description">Used to clear a value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.CLIP">CLIP</a></b>
+								</div>
+								<div class="description">Clip on overflow.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DEFAULT">DEFAULT</a></b>
+								</div>
+								<div class="description">Default value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DISPLAY_BLOCK">DISPLAY_BLOCK</a></b>
+								</div>
+								<div class="description">Block display style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DISPLAY_INLINE">DISPLAY_INLINE</a></b>
+								</div>
+								<div class="description">Inline display style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DISPLAY_NONE">DISPLAY_NONE</a></b>
+								</div>
+								<div class="description">No display style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DISPLAY_TABLE_CELL">DISPLAY_TABLE_CELL</a></b>
+								</div>
+								<div class="description">Table cell style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DISPLAY_TABLE_ROW">DISPLAY_TABLE_ROW</a></b>
+								</div>
+								<div class="description">Table row style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DND_DROP_COPY">DND_DROP_COPY</a></b>
+								</div>
+								<div class="description">Copy drag and drop operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DND_DROP_MOVE">DND_DROP_MOVE</a></b>
+								</div>
+								<div class="description">Move drag and drop operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.DND_DROP_NONE">DND_DROP_NONE</a></b>
+								</div>
+								<div class="description">No drag and drop operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.FIXED_SCROLL">FIXED_SCROLL</a></b>
+								</div>
+								<div class="description">Always have scrollbars whether content overflows or not.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.FIXED_STYLE">FIXED_STYLE</a></b>
+								</div>
+								<div class="description">Fixed position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.LOC_NOWHERE">LOC_NOWHERE</a></b>
+								</div>
+								<div class="description">Offscreen position.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.NO_REPEAT">NO_REPEAT</a></b>
+								</div>
+								<div class="description">Do not repeat background image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.RELATIVE_STYLE">RELATIVE_STYLE</a></b>
+								</div>
+								<div class="description">Relative position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.REPEAT">REPEAT</a></b>
+								</div>
+								<div class="description">Repeat background image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.REPEAT_X">REPEAT_X</a></b>
+								</div>
+								<div class="description">Repeat background image horizontally.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.REPEAT_Y">REPEAT_Y</a></b>
+								</div>
+								<div class="description">Repeat background image vertically.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.SCROLL">SCROLL</a></b>
+								</div>
+								<div class="description">Automatically create scrollbars if content overflows.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.SCROLL_X">SCROLL_X</a></b>
+								</div>
+								<div class="description">Only show scrollbars on X when content overflows.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.SCROLL_Y">SCROLL_Y</a></b>
+								</div>
+								<div class="description">Only show scrollbars on Y when content overflows.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.SCROLLBAR_WIDTH">SCROLLBAR_WIDTH</a></b>
+								</div>
+								<div class="description">Ballpark figure for width of a scrollbar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.STATIC_STYLE">STATIC_STYLE</a></b>
+								</div>
+								<div class="description">Static position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.VISIBLE">VISIBLE</a></b>
+								</div>
+								<div class="description">Allow overflow to be visible.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_BUSY">Z_BUSY</a></b>
+								</div>
+								<div class="description">This layer appears in front of other layers to block all user mouse input.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_CURTAIN">Z_CURTAIN</a></b>
+								</div>
+								<div class="description">The curtain layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_DIALOG">Z_DIALOG</a></b>
+								</div>
+								<div class="description">Dialog layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_DIALOG_MENU">Z_DIALOG_MENU</a></b>
+								</div>
+								<div class="description">Used by menus that are part of a dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_DND">Z_DND</a></b>
+								</div>
+								<div class="description">Drag and Drop (DnD) icon layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_HIDDEN">Z_HIDDEN</a></b>
+								</div>
+								<div class="description">Hidden layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_MENU">Z_MENU</a></b>
+								</div>
+								<div class="description">Popup menu layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_SPLASH">Z_SPLASH</a></b>
+								</div>
+								<div class="description">Used by the splash screens.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_TOAST">Z_TOAST</a></b>
+								</div>
+								<div class="description">The toast layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_TOOLTIP">Z_TOOLTIP</a></b>
+								</div>
+								<div class="description">Tooltips layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_VEIL">Z_VEIL</a></b>
+								</div>
+								<div class="description">Veil layer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								Dwt.<b><a href="../symbols/Dwt.html#.Z_VIEW">Z_VIEW</a></b>
+								</div>
+								<div class="description">Visible layer.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Dwt.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.addClass">addClass</a></b>(el, c)
+								</div>
+								<div class="description">Adds the given class name to the element&#39;s CSS class names</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.byClassName">byClassName</a></b>(className, ancestor)
+								</div>
+								<div class="description">Get all elements of the given class name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.byTag">byTag</a></b>(tagName, ancestor)
+								</div>
+								<div class="description">Get all elements of a certain tag name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.condClass">condClass</a></b>(el, condition, a, b)
+								</div>
+								<div class="description">Conditionally add or remove a class name from an element</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.createLinearGradientInfo">createLinearGradientInfo</a></b>(startColor, endColor, direction)
+								</div>
+								<div class="description">-- FF 3.6+
+   background: -moz-linear-gradient(black, white);
+-- Safari 4+, Chrome 2+
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, #ffffff));
+-- Safari 5.1+, Chrome 10+
+   background: -webkit-linear-gradient(top, black, white);
+-- Opera 11.10
+   background: -o-linear-gradient(black, white);
+-- IE6 &amp; IE7
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#000000&#39;, endColorstr=&#39;#ffffff&#39;);
+-- IE8 &amp; IE9
+   -ms-filter: &#34;progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#000000&#39;, endColorstr=&#39;#ffffff&#39;)&#34;;
+-- IE10
+   background: -ms-linear-gradient(black, white);
+-- the standard
+   background: linear-gradient(black, white);</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.delClass">delClass</a></b>(el, del, add)
+								</div>
+								<div class="description">Remove the <code>del</code> class name from the element&#39;s CSS class names and
+optionally add <code>add</code> class name if given provided</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.doOverlap">doOverlap</a></b>(el1, el2)
+								</div>
+								<div class="description">Returns true if the two elements overlap.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.findAncestor">findAncestor</a></b>(domElement, attrName)
+								</div>
+								<div class="description">Finds an ancestor element with a non-empty value for the given attr.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getAncestors">getAncestors</a></b>(childNode, parentNode, includeChild)
+								</div>
+								<div class="description">Get ancestor elements of the given node, up to and including the given
+parent node.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getBounds">getBounds</a></b>(htmlElement, rect)
+								</div>
+								<div class="description">Gets the bounds of an HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getCursor">getCursor</a></b>(htmlElement)
+								</div>
+								<div class="description">Gets the element cursor for a given HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getHtmlExtent">getHtmlExtent</a></b>(html)
+								</div>
+								<div class="description">Measure the extent in pixels of a section of html.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getInsetBounds">getInsetBounds</a></b>(htmlElement)
+								</div>
+								<div class="description">Gets the bounds of an HTML element, excluding borders and paddings.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getLocation">getLocation</a></b>(htmlElement, point)
+								</div>
+								<div class="description">Gets the location of an HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getNextId">getNextId</a></b>(prefix)
+								</div>
+								<div class="description">This method is used to generate a unique id to be used for an HTML element&#39;s id
+attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getOuterSize">getOuterSize</a></b>(htmlElement, point)
+								</div>
+								<div class="description">Gets the outer size -- that is, the size including margins -- of an
+HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getParams">getParams</a></b>(args, paramNames, force)
+								</div>
+								<div class="description">Normalizes an argument list into a hash with the given argument names.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getScrollStyle">getScrollStyle</a></b>(htmlElement)
+								</div>
+								<div class="description">Returns <code>htmlElement</code>&#39;s scroll style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getSelectionEnd">getSelectionEnd</a></b>(input)
+								</div>
+								<div class="description">Retrieves the end of the selection.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getSelectionStart">getSelectionStart</a></b>(input)
+								</div>
+								<div class="description">Retrieves the start of the selection.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getSize">getSize</a></b>(htmlElement, point, getFromStyle)
+								</div>
+								<div class="description">Gets the size of an HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getWindowSize">getWindowSize</a></b>(point)
+								</div>
+								<div class="description">Gets the window size of the browser.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.getZIndex">getZIndex</a></b>(getFromStyle, getFromStyle)
+								</div>
+								<div class="description">Get the z-index of an element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.hasClass">hasClass</a></b>(el, className)
+								</div>
+								<div class="description">Returns true if the specified element has the given class.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.isAncestor">isAncestor</a></b>(el1, el2)
+								</div>
+								<div class="description">Returns true if el1 is an ancestor (in the parent chain) of el2, or if
+el1 and el2 are the same element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.moveCursorToEnd">moveCursorToEnd</a></b>(input)
+								</div>
+								<div class="description">Move cursor to the end of an input.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.parseHtmlFragment">parseHtmlFragment</a></b>(html, isRow)
+								</div>
+								<div class="description">Creates and returns an element from a string of HTML.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.printPerfMetric">printPerfMetric</a></b>()
+								</div>
+								<div class="description">Prints the computed time from performance metrics data</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setBounds">setBounds</a></b>(htmlElement, x, y, width, height)
+								</div>
+								<div class="description">Sets the bounds of an HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setCursor">setCursor</a></b>(htmlElement, cursorName)
+								</div>
+								<div class="description">Sets an HTML element cursor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setLoadedTime">setLoadedTime</a></b>(id, date)
+								</div>
+								<div class="description">Sets up a hidden div for performance metrics.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setLoadingTime">setLoadingTime</a></b>(id, date)
+								</div>
+								<div class="description">Sets up a hidden div for performance metrics.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setLocation">setLocation</a></b>(htmlElement, x, y)
+								</div>
+								<div class="description">Sets the location of an HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setScrollStyle">setScrollStyle</a></b>(htmlElement, scrollStyle)
+								</div>
+								<div class="description">Sets the <code>htmlElement</code>&#39;s scroll style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setSelectionRange">setSelectionRange</a></b>(input, start, end)
+								</div>
+								<div class="description">Sets the selection range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Dwt.<b><a href="../symbols/Dwt.html#.setSelectionText">setSelectionText</a></b>(input, text)
+								</div>
+								<div class="description">Sets the selection text</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Dwt</b>()
+				</div>
+				
+				<div class="description">
+					Default constructor.
+					<br/><i>Author: </i>Ross Dargahi, Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ABSOLUTE_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>ABSOLUTE_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Absolute position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".CLEAR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>CLEAR</b>
+					
+					</div>
+					<div class="description">
+						Used to clear a value.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".CLIP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>CLIP</b>
+					
+					</div>
+					<div class="description">
+						Clip on overflow.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DEFAULT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DEFAULT</b>
+					
+					</div>
+					<div class="description">
+						Default value. Used when setting such things as size and bounds to indicate a
+component should not be set. For example if setting size and not wishing to set
+the height.
+<pre>Dwt.setSize(htmlElement, 100, Dwt.DEFAULT)
+</pre>
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DISPLAY_BLOCK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DISPLAY_BLOCK</b>
+					
+					</div>
+					<div class="description">
+						Block display style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DISPLAY_INLINE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DISPLAY_INLINE</b>
+					
+					</div>
+					<div class="description">
+						Inline display style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DISPLAY_NONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DISPLAY_NONE</b>
+					
+					</div>
+					<div class="description">
+						No display style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DISPLAY_TABLE_CELL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DISPLAY_TABLE_CELL</b>
+					
+					</div>
+					<div class="description">
+						Table cell style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DISPLAY_TABLE_ROW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DISPLAY_TABLE_ROW</b>
+					
+					</div>
+					<div class="description">
+						Table row style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DND_DROP_COPY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DND_DROP_COPY</b>
+					
+					</div>
+					<div class="description">
+						Copy drag and drop operation.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DND_DROP_MOVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DND_DROP_MOVE</b>
+					
+					</div>
+					<div class="description">
+						Move drag and drop operation.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".DND_DROP_NONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>DND_DROP_NONE</b>
+					
+					</div>
+					<div class="description">
+						No drag and drop operation.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".FIXED_SCROLL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>FIXED_SCROLL</b>
+					
+					</div>
+					<div class="description">
+						Always have scrollbars whether content overflows or not.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".FIXED_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>FIXED_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Fixed position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".LOC_NOWHERE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>LOC_NOWHERE</b>
+					
+					</div>
+					<div class="description">
+						Offscreen position. Used when setting a elements position.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".NO_REPEAT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>NO_REPEAT</b>
+					
+					</div>
+					<div class="description">
+						Do not repeat background image.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".RELATIVE_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>RELATIVE_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Relative position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".REPEAT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>REPEAT</b>
+					
+					</div>
+					<div class="description">
+						Repeat background image.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".REPEAT_X"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>REPEAT_X</b>
+					
+					</div>
+					<div class="description">
+						Repeat background image horizontally.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".REPEAT_Y"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>REPEAT_Y</b>
+					
+					</div>
+					<div class="description">
+						Repeat background image vertically.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".SCROLL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>SCROLL</b>
+					
+					</div>
+					<div class="description">
+						Automatically create scrollbars if content overflows.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".SCROLL_X"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>SCROLL_X</b>
+					
+					</div>
+					<div class="description">
+						Only show scrollbars on X when content overflows.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".SCROLL_Y"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>SCROLL_Y</b>
+					
+					</div>
+					<div class="description">
+						Only show scrollbars on Y when content overflows.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".SCROLLBAR_WIDTH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>SCROLLBAR_WIDTH</b>
+					
+					</div>
+					<div class="description">
+						Ballpark figure for width of a scrollbar.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".STATIC_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>STATIC_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Static position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".VISIBLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>VISIBLE</b>
+					
+					</div>
+					<div class="description">
+						Allow overflow to be visible.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_BUSY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_BUSY</b>
+					
+					</div>
+					<div class="description">
+						This layer appears in front of other layers to block all user mouse input.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_CURTAIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">Dwt.</span><b>Z_CURTAIN</b>
+					
+					</div>
+					<div class="description">
+						The curtain layer.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/DwtShell.html">DwtShell</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_DIALOG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_DIALOG</b>
+					
+					</div>
+					<div class="description">
+						Dialog layer. Dialogs are positioned at this layer.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_DIALOG_MENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_DIALOG_MENU</b>
+					
+					</div>
+					<div class="description">
+						Used by menus that are part of a dialog.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_DND"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_DND</b>
+					
+					</div>
+					<div class="description">
+						Drag and Drop (DnD) icon layer. DnD icons are positioned at this layer so they
+move across the top of other components.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_HIDDEN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_HIDDEN</b>
+					
+					</div>
+					<div class="description">
+						Hidden layer. Elements at this layer will be hidden from view.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_MENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_MENU</b>
+					
+					</div>
+					<div class="description">
+						Popup menu layer. Used by the menu components.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_SPLASH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_SPLASH</b>
+					
+					</div>
+					<div class="description">
+						Used by the splash screens.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_TOAST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_TOAST</b>
+					
+					</div>
+					<div class="description">
+						The toast layer.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_TOOLTIP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_TOOLTIP</b>
+					
+					</div>
+					<div class="description">
+						Tooltips layer.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_VEIL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_VEIL</b>
+					
+					</div>
+					<div class="description">
+						Veil layer. The veil appears just behind modal dialogs render other components
+unable to receive mouse input.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".Z_VIEW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>Z_VIEW</b>
+					
+					</div>
+					<div class="description">
+						Visible layer. Elements at this layer will be in view.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".addClass"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>addClass</b>(el, c)
+					
+					</div>
+					<div class="description">
+						Adds the given class name to the element&#39;s CSS class names
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>el</b>
+									
+								</dt>
+								<dd>the HTML Element to which to add the class name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>c</b>
+									
+								</dt>
+								<dd>the class name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#delClass">#delClass</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".byClassName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">Dwt.</span><b>byClassName</b>(className, ancestor)
+					
+					</div>
+					<div class="description">
+						Get all elements of the given class name. Similar to
+document.getElementsByClassName(), but returning an Array instead
+of a NodeList.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>className</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>ancestor</b>
+									
+								</dt>
+								<dd>An optional ancestor element,
+                     defaults to the document</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".byTag"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">Dwt.</span><b>byTag</b>(tagName, ancestor)
+					
+					</div>
+					<div class="description">
+						Get all elements of a certain tag name. Similar to
+document.getElementsByTagName(), but returning an Array instead of
+a NodeList.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tagName</b>
+									
+								</dt>
+								<dd>the tag name, such as &#34;A&#34;</dd>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>ancestor</b>
+									
+								</dt>
+								<dd>An optional ancestor element,
+                     defaults to the document</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".condClass"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>condClass</b>(el, condition, a, b)
+					
+					</div>
+					<div class="description">
+						Conditionally add or remove a class name from an element
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>el</b>
+									
+								</dt>
+								<dd>the target element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>condition</b>
+									
+								</dt>
+								<dd>the condition to check</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>a</b>
+									
+								</dt>
+								<dd>the class name when condition is <code>true</code></dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>b</b>
+									
+								</dt>
+								<dd>the class name when condition is <code>false</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".createLinearGradientInfo"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>createLinearGradientInfo</b>(startColor, endColor, direction)
+					
+					</div>
+					<div class="description">
+						-- FF 3.6+
+   background: -moz-linear-gradient(black, white);
+-- Safari 4+, Chrome 2+
+   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(100%, #ffffff));
+-- Safari 5.1+, Chrome 10+
+   background: -webkit-linear-gradient(top, black, white);
+-- Opera 11.10
+   background: -o-linear-gradient(black, white);
+-- IE6 &amp; IE7
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#000000&#39;, endColorstr=&#39;#ffffff&#39;);
+-- IE8 &amp; IE9
+   -ms-filter: &#34;progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#000000&#39;, endColorstr=&#39;#ffffff&#39;)&#34;;
+-- IE10
+   background: -ms-linear-gradient(black, white);
+-- the standard
+   background: linear-gradient(black, white);
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>startColor</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>endColor</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>direction</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".delClass"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>delClass</b>(el, del, add)
+					
+					</div>
+					<div class="description">
+						Remove the <code>del</code> class name from the element&#39;s CSS class names and
+optionally add <code>add</code> class name if given provided
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>el</b>
+									
+								</dt>
+								<dd>HTML Element to which to add/delete class names</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>del</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the class name to delete</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>add</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the class name to add</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".doOverlap"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>doOverlap</b>(el1, el2)
+					
+					</div>
+					<div class="description">
+						Returns true if the two elements overlap.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>el2</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".findAncestor"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{DOMElement}</span>
+					<span class="light">Dwt.</span><b>findAncestor</b>(domElement, attrName)
+					
+					</div>
+					<div class="description">
+						Finds an ancestor element with a non-empty value for the given attr.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{DOMElement}</span> <b>domElement</b>
+									
+								</dt>
+								<dd>the starting DOM element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>attrName</b>
+									
+								</dt>
+								<dd>the attribute name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{DOMElement}</span> the DOM element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getAncestors"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">Dwt.</span><b>getAncestors</b>(childNode, parentNode, includeChild)
+					
+					</div>
+					<div class="description">
+						Get ancestor elements of the given node, up to and including the given
+parent node. If no parent is given, assume the root document node. If the
+parent node is not an ancestor of the child, return <code>null</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>childNode</b>
+									
+								</dt>
+								<dd>the child HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>parentNode</b>
+									
+								</dt>
+								<dd>the parent HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>includeChild</b>
+									
+								</dt>
+								<dd>if true, include the child itself</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> a list of HTML elements</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getBounds"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span>
+					<span class="light">Dwt.</span><b>getBounds</b>(htmlElement, rect)
+					
+					</div>
+					<div class="description">
+						Gets the bounds of an HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+								<dt>
+									<b>rect</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span> the elements bounds</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#getInsetBounds">#getInsetBounds</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getCursor"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">Dwt.</span><b>getCursor</b>(htmlElement)
+					
+					</div>
+					<div class="description">
+						Gets the element cursor for a given HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the html elements cursor</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setCursor">#setCursor</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getHtmlExtent"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<span class="light">Dwt.</span><b>getHtmlExtent</b>(html)
+					
+					</div>
+					<div class="description">
+						Measure the extent in pixels of a section of html. This is not the worlds cheapest
+method to invoke so do so judiciously
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>html</b>
+									
+								</dt>
+								<dd>the html content for which that extents are to be calculated</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the extent of the content</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getInsetBounds"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span>
+					<span class="light">Dwt.</span><b>getInsetBounds</b>(htmlElement)
+					
+					</div>
+					<div class="description">
+						Gets the bounds of an HTML element, excluding borders and paddings.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span> the elements bounds</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#getInsetBounds">#getInsetBounds</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getLocation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<span class="light">Dwt.</span><b>getLocation</b>(htmlElement, point)
+					
+					</div>
+					<div class="description">
+						Gets the location of an HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+								<dt>
+									<b>point</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the location of the HTML element</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getNextId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">Dwt.</span><b>getNextId</b>(prefix)
+					
+					</div>
+					<div class="description">
+						This method is used to generate a unique id to be used for an HTML element&#39;s id
+attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>prefix</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the next available element ID</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getOuterSize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<span class="light">Dwt.</span><b>getOuterSize</b>(htmlElement, point)
+					
+					</div>
+					<div class="description">
+						Gets the outer size -- that is, the size including margins -- of an
+HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+								<dt>
+									<b>point</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the elements size, margins included</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#getInsetBounds">#getInsetBounds</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getParams"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>getParams</b>(args, paramNames, force)
+					
+					</div>
+					<div class="description">
+						Normalizes an argument list into a hash with the given argument names.
+If a single hash argument is passed, it is recognized as a params hash
+and returned. Otherwise, the argument list is exploded into a params
+hash with the given param names.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>args</b>
+									
+								</dt>
+								<dd>Array-like structure of arguments</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>paramNames</b>
+									
+								</dt>
+								<dd>an ordered list of param names</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd>if true, a single arg is not a params hash</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getScrollStyle"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a>|<a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a>|<a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a>|<a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a>}</span>
+					<span class="light">Dwt.</span><b>getScrollStyle</b>(htmlElement)
+					
+					</div>
+					<div class="description">
+						Returns <code>htmlElement</code>&#39;s scroll style. The scroll style determines the element&#39;s
+behaviour when content overflows its boundaries. Possible values are:
+<ul>
+<li><i>Dwt.CLIP</i> - Clip on overflow</li>
+<li><i>Dwt.VISIBLE</i> - Allow overflow to be visible</li>
+<li><i>Dwt.SCROLL</i> - Automatically create scrollbars if content overflows</li>
+<li><i>Dwt.FIXED_SCROLL</i> - Always have scrollbars whether content overflows or not</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>HTML element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a>|<a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a>|<a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a>|<a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a>}</span> the elements scroll style</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getSelectionEnd"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{number}</span>
+					<span class="light">Dwt.</span><b>getSelectionEnd</b>(input)
+					
+					</div>
+					<div class="description">
+						Retrieves the end of the selection.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{input|iframe}</span> <b>input</b>
+									
+								</dt>
+								<dd>the input for which to find the selection start point. This
+		may be a text input field or an iframe in design mode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the starting position of the selection</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSelectionStart">#getSelectionStart</a></dd>
+							
+								<dd><a href="#setSelectionText">#setSelectionText</a></dd>
+							
+								<dd><a href="#setSelectionRange">#setSelectionRange</a></dd>
+							
+								<dd><a href="#moveCursorToEnd">#moveCursorToEnd</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getSelectionStart"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{number}</span>
+					<span class="light">Dwt.</span><b>getSelectionStart</b>(input)
+					
+					</div>
+					<div class="description">
+						Retrieves the start of the selection.  For a collapsed range, this is
+equivalent to <a href="#getSelectionEnd">#getSelectionEnd</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{input|iframe}</span> <b>input</b>
+									
+								</dt>
+								<dd>input for which to find the selection start point. This
+		may be a text input field or an iframe in design mode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> starting position of the selection</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSelectionEnd">#getSelectionEnd</a></dd>
+							
+								<dd><a href="#setSelectionText">#setSelectionText</a></dd>
+							
+								<dd><a href="#setSelectionRange">#setSelectionRange</a></dd>
+							
+								<dd><a href="#moveCursorToEnd">#moveCursorToEnd</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getSize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<span class="light">Dwt.</span><b>getSize</b>(htmlElement, point, getFromStyle)
+					
+					</div>
+					<div class="description">
+						Gets the size of an HTML element. Normally, this yields the
+calculated size of the element. However, if &#39;getFromStyle&#39; is
+true, the style is obtained directly from the CSS style.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> <b>point</b>
+									
+								</dt>
+								<dd>if given, reuse this point</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>getFromStyle</b>
+									
+								</dt>
+								<dd>whether to use the calculated size</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the elements size, margins included</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#getInsetBounds">#getInsetBounds</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getOuterSize">#getOuterSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".getWindowSize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<span class="light">Dwt.</span><b>getWindowSize</b>(point)
+					
+					</div>
+					<div class="description">
+						Gets the window size of the browser.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> <b>point</b>
+									
+								</dt>
+								<dd>the point to hold the windows x/y size</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the point holding the window x/y size</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".getZIndex"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{number}</span>
+					<span class="light">Dwt.</span><b>getZIndex</b>(getFromStyle, getFromStyle)
+					
+					</div>
+					<div class="description">
+						Get the z-index of an element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>getFromStyle</b>
+									
+								</dt>
+								<dd>get the value from the style attribute of
+                                 this element, or a parent</dd>
+							
+								<dt>
+									<b>getFromStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the z-index value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".hasClass"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>hasClass</b>(el, className)
+					
+					</div>
+					<div class="description">
+						Returns true if the specified element has the given class.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>el</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>className</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".isAncestor"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>isAncestor</b>(el1, el2)
+					
+					</div>
+					<div class="description">
+						Returns true if el1 is an ancestor (in the parent chain) of el2, or if
+el1 and el2 are the same element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{DOMElement}</span> <b>el1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{DOMElement}</span> <b>el2</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".moveCursorToEnd"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>moveCursorToEnd</b>(input)
+					
+					</div>
+					<div class="description">
+						Move cursor to the end of an input.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{input}</span> <b>input</b>
+									
+								</dt>
+								<dd>the text input for which to find the selection start point</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSelectionStart">#getSelectionStart</a></dd>
+							
+								<dd><a href="#getSelectionEnd">#getSelectionEnd</a></dd>
+							
+								<dd><a href="#setSelectionText">#setSelectionText</a></dd>
+							
+								<dd><a href="#setSelectionRange">#setSelectionRange</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".parseHtmlFragment"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{HTMLElement}</span>
+					<span class="light">Dwt.</span><b>parseHtmlFragment</b>(html, isRow)
+					
+					</div>
+					<div class="description">
+						Creates and returns an element from a string of HTML.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>html</b>
+									
+								</dt>
+								<dd>the HTML text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>isRow</b>
+									
+								</dt>
+								<dd>if <code>true</code>, if the element is a <code>&lt;tr&gt;</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{HTMLElement}</span> an HTMLElement with the <code>html</code> as its content. if <code>isRow</code>
+		is <code>true</code>, then the element will be a table</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".printPerfMetric"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>printPerfMetric</b>()
+					
+					</div>
+					<div class="description">
+						Prints the computed time from performance metrics data
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".setBounds"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setBounds</b>(htmlElement, x, y, width, height)
+					
+					</div>
+					<div class="description">
+						Sets the bounds of an HTML element. The position type of the element must
+be absolute or else an exception is thrown. To omit setting a value set the
+actual parameter value to <i>Dwt.DEFAULT</i>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>absolutely positioned HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>x</b>
+									
+								</dt>
+								<dd>the x coordinate of the element (for example: 10, &#34;10px&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>y</b>
+									
+								</dt>
+								<dd>the y coordinate of the element (for example: 10, &#34;10px&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>width</b>
+									
+								</dt>
+								<dd>the width of the element (for example: 100, &#34;100px&#34;, &#34;75%&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>height</b>
+									
+								</dt>
+								<dd>the height of the element  (for example: 100, &#34;100px&#34;, &#34;75%&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Throws:</dt>
+							
+								<dt>
+									 <b></b>
+								</dt>
+								<dd>DwtException</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".setCursor"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setCursor</b>(htmlElement, cursorName)
+					
+					</div>
+					<div class="description">
+						Sets an HTML element cursor.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the element for which to set the cursor</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>cursorName</b>
+									
+								</dt>
+								<dd>name of the new cursor</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setCursor">#setCursor</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".setLoadedTime"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setLoadedTime</b>(id, date)
+					
+					</div>
+					<div class="description">
+						Sets up a hidden div for performance metrics.  Use to set the end of object rendering
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd>{String}</dd>
+							
+								<dt>
+									<b>date</b>
+									
+								</dt>
+								<dd>{Date}</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".setLoadingTime"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setLoadingTime</b>(id, date)
+					
+					</div>
+					<div class="description">
+						Sets up a hidden div for performance metrics.  Use to set the start of object rendering
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd>{String}</dd>
+							
+								<dt>
+									<b>date</b>
+									
+								</dt>
+								<dd>{Date}</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".setLocation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setLocation</b>(htmlElement, x, y)
+					
+					</div>
+					<div class="description">
+						Sets the location of an HTML element. The position type of the element must
+be absolute or else an exception is thrown. To only set one of the coordinates,
+pass in a value of <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a> for the coordinate for which the value is
+not to be set
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>the absolutely positioned HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>x</b>
+									
+								</dt>
+								<dd>the x coordinate of the element (for example: 10, &#34;10px&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>y</b>
+									
+								</dt>
+								<dd>the y coordinate of the element (for example: 10, &#34;10px&#34;, <a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Throws:</dt>
+							
+								<dt>
+									 <b></b>
+								</dt>
+								<dd>DwtException</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".setScrollStyle"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setScrollStyle</b>(htmlElement, scrollStyle)
+					
+					</div>
+					<div class="description">
+						Sets the <code>htmlElement</code>&#39;s scroll style. The scroll style determines the elements&#39;s
+behaviour when content overflows its div&#39;s boundaries. Possible values are:
+<ul>
+<li><i>Dwt.CLIP</i> - Clip on overflow</li>
+<li><i>Dwt.VISIBLE</i> - Allow overflow to be visible</li>
+<li><i>Dwt.SCROLL</i> - Automatically create scrollbars if content overflows</li>
+<li><i>Dwt.FIXED_SCROLL</i> - Always have scrollbars whether content overflows or not</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLElement}</span> <b>htmlElement</b>
+									
+								</dt>
+								<dd>HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a>|<a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a>|<a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a>|<a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a>}</span> <b>scrollStyle</b>
+									
+								</dt>
+								<dd>the elements scroll style</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr/>
+				
+					<a name=".setSelectionRange"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setSelectionRange</b>(input, start, end)
+					
+					</div>
+					<div class="description">
+						Sets the selection range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{input|iframe}</span> <b>input</b>
+									
+								</dt>
+								<dd>input for which to find the selection start point. This
+		may be a text input field or an iframe in design mode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>start</b>
+									
+								</dt>
+								<dd>the starting position</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>end</b>
+									
+								</dt>
+								<dd>the ending position</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSelectionStart">#getSelectionStart</a></dd>
+							
+								<dd><a href="#getSelectionEnd">#getSelectionEnd</a></dd>
+							
+								<dd><a href="#setSelectionText">#setSelectionText</a></dd>
+							
+								<dd><a href="#moveCursorToEnd">#moveCursorToEnd</a></dd>
+							
+							</dl>
+						
+
+					<hr/>
+				
+					<a name=".setSelectionText"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Dwt.</span><b>setSelectionText</b>(input, text)
+					
+					</div>
+					<div class="description">
+						Sets the selection text
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{input|iframe}</span> <b>input</b>
+									
+								</dt>
+								<dd>the input for which to find the selection start point. This
+		may be a text input field or an iframe in design mode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>the text to set as the selection</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getSelectionStart">#getSelectionStart</a></dd>
+							
+								<dd><a href="#getSelectionEnd">#getSelectionEnd</a></dd>
+							
+								<dd><a href="#setSelectionRange">#setSelectionRange</a></dd>
+							
+								<dd><a href="#moveCursorToEnd">#moveCursorToEnd</a></dd>
+							
+							</dl>
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr/>
+		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Feb 09 2015 18:59:21 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</tbody></table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	
+
+</body></html>

@@ -1,0 +1,129 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class="line">  1</span> <span class="COMM">/*
+<span class="line">  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class="line">  3</span>  * Zimbra Collaboration Suite Web Client
+<span class="line">  4</span>  * Copyright (C) 2014 Zimbra, Inc.
+<span class="line">  5</span>  * 
+<span class="line">  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the &#34;License&#34;);
+<span class="line">  7</span>  * you may not use this file except in compliance with the License. 
+<span class="line">  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class="line">  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class="line"> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class="line"> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class="line"> 12</span>  * 
+<span class="line"> 13</span>  * Software distributed under the License is distributed on an &#34;AS IS&#34; basis, 
+<span class="line"> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class="line"> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class="line"> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class="line"> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class="line"> 18</span>  * All portions of the code are Copyright (C) 2014 Zimbra, Inc. All Rights Reserved. 
+<span class="line"> 19</span>  * ***** END LICENSE BLOCK *****
+<span class="line"> 20</span>  */</span><span class="WHIT">
+<span class="line"> 21</span> 
+<span class="line"> 22</span> </span><span class="COMM">/**
+<span class="line"> 23</span>  * @class
+<span class="line"> 24</span>  * Internal handler for email addresses.
+<span class="line"> 25</span>  *
+<span class="line"> 26</span>  * @author Conrad Damon
+<span class="line"> 27</span>  * @extends	ZmObjectHandler
+<span class="line"> 28</span>  */</span><span class="WHIT">
+<span class="line"> 29</span> </span><span class="NAME">ZmEmailObjectHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 30</span> </span><span class="WHIT">	</span><span class="NAME">ZmObjectHandler.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#39;email&#39;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 31</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 32</span> 
+<span class="line"> 33</span> </span><span class="NAME">ZmEmailObjectHandler.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">ZmObjectHandler</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 34</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmEmailObjectHandler</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 35</span> 
+<span class="line"> 36</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.isZmEmailObjectHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 37</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 38</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">&#39;ZmEmailObjectHandler&#39;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 39</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 40</span> 
+<span class="line"> 41</span> </span><span class="COMM">// email regex that recognizes mailto: links as well</span><span class="WHIT">
+<span class="line"> 42</span> </span><span class="NAME">ZmEmailObjectHandler.RE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/\b(mailto:[ ]*)?([0-9a-zA-Z]+[.&amp;#!$%&#39;*+-\/=?^_`{}|~])*[0-9a-zA-Z_-]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}([\w\/_\.]*(\?\S+)?)/gi</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 43</span> 
+<span class="line"> 44</span> 
+<span class="line"> 45</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.match</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">content</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">startIndex</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">objectMgr</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 46</span> 
+<span class="line"> 47</span> </span><span class="WHIT">	</span><span class="NAME">ZmEmailObjectHandler.RE.lastIndex</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">startIndex</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 48</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmEmailObjectHandler.RE.exec</span><span class="PUNC">(</span><span class="NAME">content</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 49</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ret</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 50</span> </span><span class="WHIT">		</span><span class="NAME">ret.context</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 51</span> </span><span class="WHIT">		</span><span class="NAME">ret.objectMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">objectMgr</span><span class="PUNC">;</span><span class="WHIT">  </span><span class="COMM">// obj mgr can get us back to containing view</span><span class="WHIT">
+<span class="line"> 52</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 53</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 54</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 55</span> 
+<span class="line"> 56</span> </span><span class="COMM">// See if a zimlet wants to handle email hover; if not, do the default thing</span><span class="WHIT">
+<span class="line"> 57</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.hoverOver</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">object</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">span</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 58</span> </span><span class="WHIT">	</span><span class="NAME">object</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxStringUtil.parseMailtoLink</span><span class="PUNC">(</span><span class="NAME">object</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">to</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 59</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">appCtxt.notifyZimlets</span><span class="PUNC">(</span><span class="STRN">&#39;onEmailHover&#39;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="WHIT"> </span><span class="NAME">object</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">span</span><span class="WHIT"> </span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 60</span> </span><span class="WHIT">		</span><span class="NAME">ZmObjectHandler.prototype.hoverOver.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 61</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 62</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 63</span> 
+<span class="line"> 64</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.getToolTipText</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 65</span> 
+<span class="line"> 66</span> </span><span class="WHIT">	</span><span class="COMM">// Return a callback since we may need to make an async request to get data for the tooltip content.</span><span class="WHIT">
+<span class="line"> 67</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxCallback</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 68</span> </span><span class="WHIT">		</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">callback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 69</span> </span><span class="WHIT">			</span><span class="NAME">appCtxt.getToolTipMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getToolTip</span><span class="PUNC">(</span><span class="NAME">ZmToolTipMgr.PERSON</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">address</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">AjxStringUtil.parseMailtoLink</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">to</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 70</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 71</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 72</span> 
+<span class="line"> 73</span> </span><span class="COMM">// Left-click starts a compose session</span><span class="WHIT">
+<span class="line"> 74</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.clicked</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">spanElement</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contentObjText</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">matchContext</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 75</span> 
+<span class="line"> 76</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT">	</span><span class="NAME">ctlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getController</span><span class="PUNC">(</span><span class="NAME">matchContext</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 77</span> </span><span class="WHIT">		</span><span class="NAME">parts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxStringUtil.parseMailtoLink</span><span class="PUNC">(</span><span class="NAME">contentObjText</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 78</span> 
+<span class="line"> 79</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">params</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 80</span> </span><span class="WHIT">		</span><span class="NAME">action</span><span class="PUNC">:</span><span class="WHIT">         </span><span class="NAME">ZmOperation.NEW_MESSAGE</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 81</span> </span><span class="WHIT">		</span><span class="NAME">inNewWindow</span><span class="PUNC">:</span><span class="WHIT">    </span><span class="NAME">ctlr</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">ctlr._app</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">ctlr._app._inNewWindow</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 82</span> </span><span class="WHIT">		</span><span class="NAME">toOverride</span><span class="PUNC">:</span><span class="WHIT">     </span><span class="NAME">parts.to</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 83</span> </span><span class="WHIT">		</span><span class="NAME">subjOverride</span><span class="PUNC">:</span><span class="WHIT">   </span><span class="NAME">parts.subject</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line"> 84</span> </span><span class="WHIT">		</span><span class="NAME">extraBodyText</span><span class="PUNC">:</span><span class="WHIT">  </span><span class="NAME">parts.body</span><span class="WHIT">
+<span class="line"> 85</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 86</span> 
+<span class="line"> 87</span> </span><span class="WHIT">	</span><span class="NAME">AjxDispatcher.run</span><span class="PUNC">(</span><span class="STRN">&#34;Compose&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 88</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 89</span> 
+<span class="line"> 90</span> </span><span class="COMM">// Borrow the bubble action menu from the owning controller. Object framework doesn&#39;t explicitly call an</span><span class="WHIT">
+<span class="line"> 91</span> </span><span class="COMM">// action listener, so we do it here.</span><span class="WHIT">
+<span class="line"> 92</span> </span><span class="NAME">ZmEmailObjectHandler.prototype.getActionMenu</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">span</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 93</span> 
+<span class="line"> 94</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">ctlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getController</span><span class="PUNC">(</span><span class="NAME">context</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 95</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">ctlr</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 96</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 97</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line"> 98</span> 
+<span class="line"> 99</span> </span><span class="WHIT">	</span><span class="NAME">ctlr._actionEv</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">100</span> </span><span class="WHIT">	</span><span class="NAME">ctlr._actionEv.address</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxStringUtil.parseMailtoLink</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">to</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">101</span> </span><span class="WHIT">	</span><span class="NAME">ctlr._actionEv.handler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">102</span> 
+<span class="line">103</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this._actionMenu</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">ctlr._getBubbleActionMenu</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">104</span> </span><span class="WHIT">		</span><span class="NAME">this._actionMenu</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ctlr._getBubbleActionMenu</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">105</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">106</span> 
+<span class="line">107</span> </span><span class="WHIT">	</span><span class="NAME">ctlr._bubbleActionListener</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">108</span> 
+<span class="line">109</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._actionMenu</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">110</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">111</span> 
+<span class="line">112</span> </span><span class="NAME">ZmEmailObjectHandler.prototype._getController</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">113</span> 
+<span class="line">114</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">om</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">context</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">context.objectMgr</span><span class="PUNC">,</span><span class="WHIT">
+<span class="line">115</span> </span><span class="WHIT">		</span><span class="NAME">view</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">om</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">om.getView</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">116</span> 
+<span class="line">117</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">view</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">view._controller</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">118</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">119</span> 
+<span class="line">120</span> </span><span class="COMM">// Tell the object framework we&#39;re here. The &#39;email&#39; type arg is probably not needed.</span><span class="WHIT">
+<span class="line">121</span> </span><span class="NAME">ZmObjectManager.registerHandler</span><span class="PUNC">(</span><span class="STRN">&#34;ZmEmailObjectHandler&#34;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">&#39;email&#39;</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">122</span> </span></pre></body></html>

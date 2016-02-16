@@ -1,0 +1,206 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class="line">  1</span> <span class="COMM">/*
+<span class="line">  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class="line">  3</span>  * Zimbra Collaboration Suite Web Client
+<span class="line">  4</span>  * Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2014 Zimbra, Inc.
+<span class="line">  5</span>  * 
+<span class="line">  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the &#34;License&#34;);
+<span class="line">  7</span>  * you may not use this file except in compliance with the License. 
+<span class="line">  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class="line">  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class="line"> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class="line"> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class="line"> 12</span>  * 
+<span class="line"> 13</span>  * Software distributed under the License is distributed on an &#34;AS IS&#34; basis, 
+<span class="line"> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class="line"> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class="line"> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class="line"> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class="line"> 18</span>  * All portions of the code are Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+<span class="line"> 19</span>  * ***** END LICENSE BLOCK *****
+<span class="line"> 20</span>  */</span><span class="WHIT">
+<span class="line"> 21</span> 
+<span class="line"> 22</span> 
+<span class="line"> 23</span> </span><span class="COMM">/**
+<span class="line"> 24</span>  * Creates a composite that is populated from a message pattern.
+<span class="line"> 25</span>  * @constructor
+<span class="line"> 26</span>  * @class
+<span class="line"> 27</span>  * This class allows you to create a composite that is populated from
+<span class="line"> 28</span>  * a message pattern and inserts controls at the appropriate places.
+<span class="line"> 29</span>  * For example, say that the message &lt;code&gt;MyMsg.repeatTimes&lt;/code&gt; is
+<span class="line"> 30</span>  * defined as the following:
+<span class="line"> 31</span>  * &lt;pre&gt;
+<span class="line"> 32</span>  * MyMsg.repeatTimes = &#34;Repeat: {0} times&#34;;
+<span class="line"> 33</span>  * &lt;/pre&gt;
+<span class="line"> 34</span>  * and you want to replace &#34;{0}&#34; with an input field or perhaps a
+<span class="line"> 35</span>  * drop-down menu that enumerates a specific list of choices as part of
+<span class="line"> 36</span>  * the application. To do this, you just create a
+<span class="line"> 37</span>  * {@link DwtMessageComposite} and set the message format, like so:
+<span class="line"> 38</span>  * &lt;pre&gt;
+<span class="line"> 39</span>  * var comp = new DwtMessageComposite(parent);
+<span class="line"> 40</span>  * comp.setFormat(MyMsg.repeatTimes);
+<span class="line"> 41</span>  * &lt;/pre&gt;
+<span class="line"> 42</span>  * &lt;p&gt;
+<span class="line"> 43</span>  * The message composite instantiates an {@link AjxMessageFormat}
+<span class="line"> 44</span>  * from the specified message pattern. Then, for each segment it creates
+<span class="line"> 45</span>  * static text or a {@link DwtInputField} for replacement segments
+<span class="line"> 46</span>  * such as &#34;{0}&#34;.
+<span class="line"> 47</span>  * &lt;p&gt;
+<span class="line"> 48</span>  * To have more control over the controls that are created and inserted
+<span class="line"> 49</span>  * into the resulting composite, you can pass a callback object to the
+<span class="line"> 50</span>  * method. Each time that a replacement segment is found in the
+<span class="line"> 51</span>  * message pattern, the callback is called with the following parameters:
+<span class="line"> 52</span>  * &lt;ul&gt;
+<span class="line"> 53</span>  * &lt;li&gt;a reference to this message composite object;
+<span class="line"> 54</span>  * &lt;li&gt;a reference to the segment object.
+<span class="line"> 55</span>  * &lt;li&gt;the index at which the segment was found in the message pattern; and
+<span class="line"> 56</span>  * &lt;/ul&gt;
+<span class="line"> 57</span>  * The segment object will be an instance of
+<span class="line"> 58</span>  * &lt;code&gt;AjxMessageFormat.MessageSegment&lt;/code&gt; and has the following
+<span class="line"> 59</span>  * methods of interest:
+<span class="line"> 60</span>  * &lt;ul&gt;
+<span class="line"> 61</span>  * &lt;li&gt;toSubPattern
+<span class="line"> 62</span>  * &lt;li&gt;getIndex
+<span class="line"> 63</span>  * &lt;li&gt;getType
+<span class="line"> 64</span>  * &lt;li&gt;getStyle
+<span class="line"> 65</span>  * &lt;li&gt;getSegmentFormat
+<span class="line"> 66</span>  * &lt;/ul&gt;
+<span class="line"> 67</span>  * &lt;p&gt;
+<span class="line"> 68</span>  * The callback can use this information to determine whether or not
+<span class="line"> 69</span>  * a custom control should be created for the segment. If the callback
+<span class="line"> 70</span>  * returns &lt;code&gt;null&lt;/code&gt;, a standard {@link DwtInputField} is
+<span class="line"> 71</span>  * created and inserted. Note: if the callback returns a custom control,
+<span class="line"> 72</span>  * it &lt;em&gt;must&lt;/em&gt; be an instance of {@link AjxControl}.
+<span class="line"> 73</span>  * &lt;p&gt;
+<span class="line"> 74</span>  * Here is an example of a message composite created with a callback
+<span class="line"> 75</span>  * that generates a custom control for each replacement segment:
+<span class="line"> 76</span>  * &lt;pre&gt;
+<span class="line"> 77</span>  * function createCustomControl(parent, segment, i) {
+<span class="line"> 78</span>  *     return new DwtInputField(parent);
+<span class="line"> 79</span>  * }
+<span class="line"> 80</span>  *
+<span class="line"> 81</span>  * var compParent = ...;
+<span class="line"> 82</span>  * var comp = new DwtMessageComposite(compParent);
+<span class="line"> 83</span>  *
+<span class="line"> 84</span>  * var message = MyMsg.repeatTimes;
+<span class="line"> 85</span>  * var callback = new AjxCallback(null, createCustomControl);
+<span class="line"> 86</span>  * comp.setFormat(message, callback);
+<span class="line"> 87</span>  * &lt;/pre&gt;
+<span class="line"> 88</span>  *
+<span class="line"> 89</span>  * @author Andy Clark
+<span class="line"> 90</span>  *
+<span class="line"> 91</span>  * @param {DwtComposite}	parent    the parent widget.
+<span class="line"> 92</span>  * @param {string}	className 	the CSS class
+<span class="line"> 93</span>  * @param {constant}	posStyle  		the position style (see {@link DwtControl})
+<span class="line"> 94</span>  * 
+<span class="line"> 95</span>  * @extends		DwtComposite
+<span class="line"> 96</span>  */</span><span class="WHIT">
+<span class="line"> 97</span> </span><span class="NAME">DwtMessageComposite</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">posStyle</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line"> 98</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">arguments.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line"> 99</span> </span><span class="WHIT">	</span><span class="NAME">className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">className</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">&#34;DwtMessageComposite&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">100</span> </span><span class="WHIT">	</span><span class="NAME">DwtComposite.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">parent</span><span class="PUNC">:</span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">:</span><span class="NAME">className</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">posStyle</span><span class="PUNC">:</span><span class="NAME">posStyle</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">101</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">102</span> 
+<span class="line">103</span> </span><span class="NAME">DwtMessageComposite.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtComposite</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">104</span> </span><span class="NAME">DwtMessageComposite.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtMessageComposite</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">105</span> 
+<span class="line">106</span> </span><span class="NAME">DwtMessageComposite.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">107</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">108</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">&#34;DwtMessageComposite&#34;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">109</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">110</span> 
+<span class="line">111</span> </span><span class="COMM">// Public methods</span><span class="WHIT">
+<span class="line">112</span> 
+<span class="line">113</span> </span><span class="COMM">/**
+<span class="line">114</span>  * Sets the format.
+<span class="line">115</span>  * 
+<span class="line">116</span>  * @param {string}	message   the message that defines the text and controls that comprise this composite
+<span class="line">117</span>  * @param {AjxCallback}	[callback]   the callback to create UI components
+<span class="line">118</span>  * @param {AjxCallback}	[hintsCallback]   the callback to provide display hints for the container element of the UI component
+<span class="line">119</span>  */</span><span class="WHIT">
+<span class="line">120</span> </span><span class="NAME">DwtMessageComposite.prototype.setFormat</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class="line">121</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">message</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">hintsCallback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">122</span> </span><span class="WHIT">    </span><span class="COMM">// create formatter</span><span class="WHIT">
+<span class="line">123</span> </span><span class="WHIT">    </span><span class="NAME">this._formatter</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxMessageFormat</span><span class="PUNC">(</span><span class="NAME">message</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">124</span> </span><span class="WHIT">    </span><span class="NAME">this._controls</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">125</span> 
+<span class="line">126</span> </span><span class="WHIT">    </span><span class="COMM">// create HTML</span><span class="WHIT">
+<span class="line">127</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">id</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._htmlElId</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">128</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">a</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">&#34;&lt;table class=&#39;DwtCompositeTable&#39; border=&#39;0&#39; cellspacing=&#39;0&#39; cellpadding=&#39;0&#39;&gt;&lt;tr valign=&#39;center&#39;&gt;&#34;</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">129</span> 
+<span class="line">130</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">segments</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._formatter.getSegments</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">131</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cells</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">132</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">hints</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">133</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">segments.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">134</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">segment</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">segments</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">135</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">isMsgSegment</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">segment</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">AjxMessageFormat.MessageSegment</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">136</span> 
+<span class="line">137</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cid</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">,</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">join</span><span class="PUNC">(</span><span class="STRN">&#34;_&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">138</span> </span><span class="WHIT">        </span><span class="NAME">a.push</span><span class="PUNC">(</span><span class="STRN">&#34;&lt;td id=&#39;&#34;</span><span class="PUNC">,</span><span class="NAME">cid</span><span class="PUNC">,</span><span class="STRN">&#34;&#39; class=&#39;&#34;</span><span class="PUNC">,</span><span class="PUNC">(</span><span class="NAME">isMsgSegment</span><span class="PUNC">?</span><span class="STRN">&#34;MessageControl&#34;</span><span class="PUNC">+</span><span class="NAME">segment.getIndex</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">:</span><span class="STRN">&#34;&#34;</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="STRN">&#34; DwtCompositeCell&#39;&gt;&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">139</span> 
+<span class="line">140</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">isMsgSegment</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">141</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">control</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">callback.run</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">segment</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">142</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">control</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">143</span> </span><span class="WHIT">                </span><span class="NAME">control</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtInputField</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="NAME">parent</span><span class="PUNC">:</span><span class="KEYW">this</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">144</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">145</span> </span><span class="WHIT">            </span><span class="NAME">cells</span><span class="PUNC">[</span><span class="NAME">cid</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">control.getHtmlElement</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">146</span> </span><span class="WHIT">            </span><span class="NAME">hints</span><span class="PUNC">[</span><span class="NAME">cid</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hintsCallback</span><span class="WHIT"> </span><span class="PUNC">&amp;&amp;</span><span class="WHIT"> </span><span class="NAME">hintsCallback.run</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">segment</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">147</span> 
+<span class="line">148</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">sindex</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">segment.getIndex</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">149</span> </span><span class="WHIT">            </span><span class="NAME">this._controls</span><span class="PUNC">[</span><span class="NAME">sindex</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._controls</span><span class="PUNC">[</span><span class="NAME">sindex</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">control</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">150</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">151</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">152</span> </span><span class="WHIT">            </span><span class="NAME">a.push</span><span class="PUNC">(</span><span class="NAME">segment.toSubPattern</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">153</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">154</span> 
+<span class="line">155</span> </span><span class="WHIT">        </span><span class="NAME">a.push</span><span class="PUNC">(</span><span class="STRN">&#34;&lt;/td&gt;&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">156</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">157</span> 
+<span class="line">158</span> </span><span class="WHIT">    </span><span class="NAME">a.push</span><span class="PUNC">(</span><span class="STRN">&#34;&lt;/tr&gt;&lt;/table&gt;&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">159</span> 
+<span class="line">160</span> </span><span class="WHIT">    </span><span class="COMM">// insert HTML</span><span class="WHIT">
+<span class="line">161</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">el</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getHtmlElement</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">162</span> </span><span class="WHIT">    </span><span class="COMM">/***
+<span class="line">163</span>     el.innerHTML = a.join(&#34;&#34;);
+<span class="line">164</span>     /***/</span><span class="WHIT">
+<span class="line">165</span> </span><span class="WHIT">    </span><span class="COMM">// HACK: IE seems to throw away input elements when they are children</span><span class="WHIT">
+<span class="line">166</span> </span><span class="WHIT">    </span><span class="COMM">//       of an element when you set the innerHTML to something else,</span><span class="WHIT">
+<span class="line">167</span> </span><span class="WHIT">    </span><span class="COMM">//       regardless of the fact that there are outstanding references</span><span class="WHIT">
+<span class="line">168</span> </span><span class="WHIT">    </span><span class="COMM">//       to said elements! Ugh.</span><span class="WHIT">
+<span class="line">169</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">count</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">el.childNodes.length</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">170</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">tempEl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.createElement</span><span class="PUNC">(</span><span class="STRN">&#34;DIV&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">171</span> </span><span class="WHIT">    </span><span class="NAME">tempEl.className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">+</span><span class="STRN">&#39;_container&#39;</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">172</span> </span><span class="WHIT">    </span><span class="NAME">el.appendChild</span><span class="PUNC">(</span><span class="NAME">tempEl</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">173</span> </span><span class="WHIT">    </span><span class="NAME">tempEl.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">a.join</span><span class="PUNC">(</span><span class="STRN">&#34;&#34;</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">174</span> </span><span class="WHIT">    </span><span class="COMM">/***/</span><span class="WHIT">
+<span class="line">175</span> 
+<span class="line">176</span> </span><span class="WHIT">    </span><span class="COMM">// insert controls</span><span class="WHIT">
+<span class="line">177</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cid</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">cells</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">178</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cell</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cells</span><span class="PUNC">[</span><span class="NAME">cid</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">179</span> </span><span class="WHIT">        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">parentEl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">cid</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">180</span> </span><span class="WHIT">        </span><span class="NAME">parentEl.appendChild</span><span class="PUNC">(</span><span class="NAME">cell</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">181</span> 
+<span class="line">182</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">p</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">hints</span><span class="PUNC">[</span><span class="NAME">cid</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">183</span> </span><span class="WHIT">            </span><span class="NAME">parentEl</span><span class="PUNC">[</span><span class="NAME">p</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hints</span><span class="PUNC">[</span><span class="NAME">cid</span><span class="PUNC">]</span><span class="PUNC">[</span><span class="NAME">p</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">184</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">185</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">186</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">187</span> 
+<span class="line">188</span> </span><span class="COMM">/**
+<span class="line">189</span>  * Gets the format.
+<span class="line">190</span>  * 
+<span class="line">191</span>  * @return	{string}	the format
+<span class="line">192</span>  */</span><span class="WHIT">
+<span class="line">193</span> </span><span class="NAME">DwtMessageComposite.prototype.format</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">194</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">args</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">195</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">sindex</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">this._controls</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class="line">196</span> </span><span class="WHIT">        </span><span class="NAME">args</span><span class="PUNC">[</span><span class="NAME">sindex</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._controls</span><span class="PUNC">[</span><span class="NAME">sindex</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">getValue</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">197</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class="line">198</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._formatter.format</span><span class="PUNC">(</span><span class="NAME">args</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class="line">199</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>
