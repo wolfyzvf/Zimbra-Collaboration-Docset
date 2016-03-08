@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmCalendar</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmCalendar
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmFolder.html">ZmFolder</a>.<br />
+				
+				<br>
+				
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_model_ZmCalendar.js.html">ZmCalendar.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmCalendar.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmCalendar.html#constructor">ZmCalendar</a></b>(params)
+							</div>
+							<div class="description">Creates a calendar.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmCalendar.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalendar.<b><a href="../symbols/ZmCalendar.html#.checkName">checkName</a></b>(name)
+								</div>
+								<div class="description">Checks the calendar name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalendar.<b><a href="../symbols/ZmCalendar.html#.create">create</a></b>(params)
+								</div>
+								<div class="description">Creates a new calendar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalendar.html#getIcon">getIcon</a></b>()
+								</div>
+								<div class="description">Gets the icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalendar.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if the calendar is read-only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalendar.html#mayContain">mayContain</a></b>(what)
+								</div>
+								<div class="description">Checks if the given object(s) may be placed in this folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalendar.html#setFreeBusy">setFreeBusy</a></b>(exclude, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the free/busy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>supportsPublicAccess</b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmFolder.html">ZmFolder</a>: </dt><dd><a href="../symbols/ZmFolder.html#createQuery">createQuery</a>, <a href="../symbols/ZmFolder.html#getName">getName</a>, <a href="../symbols/ZmFolder.html#hasFeeds">hasFeeds</a>, <a href="../symbols/ZmFolder.html#hasSearch">hasSearch</a>, <a href="../symbols/ZmFolder.html#isHardDelete">isHardDelete</a>, <a href="../symbols/ZmFolder.html#isInSpam">isInSpam</a>, <a href="../symbols/ZmFolder.html#isOutbound">isOutbound</a>, <a href="../symbols/ZmFolder.html#move">move</a>, <a href="../symbols/ZmFolder.html#notifyCreate">notifyCreate</a>, <a href="../symbols/ZmFolder.html#notifyModify">notifyModify</a>, <a href="../symbols/ZmFolder.html#toggleSyncOffline">toggleSyncOffline</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>: </dt><dd><a href="../symbols/ZmOrganizer.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmOrganizer.html#addShare">addShare</a>, <a href="../symbols/ZmOrganizer.html#clearShares">clearShares</a>, <a href="../symbols/ZmOrganizer.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmOrganizer.html#empty">empty</a>, <a href="../symbols/ZmOrganizer.html#getAccount">getAccount</a>, <a href="../symbols/ZmOrganizer.html#getById">getById</a>, <a href="../symbols/ZmOrganizer.html#getByName">getByName</a>, <a href="../symbols/ZmOrganizer.html#getByPath">getByPath</a>, <a href="../symbols/ZmOrganizer.html#getByType">getByType</a>, <a href="../symbols/ZmOrganizer.html#getChild">getChild</a>, <a href="../symbols/ZmOrganizer.html#getChildByPath">getChildByPath</a>, <a href="../symbols/ZmOrganizer.html#getColor">getColor</a>, <a href="../symbols/ZmOrganizer.html#getDataSources">getDataSources</a>, <a href="../symbols/ZmOrganizer.html#getFolder">getFolder</a>, <a href="../symbols/ZmOrganizer.html#getIconWithColor">getIconWithColor</a>, <a href="../symbols/ZmOrganizer.html#getMainShare">getMainShare</a>, <a href="../symbols/ZmOrganizer.html#getOwner">getOwner</a>, <a href="../symbols/ZmOrganizer.html#getOwnerRestUrl">getOwnerRestUrl</a>, <a href="../symbols/ZmOrganizer.html#getPath">getPath</a>, <a href="../symbols/ZmOrganizer.html#getRemoteId">getRemoteId</a>, <a href="../symbols/ZmOrganizer.html#getRestUrl">getRestUrl</a>, <a href="../symbols/ZmOrganizer.html#getSearchPath">getSearchPath</a>, <a href="../symbols/ZmOrganizer.html#getShares">getShares</a>, <a href="../symbols/ZmOrganizer.html#getSyncUrl">getSyncUrl</a>, <a href="../symbols/ZmOrganizer.html#getToolTip">getToolTip</a>, <a href="../symbols/ZmOrganizer.html#getUrl">getUrl</a>, <a href="../symbols/ZmOrganizer.html#hasChild">hasChild</a>, <a href="../symbols/ZmOrganizer.html#hasPrivateAccess">hasPrivateAccess</a>, <a href="../symbols/ZmOrganizer.html#isAdmin">isAdmin</a>, <a href="../symbols/ZmOrganizer.html#isChildOf">isChildOf</a>, <a href="../symbols/ZmOrganizer.html#isColorChanged">isColorChanged</a>, <a href="../symbols/ZmOrganizer.html#isDataSource">isDataSource</a>, <a href="../symbols/ZmOrganizer.html#isFeed">isFeed</a>, <a href="../symbols/ZmOrganizer.html#isInTrash">isInTrash</a>, <a href="../symbols/ZmOrganizer.html#isPermAllowed">isPermAllowed</a>, <a href="../symbols/ZmOrganizer.html#isRemote">isRemote</a>, <a href="../symbols/ZmOrganizer.html#isSystem">isSystem</a>, <a href="../symbols/ZmOrganizer.html#isUnder">isUnder</a>, <a href="../symbols/ZmOrganizer.html#markAllRead">markAllRead</a>, <a href="../symbols/ZmOrganizer.html#notifyDelete">notifyDelete</a>, <a href="../symbols/ZmOrganizer.html#removeChangeListener">removeChangeListener</a>, <a href="../symbols/ZmOrganizer.html#rename">rename</a>, <a href="../symbols/ZmOrganizer.html#reparent">reparent</a>, <a href="../symbols/ZmOrganizer.html#setColor">setColor</a>, <a href="../symbols/ZmOrganizer.html#setGlobalMarkRead">setGlobalMarkRead</a>, <a href="../symbols/ZmOrganizer.html#setOfflineSyncInterval">setOfflineSyncInterval</a>, <a href="../symbols/ZmOrganizer.html#setRetentionPolicy">setRetentionPolicy</a>, <a href="../symbols/ZmOrganizer.html#setRGB">setRGB</a>, <a href="../symbols/ZmOrganizer.html#size">size</a>, <a href="../symbols/ZmOrganizer.html#supportsPrivatePermission">supportsPrivatePermission</a>, <a href="../symbols/ZmOrganizer.html#supportsSharing">supportsSharing</a>, <a href="../symbols/ZmOrganizer.html#sync">sync</a>, <a href="../symbols/ZmOrganizer.html#update">update</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmCalendar</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a calendar.
+					<br /><i>Author: </i>Andy Clark.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters:</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.id</b>
+								
+							</dt>
+								<dd>the numeric ID</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.name</b>
+								
+							</dt>
+								<dd>the name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmTree.html">ZmTree</a>}</span>  <b>params.tree</b>
+								
+							</dt>
+								<dd>the tree model that contains this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.color</b>
+								
+							</dt>
+								<dd>the color for this calendar</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.url</b>
+								
+							</dt>
+								<dd>the URL for this organizer's feed</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.owner</b>
+								
+							</dt>
+								<dd>the owner of this calendar</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.zid</b>
+								
+							</dt>
+								<dd>the Zimbra id of owner, if remote share</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.rid</b>
+								
+							</dt>
+								<dd>the remote id of organizer, if remote share</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.restUrl</b>
+								
+							</dt>
+								<dd>the REST URL of this organizer</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".checkName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalendar.</span><b>checkName</b>(name)
+					
+					</div>
+					<div class="description">
+						Checks the calendar name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name to check</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the valid calendar name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".create"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalendar.</span><b>create</b>(params)
+					
+					</div>
+					<div class="description">
+						Creates a new calendar. The color and flags will be set later in response
+to the create notification. This function is necessary because calendar
+creation needs custom error handling.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIcon"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIcon</b>()
+					
+					</div>
+					<div class="description">
+						Gets the icon.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the calendar is read-only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if read-only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="mayContain"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>mayContain</b>(what)
+					
+					</div>
+					<div class="description">
+						Checks if the given object(s) may be placed in this folder.
+
+For calendars being dragged, the current target cannot:
+  - Be the parent of the dragged calendar
+  - Be the dragged calendar
+  - Be an ancestor of the dragged calendar
+  - Contain a calendar with the same name as the dragged calendar
+  - Be a shared calendar
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>what</b>
+									
+								</dt>
+								<dd>the object(s) to possibly move into this folder (item or organizer)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the object may be placed in this folder</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setFreeBusy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setFreeBusy</b>(exclude, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the free/busy.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>exclude</b>
+									
+								</dt>
+								<dd>if <code>true</code>, exclude free busy</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="supportsPublicAccess"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>supportsPublicAccess</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Feb 09 2015 18:59:26 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

@@ -1,0 +1,3610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - _global_</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Built-In Namespace _global_
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				
+				<br>
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#operationsToDisableOnSingleSelection">operationsToDisableOnSingleSelection</a></b>
+								</div>
+								<div class="description">List of toolbar operations to *disable*
+Default is to enable-all</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#operationsToEnableOnMultiSelection">operationsToEnableOnMultiSelection</a></b>
+								</div>
+								<div class="description">List of toolbar operations to enable when multiple items are selected
+- Default is to enable: ZmOperation.NEW_MENU, ZmOperation.TAG_MENU, ZmOperation.DELETE, ZmOperation.MOVE,
+						ZmOperation.MOVE_MENU, ZmOperation.FORWARD & ZmOperation.ACTIONS_MENU</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#operationsToEnableOnZeroSelection">operationsToEnableOnZeroSelection</a></b>
+								</div>
+								<div class="description">List of toolbar operations to enable on Zero/no selection
+- Default is only enable ZmOperation.NEW_MENU</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#themeBaseURL">themeBaseURL</a></b>
+								</div>
+								<div class="description">form_utils.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#tinymce">tinymce</a></b>
+								</div>
+								<div class="description">Popup.jsCopyright, Moxiecode Systems ABReleased under LGPL License.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#TinyMCE_EditableSelects">TinyMCE_EditableSelects</a></b>
+								</div>
+								<div class="description">editable_selects.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#Validator">Validator</a></b>
+								</div>
+								<div class="description">// String validation:
+
+	if (!Validator.isEmail('myemail'))
+		alert('Invalid email.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#AjxListFormat">AjxListFormat</a></b>(formatter, separator, lastSeparator, twoSeparator)
+								</div>
+								<div class="description">This class allows the user to format a list by applying a specific 
+format to each object in an array and joining the results.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>cmd_func</b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>d</b>(L, C, G, K)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#DwtToolTip">DwtToolTip</a></b>(shell, className, dialog)
+								</div>
+								<div class="description">Singleton tooltip class.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>f</b>(v)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>i</b>(k)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>m</b>()
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#MCTabs">MCTabs</a></b>()
+								</div>
+								<div class="description">mctabs.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>nativeHandler</b>(evt)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>p</b>(F, E)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>sortOrder</b>(a, b)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b>z</b>(F)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmAddressSearchFilter">ZmAddressSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by address or domain.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmApptDateSearchFilter">ZmApptDateSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search for appts by date (before, after, or on a particular date).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmApptListView">ZmApptListView</a></b>(parent, posStyle, controller, dropTgt)
+								</div>
+								<div class="description">Appointment list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmAttachmentSearchFilter">ZmAttachmentSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by attachment type (MIME type).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmBaseController">ZmBaseController</a></b>(container, app, type, sessionId, searchResultsController)
+								</div>
+								<div class="description">This class is a base class for any controller that manages items such as messages, contacts,
+appointments, tasks, etc.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmCalNewScheduleView">ZmCalNewScheduleView</a></b>(parent, posStyle, controller, dropTgt)
+								</div>
+								<div class="description">*************** NEW VERSION OF SCHEDULE VIEW ********************</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmCalScheduleView">ZmCalScheduleView</a></b>(parent, posStyle, controller, dropTgt)
+								</div>
+								<div class="description">*************** OLD VERSION OF SCHEDULE VIEW ********************</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmColorMenu">ZmColorMenu</a></b>(params)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmColorMenuItem">ZmColorMenuItem</a></b>(params)
+								</div>
+								<div class="description">A custom menu item class for the "More colors.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmContactView">ZmContactView</a></b>(parent)
+								</div>
+								<div class="description">View for displaying the contact information.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmCustomWorkHoursDlg">ZmCustomWorkHoursDlg</a></b>(parent, templateId, workHours)
+								</div>
+								<div class="description">Create the custom work hours dialog box</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDateSearchFilter">ZmDateSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by date (before, after, or on a particular date).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterBriefcaseListView">ZmDumpsterBriefcaseListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted briefcase items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterCalendarListView">ZmDumpsterCalendarListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted calendar items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterContactListView">ZmDumpsterContactListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted contact items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterListController">ZmDumpsterListController</a></b>(container)
+								</div>
+								<div class="description">Controller for the ZmDumpsterListView</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterListView">ZmDumpsterListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterMailListView">ZmDumpsterMailListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted mail items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmDumpsterTaskListView">ZmDumpsterTaskListView</a></b>(parent, controller)
+								</div>
+								<div class="description">Listview showing deleted task items</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmFilterWork">ZmFilterWork</a></b>(filterSel, outgoing)
+								</div>
+								<div class="description">class that holds the work specification (in this case, filtering specific filters.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmFolderSearchFilter">ZmFolderSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmHiddenRecipients">ZmHiddenRecipients</a></b>()
+								</div>
+								<div class="description">Minimal version of ZmRecipients that has no UI.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmListController">ZmListController</a></b>(container, app, type, sessionId, searchResultsController)
+								</div>
+								<div class="description">This class is a base class for any controller that manages a list of items such as mail messages
+or contacts.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListDateGroup">ZmMailListDateGroup</a></b>()
+								</div>
+								<div class="description">Date group divides messages into the following sections:
+Today
+Yesterday
+Day of week -- not today or yesterday, but still within this week
+Last Week
+Two Weeks Ago
+Three Weeks Ago
+Earlier this Month
+Last Month
+Older</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListFromGroup">ZmMailListFromGroup</a></b>()
+								</div>
+								<div class="description">From Group divides messages into sort by sender.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListGroup">ZmMailListGroup</a></b>()
+								</div>
+								<div class="description">ZmMailListGroup is the base class for creating a mail group to be displayed by the ListView.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListPriorityGroup">ZmMailListPriorityGroup</a></b>(group)
+								</div>
+								<div class="description">Priority Group divides a mail list into sections: Important & Unread, Important, Flagged, Everything else
+This implemenation is experimental and based on Tag which will change in the future.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListSectionHeader">ZmMailListSectionHeader</a></b>(group, params)
+								</div>
+								<div class="description">Section header provides a header to divide groups into sections.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailListSizeGroup">ZmMailListSizeGroup</a></b>()
+								</div>
+								<div class="description">Size group divides messages into the following sections:
+Enormous > 5MB
+Huge 1-5MB
+Very Large 500KB-1MB
+Large 100KB-500KB
+Medium 25KB-100KB
+Small 10KB-25KB
+Tiny < 10KB</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailMsgCapsuleView">ZmMailMsgCapsuleView</a></b>(params, className, parent, msgId, sessionId, controller, actionsMenu, forceExpand, forceCollapse, isDraft)
+								</div>
+								<div class="description">The capsule view of a message is intended to be brief so that all the messages in a conv
+can be shown together in a natural way.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMailMsgCapsuleViewHeader">ZmMailMsgCapsuleViewHeader</a></b>(params)
+								</div>
+								<div class="description">The header bar of a capsule message view:
+	- shows minimal header info (from, date)
+	- has an expansion icon
+	- is used to drag the message
+	- is the drop target for tags</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmMainSearchToolBar">ZmMainSearchToolBar</a></b>(params)
+								</div>
+								<div class="description">Adds a types button and support for a custom search menu item to a search toolbar</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmNotificationsPage">ZmNotificationsPage</a></b>(parent, section, controller)
+								</div>
+								<div class="description">Creates a preferences page for displaying notifications.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmParsedQuery">ZmParsedQuery</a></b>(query)
+								</div>
+								<div class="description">This class is a parsed representation of a query string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmPeopleAutocompleteListView">ZmPeopleAutocompleteListView</a></b>(params)
+								</div>
+								<div class="description">Subclass of ZmAutocompleteListView so we can customize the "listview"</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmProgressController">ZmProgressController</a></b>(container, app)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmProgressRun">ZmProgressRun</a></b>(folderList)
+								</div>
+								<div class="description">internal class to keep track of progress, with last item processed, total messages processed, and the folder list we work on</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmSearchFilter">ZmSearchFilter</a></b>(params, parent, id, searchOp, updateCallback, resultsApp)
+								</div>
+								<div class="description">Base class for widget that adds a term to the current search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmSearchToken">ZmSearchToken</a></b>(op, arg)
+								</div>
+								<div class="description">This class represents one unit of a search query.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmSizeSearchFilter">ZmSizeSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by size (larger or smaller than a particular size).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmSnoozeBeforeProcessor">ZmSnoozeBeforeProcessor</a></b>(apptType)
+								</div>
+								<div class="description">Helper class for applying snooze 'before' times to a set of appointments that
+were handled en-masse in the reminder dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmStatusSearchFilter">ZmStatusSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by various message statuses (unread, flagged, etc).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ZmTagSearchFilter">ZmTagSearchFilter</a></b>(params)
+								</div>
+								<div class="description">Allows the user to search by tags.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="operationsToDisableOnSingleSelection"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>operationsToDisableOnSingleSelection</b>
+					
+					</div>
+					<div class="description">
+						List of toolbar operations to *disable*
+Default is to enable-all
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmBaseController.js.html">ZmBaseController.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="operationsToEnableOnMultiSelection"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>operationsToEnableOnMultiSelection</b>
+					
+					</div>
+					<div class="description">
+						List of toolbar operations to enable when multiple items are selected
+- Default is to enable: ZmOperation.NEW_MENU, ZmOperation.TAG_MENU, ZmOperation.DELETE, ZmOperation.MOVE,
+						ZmOperation.MOVE_MENU, ZmOperation.FORWARD & ZmOperation.ACTIONS_MENU
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmBaseController.js.html">ZmBaseController.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="operationsToEnableOnZeroSelection"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>operationsToEnableOnZeroSelection</b>
+					
+					</div>
+					<div class="description">
+						List of toolbar operations to enable on Zero/no selection
+- Default is only enable ZmOperation.NEW_MENU
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmBaseController.js.html">ZmBaseController.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="themeBaseURL"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>themeBaseURL</b>
+					
+					</div>
+					<div class="description">
+						form_utils.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.License: http://tinymce.moxiecode.com/licenseContributing: http://tinymce.moxiecode.com/contributing
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_utils_form_utils.js.html">form_utils.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="tinymce"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>tinymce</b>
+					
+					</div>
+					<div class="description">
+						Popup.jsCopyright, Moxiecode Systems ABReleased under LGPL License.License: http://www.tinymce.com/licenseContributing: http://www.tinymce.com/contributing
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_classes_Popup.js.html">Popup.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="TinyMCE_EditableSelects"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>TinyMCE_EditableSelects</b>
+					
+					</div>
+					<div class="description">
+						editable_selects.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.License: http://tinymce.moxiecode.com/licenseContributing: http://tinymce.moxiecode.com/contributing
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_utils_editable_selects.js.html">editable_selects.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="Validator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>Validator</b>
+					
+					</div>
+					<div class="description">
+						// String validation:
+
+	if (!Validator.isEmail('myemail'))
+		alert('Invalid email.');
+
+	// Form validation:
+
+	var f = document.forms['myform'];
+
+	if (!Validator.isEmail(f.myemail))
+		alert('Invalid email.');
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_utils_validate.js.html">validate.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="AjxListFormat"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>AjxListFormat</b>(formatter, separator, lastSeparator, twoSeparator)
+					
+					</div>
+					<div class="description">
+						This class allows the user to format a list by applying a specific 
+format to each object in an array and joining the results. Each formatted
+item in the list is separated by a list separator string.
+<p>
+<strong>Note:</strong>
+This format is <em>not</em> one of the standard formatter classes 
+available in Java.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_util_AjxText.js.html">AjxText.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{AjxFormat}</span> <b>formatter</b>
+									
+								</dt>
+								<dd>The formatter.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>separator</b>
+									
+								</dt>
+								<dd>Optional. The list separator string. If
+                                 not specified, <code>AjxMsg.separatorList</code> 
+                                 is used.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>lastSeparator</b>
+									
+								</dt>
+								<dd>Optional. The list separator string for
+                                 the last item in the list (e.g. " and ").
+                                 If not specified, <code>AjxMsg.separatorListLast</code>
+                                 is used.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>twoSeparator</b>
+									
+								</dt>
+								<dd>Optional. Separator used if the list consists of 
+									exactly two items. If not specified, <code>AjxMsg.listSeparatorTwo</code>
+									is used.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="cmd_func"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>cmd_func</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_src.js.html">tiny_mce_src.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="d"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>d</b>(L, C, G, K)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_prototype.js.html">tiny_mce_prototype.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>L</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>C</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>G</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>K</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="DwtToolTip"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>DwtToolTip</b>(shell, className, dialog)
+					
+					</div>
+					<div class="description">
+						Singleton tooltip class.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtToolTip.js.html">DwtToolTip.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>shell</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>className</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>dialog</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="f"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>f</b>(v)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_src.js.html">tiny_mce_src.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>v</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="i"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>i</b>(k)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_prototype.js.html">tiny_mce_prototype.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>k</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="m"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>m</b>()
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_prototype.js.html">tiny_mce_prototype.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="MCTabs"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>MCTabs</b>()
+					
+					</div>
+					<div class="description">
+						mctabs.jsCopyright 2009, Moxiecode Systems ABReleased under LGPL License.License: http://tinymce.moxiecode.com/licenseContributing: http://tinymce.moxiecode.com/contributing
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_utils_mctabs.js.html">mctabs.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="nativeHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>nativeHandler</b>(evt)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_src.js.html">tiny_mce_src.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>evt</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="p"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>p</b>(F, E)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_prototype.js.html">tiny_mce_prototype.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>F</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>E</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sortOrder"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sortOrder</b>(a, b)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_src.js.html">tiny_mce_src.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>a</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>b</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="z"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>z</b>(F)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_tiny_mce_prototype.js.html">tiny_mce_prototype.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>F</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmAddressSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmAddressSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by address or domain.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmApptDateSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmApptDateSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search for appts by date (before, after, or on a particular date).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmApptListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmApptListView</b>(parent, posStyle, controller, dropTgt)
+					
+					</div>
+					<div class="description">
+						Appointment list view.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_view_ZmApptListView.js.html">ZmApptListView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>posStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>dropTgt</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmAttachmentSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmAttachmentSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by attachment type (MIME type).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmBaseController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmBaseController</b>(container, app, type, sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						This class is a base class for any controller that manages items such as messages, contacts,
+appointments, tasks, etc. It handles operations that can be performed on those items such as
+move, delete, tag, print, etc.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmBaseController.js.html">ZmBaseController.js</a>.
+						
+						<br /><i>Author: </i>Conrad Damon.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>container</b>
+									
+								</dt>
+								<dd>the containing shell</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> <b>app</b>
+									
+								</dt>
+								<dd>the containing application</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>type of controller (typically a view type)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>the session id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>containing controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmCalNewScheduleView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmCalNewScheduleView</b>(parent, posStyle, controller, dropTgt)
+					
+					</div>
+					<div class="description">
+						*************** NEW VERSION OF SCHEDULE VIEW ********************
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_view_ZmCalScheduleView.js.html">ZmCalScheduleView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>posStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>dropTgt</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmCalScheduleView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmCalScheduleView</b>(parent, posStyle, controller, dropTgt)
+					
+					</div>
+					<div class="description">
+						*************** OLD VERSION OF SCHEDULE VIEW ********************
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_view_ZmCalScheduleView.js.html">ZmCalScheduleView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>posStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>dropTgt</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmColorMenu"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmColorMenu</b>(params)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmColorMenu.js.html">ZmColorMenu.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>Constructor parameters.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>params.parent</b>
+									
+								</dt>
+								<dd>Parent control.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.image</b>
+									
+								</dt>
+								<dd>Item image to display next to each color choice.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.hideNone</b>
+									
+								</dt>
+								<dd>True to hide the "None" option.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.hideNoFill</b>
+									
+								</dt>
+								<dd>True to hide the no-fill/use-default option.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmColorMenuItem"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmColorMenuItem</b>(params)
+					
+					</div>
+					<div class="description">
+						A custom menu item class for the "More colors..." and
+"Fewer colors..." options which should not leave space for
+an image next to the text. A sub-class is also needed so
+that we can avoid the default handling of the item click.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmColorMenu.js.html">ZmColorMenu.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmContactView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmContactView</b>(parent)
+					
+					</div>
+					<div class="description">
+						View for displaying the contact information. Provides events for enabling text selection.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_abook_view_ZmContactSplitView.js.html">ZmContactSplitView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmCustomWorkHoursDlg"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmCustomWorkHoursDlg</b>(parent, templateId, workHours)
+					
+					</div>
+					<div class="description">
+						Create the custom work hours dialog box
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_view_ZmCalendarPrefsPage.js.html">ZmCalendarPrefsPage.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>templateId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>workHours</b>
+									
+								</dt>
+								<dd>the work hours parsed array</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDateSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDateSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by date (before, after, or on a particular date).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterBriefcaseListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterBriefcaseListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted briefcase items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterCalendarListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterCalendarListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted calendar items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterContactListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterContactListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted contact items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterListController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterListController</b>(container)
+					
+					</div>
+					<div class="description">
+						Controller for the ZmDumpsterListView
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>container</b>
+									
+								</dt>
+								<dd>[DwtControl]	container this controller "controls"</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterMailListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterMailListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted mail items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmDumpsterTaskListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmDumpsterTaskListView</b>(parent, controller)
+					
+					</div>
+					<div class="description">
+						Listview showing deleted task items
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_dialog_ZmDumpsterDialog.js.html">ZmDumpsterDialog.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>parent</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>controller</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmFilterWork"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmFilterWork</b>(filterSel, outgoing)
+					
+					</div>
+					<div class="description">
+						class that holds the work specification (in this case, filtering specific filters. Keeps track of progress stats too.
+an instance of this is passed to ZmFilterRulesController to callback for stuff specific to this work. (template pattern, I believe)
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_prefs_controller_ZmFilterRulesController.js.html">ZmFilterRulesController.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>filterSel</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>outgoing</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmFolderSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmFolderSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by folder.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmHiddenRecipients"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmHiddenRecipients</b>()
+					
+					</div>
+					<div class="description">
+						Minimal version of ZmRecipients that has no UI. Note that addresses are stored in
+arrays rather than vectors.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_view_ZmComposeView.js.html">ZmComposeView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmListController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmListController</b>(container, app, type, sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						This class is a base class for any controller that manages a list of items such as mail messages
+or contacts. It can handle alternative views of the same list.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmListController.js.html">ZmListController.js</a>.
+						
+						<br /><i>Author: </i>Conrad Damon.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>container</b>
+									
+								</dt>
+								<dd>the containing shell</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> <b>app</b>
+									
+								</dt>
+								<dd>the containing application</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>type of controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>the session id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>containing controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListDateGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListDateGroup</b>()
+					
+					</div>
+					<div class="description">
+						Date group divides messages into the following sections:
+Today
+Yesterday
+Day of week -- not today or yesterday, but still within this week
+Last Week
+Two Weeks Ago
+Three Weeks Ago
+Earlier this Month
+Last Month
+Older
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_model_ZmMailListDateGroup.js.html">ZmMailListDateGroup.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListFromGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListFromGroup</b>()
+					
+					</div>
+					<div class="description">
+						From Group divides messages into sort by sender.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_model_ZmMailListFromGroup.js.html">ZmMailListFromGroup.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListGroup</b>()
+					
+					</div>
+					<div class="description">
+						ZmMailListGroup is the base class for creating a mail group to be displayed by the ListView.  A mail group consists of sections and a section header.
+Each section is an array of HTML strings that divide the group.  For example, ZmMailListSizeGroup has sections to divide
+the group based on size: Enormous, Huge, Very Large, etc.  Each section consists of an HTML representation of the
+message and a section header.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_model_ZmMailListGroup.js.html">ZmMailListGroup.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListPriorityGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListPriorityGroup</b>(group)
+					
+					</div>
+					<div class="description">
+						Priority Group divides a mail list into sections: Important & Unread, Important, Flagged, Everything else
+This implemenation is experimental and based on Tag which will change in the future.
+TODO:  Search needs to be batch request based. (implementation outside the scope of this object, but noting here)
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_model_ZmMailListPriorityGroup.js.html">ZmMailListPriorityGroup.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>group</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListSectionHeader"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListSectionHeader</b>(group, params)
+					
+					</div>
+					<div class="description">
+						Section header provides a header to divide groups into sections.  The bar supports actions for click, mouseover,
+mouseout, expand and collapse sections.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_view_ZmMailListSectionHeader.js.html">ZmMailListSectionHeader.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/_global_.html#ZmMailListGroup">ZmMailListGroup</a>}</span> <b>group</b>
+									
+								</dt>
+								<dd>Group object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{objet}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params for DwtControl</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailListSizeGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailListSizeGroup</b>()
+					
+					</div>
+					<div class="description">
+						Size group divides messages into the following sections:
+Enormous > 5MB
+Huge 1-5MB
+Very Large 500KB-1MB
+Large 100KB-500KB
+Medium 25KB-100KB
+Small 10KB-25KB
+Tiny < 10KB
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_model_ZmMailListSizeGroup.js.html">ZmMailListSizeGroup.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailMsgCapsuleView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailMsgCapsuleView</b>(params, className, parent, msgId, sessionId, controller, actionsMenu, forceExpand, forceCollapse, isDraft)
+					
+					</div>
+					<div class="description">
+						The capsule view of a message is intended to be brief so that all the messages in a conv
+can be shown together in a natural way. Quoted content is stripped.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_view_ZmConvView2.js.html">ZmConvView2.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>className</b>
+									
+								</dt>
+								<dd>(optional) defaults to "ZmMailMsgCapsuleView"</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmConvView2.html">ZmConvView2</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent conv view</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>msgId</b>
+									
+								</dt>
+								<dd>ID of msg</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>ID of containing session (used with above param to create DOM IDs)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>owning conv list controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> <b>actionsMenu</b>
+									
+								</dt>
+								<dd>shared action menu</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>forceExpand</b>
+									
+								</dt>
+								<dd>if true, show header, body, and footer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>forceCollapse</b>
+									
+								</dt>
+								<dd>if true, just show header</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>isDraft</b>
+									
+								</dt>
+								<dd>is this message a draft</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMailMsgCapsuleViewHeader"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMailMsgCapsuleViewHeader</b>(params)
+					
+					</div>
+					<div class="description">
+						The header bar of a capsule message view:
+	- shows minimal header info (from, date)
+	- has an expansion icon
+	- is used to drag the message
+	- is the drop target for tags
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_mail_view_ZmConvView2.js.html">ZmConvView2.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmMainSearchToolBar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmMainSearchToolBar</b>(params)
+					
+					</div>
+					<div class="description">
+						Adds a types button and support for a custom search menu item to a search toolbar
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchToolBar.js.html">ZmSearchToolBar.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmNotificationsPage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmNotificationsPage</b>(parent, section, controller)
+					
+					</div>
+					<div class="description">
+						Creates a preferences page for displaying notifications.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_prefs_view_ZmNotificationsPage.js.html">ZmNotificationsPage.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the containing widget</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>section</b>
+									
+								</dt>
+								<dd>the page</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmPrefController.html">ZmPrefController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>the prefs controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmParsedQuery"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmParsedQuery</b>(query)
+					
+					</div>
+					<div class="description">
+						This class is a parsed representation of a query string. It parses the string into tokens.
+A token is a paren, a conditional operator, or a search term (which has an operator and an
+argument). The query string is assumed to be valid.
+
+Compound terms such as "in:(inbox or sent)" will be exploded into multiple terms.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmSearch.js.html">ZmSearch.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>query</b>
+									
+								</dt>
+								<dd>a query string
+
+TODO: handle "field[lastName]" and "#lastName"</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmPeopleAutocompleteListView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmPeopleAutocompleteListView</b>(params)
+					
+					</div>
+					<div class="description">
+						Subclass of ZmAutocompleteListView so we can customize the "listview"
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmPeopleAutocompleteListView.js.html">ZmPeopleAutocompleteListView.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmProgressController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmProgressController</b>(container, app)
+					
+					</div>
+					<div class="description">
+						
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmProgressController.js.html">ZmProgressController.js</a>.
+						
+						<br /><i>Author: </i>Eran Yarkon.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>container</b>
+									
+								</dt>
+								<dd>the containing shell</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> <b>app</b>
+									
+								</dt>
+								<dd>the containing application</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmProgressRun"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmProgressRun</b>(folderList)
+					
+					</div>
+					<div class="description">
+						internal class to keep track of progress, with last item processed, total messages processed, and the folder list we work on
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmProgressController.js.html">ZmProgressController.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>folderList</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmSearchFilter</b>(params, parent, id, searchOp, updateCallback, resultsApp)
+					
+					</div>
+					<div class="description">
+						Base class for widget that adds a term to the current search.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>usually a DwtMenu</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>ID of filter</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>searchOp</b>
+									
+								</dt>
+								<dd>search operator for this filter (optional)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>updateCallback</b>
+									
+								</dt>
+								<dd>called when value of filter (as a search term) has changed</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>resultsApp</b>
+									
+								</dt>
+								<dd>name of app corresponding to type of results</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmSearchToken"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmSearchToken</b>(op, arg)
+					
+					</div>
+					<div class="description">
+						This class represents one unit of a search query. That may be a search term ("is:unread"),
+and conditional operator (AND, OR, NOT), or a grouping operator (left or right paren).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmSearch.js.html">ZmSearch.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>op</b>
+									
+								</dt>
+								<dd>operator</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>arg</b>
+									
+								</dt>
+								<dd>argument part of search term</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmSizeSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmSizeSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by size (larger or smaller than a particular size).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmSnoozeBeforeProcessor"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmSnoozeBeforeProcessor</b>(apptType)
+					
+					</div>
+					<div class="description">
+						Helper class for applying snooze 'before' times to a set of appointments that
+were handled en-masse in the reminder dialog.
+
+For each appointment
+ - If the appointment has already started (whether in-progress or completed) then the
+   before value is not applied, and we store this appt for later processing.
+ - For appointments that have not started yet:
+    - If the appointment startTime + snoozeTime is in the future (> now) then
+      set the appt reminder untilTime.
+    - If the startTime + snoozeTime is in the past (< now), loop over the
+      standard set of 'before' snooze times and find the max before time that we can
+      apply and still have the reminder occur in the future.
+   Once a time for the appointment's reminder is calculated, save the minimum one (i.e. the
+   reminder for the earlier occuring appt) as earliestUntilTime.
+
+Finally, loop over each of the appointments whose start time is past.
+ - Set their snooze time to the soonestUntilTime.  When the soonest appt reminder goes off,
+   any past appointments will appear too.  The user should dismiss them, but till then they
+   are dragged along
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_controller_ZmSnoozeBeforeProcessor.js.html">ZmSnoozeBeforeProcessor.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>apptType</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmStatusSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmStatusSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by various message statuses (unread, flagged, etc).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="ZmTagSearchFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ZmTagSearchFilter</b>(params)
+					
+					</div>
+					<div class="description">
+						Allows the user to search by tags.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_view_ZmSearchResultsFilterPanel.js.html">ZmSearchResultsFilterPanel.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd>TODO: filter should not show up if no tags</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Apr 08 2014 13:13:11 GMT-0500 (CDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

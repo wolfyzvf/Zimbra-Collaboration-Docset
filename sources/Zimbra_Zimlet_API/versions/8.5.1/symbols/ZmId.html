@@ -1,0 +1,1378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmId</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmId
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class is responsible for providing unique, predictable IDs for HTML elements.
+That way, code outside the client can easily locate particular elements.
+<br/>
+<br/>
+Not every element that has an associated JS object will have a known ID. Those are
+allocated only for elements it would be useful to locate: major components of the UI,
+toolbars, buttons, views, menus, some menu items, some selects, and miscellaneous other
+components.
+<br/>
+<br/>
+Unless noted otherwise, a getElementById() on any of the non-skin IDs will return a DIV. One exception
+is input fields. The ID is given to the DwtInputField's actual INPUT, rather than to the
+DIV that contains it. Most other exceptions are table-related: TABLE, TR, and TD.
+<br/>
+<br/>
+There is a simple naming scheme for the IDs themselves. Each ID starts with a "z" followed
+by one to a few letters that indicate the type of object (widget) represented by the element:
+
+<ul>
+<li><b>z</b> a component that is not a special-purpose widget listed below</li>
+<li><b>ztb</b> 		a toolbar (see ZmId.WIDGET)</li>
+<li><b>zb</b> 		a button (see ZmId.WIDGET_TOOLBAR)</li>
+<li><b>zi</b> 		an input field (see ZmId.WIDGET_INPUT)</li>
+<li><b>zm</b> 		a menu (see ZmId.WIDGET_MENU)</li>
+<li><b>zmi</b> 		a menu item (see ZmId.WIDGET_MENU_ITEM)</li>
+<li><b>zs</b> 		a select (see ZmId.WIDGET_SELECT)</li>
+<li><b>zov</b> 		an overview (see ZmId.WIDGET_OVERVIEW)</li>
+<li><b>zt</b> 		a tree (see ZmId.WIDGET_TREE)</li>
+<li><b>zti</b> 		a tree item (see ZmId.WIDGET_TREE_ITEM)</li>
+<li><b>ztih</b> 	a tree item header (see ZmId.WIDGET_TREE_ITEM_HDR)</li>
+</ul>
+
+The skin defines its own container IDs starting with "skin_", which we provide constants for here.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_core_ZmId.js.html">ZmId.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmId.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmId.html#constructor">ZmId</a></b>()
+							</div>
+							<div class="description">Constructor</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmId.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.create">create</a></b>(params, description)
+								</div>
+								<div class="description">Returns a unique ID that can later be looked up.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getButtonId">getButtonId</a></b>(context, op, tbType)
+								</div>
+								<div class="description">Generates the ID for a button.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getComposeViewId">getComposeViewId</a></b>(component)
+								</div>
+								<div class="description">Generates an ID for the compose view, or for a component within the compose view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getMenuId">getMenuId</a></b>(context, menuType)
+								</div>
+								<div class="description">Generates the ID for an action menu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getMenuItemId">getMenuItemId</a></b>(context, op, menuType)
+								</div>
+								<div class="description">Generates the ID for a menu item in an action menu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getOverviewContainerId">getOverviewContainerId</a></b>(overviewContainerId)
+								</div>
+								<div class="description">Generates the ID for an overview container.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getOverviewId">getOverviewId</a></b>(overviewId)
+								</div>
+								<div class="description">Generates the ID for an overview.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getParams">getParams</a></b>(id)
+								</div>
+								<div class="description">Returns the set of params used to create the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getPrefPageId">getPrefPageId</a></b>(tabKey)
+								</div>
+								<div class="description">Generates an ID for a pref page tab.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getTabId">getTabId</a></b>(context, tabName)
+								</div>
+								<div class="description">Generates an ID for a tab (actually the tab button in the tab bar).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getToolbarId">getToolbarId</a></b>(context, tbType)
+								</div>
+								<div class="description">Generates the ID for a toolbar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getTreeId">getTreeId</a></b>(overviewId, orgType)
+								</div>
+								<div class="description">Generates the ID for a tree within an overview.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getTreeItemId">getTreeItemId</a></b>(overviewId, organizerId, type)
+								</div>
+								<div class="description">Generates a tree item ID based on the underlying organizer and the overview ID (since the same
+organizer may be represented as tree items in more than one overview).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.getViewId">getViewId</a></b>(viewId, component, context)
+								</div>
+								<div class="description">Generates an ID for a view that fills the content area, or for a component of that
+view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.lookup">lookup</a></b>(params)
+								</div>
+								<div class="description">Returns the DOM ID that matches the given set of params.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmId.<b><a href="../symbols/ZmId.html#.showIds">showIds</a></b>(params)
+								</div>
+								<div class="description">Displays a list of matching IDs in a popup, with the params used to create them and their descriptions.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmId</b>()
+				</div>
+				
+				<div class="description">
+					Constructor
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".create"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmId.</span><b>create</b>(params, description)
+					
+					</div>
+					<div class="description">
+						Returns a unique ID that can later be looked up. As many params as possible should be provided, in order to
+make lookup easier. If one or more IDs is found to already have been created with the given set of params,
+a sequence number is added as a parameter.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>set of fields describing the ID's element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>description</b>
+									
+								</dt>
+								<dd>(optional) a brief description of the purpose of the ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getButtonId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getButtonId</b>(context, op, tbType)
+					
+					</div>
+					<div class="description">
+						Generates the ID for a button. Intended for use with the top toolbar, nav toolbar,
+and invite toolbar.
+
+<p>
+Examples: <code>zb|CLV|CHECK_MAIL zb|TV|REPLY zb|COMPOSE|SEND zb|CLV|Nav|PAGE_FORWARD</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>context</b>
+									
+								</dt>
+								<dd>the toolbar context (ID of owning view)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>op</b>
+									
+								</dt>
+								<dd>the button operation</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>tbType</b>
+									
+								</dt>
+								<dd>the type of toolbar (eg invite or nav)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getComposeViewId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getComposeViewId</b>(component)
+					
+					</div>
+					<div class="description">
+						Generates an ID for the compose view, or for a component within the compose view. Since
+only one compose view is created, there is no need for a context to make the ID unique.
+The component name is not joined with the "|" character for backward compatibility.
+
+<p>
+Examples: <code>z|ComposeView z|ComposeView_header z|ComposeView_to_row</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>component</b>
+									
+								</dt>
+								<dd>component identifier (see <code>ZmId.CMP_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getMenuId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getMenuId</b>(context, menuType)
+					
+					</div>
+					<div class="description">
+						Generates the ID for an action menu.
+
+<p>
+Examples: <code>zm|CLV zm|Contacts zm|TV|Par</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>context</b>
+									
+								</dt>
+								<dd>the menu context (eg ID of owning view, or app)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>menuType</b>
+									
+								</dt>
+								<dd>the type of menu (eg participant)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getMenuItemId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getMenuItemId</b>(context, op, menuType)
+					
+					</div>
+					<div class="description">
+						Generates the ID for a menu item in an action menu.
+
+<p>
+Examples: <code>zmi|CLV|REPLY_ALL zmi|TV|Par|SEARCH</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>context</b>
+									
+								</dt>
+								<dd>the menu context</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>op</b>
+									
+								</dt>
+								<dd>the menu operation</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>menuType</b>
+									
+								</dt>
+								<dd>the type of menu (eg participant)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getOverviewContainerId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getOverviewContainerId</b>(overviewContainerId)
+					
+					</div>
+					<div class="description">
+						Generates the ID for an overview container.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>overviewContainerId</b>
+									
+								</dt>
+								<dd>the overview container ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getOverviewId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getOverviewId</b>(overviewId)
+					
+					</div>
+					<div class="description">
+						Generates the ID for an overview.
+
+<p>
+Examples: <code>zov|Mail zov|ZmChooseFolderDialog-ZmListController zov|ZmPickTagDialog</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>overviewId</b>
+									
+								</dt>
+								<dd>the overview ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getParams"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmId.</span><b>getParams</b>(id)
+					
+					</div>
+					<div class="description">
+						Returns the set of params used to create the given ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>id</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getPrefPageId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getPrefPageId</b>(tabKey)
+					
+					</div>
+					<div class="description">
+						Generates an ID for a pref page tab.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tabKey</b>
+									
+								</dt>
+								<dd>the tab key</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getTabId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getTabId</b>(context, tabName)
+					
+					</div>
+					<div class="description">
+						Generates an ID for a tab (actually the tab button in the tab bar).
+
+<p>
+Tab contexts and names:
+
+<ul>
+<li><b>VIEW_PREF</b>			General, Mail, Composing, Signatures, Address Book,
+							Accounts, Mail Filters, Calendar, Shortcuts</li>
+<li><b>VIEW_CONTACT</b>		personal, work, home, other, notes</li>
+<li><b>VIEW_APPOINTMENT</b>	details, schedule, attendees, locations, equipment</li>
+<li><b>VIEW_SHORTCUTS</b>		list, ZmId.ORG_FOLDER, ZmId.ORG_SEARCH, ZmId.ORG_TAG</li>
+</ul>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>context</b>
+									
+								</dt>
+								<dd>the owning view identifier (see <code>ZmId.VIEW_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tabName</b>
+									
+								</dt>
+								<dd>[string]		name of tab</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getToolbarId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getToolbarId</b>(context, tbType)
+					
+					</div>
+					<div class="description">
+						Generates the ID for a toolbar.
+
+<p>
+Examples: <code>ztb|CLV ztb|TV|Nav ztb|CV|Inv</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>context</b>
+									
+								</dt>
+								<dd>the toolbar context (ID of owning view)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>tbType</b>
+									
+								</dt>
+								<dd>the type of toolbar (for example, invite or nav)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getTreeId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getTreeId</b>(overviewId, orgType)
+					
+					</div>
+					<div class="description">
+						Generates the ID for a tree within an overview.
+
+<p>
+Examples: <code>zt|Mail|FOLDER zt|ZmPickTagDialog|TAG</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>overviewId</b>
+									
+								</dt>
+								<dd>the overview ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>orgType</b>
+									
+								</dt>
+								<dd>the organizer type (see <code>ZmId.ORG_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getTreeItemId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getTreeItemId</b>(overviewId, organizerId, type)
+					
+					</div>
+					<div class="description">
+						Generates a tree item ID based on the underlying organizer and the overview ID (since the same
+organizer may be represented as tree items in more than one overview). Some sample IDs:
+
+<ul>
+<li><b>zti|Mail|2</b> Inbox</li>
+<li><b>zti|Mail|172</b>			user-created item in mail overview</li>
+<li><b>zti|Contacts|7</b>			system Contacts folder</li>
+<li><b>zti|Calendar|304</b>		user-created item in calendar overview</li>
+<li><b>ztih|Mail|FOLDER</b>		Folders header in mail overview</li>
+</ul>
+
+Constants for some system folder tree items have been provided as a convenience.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>overviewId</b>
+									
+								</dt>
+								<dd>the unique ID for overview</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> <b>organizerId</b>
+									
+								</dt>
+								<dd>the ID of the data object backing tree item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the organizer type (for headers only)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getViewId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmId.</span><b>getViewId</b>(viewId, component, context)
+					
+					</div>
+					<div class="description">
+						Generates an ID for a view that fills the content area, or for a component of that
+view. A context should be provided if the view is not a singleton (for example,
+message view may appear within several double-pane views). The component name
+is not joined with the "|" character in order to preserve backward compatibility.
+
+<p>
+Examples: <code>zv|COMPOSE zv|TV zv|TV|MSG zv|TV|MSG_hdrTable</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>viewId</b>
+									
+								</dt>
+								<dd>the view identifier (see <code>ZmId.VIEW_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>component</b>
+									
+								</dt>
+								<dd>the component identifier (see <code>ZmId.MV_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>context</b>
+									
+								</dt>
+								<dd>the ID of owning view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".lookup"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmId.</span><b>lookup</b>(params)
+					
+					</div>
+					<div class="description">
+						Returns the DOM ID that matches the given set of params. If more than one ID matches, a list is returned.
+A partial set of params may be provided. The more params provided, the better the chance of finding just one ID.
+The best approach is to provide the minimal set of params that will uniquely differentiate the element. If no
+params are provided, returns all IDs.
+
+Optionally, a list of values can be given. An attempt will be made to reverse-engineer the params by figuring
+out the appropriate key for each value. This method will never be as reliable as providing a hash in the first place.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash|array}</span> <b>params</b>
+									
+								</dt>
+								<dd>set of fields describing the ID(s) being sought</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".showIds"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmId.</span><b>showIds</b>(params)
+					
+					</div>
+					<div class="description">
+						Displays a list of matching IDs in a popup, with the params used to create them and their descriptions.
+Intended as a development tool.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd>set of fields describing the ID(s) being sought</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:32:01 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

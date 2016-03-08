@@ -1,0 +1,3695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmContact</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012 VMware, Inc.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.3 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmContact
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmItem.html">ZmItem</a>.<br />
+				
+				<br>
+				This class represents a contact (typically a person) with all its associated versions
+of email address, home and work addresses, phone numbers, etc. Contacts can be filed/sorted
+in different ways, with the default being Last, First. A contact is an item, so
+it has tagging and flagging support, and belongs to a list.
+<p>
+Most of a contact's data is kept in attributes. These include name, phone, etc. Meta-data and
+data common to items are not kept in attributes. These include flags, tags, folder, and
+modified/created dates. Since the attribute data for contacts is loaded only once, a contact
+gets its attribute values from that canonical list.
+</p>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_abook_model_ZmContact.js.html">ZmContact.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmContact.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmContact.html#constructor">ZmContact</a></b>(id, list, type, newDl)
+							</div>
+							<div class="description">Creates an empty contact.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmContact.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmContact.<b><a href="../symbols/ZmContact.html#.IS_ADDONE">IS_ADDONE</a></b>
+								</div>
+								<div class="description">This structure can be queried to determine if the first
+entry in a multi-value entry is suffixed with "1".</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmContact.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.compareByFileAs">compareByFileAs</a></b>(a, b)
+								</div>
+								<div class="description">Compares two contacts based on how they are filed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.computeCustomFileAs">computeCustomFileAs</a></b>(customFileAs)
+								</div>
+								<div class="description">Computes the custom file as string by prepending "8:" to the given custom fileAs string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.computeFileAs">computeFileAs</a></b>(contact)
+								</div>
+								<div class="description">Figures out the filing string for the contact according to the chosen method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#create">create</a></b>(attr, batchCmd, isAutoCreate)
+								</div>
+								<div class="description">Creates a contact from the given set of attributes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.createFromDom">createFromDom</a></b>(node, args)
+								</div>
+								<div class="description">Creates a contact from an XML node.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#createFromVCard">createFromVCard</a></b>(msgId, vcardPartId)
+								</div>
+								<div class="description">Creates a contct from a VCF part of a message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.fileAsCompanyName">fileAsCompanyName</a></b>(name, company)
+								</div>
+								<div class="description">Name printing helper "Company (Name)".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.fileAsFirstLast">fileAsFirstLast</a></b>(first, last, fullname, nickname)
+								</div>
+								<div class="description">Name printing helper "First Last".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.fileAsLastFirst">fileAsLastFirst</a></b>(first, last, fullname, nickname)
+								</div>
+								<div class="description">Name printing helper "Last, First".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.fileAsNameCompany">fileAsNameCompany</a></b>(name, company)
+								</div>
+								<div class="description">Name printing helper "Name (Company)".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAddressBook">getAddressBook</a></b>()
+								</div>
+								<div class="description">Gets the address book.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAllDLMembers">getAllDLMembers</a></b>(callback)
+								</div>
+								<div class="description">Returns a list of all the distribution list members for this contact.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAllGroupMembers">getAllGroupMembers</a></b>()
+								</div>
+								<div class="description">parses "groups" attr into an AjxEmailAddress with a few extra attributes (see ZmContactsHelper._wrapInlineContact)</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAttendeeKey">getAttendeeKey</a></b>(type, shortForm)
+								</div>
+								<div class="description">Gets display text for an attendee.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAttendeeText">getAttendeeText</a></b>(type, shortForm)
+								</div>
+								<div class="description">Gets display text for an attendee.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAttr">getAttr</a></b>(name)
+								</div>
+								<div class="description">Gets the attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.getAttr">getAttr</a></b>(contact, attr)
+								</div>
+								<div class="description">Gets an attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.getAttributeName">getAttributeName</a></b>(name, index)
+								</div>
+								<div class="description">Gets an indexed attribute name taking into account if the field
+with index 1 should append the "1" or not.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getAttrs">getAttrs</a></b>(prefix)
+								</div>
+								<div class="description">Gets the contact attributes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getBuddy">getBuddy</a></b>()
+								</div>
+								<div class="description">Gets the IM buddy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getCompanyField">getCompanyField</a></b>()
+								</div>
+								<div class="description">Gets the company field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getDLMembers">getDLMembers</a></b>(offset, limit, callback)
+								</div>
+								<div class="description">Returns a list of distribution list members for this contact.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getEmail">getEmail</a></b>(asObj)
+								</div>
+								<div class="description">Gets the email address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getEmails">getEmails</a></b>()
+								</div>
+								<div class="description">Gets the emails.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getFields">getFields</a></b>(field, sortByNameFunc)
+								</div>
+								<div class="description">Gets the fields.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getFileAs">getFileAs</a></b>(lower)
+								</div>
+								<div class="description">Gets the filing string for this contact, computing it if necessary.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getFileAsNoName">getFileAsNoName</a></b>()
+								</div>
+								<div class="description">Gets the filing string for this contact, from the email address (used in case no name exists).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getFolderId">getFolderId</a></b>()
+								</div>
+								<div class="description">Gets the folder id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getFullName">getFullName</a></b>(html)
+								</div>
+								<div class="description">Gets the full name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getGroupMembers">getGroupMembers</a></b>()
+								</div>
+								<div class="description">Gets the group members.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getHeader">getHeader</a></b>()
+								</div>
+								<div class="description">Gets the header.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getHomeAddrField">getHomeAddrField</a></b>(instance)
+								</div>
+								<div class="description">Gets the home address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getIcon">getIcon</a></b>(addrBook)
+								</div>
+								<div class="description">Gets the icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getId">getId</a></b>(includeUserZid)
+								</div>
+								<div class="description">Returns the contact id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getIMAddress">getIMAddress</a></b>()
+								</div>
+								<div class="description">Gets the IM address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getImageUrl">getImageUrl</a></b>(maxWidth)
+								</div>
+								<div class="description">Get the image URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getImPresence">getImPresence</a></b>()
+								</div>
+								<div class="description">Gets the IM presence.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getLookupEmail">getLookupEmail</a></b>(asObj)
+								</div>
+								<div class="description">Gets the lookup email address, when an contact object is located using email address we store
+the referred email address in this variable for easy lookup</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.getNormalizedAttrs">getNormalizedAttrs</a></b>(attrs, prefix, ignore)
+								</div>
+								<div class="description">Normalizes the numbering of the given attribute names and
+returns a new object with the re-numbered attributes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getNormalizedAttrs">getNormalizedAttrs</a></b>(prefix)
+								</div>
+								<div class="description">Gets a normalized set of attributes where the attribute
+names have been re-numbered as needed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getOtherAddrField">getOtherAddrField</a></b>(instance)
+								</div>
+								<div class="description">Gets the other address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getParticipantRole">getParticipantRole</a></b>()
+								</div>
+								<div class="description">gets the participant role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getParticipantStatus">getParticipantStatus</a></b>()
+								</div>
+								<div class="description">gets the participant status.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getPhone">getPhone</a></b>()
+								</div>
+								<div class="description">Returns user's phone number</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.getPrefix">getPrefix</a></b>(s)
+								</div>
+								<div class="description">returns the prefix of a string in the format "abc123".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getToolTip">getToolTip</a></b>(email, isGal, hint)
+								</div>
+								<div class="description">Gets the tool tip for this contact.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getUnknownFields">getUnknownFields</a></b>(sortByNameFunc)
+								</div>
+								<div class="description">Gets the unknown fields.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#getWorkAddrField">getWorkAddrField</a></b>(instance)
+								</div>
+								<div class="description">Gets the work address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#initFromEmail">initFromEmail</a></b>(email, strictName)
+								</div>
+								<div class="description">Initializes this contact using an email address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#initFromPhone">initFromPhone</a></b>(phone, field)
+								</div>
+								<div class="description">Initializes this contact using a phone number.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isDistributionList">isDistributionList</a></b>()
+								</div>
+								<div class="description">Checks if the contact is a DL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isEmpty">isEmpty</a></b>()
+								</div>
+								<div class="description">Checks if the contact attributes are empty.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isGroup">isGroup</a></b>()
+								</div>
+								<div class="description">Checks if the contact is a group.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.isInTrash">isInTrash</a></b>(contact)
+								</div>
+								<div class="description">Checks if the contact is in the trash.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isLocked">isLocked</a></b>()
+								</div>
+								<div class="description">Checks if the contact is locked.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if the contact is read-only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#isShared">isShared</a></b>()
+								</div>
+								<div class="description">Checks if the contact is shared.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#modify">modify</a></b>(attr, callback, isAutoSave, batchCmd)
+								</div>
+								<div class="description">Updates contact attributes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#removeAttr">removeAttr</a></b>(name)
+								</div>
+								<div class="description">Removes the attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmContact.<b><a href="../symbols/ZmContact.html#.setAttr">setAttr</a></b>(contact, attr, value)
+								</div>
+								<div class="description">Sets the attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#setAttr">setAttr</a></b>(name, value)
+								</div>
+								<div class="description">Sets the attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#setParticipantRole">setParticipantRole</a></b>(value)
+								</div>
+								<div class="description">Sets the participant role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#setParticipantStatus">setParticipantStatus</a></b>(value)
+								</div>
+								<div class="description">Sets the participant status.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContact.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmItem.html">ZmItem</a>: </dt><dd><a href="../symbols/ZmItem.html#cache">cache</a>, <a href="../symbols/ZmItem.html#clear">clear</a>, <a href="../symbols/ZmItem.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmItem.html#flagLocal">flagLocal</a>, <a href="../symbols/ZmItem.html#getById">getById</a>, <a href="../symbols/ZmItem.html#getDefaultDndAction">getDefaultDndAction</a>, <a href="../symbols/ZmItem.html#getRestUrl">getRestUrl</a>, <a href="../symbols/ZmItem.html#getTagImageFromIds">getTagImageFromIds</a>, <a href="../symbols/ZmItem.html#getTagImageInfo">getTagImageInfo</a>, <a href="../symbols/ZmItem.html#hasTag">hasTag</a>, <a href="../symbols/ZmItem.html#move">move</a>, <a href="../symbols/ZmItem.html#moveLocal">moveLocal</a>, <a href="../symbols/ZmItem.html#removeAllTagsLocal">removeAllTagsLocal</a>, <a href="../symbols/ZmItem.html#rename">rename</a>, <a href="../symbols/ZmItem.html#setFlag">setFlag</a>, <a href="../symbols/ZmItem.html#tagLocal">tagLocal</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmContact</b>(id, list, type, newDl)
+				</div>
+				
+				<div class="description">
+					Creates an empty contact.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>id</b>
+								
+							</dt>
+								<dd>the unique ID</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmContactList.html">ZmContactList</a>}</span>  <b>list</b>
+								
+							</dt>
+								<dd>the list that contains this contact</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>type</b>
+								
+							</dt>
+								<dd>the item type</dd>
+						
+							<dt>
+								<span class="light fixedFont">{object}</span>  <b>newDl</b>
+								
+							</dt>
+								<dd>true if this is a new DL</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".IS_ADDONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmContact.</span><b>IS_ADDONE</b>
+					
+					</div>
+					<div class="description">
+						This structure can be queried to determine if the first
+entry in a multi-value entry is suffixed with "1". Most
+attributes add a numerical suffix to all but the first
+entry.
+<p>
+<strong>Note:</strong>
+In most cases, ZmContact#getAttributeName is a better choice.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".compareByFileAs"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmContact.</span><b>compareByFileAs</b>(a, b)
+					
+					</div>
+					<div class="description">
+						Compares two contacts based on how they are filed. Intended for use by
+sort methods.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>a</b>
+									
+								</dt>
+								<dd>a contact</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>b</b>
+									
+								</dt>
+								<dd>a contact</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> 0 if the contacts are the same; 1 if "a" is before "b"; -1 if "b" is before "a"</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".computeCustomFileAs"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmContact.</span><b>computeCustomFileAs</b>(customFileAs)
+					
+					</div>
+					<div class="description">
+						Computes the custom file as string by prepending "8:" to the given custom fileAs string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>customFileAs</b>
+									
+								</dt>
+								<dd>a set of contact attributes</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name format</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".computeFileAs"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmContact.</span><b>computeFileAs</b>(contact)
+					
+					</div>
+					<div class="description">
+						Figures out the filing string for the contact according to the chosen method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>|Hash}</span> <b>contact</b>
+									
+								</dt>
+								<dd>a contact or a hash of contact attributes</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="create"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>create</b>(attr, batchCmd, isAutoCreate)
+					
+					</div>
+					<div class="description">
+						Creates a contact from the given set of attributes. Used to create contacts on
+the fly (rather than by loading them). This method is called by a list's <code>create()</code>
+method.
+<p>
+If this is a GAL contact, we assume it is being added to the contact list.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>attr</b>
+									
+								</dt>
+								<dd>the attribute/value pairs for this contact</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command that contains this request</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>isAutoCreate</b>
+									
+								</dt>
+								<dd>true if this is a auto create and toast message should not be shown</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createFromDom"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span>
+					<span class="light">ZmContact.</span><b>createFromDom</b>(node, args)
+					
+					</div>
+					<div class="description">
+						Creates a contact from an XML node.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>node</b>
+									
+								</dt>
+								<dd>a "cn" XML node</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>args</b>
+									
+								</dt>
+								<dd>args to pass to the constructor</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> the contact</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="createFromVCard"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createFromVCard</b>(msgId, vcardPartId)
+					
+					</div>
+					<div class="description">
+						Creates a contct from a VCF part of a message.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>msgId</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>vcardPartId</b>
+									
+								</dt>
+								<dd>the vcard part id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fileAsCompanyName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmContact.</span><b>fileAsCompanyName</b>(name, company)
+					
+					</div>
+					<div class="description">
+						Name printing helper "Company (Name)".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the contact name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>company</b>
+									
+								</dt>
+								<dd>the company</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name format</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fileAsFirstLast"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmContact.</span><b>fileAsFirstLast</b>(first, last, fullname, nickname)
+					
+					</div>
+					<div class="description">
+						Name printing helper "First Last".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>first</b>
+									
+								</dt>
+								<dd>the first name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>last</b>
+									
+								</dt>
+								<dd>the last name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>fullname</b>
+									
+								</dt>
+								<dd>the fullname</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>nickname</b>
+									
+								</dt>
+								<dd>the nickname</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name format</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fileAsLastFirst"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmContact.</span><b>fileAsLastFirst</b>(first, last, fullname, nickname)
+					
+					</div>
+					<div class="description">
+						Name printing helper "Last, First".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>first</b>
+									
+								</dt>
+								<dd>the first name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>last</b>
+									
+								</dt>
+								<dd>the last name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>fullname</b>
+									
+								</dt>
+								<dd>the fullname</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>nickname</b>
+									
+								</dt>
+								<dd>the nickname</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name format</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fileAsNameCompany"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmContact.</span><b>fileAsNameCompany</b>(name, company)
+					
+					</div>
+					<div class="description">
+						Name printing helper "Name (Company)".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the contact name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>company</b>
+									
+								</dt>
+								<dd>the company</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name format</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAddressBook"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmAddrBook.html">ZmAddrBook</a>}</span>
+					<b>getAddressBook</b>()
+					
+					</div>
+					<div class="description">
+						Gets the address book.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmAddrBook.html">ZmAddrBook</a>}</span> the address book</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAllDLMembers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getAllDLMembers</b>(callback)
+					
+					</div>
+					<div class="description">
+						Returns a list of all the distribution list members for this contact.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>callback</b>
+									
+								</dt>
+								<dd>{AjxCallback}	callback to run with results</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAllGroupMembers"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>getAllGroupMembers</b>()
+					
+					</div>
+					<div class="description">
+						parses "groups" attr into an AjxEmailAddress with a few extra attributes (see ZmContactsHelper._wrapInlineContact)
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the group members or <code>null</code> if not group</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttendeeKey"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getAttendeeKey</b>(type, shortForm)
+					
+					</div>
+					<div class="description">
+						Gets display text for an attendee. Prefers name over email.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the attendee type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>shortForm</b>
+									
+								</dt>
+								<dd>if <code>true</code>, return only name or email</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the attendee</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttendeeText"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getAttendeeText</b>(type, shortForm)
+					
+					</div>
+					<div class="description">
+						Gets display text for an attendee. Prefers name over email.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the attendee type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>shortForm</b>
+									
+								</dt>
+								<dd>if <code>true</code>, return only name or email</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the attendee</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttr"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getAttr</b>(name)
+					
+					</div>
+					<div class="description">
+						Gets the attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the attribute name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getAttr"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object}</span>
+					<span class="light">ZmContact.</span><b>getAttr</b>(contact, attr)
+					
+					</div>
+					<div class="description">
+						Gets an attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the contact</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>attr</b>
+									
+								</dt>
+								<dd>the attribute</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the attribute value or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getAttributeName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmContact.</span><b>getAttributeName</b>(name, index)
+					
+					</div>
+					<div class="description">
+						Gets an indexed attribute name taking into account if the field
+with index 1 should append the "1" or not. Code should call this
+function in lieu of accessing <a href="../symbols/ZmContact.html#.IS_ADDONE">ZmContact.IS_ADDONE</a> directly.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>name</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>index</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttrs"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Hash}</span>
+					<b>getAttrs</b>(prefix)
+					
+					</div>
+					<div class="description">
+						Gets the contact attributes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>prefix</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if specified, only the the attributes that match the given prefix will be returned</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of attribute/value pairs</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getBuddy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getBuddy</b>()
+					
+					</div>
+					<div class="description">
+						Gets the IM buddy.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the IM buddy</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getCompanyField"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getCompanyField</b>()
+					
+					</div>
+					<div class="description">
+						Gets the company field. Company field has a getter b/c fileAs may be the Company name so
+company field should return "last, first" name instead *or* prepend the title
+if fileAs is not Company (assuming it exists).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the company</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDLMembers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getDLMembers</b>(offset, limit, callback)
+					
+					</div>
+					<div class="description">
+						Returns a list of distribution list members for this contact. Only the
+requested range is returned.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>offset</b>
+									
+								</dt>
+								<dd>{int}			offset into list to start at</dd>
+							
+								<dt>
+									<b>limit</b>
+									
+								</dt>
+								<dd>{int}			number of members to fetch and return</dd>
+							
+								<dt>
+									<b>callback</b>
+									
+								</dt>
+								<dd>{AjxCallback}	callback to run with results</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getEmail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getEmail</b>(asObj)
+					
+					</div>
+					<div class="description">
+						Gets the email address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>asObj</b>
+									
+								</dt>
+								<dd>if true, return an AjxEmailAddress</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the email address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getEmails"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getEmails</b>()
+					
+					</div>
+					<div class="description">
+						Gets the emails.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of all valid emails for this contact</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFields"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getFields</b>(field, sortByNameFunc)
+					
+					</div>
+					<div class="description">
+						Gets the fields.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>field</b>
+									
+								</dt>
+								<dd>the fields</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>sortByNameFunc</b>
+									<i>Optional</i>
+								</dt>
+								<dd>sort by function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of field name/value pairs</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFileAs"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFileAs</b>(lower)
+					
+					</div>
+					<div class="description">
+						Gets the filing string for this contact, computing it if necessary.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>lower</b>
+									
+								</dt>
+								<dd><code>true</code> to use lower case</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the file as string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFileAsNoName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFileAsNoName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the filing string for this contact, from the email address (used in case no name exists).
+todo - maybe return this from getFileAs, but there are a lot of callers to getFileAs, and not sure
+of the implications on all the user-cases.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the file as string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFolderId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFolderId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the folder id.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the folder id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFullName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFullName</b>(html)
+					
+					</div>
+					<div class="description">
+						Gets the full name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>html</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the full name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getGroupMembers"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>getGroupMembers</b>()
+					
+					</div>
+					<div class="description">
+						Gets the group members.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the group members or <code>null</code> if not group</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHeader"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getHeader</b>()
+					
+					</div>
+					<div class="description">
+						Gets the header.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the header</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHomeAddrField"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getHomeAddrField</b>(instance)
+					
+					</div>
+					<div class="description">
+						Gets the home address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>instance</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the home address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIcon"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIcon</b>(addrBook)
+					
+					</div>
+					<div class="description">
+						Gets the icon.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmAddrBook.html">ZmAddrBook</a>}</span> <b>addrBook</b>
+									
+								</dt>
+								<dd>address book of contact</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getId</b>(includeUserZid)
+					
+					</div>
+					<div class="description">
+						Returns the contact id.  If includeUserZid is true it will return the format zid:id
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>includeUserZid</b>
+									
+								</dt>
+								<dd>{boolean} true to include the zid prefix for the contact id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> contact id string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIMAddress"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getIMAddress</b>()
+					
+					</div>
+					<div class="description">
+						Gets the IM address.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the IM address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getImageUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getImageUrl</b>(maxWidth)
+					
+					</div>
+					<div class="description">
+						Get the image URL.
+
+maxWidth {int} max pixel width (optional - default 48, or pass ZmContact.NO_MAX_IMAGE_WIDTH if full size image is required)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>maxWidth</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the image URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getImPresence"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getImPresence</b>()
+					
+					</div>
+					<div class="description">
+						Gets the IM presence.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the presence</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getLookupEmail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getLookupEmail</b>(asObj)
+					
+					</div>
+					<div class="description">
+						Gets the lookup email address, when an contact object is located using email address we store
+the referred email address in this variable for easy lookup
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>asObj</b>
+									
+								</dt>
+								<dd>if true, return an AjxEmailAddress</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the lookup address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getNormalizedAttrs"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Hash}</span>
+					<span class="light">ZmContact.</span><b>getNormalizedAttrs</b>(attrs, prefix, ignore)
+					
+					</div>
+					<div class="description">
+						Normalizes the numbering of the given attribute names and
+returns a new object with the re-numbered attributes. For
+example, if the attributes contains a "foo2" but no "foo",
+then the "foo2" attribute will be renamed to "foo" in the
+returned object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>attrs</b>
+									
+								</dt>
+								<dd>a hash of attributes to normalize.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>prefix</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if specified, only the the attributes that match the given prefix will be returned</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>ignore</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if specified, the attributes that are present in the array will not be normalized</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of normalized attributes</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getNormalizedAttrs"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Hash}</span>
+					<b>getNormalizedAttrs</b>(prefix)
+					
+					</div>
+					<div class="description">
+						Gets a normalized set of attributes where the attribute
+names have been re-numbered as needed. For example, if the
+attributes contains a "foo2" but no "foo", then the "foo2"
+attribute will be renamed to "foo" in the returned object.
+<p>
+<strong>Note:</strong>
+This method is expensive so should be called once and
+cached temporarily as needed instead of being called
+for each normalized attribute that is needed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>prefix</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if specified, only the
+                       the attributes that match the given
+                       prefix will be returned.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of attribute/value pairs</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOtherAddrField"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOtherAddrField</b>(instance)
+					
+					</div>
+					<div class="description">
+						Gets the other address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>instance</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the other address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getParticipantRole"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getParticipantRole</b>()
+					
+					</div>
+					<div class="description">
+						gets the participant role.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getParticipantStatus"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getParticipantStatus</b>()
+					
+					</div>
+					<div class="description">
+						gets the participant status.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getPhone"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getPhone</b>()
+					
+					</div>
+					<div class="description">
+						Returns user's phone number
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> phone number</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getPrefix"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmContact.</span><b>getPrefix</b>(s)
+					
+					</div>
+					<div class="description">
+						returns the prefix of a string in the format "abc123". (would return "abc"). If the string is all number, it's a special case and returns the string itself. e.g. "234" would return "234".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>s</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getToolTip"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getToolTip</b>(email, isGal, hint)
+					
+					</div>
+					<div class="description">
+						Gets the tool tip for this contact.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>email</b>
+									
+								</dt>
+								<dd>the email address</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isGal</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>hint</b>
+									
+								</dt>
+								<dd>the hint text</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tool tip in HTML</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUnknownFields"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getUnknownFields</b>(sortByNameFunc)
+					
+					</div>
+					<div class="description">
+						Gets the unknown fields.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>sortByNameFunc</b>
+									<i>Optional</i>
+								</dt>
+								<dd>sort by function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of field name/value pairs</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getWorkAddrField"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getWorkAddrField</b>(instance)
+					
+					</div>
+					<div class="description">
+						Gets the work address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>instance</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the work address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="initFromEmail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initFromEmail</b>(email, strictName)
+					
+					</div>
+					<div class="description">
+						Initializes this contact using an email address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a>|String}</span> <b>email</b>
+									
+								</dt>
+								<dd>an email address or an email string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>strictName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not try to set name from user portion of address</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initFromPhone"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initFromPhone</b>(phone, field)
+					
+					</div>
+					<div class="description">
+						Initializes this contact using a phone number.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>phone</b>
+									
+								</dt>
+								<dd>the phone string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>field</b>
+									
+								</dt>
+								<dd>the field or company phone if <code>null</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isDistributionList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isDistributionList</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact is a DL.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if a group</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isEmpty"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isEmpty</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact attributes are empty.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if empty</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isGroup"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isGroup</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact is a group.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if a group</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isInTrash"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Boolean}</span>
+					<span class="light">ZmContact.</span><b>isInTrash</b>(contact)
+					
+					</div>
+					<div class="description">
+						Checks if the contact is in the trash.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the contact</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if in trash</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isLocked"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isLocked</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact is locked. This is different for DLs than read-only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if read-only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact is read-only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if read-only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isShared"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isShared</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the contact is shared.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if shared</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="modify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>modify</b>(attr, callback, isAutoSave, batchCmd)
+					
+					</div>
+					<div class="description">
+						Updates contact attributes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>attr</b>
+									
+								</dt>
+								<dd>a set of attributes and new values</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>isAutoSave</b>
+									
+								</dt>
+								<dd>true if it is a auto save and toast should not be displayed.</dd>
+							
+								<dt>
+									<b>batchCmd</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAttr"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeAttr</b>(name)
+					
+					</div>
+					<div class="description">
+						Removes the attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the attribute name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setAttr"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmContact.</span><b>setAttr</b>(contact, attr, value)
+					
+					</div>
+					<div class="description">
+						Sets the attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the contact</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>attr</b>
+									
+								</dt>
+								<dd>the attribute</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the attribute value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setAttr"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAttr</b>(name, value)
+					
+					</div>
+					<div class="description">
+						Sets the attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the attribute name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>the attribute value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setParticipantRole"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setParticipantRole</b>(value)
+					
+					</div>
+					<div class="description">
+						Sets the participant role.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>the participant role value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setParticipantStatus"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setParticipantStatus</b>(value)
+					
+					</div>
+					<div class="description">
+						Sets the participant status.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>the participant status value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Fri May 24 2013 12:52:35 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

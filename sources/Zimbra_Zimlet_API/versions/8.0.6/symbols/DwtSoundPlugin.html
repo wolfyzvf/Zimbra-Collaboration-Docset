@@ -1,0 +1,922 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtSoundPlugin</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtSoundPlugin
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtControl.html">DwtControl</a>.<br />
+				
+				<br>
+				This class represents a widget that plays sounds. It uses a plugin such as Quick Time
+or Windows Media to play the sounds and to display player controls. Do not invoke the
+constructor directly. Instead use the create() method, which will choose the right
+concrete class based on available plugins.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtSoundPlugin.js.html">DwtSoundPlugin.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtSoundPlugin.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtSoundPlugin.html#constructor">DwtSoundPlugin</a></b>(params)
+							</div>
+							<div class="description">Creates a sound plugin control.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtSoundPlugin.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtSoundPlugin.<b><a href="../symbols/DwtSoundPlugin.html#.MAX_VOLUME">MAX_VOLUME</a></b>
+								</div>
+								<div class="description">Defines the "max" volume.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtSoundPlugin.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#addChangeListener">addChangeListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a change listener to monitor the status of the sound being played.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtSoundPlugin.<b><a href="../symbols/DwtSoundPlugin.html#.create">create</a></b>(params)
+								</div>
+								<div class="description">Factory method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtSoundPlugin.<b><a href="../symbols/DwtSoundPlugin.html#.isPluginMissing">isPluginMissing</a></b>()
+								</div>
+								<div class="description">Checks if the plugin is missing.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtSoundPlugin.<b><a href="../symbols/DwtSoundPlugin.html#.isScriptingBroken">isScriptingBroken</a></b>()
+								</div>
+								<div class="description">Checks if scripting is broken.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#pause">pause</a></b>()
+								</div>
+								<div class="description">Pauses the sound.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#play">play</a></b>()
+								</div>
+								<div class="description">Plays the sound.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#rewind">rewind</a></b>()
+								</div>
+								<div class="description">Rewinds the sound.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#setTime">setTime</a></b>(time)
+								</div>
+								<div class="description">Sets the current time in milliseconds.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSoundPlugin.html#setVolume">setVolume</a></b>(volume)
+								</div>
+								<div class="description">Sets the volume.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/DwtControl.html">DwtControl</a>: </dt><dd><a href="../symbols/DwtControl.html#addClassName">addClassName</a>, <a href="../symbols/DwtControl.html#addControlListener">addControlListener</a>, <a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a>, <a href="../symbols/DwtControl.html#addListener">addListener</a>, <a href="../symbols/DwtControl.html#appendElement">appendElement</a>, <a href="../symbols/DwtControl.html#clearContent">clearContent</a>, <a href="../symbols/DwtControl.html#clearHandler">clearHandler</a>, <a href="../symbols/DwtControl.html#condClassName">condClassName</a>, <a href="../symbols/DwtControl.html#delClassName">delClassName</a>, <a href="../symbols/DwtControl.html#dispose">dispose</a>, <a href="../symbols/DwtControl.html#focus">focus</a>, <a href="../symbols/DwtControl.html#getBounds">getBounds</a>, <a href="../symbols/DwtControl.html#getClassName">getClassName</a>, <a href="../symbols/DwtControl.html#getCursor">getCursor</a>, <a href="../symbols/DwtControl.html#getData">getData</a>, <a href="../symbols/DwtControl.html#getDragBox">getDragBox</a>, <a href="../symbols/DwtControl.html#getDragSource">getDragSource</a>, <a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a>, <a href="../symbols/DwtControl.html#getEnabled">getEnabled</a>, <a href="../symbols/DwtControl.html#getH">getH</a>, <a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a>, <a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a>, <a href="../symbols/DwtControl.html#getLocation">getLocation</a>, <a href="../symbols/DwtControl.html#getPosition">getPosition</a>, <a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a>, <a href="../symbols/DwtControl.html#getSize">getSize</a>, <a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a>, <a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a>, <a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a>, <a href="../symbols/DwtControl.html#getVisibility">getVisibility</a>, <a href="../symbols/DwtControl.html#getVisible">getVisible</a>, <a href="../symbols/DwtControl.html#getW">getW</a>, <a href="../symbols/DwtControl.html#getX">getX</a>, <a href="../symbols/DwtControl.html#getXW">getXW</a>, <a href="../symbols/DwtControl.html#getY">getY</a>, <a href="../symbols/DwtControl.html#getYH">getYH</a>, <a href="../symbols/DwtControl.html#getZIndex">getZIndex</a>, <a href="../symbols/DwtControl.html#hasFocus">hasFocus</a>, <a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a>, <a href="../symbols/DwtControl.html#isDisposed">isDisposed</a>, <a href="../symbols/DwtControl.html#isInitialized">isInitialized</a>, <a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a>, <a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a>, <a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a>, <a href="../symbols/DwtControl.html#preventSelection">preventSelection</a>, <a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a>, <a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a>, <a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a>, <a href="../symbols/DwtControl.html#removeListener">removeListener</a>, <a href="../symbols/DwtControl.html#reparent">reparent</a>, <a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a>, <a href="../symbols/DwtControl.html#replaceElement">replaceElement</a>, <a href="../symbols/DwtControl.html#setBounds">setBounds</a>, <a href="../symbols/DwtControl.html#setClassName">setClassName</a>, <a href="../symbols/DwtControl.html#setContent">setContent</a>, <a href="../symbols/DwtControl.html#setCursor">setCursor</a>, <a href="../symbols/DwtControl.html#setData">setData</a>, <a href="../symbols/DwtControl.html#setDisplay">setDisplay</a>, <a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a>, <a href="../symbols/DwtControl.html#setDragBox">setDragBox</a>, <a href="../symbols/DwtControl.html#setDragSource">setDragSource</a>, <a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a>, <a href="../symbols/DwtControl.html#setEnabled">setEnabled</a>, <a href="../symbols/DwtControl.html#setHandler">setHandler</a>, <a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a>, <a href="../symbols/DwtControl.html#setLocation">setLocation</a>, <a href="../symbols/DwtControl.html#setPosition">setPosition</a>, <a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a>, <a href="../symbols/DwtControl.html#setSize">setSize</a>, <a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a>, <a href="../symbols/DwtControl.html#setVisibility">setVisibility</a>, <a href="../symbols/DwtControl.html#setVisible">setVisible</a>, <a href="../symbols/DwtControl.html#setZIndex">setZIndex</a>, <a href="../symbols/DwtControl.html#showAlert">showAlert</a>, <a href="../symbols/DwtControl.html#zShow">zShow</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtSoundPlugin</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a sound plugin control.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.width</b>
+								
+							</dt>
+								<dd>the width of player</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.height</b>
+								
+							</dt>
+								<dd>the height of player</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.volume</b>
+								
+							</dt>
+								<dd>volume on a scale of 0 - <a href="../symbols/DwtSoundPlugin.html#.MAX_VOLUME">DwtSoundPlugin.MAX_VOLUME</a></dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.url</b>
+								
+							</dt>
+								<dd>{String} the sound url</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.offscreen</b>
+								<i>Optional</i>
+							</dt>
+								<dd>{Boolean} if <code>true</code>, the player is initially offscreen. Use an appropriate position style
+							  if you set this to <code>true</code>. (This reduces flicker, and a tendency for the QT player
+							  to float in the wrong place when it's first created)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.className</b>
+								<i>Optional</i>
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.posStyle</b>
+								<i>Optional, Default: DwtControl.STATIC_STYLE</i>
+							</dt>
+								<dd>the positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".MAX_VOLUME"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtSoundPlugin.</span><b>MAX_VOLUME</b>
+					
+					</div>
+					<div class="description">
+						Defines the "max" volume.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addChangeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a change listener to monitor the status of the sound being played.
+The listener will be passed an event object with the following fields:
+<ul>
+<li>status, a constant representing the loaded state of the sound</li>
+<li>duration, the length of the sound</li>
+<li>time, the current time of the sound</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".create"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtSoundPlugin.</span><b>create</b>(params)
+					
+					</div>
+					<div class="description">
+						Factory method. Creates an appropriate sound player for whatever plugins are or are not installed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>params.parent</b>
+									
+								</dt>
+								<dd>the parent widget</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>params.width</b>
+									
+								</dt>
+								<dd>the width of player</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>params.height</b>
+									
+								</dt>
+								<dd>the height of player</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>params.volume</b>
+									
+								</dt>
+								<dd>volume on a scale of 0 - <a href="../symbols/DwtSoundPlugin.html#.MAX_VOLUME">DwtSoundPlugin.MAX_VOLUME</a></dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.url</b>
+									
+								</dt>
+								<dd>{String} the sound url</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.offscreen</b>
+									<i>Optional</i>
+								</dt>
+								<dd>{Boolean} if <code>true</code>, the player is initially offscreen. Use an appropriate position style
+							  if you set this to <code>true</code>. (This reduces flicker, and a tendency for the QT player
+							  to float in the wrong place when it's first created)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.className</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the CSS class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.posStyle</b>
+									<i>Optional, Default: DwtControl.STATIC_STYLE</i>
+								</dt>
+								<dd>the positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isPluginMissing"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{boolean}</span>
+					<span class="light">DwtSoundPlugin.</span><b>isPluginMissing</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the plugin is missing.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if plugin is missing</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isScriptingBroken"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{boolean}</span>
+					<span class="light">DwtSoundPlugin.</span><b>isScriptingBroken</b>()
+					
+					</div>
+					<div class="description">
+						Checks if scripting is broken.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if scripting is broken</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="pause"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>pause</b>()
+					
+					</div>
+					<div class="description">
+						Pauses the sound.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="play"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>play</b>()
+					
+					</div>
+					<div class="description">
+						Plays the sound.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="rewind"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>rewind</b>()
+					
+					</div>
+					<div class="description">
+						Rewinds the sound.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTime"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTime</b>(time)
+					
+					</div>
+					<div class="description">
+						Sets the current time in milliseconds.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>time</b>
+									
+								</dt>
+								<dd>the time (in milliseconds)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setVolume"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setVolume</b>(volume)
+					
+					</div>
+					<div class="description">
+						Sets the volume.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>volume</b>
+									
+								</dt>
+								<dd>the volume</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtSoundPlugin.html#.MAX_VOLUME">DwtSoundPlugin.MAX_VOLUME</a></dd>
+							
+							</dl>
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Dec 03 2013 11:11:40 GMT-0800 (PST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

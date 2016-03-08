@@ -1,0 +1,950 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmObjectManager</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmObjectManager
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class is used to high-light objects within a given view.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmObjectManager.js.html">ZmObjectManager.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmObjectManager.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmObjectManager.html#constructor">ZmObjectManager</a></b>(view, selectCallback, skipHandlers)
+							</div>
+							<div class="description">Creates an object manager.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmObjectManager.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#addHandler">addHandler</a></b>(h, type, priority)
+								</div>
+								<div class="description">Adds the handler.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#findObjects">findObjects</a></b>(content, htmlEncode, type, isTextMsg, options)
+								</div>
+								<div class="description">Finds objects.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#getHandlers">getHandlers</a></b>()
+								</div>
+								<div class="description">Gets the handlers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#getImageAttachmentHandler">getImageAttachmentHandler</a></b>()
+								</div>
+								<div class="description">Gets the image attachment handler.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#objectsCount">objectsCount</a></b>()
+								</div>
+								<div class="description">Gets the count of objects.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmObjectManager.<b><a href="../symbols/ZmObjectManager.html#.registerHandler">registerHandler</a></b>(obj, type, priority)
+								</div>
+								<div class="description">Registers the handler.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#removeHandler">removeHandler</a></b>(h, type)
+								</div>
+								<div class="description">Removes the handler.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#reset">reset</a></b>()
+								</div>
+								<div class="description">Resets the objects.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#setHandlerAttr">setHandlerAttr</a></b>(type, name, value)
+								</div>
+								<div class="description">Sets handler attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#setView">setView</a></b>(view)
+								</div>
+								<div class="description">Sets the view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#sortHandlers">sortHandlers</a></b>()
+								</div>
+								<div class="description">Sorts the handlers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmObjectManager.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmObjectManager</b>(view, selectCallback, skipHandlers)
+				</div>
+				
+				<div class="description">
+					Creates an object manager.
+					<br /><i>Author: </i>Kevin Henrikson.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>view</b>
+								
+							</dt>
+								<dd>the view this manager is going to high-light for</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span>  <b>selectCallback</b>
+								
+							</dt>
+								<dd>the callback triggered when user clicks on high-light object (provide if you want to do something before the clicked on object opens its corresponding view)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>skipHandlers</b>
+								
+							</dt>
+								<dd><code>true</code> to avoid adding the standard handlers</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addHandler</b>(h, type, priority)
+					
+					</div>
+					<div class="description">
+						Adds the handler.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmObjectHandler.html">ZmObjectHandler</a>}</span> <b>h</b>
+									
+								</dt>
+								<dd>the handler</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>priority</b>
+									
+								</dt>
+								<dd>the priority</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="findObjects"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>findObjects</b>(content, htmlEncode, type, isTextMsg, options)
+					
+					</div>
+					<div class="description">
+						Finds objects.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>content</b>
+									
+								</dt>
+								<dd>the content</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>htmlEncode</b>
+									
+								</dt>
+								<dd><code>true</code> to HTML encode the content</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isTextMsg</b>
+									
+								</dt>
+								<dd><code>true</code> if is text msg</dd>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>options</b>
+									
+								</dt>
+								<dd>arbitrary options to pass to handler</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHandlers"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getHandlers</b>()
+					
+					</div>
+					<div class="description">
+						Gets the handlers.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of <a href="../symbols/ZmObjectHandler.html">ZmObjectHandler</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getImageAttachmentHandler"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{ZmImageAttachmentObjectHandler}</span>
+					<b>getImageAttachmentHandler</b>()
+					
+					</div>
+					<div class="description">
+						Gets the image attachment handler.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{ZmImageAttachmentObjectHandler}</span> the handler</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="objectsCount"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{int}</span>
+					<b>objectsCount</b>()
+					
+					</div>
+					<div class="description">
+						Gets the count of objects.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> the count</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerHandler"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmObjectManager.</span><b>registerHandler</b>(obj, type, priority)
+					
+					</div>
+					<div class="description">
+						Registers the handler.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>priority</b>
+									
+								</dt>
+								<dd>the priority</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeHandler</b>(h, type)
+					
+					</div>
+					<div class="description">
+						Removes the handler.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmObjectHandler.html">ZmObjectHandler</a>}</span> <b>h</b>
+									
+								</dt>
+								<dd>the handler</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="reset"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reset</b>()
+					
+					</div>
+					<div class="description">
+						Resets the objects.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setHandlerAttr"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setHandlerAttr</b>(type, name, value)
+					
+					</div>
+					<div class="description">
+						Sets handler attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the attribute name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setView</b>(view)
+					
+					</div>
+					<div class="description">
+						Sets the view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sortHandlers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sortHandlers</b>()
+					
+					</div>
+					<div class="description">
+						Sorts the handlers.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:45 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

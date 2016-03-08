@@ -1,0 +1,1410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmFolder</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmFolder
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>.<br />
+				
+				<br>
+				This class represents a folder, which may contain mail. At some point, folders may be
+able to contain contacts and/or appointments.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmFolder.js.html">ZmFolder.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmFolder.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmFolder.html#constructor">ZmFolder</a></b>(params)
+							</div>
+							<div class="description">Creates a folder.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmFolder.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFolder.<b><a href="../symbols/ZmFolder.html#.checkName">checkName</a></b>(name, parent)
+								</div>
+								<div class="description">Checks a folder name for validity.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#createQuery">createQuery</a></b>(pathOnly)
+								</div>
+								<div class="description">Creates a query.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#getIcon">getIcon</a></b>()
+								</div>
+								<div class="description">Gets the icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFolder.<b><a href="../symbols/ZmFolder.html#.getIdForName">getIdForName</a></b>(folderName)
+								</div>
+								<div class="description">Gets the "well-known" ID for a given folder name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#getName">getName</a></b>(showUnread, maxLength, noMarkup, useSystemName)
+								</div>
+								<div class="description">Gets the name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#hasFeeds">hasFeeds</a></b>()
+								</div>
+								<div class="description">Checks folders recursively for feeds.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#hasSearch">hasSearch</a></b>(id)
+								</div>
+								<div class="description">Checks if the folder has search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#isHardDelete">isHardDelete</a></b>()
+								</div>
+								<div class="description">Checks if this folder required hard delete.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#isInSpam">isInSpam</a></b>()
+								</div>
+								<div class="description">Checks if this folder is in spam folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#isOutbound">isOutbound</a></b>()
+								</div>
+								<div class="description">Returns true if this folder is for outbound mail.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#mayContain">mayContain</a></b>(what, folderType, ignoreExisting)
+								</div>
+								<div class="description">Returns true if the given object(s) may be placed in this folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#move">move</a></b>(newParent, noUndo, actionText, batchCmd)
+								</div>
+								<div class="description">Moves a folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#notifyCreate">notifyCreate</a></b>(obj, elementType, skipNotify)
+								</div>
+								<div class="description">Handles the creation of a folder or search folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#notifyModify">notifyModify</a></b>(obj)
+								</div>
+								<div class="description">Provide some extra info in the change event about the former state
+of the folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFolder.<b><a href="../symbols/ZmFolder.html#.sortCompare">sortCompare</a></b>(folderA, folderB)
+								</div>
+								<div class="description">Comparison function for folders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFolder.<b><a href="../symbols/ZmFolder.html#.sortComparePath">sortComparePath</a></b>(folderA, folderB)
+								</div>
+								<div class="description">Compares the folders by path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#supportsPublicAccess">supportsPublicAccess</a></b>()
+								</div>
+								<div class="description">Checks if the folder supports public access.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFolder.html#toggleSyncOffline">toggleSyncOffline</a></b>(syncIt, callback, errorCallback)
+								</div>
+								<div class="description">Sends <code>&lt;FolderActionRequest&gt;</code> to turn sync'ing on/off for IMAP folders.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>: </dt><dd><a href="../symbols/ZmOrganizer.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmOrganizer.html#addShare">addShare</a>, <a href="../symbols/ZmOrganizer.html#clearShares">clearShares</a>, <a href="../symbols/ZmOrganizer.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmOrganizer.html#empty">empty</a>, <a href="../symbols/ZmOrganizer.html#getAccount">getAccount</a>, <a href="../symbols/ZmOrganizer.html#getById">getById</a>, <a href="../symbols/ZmOrganizer.html#getByName">getByName</a>, <a href="../symbols/ZmOrganizer.html#getByPath">getByPath</a>, <a href="../symbols/ZmOrganizer.html#getByType">getByType</a>, <a href="../symbols/ZmOrganizer.html#getChild">getChild</a>, <a href="../symbols/ZmOrganizer.html#getChildByPath">getChildByPath</a>, <a href="../symbols/ZmOrganizer.html#getColor">getColor</a>, <a href="../symbols/ZmOrganizer.html#getDataSources">getDataSources</a>, <a href="../symbols/ZmOrganizer.html#getFolder">getFolder</a>, <a href="../symbols/ZmOrganizer.html#getIconWithColor">getIconWithColor</a>, <a href="../symbols/ZmOrganizer.html#getMainShare">getMainShare</a>, <a href="../symbols/ZmOrganizer.html#getOwner">getOwner</a>, <a href="../symbols/ZmOrganizer.html#getOwnerRestUrl">getOwnerRestUrl</a>, <a href="../symbols/ZmOrganizer.html#getPath">getPath</a>, <a href="../symbols/ZmOrganizer.html#getRemoteId">getRemoteId</a>, <a href="../symbols/ZmOrganizer.html#getRestUrl">getRestUrl</a>, <a href="../symbols/ZmOrganizer.html#getSearchPath">getSearchPath</a>, <a href="../symbols/ZmOrganizer.html#getShares">getShares</a>, <a href="../symbols/ZmOrganizer.html#getSyncUrl">getSyncUrl</a>, <a href="../symbols/ZmOrganizer.html#getToolTip">getToolTip</a>, <a href="../symbols/ZmOrganizer.html#getUrl">getUrl</a>, <a href="../symbols/ZmOrganizer.html#hasChild">hasChild</a>, <a href="../symbols/ZmOrganizer.html#hasPrivateAccess">hasPrivateAccess</a>, <a href="../symbols/ZmOrganizer.html#isAdmin">isAdmin</a>, <a href="../symbols/ZmOrganizer.html#isChildOf">isChildOf</a>, <a href="../symbols/ZmOrganizer.html#isColorChanged">isColorChanged</a>, <a href="../symbols/ZmOrganizer.html#isDataSource">isDataSource</a>, <a href="../symbols/ZmOrganizer.html#isFeed">isFeed</a>, <a href="../symbols/ZmOrganizer.html#isInTrash">isInTrash</a>, <a href="../symbols/ZmOrganizer.html#isPermAllowed">isPermAllowed</a>, <a href="../symbols/ZmOrganizer.html#isReadOnly">isReadOnly</a>, <a href="../symbols/ZmOrganizer.html#isRemote">isRemote</a>, <a href="../symbols/ZmOrganizer.html#isSystem">isSystem</a>, <a href="../symbols/ZmOrganizer.html#isUnder">isUnder</a>, <a href="../symbols/ZmOrganizer.html#markAllRead">markAllRead</a>, <a href="../symbols/ZmOrganizer.html#notifyDelete">notifyDelete</a>, <a href="../symbols/ZmOrganizer.html#removeChangeListener">removeChangeListener</a>, <a href="../symbols/ZmOrganizer.html#rename">rename</a>, <a href="../symbols/ZmOrganizer.html#reparent">reparent</a>, <a href="../symbols/ZmOrganizer.html#setColor">setColor</a>, <a href="../symbols/ZmOrganizer.html#setGlobalMarkRead">setGlobalMarkRead</a>, <a href="../symbols/ZmOrganizer.html#setRetentionPolicy">setRetentionPolicy</a>, <a href="../symbols/ZmOrganizer.html#setRGB">setRGB</a>, <a href="../symbols/ZmOrganizer.html#size">size</a>, <a href="../symbols/ZmOrganizer.html#supportsPrivatePermission">supportsPrivatePermission</a>, <a href="../symbols/ZmOrganizer.html#supportsSharing">supportsSharing</a>, <a href="../symbols/ZmOrganizer.html#sync">sync</a>, <a href="../symbols/ZmOrganizer.html#update">update</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmFolder</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a folder.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.id</b>
+								
+							</dt>
+								<dd>the numeric ID</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.name</b>
+								
+							</dt>
+								<dd>the name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmTree.html">ZmTree</a>}</span>  <b>params.tree</b>
+								
+							</dt>
+								<dd>the tree model that contains this folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.numUnread</b>
+								
+							</dt>
+								<dd>the number of unread items for this folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.numTotal</b>
+								
+							</dt>
+								<dd>the number of items for this folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.sizeTotal</b>
+								
+							</dt>
+								<dd>the total size of folder's items</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.url</b>
+								
+							</dt>
+								<dd>the URL for this folder's feed</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.owner</b>
+								
+							</dt>
+								<dd>the Owner for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.oname</b>
+								
+							</dt>
+								<dd>the Owner's name for this organizer, if remote folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.zid</b>
+								
+							</dt>
+								<dd>the Zimbra ID of owner, if remote folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.rid</b>
+								
+							</dt>
+								<dd>the Remote ID of organizer, if remote folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.restUrl</b>
+								
+							</dt>
+								<dd>the REST URL of this organizer</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".checkName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmFolder.</span><b>checkName</b>(name, parent)
+					
+					</div>
+					<div class="description">
+						Checks a folder name for validity. Note: that a name, rather than a path, is checked.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the folder name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the parent folder</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> an error message if the name is invalid; <code>null</code>if the name is valid.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="createQuery"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>createQuery</b>(pathOnly)
+					
+					</div>
+					<div class="description">
+						Creates a query.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>pathOnly</b>
+									
+								</dt>
+								<dd><code>true</code> if to use the path only</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the query</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIcon"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIcon</b>()
+					
+					</div>
+					<div class="description">
+						Gets the icon.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getIdForName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmFolder.</span><b>getIdForName</b>(folderName)
+					
+					</div>
+					<div class="description">
+						Gets the "well-known" ID for a given folder name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderName</b>
+									
+								</dt>
+								<dd>the folder name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getName</b>(showUnread, maxLength, noMarkup, useSystemName)
+					
+					</div>
+					<div class="description">
+						Gets the name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>showUnread</b>
+									
+								</dt>
+								<dd><code>true</code> to show unread</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>maxLength</b>
+									
+								</dt>
+								<dd>the max length</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noMarkup</b>
+									
+								</dt>
+								<dd><code>true</code> to not include markup</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>useSystemName</b>
+									
+								</dt>
+								<dd><code>true</code> to use the system name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasFeeds"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasFeeds</b>()
+					
+					</div>
+					<div class="description">
+						Checks folders recursively for feeds.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> for feeds</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasSearch"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasSearch</b>(id)
+					
+					</div>
+					<div class="description">
+						Checks if the folder has search.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if has search</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isHardDelete"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isHardDelete</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this folder required hard delete.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if deleting items w/in this folder should be hard deleted.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isInSpam"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isInSpam</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this folder is in spam folder.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if in spam</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isOutbound"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>isOutbound</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if this folder is for outbound mail.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="mayContain"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>mayContain</b>(what, folderType, ignoreExisting)
+					
+					</div>
+					<div class="description">
+						Returns true if the given object(s) may be placed in this folder.
+
+If the object is a folder, check that:
+<ul>
+<li>We are not the immediate parent of the folder</li>
+<li>We are not a child of the folder</li>
+<li>We are not Spam or Drafts</li>
+<li>We don't already have a child with the folder's name (unless we are in Trash)</li>
+<li>We are not moving a regular folder into a search folder</li>
+<li>We are not moving a search folder into the Folders container</li>
+<li>We are not moving a folder into itself</li>
+</ul>
+
+If the object is an item or a list or items, check that:
+<ul>
+<li>We are not the Folders container</li>
+<li>We are not a search folder</li>
+<li>The items aren't already in this folder</li>
+<li>A contact can only be moved to Trash</li>
+<li> A draft can be moved to Trash or Drafts</li>
+<li>Non-drafts cannot be moved to Drafts</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>what</b>
+									
+								</dt>
+								<dd>the object(s) to possibly move into this folder (item or organizer)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>folderType</b>
+									
+								</dt>
+								<dd>the contextual folder type (for tree view root items)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>ignoreExisting</b>
+									
+								</dt>
+								<dd>Set to true if checks for item presence in the folder should be skipped (e.g. when recovering deleted items)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="move"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>move</b>(newParent, noUndo, actionText, batchCmd)
+					
+					</div>
+					<div class="description">
+						Moves a folder. A user can move a folder to "Trash" even if there is already a folder in "Trash" with the
+same name. A new name will be generated for this folder and a rename is performed before the move.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>newParent</b>
+									
+								</dt>
+								<dd>the new parent</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>noUndo</b>
+									
+								</dt>
+								<dd>true if the action should not be undoable</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>actionText</b>
+									
+								</dt>
+								<dd>optional custom action text to display as summary</dd>
+							
+								<dt>
+									<b>batchCmd</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyCreate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyCreate</b>(obj, elementType, skipNotify)
+					
+					</div>
+					<div class="description">
+						Handles the creation of a folder or search folder. This folder is the parent
+of the newly created folder. A folder may hold a folder or search folder,
+and a search folder may hold another search folder.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>a JS folder object from the notification</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>elementType</b>
+									
+								</dt>
+								<dd>the type of containing JSON element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd><code>true</code> if notifying client should be ignored</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyModify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyModify</b>(obj)
+					
+					</div>
+					<div class="description">
+						Provide some extra info in the change event about the former state
+of the folder. Note that we null out the field after setting up the
+change event, so the notification isn't also sent when the parent
+class's method is called.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>a "modified" notification</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".sortCompare"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmFolder.</span><b>sortCompare</b>(folderA, folderB)
+					
+					</div>
+					<div class="description">
+						Comparison function for folders. Intended for use on a list of user folders
+through a call to <code>Array.sort()</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>folderA</b>
+									
+								</dt>
+								<dd>a folder</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>folderB</b>
+									
+								</dt>
+								<dd>a folder</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> 0 if the folders match</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".sortComparePath"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmFolder.</span><b>sortComparePath</b>(folderA, folderB)
+					
+					</div>
+					<div class="description">
+						Compares the folders by path.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>folderA</b>
+									
+								</dt>
+								<dd>a folder</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>}</span> <b>folderB</b>
+									
+								</dt>
+								<dd>a folder</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> 0 if the folders match</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="supportsPublicAccess"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>supportsPublicAccess</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the folder supports public access. Override this method if you dont want a folder to be accessed publicly
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> always returns <code>true</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="toggleSyncOffline"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>toggleSyncOffline</b>(syncIt, callback, errorCallback)
+					
+					</div>
+					<div class="description">
+						Sends <code>&lt;FolderActionRequest&gt;</code> to turn sync'ing on/off for IMAP folders. Currently,
+this is only used by Offline/ZDesktop client
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>syncIt</b>
+									
+								</dt>
+								<dd>the flag indicating whether to sync this folder</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to call once server request is successful</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback to call if server returns error</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Apr 08 2014 13:13:19 GMT-0500 (CDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

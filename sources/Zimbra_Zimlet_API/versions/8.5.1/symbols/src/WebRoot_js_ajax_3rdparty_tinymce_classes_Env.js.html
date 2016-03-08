@@ -1,0 +1,143 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Env.js
+<span class='line'>  3</span>  *
+<span class='line'>  4</span>  * Copyright, Moxiecode Systems AB
+<span class='line'>  5</span>  * Released under LGPL License.
+<span class='line'>  6</span>  *
+<span class='line'>  7</span>  * License: http://www.tinymce.com/license
+<span class='line'>  8</span>  * Contributing: http://www.tinymce.com/contributing
+<span class='line'>  9</span>  */</span><span class="WHIT">
+<span class='line'> 10</span> 
+<span class='line'> 11</span> </span><span class="COMM">/**
+<span class='line'> 12</span>  * This class contains various environment constants like browser versions etc.
+<span class='line'> 13</span>  * Normally you don't want to sniff specific browser versions but sometimes you have
+<span class='line'> 14</span>  * to when it's impossible to feature detect. So use this with care.
+<span class='line'> 15</span>  *
+<span class='line'> 16</span>  * @class tinymce.Env
+<span class='line'> 17</span>  * @static
+<span class='line'> 18</span>  */</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="NAME">define</span><span class="PUNC">(</span><span class="STRN">"tinymce/Env"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">nav</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">navigator</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">userAgent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nav.userAgent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">opera</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">webkit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ie11</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">gecko</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">mac</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">iDevice</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="WHIT">	</span><span class="NAME">opera</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">window.opera</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">window.opera.buildNumber</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">	</span><span class="NAME">webkit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/WebKit/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">userAgent</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">	</span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">webkit</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">opera</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/MSIE/gi</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">userAgent</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/Explorer/gi</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">nav.appName</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">	</span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/MSIE (\w+)\./</span><span class="PUNC">.</span><span class="NAME">exec</span><span class="PUNC">(</span><span class="NAME">userAgent</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">1</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">	</span><span class="NAME">ie11</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">userAgent.indexOf</span><span class="PUNC">(</span><span class="STRN">'Trident/'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">userAgent.indexOf</span><span class="PUNC">(</span><span class="STRN">'rv:'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">nav.appName.indexOf</span><span class="PUNC">(</span><span class="STRN">'Netscape'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NUMB">11</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">	</span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">ie11</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">	</span><span class="NAME">gecko</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">webkit</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">ie11</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/Gecko/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">userAgent</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">	</span><span class="NAME">mac</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">userAgent.indexOf</span><span class="PUNC">(</span><span class="STRN">'Mac'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">	</span><span class="NAME">iDevice</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/(iPad|iPhone)/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">userAgent</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 32</span> 
+<span class='line'> 33</span> </span><span class="WHIT">	</span><span class="COMM">// Is a iPad/iPhone and not on iOS5 sniff the WebKit version since older iOS WebKit versions</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">	</span><span class="COMM">// says it has contentEditable support but there is no visible caret.</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">contentEditable</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">iDevice</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">userAgent.match</span><span class="PUNC">(</span><span class="REGX">/AppleWebKit\/(\d*)/</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">1</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">>=</span><span class="WHIT"> </span><span class="NUMB">534</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 36</span> 
+<span class='line'> 37</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 39</span> 		 * Constant that is true if the browser is Opera.
+<span class='line'> 40</span> 		 *
+<span class='line'> 41</span> 		 * @property opera
+<span class='line'> 42</span> 		 * @type Boolean
+<span class='line'> 43</span> 		 * @final
+<span class='line'> 44</span> 		 */</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">		</span><span class="NAME">opera</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">opera</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 48</span> 		 * Constant that is true if the browser is WebKit (Safari/Chrome).
+<span class='line'> 49</span> 		 *
+<span class='line'> 50</span> 		 * @property webKit
+<span class='line'> 51</span> 		 * @type Boolean
+<span class='line'> 52</span> 		 * @final
+<span class='line'> 53</span> 		 */</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="WHIT">		</span><span class="NAME">webkit</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">webkit</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 55</span> 
+<span class='line'> 56</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 57</span> 		 * Constant that is more than zero if the browser is IE.
+<span class='line'> 58</span> 		 *
+<span class='line'> 59</span> 		 * @property ie
+<span class='line'> 60</span> 		 * @type Boolean
+<span class='line'> 61</span> 		 * @final
+<span class='line'> 62</span> 		 */</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">		</span><span class="NAME">ie</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 64</span> 
+<span class='line'> 65</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 66</span> 		 * Constant that is true if the browser is Gecko.
+<span class='line'> 67</span> 		 *
+<span class='line'> 68</span> 		 * @property gecko
+<span class='line'> 69</span> 		 * @type Boolean
+<span class='line'> 70</span> 		 * @final
+<span class='line'> 71</span> 		 */</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">		</span><span class="NAME">gecko</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">gecko</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 73</span> 
+<span class='line'> 74</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 75</span> 		 * Constant that is true if the os is Mac OS.
+<span class='line'> 76</span> 		 *
+<span class='line'> 77</span> 		 * @property mac
+<span class='line'> 78</span> 		 * @type Boolean
+<span class='line'> 79</span> 		 * @final
+<span class='line'> 80</span> 		 */</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">		</span><span class="NAME">mac</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">mac</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 82</span> 
+<span class='line'> 83</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 84</span> 		 * Constant that is true if the os is iOS.
+<span class='line'> 85</span> 		 *
+<span class='line'> 86</span> 		 * @property iOS
+<span class='line'> 87</span> 		 * @type Boolean
+<span class='line'> 88</span> 		 * @final
+<span class='line'> 89</span> 		 */</span><span class="WHIT">
+<span class='line'> 90</span> </span><span class="WHIT">		</span><span class="NAME">iOS</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">iDevice</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 91</span> 
+<span class='line'> 92</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 93</span> 		 * Constant that is true if the browser supports editing.
+<span class='line'> 94</span> 		 *
+<span class='line'> 95</span> 		 * @property contentEditable
+<span class='line'> 96</span> 		 * @type Boolean
+<span class='line'> 97</span> 		 * @final
+<span class='line'> 98</span> 		 */</span><span class="WHIT">
+<span class='line'> 99</span> </span><span class="WHIT">		</span><span class="NAME">contentEditable</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">contentEditable</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>100</span> 
+<span class='line'>101</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>102</span> 		 * Transparent image data url.
+<span class='line'>103</span> 		 *
+<span class='line'>104</span> 		 * @property transparentSrc
+<span class='line'>105</span> 		 * @type Boolean
+<span class='line'>106</span> 		 * @final
+<span class='line'>107</span> 		 */</span><span class="WHIT">
+<span class='line'>108</span> </span><span class="WHIT">		</span><span class="NAME">transparentSrc</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>109</span> 
+<span class='line'>110</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>111</span> 		 * Returns true/false if the browser can or can't place the caret after a inline block like an image.
+<span class='line'>112</span> 		 *
+<span class='line'>113</span> 		 * @property noCaretAfter
+<span class='line'>114</span> 		 * @type Boolean
+<span class='line'>115</span> 		 * @final
+<span class='line'>116</span> 		 */</span><span class="WHIT">
+<span class='line'>117</span> </span><span class="WHIT">		</span><span class="NAME">caretAfter</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NUMB">8</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>118</span> 
+<span class='line'>119</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>120</span> 		 * Constant that is true if the browser supports native DOM Ranges. IE 9+.
+<span class='line'>121</span> 		 *
+<span class='line'>122</span> 		 * @property range
+<span class='line'>123</span> 		 * @type Boolean
+<span class='line'>124</span> 		 */</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">		</span><span class="NAME">range</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">window.getSelection</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="STRN">"Range"</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">window</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>126</span> 
+<span class='line'>127</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>128</span> 		 * Returns the IE document mode for non IE browsers this will fake IE 10.
+<span class='line'>129</span> 		 *
+<span class='line'>130</span> 		 * @property documentMode
+<span class='line'>131</span> 		 * @type Number
+<span class='line'>132</span> 		 */</span><span class="WHIT">
+<span class='line'>133</span> </span><span class="WHIT">		</span><span class="NAME">documentMode</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">ie</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">document.documentMode</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NUMB">7</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>136</span> </span></pre></body></html>

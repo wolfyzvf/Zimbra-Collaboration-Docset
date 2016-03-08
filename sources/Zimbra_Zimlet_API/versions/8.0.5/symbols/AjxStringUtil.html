@@ -1,0 +1,2276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - AjxStringUtil</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class AjxStringUtil
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class provides static methods to perform miscellaneous string-related utility functions.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_util_AjxStringUtil.js.html">AjxStringUtil.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class AjxStringUtil.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/AjxStringUtil.html#constructor">AjxStringUtil</a></b>()
+							</div>
+							<div class="description">Default constructor does nothing (static class).</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class AjxStringUtil.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.capitalize">capitalize</a></b>(str)
+								</div>
+								<div class="description">Capitalizes the specified string by upper-casing the first character
+and lower-casing the rest of the string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.capitalizeWords">capitalizeWords</a></b>(str)
+								</div>
+								<div class="description">Capitalizes all the words in the specified string by upper-casing the first
+character of each word and lower-casing the rest of the word.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.checkForCleanHtml">checkForCleanHtml</a></b>(html, okTags, attrsToRemove, badStyles)
+								</div>
+								<div class="description">Checks the given HTML to see if it is "safe", and cleans it up if it is.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.convertToHtml">convertToHtml</a></b>(str, quotePrefix)
+								</div>
+								<div class="description">Converts the string to HTML.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.diffPoint">diffPoint</a></b>(str1, str2)
+								</div>
+								<div class="description">Does a diff between two strings, returning the index of the first differing character.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.encodeQuotes">encodeQuotes</a></b>(str)
+								</div>
+								<div class="description">encode quotes for using in inline JS code, so the text does not end a quoted param prematurely.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.equalsHtmlPlatformIndependent">equalsHtmlPlatformIndependent</a></b>(html1, html2)
+								</div>
+								<div class="description">compare two html code fragments, ignoring the case of tags, since the tags inside innnerHTML are returned differently by different browsers (and from Outlook)
+e.g.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.fixCrossDomainReference">fixCrossDomainReference</a></b>(url, restUrlAuthority, convertToRelativeURL)
+								</div>
+								<div class="description">correct the cross domain reference in passed url content
+eg: http://<ipaddress>/ url might have rest url page which points to http://<server name>/ pages</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.fromMixed">fromMixed</a></b>(text, sep)
+								</div>
+								<div class="description">Converts the given mixed-case text to a string of one or more words
+separated by spaces.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.getAsString">getAsString</a></b>(o)
+								</div>
+								<div class="description">Returns the given object/primitive as a string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.getOriginalContent">getOriginalContent</a></b>(text, isHtml)
+								</div>
+								<div class="description">Analyze the text and return what appears to be original (as opposed to quoted) content.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.getUnitsFromSizeString">getUnitsFromSizeString</a></b>(sizeString)
+								</div>
+								<div class="description">Gets the units from size string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.getWidth">getWidth</a></b>(str, bold, font)
+								</div>
+								<div class="description">Returns the width in pixels of the given string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.htmlDecode">htmlDecode</a></b>(str, decodeSpaces)
+								</div>
+								<div class="description">Decodes the string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.htmlEncode">htmlEncode</a></b>(str, includeSpaces)
+								</div>
+								<div class="description">HTML-encodes a string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.htmlRubyEncode">htmlRubyEncode</a></b>(base, text)
+								</div>
+								<div class="description">Encode</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.jsEncode">jsEncode</a></b>(str)
+								</div>
+								<div class="description">Encodes non-ASCII and non-printable characters as \uXXXX, suitable
+for JSON.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.parseQueryString">parseQueryString</a></b>(sourceUri)
+								</div>
+								<div class="description">Parse the query string (part after the "?") and return it as a hash of key/value pairs.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.prettyPrint">prettyPrint</a></b>(obj, recurse, showFuncs, omit)
+								</div>
+								<div class="description">Pretty-prints a JS object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.queryStringRemove">queryStringRemove</a></b>(qs, name)
+								</div>
+								<div class="description">Removes the given arg from the query string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.quoteText">quoteText</a></b>(params)
+								</div>
+								<div class="description">Quotes text with the given quote character.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.repeat">repeat</a></b>(str, num)
+								</div>
+								<div class="description">Returns the string repeated the given number of times.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.shiftChar">shiftChar</a></b>(keycode, shifted)
+								</div>
+								<div class="description">Returns the character for the given key, taking the shift key into consideration.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.split">split</a></b>(str, dels)
+								</div>
+								<div class="description">Splits a string, ignoring delimiters that are in quotes or parentheses.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.splitKeepLeadingWhitespace">splitKeepLeadingWhitespace</a></b>(line)
+								</div>
+								<div class="description">splits the line into words, keeping leading whitespace with each word</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.stripTags">stripTags</a></b>(str, removeContent)
+								</div>
+								<div class="description">Removes HTML tags from the given string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.toMixed">toMixed</a></b>(text, sep, camel)
+								</div>
+								<div class="description">Converts the given text to mixed-case.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.trim">trim</a></b>(str, compress, space)
+								</div>
+								<div class="description">Removes white space from the beginning and end of a string, optionally compressing internal white space.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.urlComponentDecode">urlComponentDecode</a></b>(str)
+								</div>
+								<div class="description">Decodes a string as if it were a <em>part</em> of a URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.urlComponentEncode">urlComponentEncode</a></b>(str)
+								</div>
+								<div class="description">Encodes a string as if it were a <em>part</em> of a URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.urlDecode">urlDecode</a></b>(str)
+								</div>
+								<div class="description">Decodes a complete URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.urlEncode">urlEncode</a></b>(str)
+								</div>
+								<div class="description">Encodes a complete URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxStringUtil.<b><a href="../symbols/AjxStringUtil.html#.wordWrap">wordWrap</a></b>(params)
+								</div>
+								<div class="description">Wraps text to the given length and optionally quotes it.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>AjxStringUtil</b>()
+				</div>
+				
+				<div class="description">
+					Default constructor does nothing (static class).
+					<br /><i>Author: </i>Ross Dargahi, Roland Schemers, Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".capitalize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>capitalize</b>(str)
+					
+					</div>
+					<div class="description">
+						Capitalizes the specified string by upper-casing the first character
+and lower-casing the rest of the string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>The string to capitalize.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".capitalizeWords"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>capitalizeWords</b>(str)
+					
+					</div>
+					<div class="description">
+						Capitalizes all the words in the specified string by upper-casing the first
+character of each word and lower-casing the rest of the word.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>The string to capitalize.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".checkForCleanHtml"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>checkForCleanHtml</b>(html, okTags, attrsToRemove, badStyles)
+					
+					</div>
+					<div class="description">
+						Checks the given HTML to see if it is "safe", and cleans it up if it is. It must have only
+the tags in the given list, otherwise false is returned. Attributes in the given list will
+be removed. It is not necessary to include "#text", "html", "head", and "body" in the list
+of allowed tags.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>html</b>
+									
+								</dt>
+								<dd>HTML text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>okTags</b>
+									
+								</dt>
+								<dd>whitelist of allowed tags</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>attrsToRemove</b>
+									
+								</dt>
+								<dd>list of attributes to remove from each element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>badStyles</b>
+									
+								</dt>
+								<dd>list of forbidden styles (eg "position:absolute")</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".convertToHtml"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>convertToHtml</b>(str, quotePrefix)
+					
+					</div>
+					<div class="description">
+						Converts the string to HTML.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string</dd>
+							
+								<dt>
+									<b>quotePrefix</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the resulting string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".diffPoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{number}</span>
+					<span class="light">AjxStringUtil.</span><b>diffPoint</b>(str1, str2)
+					
+					</div>
+					<div class="description">
+						Does a diff between two strings, returning the index of the first differing character.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str1</b>
+									
+								</dt>
+								<dd>a string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str2</b>
+									
+								</dt>
+								<dd>another string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the index at which they first differ</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".encodeQuotes"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>encodeQuotes</b>(str)
+					
+					</div>
+					<div class="description">
+						encode quotes for using in inline JS code, so the text does not end a quoted param prematurely.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>str</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".equalsHtmlPlatformIndependent"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>equalsHtmlPlatformIndependent</b>(html1, html2)
+					
+					</div>
+					<div class="description">
+						compare two html code fragments, ignoring the case of tags, since the tags inside innnerHTML are returned differently by different browsers (and from Outlook)
+e.g. IE returns CAPS for tag names in innerHTML while FF returns lowercase tag names. Outlook signature creation also returns lowercase.
+this approach is also good in case the browser removes some of the innerHTML set to it, like I suspect might be in the case of stuff coming from Outlook. (e.g. it removes head tag since it's illegal inside a div)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>html1</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>html2</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fixCrossDomainReference"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>fixCrossDomainReference</b>(url, restUrlAuthority, convertToRelativeURL)
+					
+					</div>
+					<div class="description">
+						correct the cross domain reference in passed url content
+eg: http://<ipaddress>/ url might have rest url page which points to http://<server name>/ pages
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>url</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>restUrlAuthority</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>convertToRelativeURL</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fromMixed"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>fromMixed</b>(text, sep)
+					
+					</div>
+					<div class="description">
+						Converts the given mixed-case text to a string of one or more words
+separated by spaces.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>The mixed-case text.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sep</b>
+									
+								</dt>
+								<dd>(Optional) The separator between words. Default
+                     is a single space.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getAsString"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">AjxStringUtil.</span><b>getAsString</b>(o)
+					
+					</div>
+					<div class="description">
+						Returns the given object/primitive as a string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{primitive|Object}</span> <b>o</b>
+									
+								</dt>
+								<dd>an object or primitive</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getOriginalContent"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>getOriginalContent</b>(text, isHtml)
+					
+					</div>
+					<div class="description">
+						Analyze the text and return what appears to be original (as opposed to quoted) content. We
+look for separators commonly used by mail clients, as well as prefixes that indicate that
+a line is being quoted.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>message body content</dd>
+							
+								<dt>
+									<b>isHtml</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> original content if quoted content was found, otherwise NULL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getUnitsFromSizeString"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>getUnitsFromSizeString</b>(sizeString)
+					
+					</div>
+					<div class="description">
+						Gets the units from size string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sizeString</b>
+									
+								</dt>
+								<dd>the size string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the units</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getWidth"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>getWidth</b>(str, bold, font)
+					
+					</div>
+					<div class="description">
+						Returns the width in pixels of the given string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>string to measure</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>bold</b>
+									
+								</dt>
+								<dd>if true, string should be measured in bold font</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string|number}</span> <b>font</b>
+									
+								</dt>
+								<dd>size to measure string in. If unset, use default font size</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".htmlDecode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>htmlDecode</b>(str, decodeSpaces)
+					
+					</div>
+					<div class="description">
+						Decodes the string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to decode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>decodeSpaces</b>
+									
+								</dt>
+								<dd>if <code>true</code>, decode spaces</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".htmlEncode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>htmlEncode</b>(str, includeSpaces)
+					
+					</div>
+					<div class="description">
+						HTML-encodes a string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to encode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>includeSpaces</b>
+									
+								</dt>
+								<dd>if <code>true</code>, to include encoding spaces</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the encoded string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".htmlRubyEncode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>htmlRubyEncode</b>(base, text)
+					
+					</div>
+					<div class="description">
+						Encode
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>base</b>
+									
+								</dt>
+								<dd>{string} Ruby base.</dd>
+							
+								<dt>
+									<b>text</b>
+									
+								</dt>
+								<dd>{string} Ruby text (aka furigana).</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".jsEncode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>jsEncode</b>(str)
+					
+					</div>
+					<div class="description">
+						Encodes non-ASCII and non-printable characters as \uXXXX, suitable
+for JSON.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the encoded string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".parseQueryString"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Hash}</span>
+					<span class="light">AjxStringUtil.</span><b>parseQueryString</b>(sourceUri)
+					
+					</div>
+					<div class="description">
+						Parse the query string (part after the "?") and return it as a hash of key/value pairs.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>sourceUri</b>
+									
+								</dt>
+								<dd>the source query string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of query string params</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".prettyPrint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxStringUtil.</span><b>prettyPrint</b>(obj, recurse, showFuncs, omit)
+					
+					</div>
+					<div class="description">
+						Pretty-prints a JS object. Preferred over JSON.stringify for the debug-related dumping
+of an object for several reasons:
+		- doesn't have an enclosing object, which shifts everything over one level
+		- doesn't put quotes around keys
+		- shows indexes for arrays (downside is that prevents output from being eval-able)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>obj</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>recurse</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>showFuncs</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>omit</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".queryStringRemove"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">AjxStringUtil.</span><b>queryStringRemove</b>(qs, name)
+					
+					</div>
+					<div class="description">
+						Removes the given arg from the query string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>qs</b>
+									
+								</dt>
+								<dd>a query string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the arg name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the resulting query string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".quoteText"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>quoteText</b>(params)
+					
+					</div>
+					<div class="description">
+						Quotes text with the given quote character. For HTML, surrounds the text with the
+given strings. Does no wrapping.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.text</b>
+									
+								</dt>
+								<dd>the text to be wrapped</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.pre</b>
+									<i>Optional</i>
+								</dt>
+								<dd>prefix for quoting</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.before</b>
+									<i>Optional</i>
+								</dt>
+								<dd>text to prepend to final result</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.after</b>
+									<i>Optional</i>
+								</dt>
+								<dd>text to append to final result</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the quoted text</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".repeat"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>repeat</b>(str, num)
+					
+					</div>
+					<div class="description">
+						Returns the string repeated the given number of times.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>a string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>num</b>
+									
+								</dt>
+								<dd>number of times to repeat the string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".shiftChar"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{char}</span>
+					<span class="light">AjxStringUtil.</span><b>shiftChar</b>(keycode, shifted)
+					
+					</div>
+					<div class="description">
+						Returns the character for the given key, taking the shift key into consideration.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>keycode</b>
+									
+								</dt>
+								<dd>a numeric keycode (not a character code)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>shifted</b>
+									
+								</dt>
+								<dd>whether the shift key is down</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{char}</span> a character</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".split"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{array}</span>
+					<span class="light">AjxStringUtil.</span><b>split</b>(str, dels)
+					
+					</div>
+					<div class="description">
+						Splits a string, ignoring delimiters that are in quotes or parentheses. Comma
+is the default split character, but the user can pass in a string of multiple
+delimiters. It can handle nested parentheses, but not nested quotes.
+
+<p>TODO: handle escaped quotes</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to split</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>dels</b>
+									<i>Optional</i>
+								</dt>
+								<dd>an optional string of delimiter characters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array of strings</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".splitKeepLeadingWhitespace"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{array}</span>
+					<span class="light">AjxStringUtil.</span><b>splitKeepLeadingWhitespace</b>(line)
+					
+					</div>
+					<div class="description">
+						splits the line into words, keeping leading whitespace with each word
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>line</b>
+									
+								</dt>
+								<dd>the text to split</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> the array of words</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".stripTags"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>stripTags</b>(str, removeContent)
+					
+					</div>
+					<div class="description">
+						Removes HTML tags from the given string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>text from which to strip tags</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>removeContent</b>
+									
+								</dt>
+								<dd>if <code>true</code>, also remove content within tags</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the resulting HTML string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".toMixed"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>toMixed</b>(text, sep, camel)
+					
+					</div>
+					<div class="description">
+						Converts the given text to mixed-case. The input text is one or more words
+separated by spaces. The output is a single word in mixed (or camel) case.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>text to convert</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string|RegEx}</span> <b>sep</b>
+									
+								</dt>
+								<dd>text separator (defaults to any space)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>camel</b>
+									
+								</dt>
+								<dd>if <code>true</code>, first character of result is lower-case</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the resulting string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".trim"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>trim</b>(str, compress, space)
+					
+					</div>
+					<div class="description">
+						Removes white space from the beginning and end of a string, optionally compressing internal white space. By default, white
+space is defined as a sequence of  Unicode whitespace characters (\s in regexes). Optionally, the user can define what
+white space is by passing it as an argument.
+
+<p>TODO: add left/right options</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to trim</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>compress</b>
+									
+								</dt>
+								<dd>whether to compress internal white space to one space</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>space</b>
+									
+								</dt>
+								<dd>a string that represents a user definition of white space</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a trimmed string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".urlComponentDecode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>urlComponentDecode</b>(str)
+					
+					</div>
+					<div class="description">
+						Decodes a string as if it were a <em>part</em> of a URL. Falls back
+to unescape() if necessary.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to decode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the decoded string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".urlComponentEncode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>urlComponentEncode</b>(str)
+					
+					</div>
+					<div class="description">
+						Encodes a string as if it were a <em>part</em> of a URL. The
+difference between this function and <a href="../symbols/AjxStringUtil.html#.urlEncode">AjxStringUtil.urlEncode</a>
+is that this will also encode the following delimiters:
+
+<pre>
+ 			: / ? & =
+</pre>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to encode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the resulting string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".urlDecode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>urlDecode</b>(str)
+					
+					</div>
+					<div class="description">
+						Decodes a complete URL.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to decode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the decoded string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".urlEncode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>urlEncode</b>(str)
+					
+					</div>
+					<div class="description">
+						Encodes a complete URL. Leaves delimiters alone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>str</b>
+									
+								</dt>
+								<dd>the string to encode</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the encoded string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".wordWrap"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{string}</span>
+					<span class="light">AjxStringUtil.</span><b>wordWrap</b>(params)
+					
+					</div>
+					<div class="description">
+						Wraps text to the given length and optionally quotes it. The level of quoting in the
+source text is preserved based on the prefixes. Special lines such as email headers
+always start a new line.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.text</b>
+									
+								</dt>
+								<dd>the text to be wrapped</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>params.len</b>
+									<i>Optional, Default: 80</i>
+								</dt>
+								<dd>the desired line length of the wrapped text, defaults to 80</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.pre</b>
+									<i>Optional</i>
+								</dt>
+								<dd>an optional string to prepend to each line (useful for quoting)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.before</b>
+									<i>Optional</i>
+								</dt>
+								<dd>text to prepend to final result</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.after</b>
+									<i>Optional</i>
+								</dt>
+								<dd>text to append to final result</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.preserveReturns</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if true, don't combine small lines</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the wrapped/quoted text</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Sep 10 2013 13:15:53 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

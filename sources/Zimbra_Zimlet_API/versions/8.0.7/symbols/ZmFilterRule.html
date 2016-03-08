@@ -1,0 +1,1746 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmFilterRule</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmFilterRule
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				ZmFilterRule represents a filter rule. A rule includes one or more conditions
+and one or more actions.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_prefs_model_ZmFilterRule.js.html">ZmFilterRule.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmFilterRule.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmFilterRule.html#constructor">ZmFilterRule</a></b>(name, active, filterActions, filterTests)
+							</div>
+							<div class="description">Creates an empty filter rule.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmFilterRule.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_DISCARD">A_DISCARD</a></b>
+								</div>
+								<div class="description">Defines the "discard" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_FLAG">A_FLAG</a></b>
+								</div>
+								<div class="description">Defines the "flag" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_FOLDER">A_FOLDER</a></b>
+								</div>
+								<div class="description">Defines the "folder" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_FORWARD">A_FORWARD</a></b>
+								</div>
+								<div class="description">Defines the "forward" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_KEEP">A_KEEP</a></b>
+								</div>
+								<div class="description">Defines the "keep" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_KEEP_SENT">A_KEEP_SENT</a></b>
+								</div>
+								<div class="description">Defines the "keep" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_DISCARD">A_NAME_DISCARD</a></b>
+								</div>
+								<div class="description">Defines the "discard" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_FLAG">A_NAME_FLAG</a></b>
+								</div>
+								<div class="description">Defines the "flag" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_FOLDER">A_NAME_FOLDER</a></b>
+								</div>
+								<div class="description">Defines the "file into a folder" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_FORWARD">A_NAME_FORWARD</a></b>
+								</div>
+								<div class="description">Defines the "forward" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_KEEP">A_NAME_KEEP</a></b>
+								</div>
+								<div class="description">Defines the "keep" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_KEEP_SENT">A_NAME_KEEP_SENT</a></b>
+								</div>
+								<div class="description">Defines the "keep" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_STOP">A_NAME_STOP</a></b>
+								</div>
+								<div class="description">Defines the "stop" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NAME_TAG">A_NAME_TAG</a></b>
+								</div>
+								<div class="description">Defines the "tag" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_NOTIFY">A_NOTIFY</a></b>
+								</div>
+								<div class="description">Defines the "notify" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_REPLY">A_REPLY</a></b>
+								</div>
+								<div class="description">Defines the "reply" action name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_STOP">A_STOP</a></b>
+								</div>
+								<div class="description">Defines the "stop" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.A_TAG">A_TAG</a></b>
+								</div>
+								<div class="description">Defines the "tag" action type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.ACTIONS">ACTIONS</a></b>
+								</div>
+								<div class="description">This defines a hash of actions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/ZmFilterRule.html#actions">actions</a></b>
+								</div>
+								<div class="description">The filter rule actions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/ZmFilterRule.html#conditions">conditions</a></b>
+								</div>
+								<div class="description">The filter rules conditions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.CONDITIONS">CONDITIONS</a></b>
+								</div>
+								<div class="description">This defines a hash of conditions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.GROUP_ALL">GROUP_ALL</a></b>
+								</div>
+								<div class="description">Defines the "group all" operator.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.GROUP_ANY">GROUP_ANY</a></b>
+								</div>
+								<div class="description">Defines the "group any" operator.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/ZmFilterRule.html#name">name</a></b>
+								</div>
+								<div class="description">The name of the filter rule.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.TYPE_CALENDAR">TYPE_CALENDAR</a></b>
+								</div>
+								<div class="description">Defines the "calendar" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.TYPE_FOLDER_PICKER">TYPE_FOLDER_PICKER</a></b>
+								</div>
+								<div class="description">Defines the "folder picker" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.TYPE_INPUT">TYPE_INPUT</a></b>
+								</div>
+								<div class="description">Defines the "input" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.TYPE_SELECT">TYPE_SELECT</a></b>
+								</div>
+								<div class="description">Defines the "select" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.TYPE_TAG_PICKER">TYPE_TAG_PICKER</a></b>
+								</div>
+								<div class="description">Defines the "tag picker" type.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmFilterRule.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#addAction">addAction</a></b>(actionType, value)
+								</div>
+								<div class="description">Adds an action to the rule actions list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#clearActions">clearActions</a></b>()
+								</div>
+								<div class="description">Clears the rule actions list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#clearConditions">clearConditions</a></b>()
+								</div>
+								<div class="description">Clears the rule conditions list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#getGroupOp">getGroupOp</a></b>()
+								</div>
+								<div class="description">Gets the rule condition grouping operator.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.getNegativeComparator">getNegativeComparator</a></b>(comparator)
+								</div>
+								<div class="description">helper method to get the negative comparator</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmFilterRule.<b><a href="../symbols/ZmFilterRule.html#.getSocialFilters">getSocialFilters</a></b>()
+								</div>
+								<div class="description">Returns array of social filter options based on COS settings</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#hasValidAction">hasValidAction</a></b>()
+								</div>
+								<div class="description">Checks if the if the rule is enabled.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRule.html#setGroupOp">setGroupOp</a></b>(groupOp)
+								</div>
+								<div class="description">Sets the rule condition grouping operator to "any" or "all".</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmFilterRule</b>(name, active, filterActions, filterTests)
+				</div>
+				
+				<div class="description">
+					Creates an empty filter rule. Conditions and actions will need to be added.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>name</b>
+								
+							</dt>
+								<dd>the rule name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>active</b>
+								
+							</dt>
+								<dd>if <code>true</code>, if the rule is enabled</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>filterActions</b>
+								
+							</dt>
+								<dd>the filter action data as raw json object</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>filterTests</b>
+								
+							</dt>
+								<dd>the filter conditions data as raw json object</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".A_DISCARD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_DISCARD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "discard" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_FLAG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_FLAG</b>
+					
+					</div>
+					<div class="description">
+						Defines the "flag" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_FOLDER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_FOLDER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "folder" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_FORWARD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_FORWARD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_KEEP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_KEEP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "keep" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_KEEP_SENT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_KEEP_SENT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "keep" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_DISCARD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_DISCARD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "discard" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_FLAG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_FLAG</b>
+					
+					</div>
+					<div class="description">
+						Defines the "flag" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_FOLDER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_FOLDER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "file into a folder" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_FORWARD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_FORWARD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_KEEP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_KEEP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "keep" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_KEEP_SENT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_KEEP_SENT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "keep" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_STOP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_STOP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "stop" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NAME_TAG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NAME_TAG</b>
+					
+					</div>
+					<div class="description">
+						Defines the "tag" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_NOTIFY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_NOTIFY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "notify" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_REPLY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_REPLY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "reply" action name.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_STOP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_STOP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "stop" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".A_TAG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>A_TAG</b>
+					
+					</div>
+					<div class="description">
+						Defines the "tag" action type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACTIONS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>ACTIONS</b>
+					
+					</div>
+					<div class="description">
+						This defines a hash of actions. The hash key is known as the action "name".
+It may or may not take an argument.
+
+<p>
+The action parameters are:
+<ul>
+<li><b>param</b>			the type of input widget for the action's argument</li>
+<li><b>pOptions</b>		the name/value pairs for args</li>
+<li><b>precondition</b>	the setting that must be enabled for action to be available
+								(preconditions are set by ZmFilterRulesController, after
+								 settings are available)</li>
+</ul>
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="actions"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>actions</b>
+					
+					</div>
+					<div class="description">
+						The filter rule actions.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="conditions"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>conditions</b>
+					
+					</div>
+					<div class="description">
+						The filter rules conditions.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CONDITIONS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>CONDITIONS</b>
+					
+					</div>
+					<div class="description">
+						This defines a hash of conditions. Each condition is a hash of parameters. The key of the hash
+is also known as the condition "subject". It is the field of an email message that 
+the condition is tested against.
+
+<p>
+The condition parameters are:
+<ul>
+<li><b>subjectMod</b>	Type of input widget for the subjectModifier, which is a specifier or 
+				modifier for the subject (such as which address to look at)</li>
+<li><b>smOptions</b>		List of possible values for the subjectModifier (<a href="../symbols/ZmFilterRule.html#.TYPE_SELECT">ZmFilterRule.TYPE_SELECT</a>)</li>
+<li><b>ops</b>			Type of input widget for choosing the comparator</li>
+<li><b>opsOptions</b>	List of possible comparators for this subject (<a href="../symbols/ZmFilterRule.html#.TYPE_SELECT">ZmFilterRule.TYPE_SELECT</a> type)</li>
+<li><b>value</b>			Type of input widget for specifying the value</li>
+<li><b>vOptions</b>		List of possible values (<a href="../symbols/ZmFilterRule.html#.TYPE_SELECT">ZmFilterRule.TYPE_SELECT</a> type)</li>
+<li><b>valueMod</b>		Type of input widget for the valueModifier, which is a specifier or 
+				modifier for the value (such as units for size)</li>
+<li><b>vmOptions</b>		List of possible values for the valueModifier (<a href="../symbols/ZmFilterRule.html#.TYPE_SELECT">ZmFilterRule.TYPE_SELECT</a> type)</li>
+</ul>
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".GROUP_ALL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>GROUP_ALL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "group all" operator.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".GROUP_ANY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>GROUP_ANY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "group any" operator.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="name"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>name</b>
+					
+					</div>
+					<div class="description">
+						The name of the filter rule.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_CALENDAR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>TYPE_CALENDAR</b>
+					
+					</div>
+					<div class="description">
+						Defines the "calendar" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_FOLDER_PICKER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>TYPE_FOLDER_PICKER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "folder picker" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_INPUT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>TYPE_INPUT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "input" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_SELECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>TYPE_SELECT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_TAG_PICKER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmFilterRule.</span><b>TYPE_TAG_PICKER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "tag picker" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addAction</b>(actionType, value)
+					
+					</div>
+					<div class="description">
+						Adds an action to the rule actions list.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>actionType</b>
+									
+								</dt>
+								<dd>the action type (see <code>ZmFilterRule.A_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>the value for the action</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearActions"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearActions</b>()
+					
+					</div>
+					<div class="description">
+						Clears the rule actions list.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearConditions"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearConditions</b>()
+					
+					</div>
+					<div class="description">
+						Clears the rule conditions list.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getGroupOp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{constant}</span>
+					<b>getGroupOp</b>()
+					
+					</div>
+					<div class="description">
+						Gets the rule condition grouping operator.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{constant}</span> the operator (see <code>ZmFilterRule.GROUP_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getNegativeComparator"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{constant}</span>
+					<span class="light">ZmFilterRule.</span><b>getNegativeComparator</b>(comparator)
+					
+					</div>
+					<div class="description">
+						helper method to get the negative comparator
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>comparator</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{constant}</span> the operator (see <code>ZmFilterRule.OP_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSocialFilters"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{array}</span>
+					<span class="light">ZmFilterRule.</span><b>getSocialFilters</b>()
+					
+					</div>
+					<div class="description">
+						Returns array of social filter options based on COS settings
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> social filter options</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasValidAction"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasValidAction</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the if the rule is enabled.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the rule is enabled</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setGroupOp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setGroupOp</b>(groupOp)
+					
+					</div>
+					<div class="description">
+						Sets the rule condition grouping operator to "any" or "all".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>groupOp</b>
+									
+								</dt>
+								<dd>the grouping operator (see <code>ZmFilterRule.GROUP_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Apr 08 2014 13:13:18 GMT-0500 (CDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

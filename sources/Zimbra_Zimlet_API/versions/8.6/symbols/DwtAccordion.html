@@ -1,0 +1,1245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtAccordion</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtAccordion
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtComposite.html">DwtComposite</a>.<br />
+				
+				<br>
+				This class implements an accordion widget, which is a stack of expandable
+accordion headers. Clicking on an accordion header's button expands it in
+place.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtAccordion.js.html">DwtAccordion.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtAccordion.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtAccordion.html#constructor">DwtAccordion</a></b>(parent, className, posStyle)
+							</div>
+							<div class="description">Creates an empty accordion widget.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtAccordion.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#addAccordionItem">addAccordionItem</a></b>(params)
+								</div>
+								<div class="description">Adds an item to the accordion, in the form of a table row.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#addSelectionListener">addSelectionListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a listener to be notified when the button is pressed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#expandItem">expandItem</a></b>(id, notify)
+								</div>
+								<div class="description">Expands the accordion item with the given ID by making its body visible.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getBody">getBody</a></b>(id)
+								</div>
+								<div class="description">Gets the <code><body></code> element of the accordion item with the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getExpandedItem">getExpandedItem</a></b>()
+								</div>
+								<div class="description">Gets the expanded accordion item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getHeader">getHeader</a></b>(id)
+								</div>
+								<div class="description">Gets the <code><header></code> element of the accordion item with the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getItem">getItem</a></b>(id)
+								</div>
+								<div class="description">Gets the accordion item with the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getItemByIndex">getItemByIndex</a></b>(id)
+								</div>
+								<div class="description">Gets the item by index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#getItems">getItems</a></b>()
+								</div>
+								<div class="description">Gets the ordered list of accordion items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#hideAccordionItems">hideAccordionItems</a></b>()
+								</div>
+								<div class="description">Hides all accordion items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#resize">resize</a></b>(width, height)
+								</div>
+								<div class="description">Resizes the accordion.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#setEnabled">setEnabled</a></b>(enabled)
+								</div>
+								<div class="description">Allows the accordion items to be clickable or not.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#setItemContent">setItemContent</a></b>(id, contentObject)
+								</div>
+								<div class="description">Attaches the HTML content of the given control to the accordion item with
+the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#show">show</a></b>(show)
+								</div>
+								<div class="description">Shows or hides the accordion.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#showAccordionItem">showAccordionItem</a></b>(id)
+								</div>
+								<div class="description">Shows single accordion item based on given id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#showAlert">showAlert</a></b>(id, show)
+								</div>
+								<div class="description">Shows or hides an alert (aka orange background) on the accordion header</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtAccordion.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/DwtComposite.html">DwtComposite</a>: </dt><dd><a href="../symbols/DwtComposite.html#addChild">addChild</a>, <a href="../symbols/DwtComposite.html#cleanupSeparators">cleanupSeparators</a>, <a href="../symbols/DwtComposite.html#clear">clear</a>, <a href="../symbols/DwtComposite.html#dispose">dispose</a>, <a href="../symbols/DwtComposite.html#getChildren">getChildren</a>, <a href="../symbols/DwtComposite.html#getNumChildren">getNumChildren</a>, <a href="../symbols/DwtComposite.html#removeChild">removeChild</a>, <a href="../symbols/DwtComposite.html#removeChildren">removeChildren</a></dd><dt>Methods borrowed from class <a href="../symbols/DwtControl.html">DwtControl</a>: </dt><dd><a href="../symbols/DwtControl.html#addClassName">addClassName</a>, <a href="../symbols/DwtControl.html#addControlListener">addControlListener</a>, <a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a>, <a href="../symbols/DwtControl.html#addListener">addListener</a>, <a href="../symbols/DwtControl.html#appendElement">appendElement</a>, <a href="../symbols/DwtControl.html#clearContent">clearContent</a>, <a href="../symbols/DwtControl.html#clearHandler">clearHandler</a>, <a href="../symbols/DwtControl.html#condClassName">condClassName</a>, <a href="../symbols/DwtControl.html#delClassName">delClassName</a>, <a href="../symbols/DwtControl.html#focus">focus</a>, <a href="../symbols/DwtControl.html#getBounds">getBounds</a>, <a href="../symbols/DwtControl.html#getClassName">getClassName</a>, <a href="../symbols/DwtControl.html#getContent">getContent</a>, <a href="../symbols/DwtControl.html#getCursor">getCursor</a>, <a href="../symbols/DwtControl.html#getData">getData</a>, <a href="../symbols/DwtControl.html#getDragBox">getDragBox</a>, <a href="../symbols/DwtControl.html#getDragSource">getDragSource</a>, <a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a>, <a href="../symbols/DwtControl.html#getEnabled">getEnabled</a>, <a href="../symbols/DwtControl.html#getH">getH</a>, <a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a>, <a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a>, <a href="../symbols/DwtControl.html#getInsetBounds">getInsetBounds</a>, <a href="../symbols/DwtControl.html#getInsets">getInsets</a>, <a href="../symbols/DwtControl.html#getLocation">getLocation</a>, <a href="../symbols/DwtControl.html#getOpacity">getOpacity</a>, <a href="../symbols/DwtControl.html#getPosition">getPosition</a>, <a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a>, <a href="../symbols/DwtControl.html#getSize">getSize</a>, <a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a>, <a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a>, <a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a>, <a href="../symbols/DwtControl.html#getVisibility">getVisibility</a>, <a href="../symbols/DwtControl.html#getVisible">getVisible</a>, <a href="../symbols/DwtControl.html#getW">getW</a>, <a href="../symbols/DwtControl.html#getX">getX</a>, <a href="../symbols/DwtControl.html#getXW">getXW</a>, <a href="../symbols/DwtControl.html#getY">getY</a>, <a href="../symbols/DwtControl.html#getYH">getYH</a>, <a href="../symbols/DwtControl.html#getZIndex">getZIndex</a>, <a href="../symbols/DwtControl.html#hasFocus">hasFocus</a>, <a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a>, <a href="../symbols/DwtControl.html#isDisposed">isDisposed</a>, <a href="../symbols/DwtControl.html#isInitialized">isInitialized</a>, <a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a>, <a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a>, <a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a>, <a href="../symbols/DwtControl.html#preventSelection">preventSelection</a>, <a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a>, <a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a>, <a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a>, <a href="../symbols/DwtControl.html#removeListener">removeListener</a>, <a href="../symbols/DwtControl.html#reparent">reparent</a>, <a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a>, <a href="../symbols/DwtControl.html#replaceElement">replaceElement</a>, <a href="../symbols/DwtControl.html#setBounds">setBounds</a>, <a href="../symbols/DwtControl.html#setClassName">setClassName</a>, <a href="../symbols/DwtControl.html#setContent">setContent</a>, <a href="../symbols/DwtControl.html#setCursor">setCursor</a>, <a href="../symbols/DwtControl.html#setData">setData</a>, <a href="../symbols/DwtControl.html#setDisplay">setDisplay</a>, <a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a>, <a href="../symbols/DwtControl.html#setDragBox">setDragBox</a>, <a href="../symbols/DwtControl.html#setDragSource">setDragSource</a>, <a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a>, <a href="../symbols/DwtControl.html#setEventPropagation">setEventPropagation</a>, <a href="../symbols/DwtControl.html#setHandler">setHandler</a>, <a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a>, <a href="../symbols/DwtControl.html#setLocation">setLocation</a>, <a href="../symbols/DwtControl.html#setOpacity">setOpacity</a>, <a href="../symbols/DwtControl.html#setPosition">setPosition</a>, <a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a>, <a href="../symbols/DwtControl.html#setSize">setSize</a>, <a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a>, <a href="../symbols/DwtControl.html#setVisibility">setVisibility</a>, <a href="../symbols/DwtControl.html#setVisible">setVisible</a>, <a href="../symbols/DwtControl.html#setZIndex">setZIndex</a>, <a href="../symbols/DwtControl.html#zShow">zShow</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtAccordion</b>(parent, className, posStyle)
+				</div>
+				
+				<div class="description">
+					Creates an empty accordion widget.
+					<br /><i>Author: </i>Parag Shah.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>  <b>parent</b>
+								
+							</dt>
+								<dd>the parent widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/Dwt.html#.STATIC_STYLE">Dwt.STATIC_STYLE</a>|<a href="../symbols/Dwt.html#.ABSOLUTE_STYLE">Dwt.ABSOLUTE_STYLE</a>|<a href="../symbols/Dwt.html#.RELATIVE_STYLE">Dwt.RELATIVE_STYLE</a>}</span>  <b>posStyle</b>
+								
+							</dt>
+								<dd>the positioning style</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addAccordionItem"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addAccordionItem</b>(params)
+					
+					</div>
+					<div class="description">
+						Adds an item to the accordion, in the form of a table row.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.title</b>
+									
+								</dt>
+								<dd>the text for accordion header</dd>
+							
+								<dt>
+									<span class="light fixedFont">{hash}</span> <b>params.data</b>
+									
+								</dt>
+								<dd>the item data</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>params.icon</b>
+									
+								</dt>
+								<dd>the icon</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.hideHeader</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not show header (ideal when there's only one visible header item)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addSelectionListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addSelectionListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a listener to be notified when the button is pressed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="expandItem"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>expandItem</b>(id, notify)
+					
+					</div>
+					<div class="description">
+						Expands the accordion item with the given ID by making its body visible. The bodies of
+other items are hidden.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>notify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, selection listeners are to be notified</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getBody"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Element}</span>
+					<b>getBody</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the <code><body></code> element of the accordion item with the given ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Element}</span> the element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getExpandedItem"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span>
+					<b>getExpandedItem</b>()
+					
+					</div>
+					<div class="description">
+						Gets the expanded accordion item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span> the item</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHeader"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Element}</span>
+					<b>getHeader</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the <code><header></code> element of the accordion item with the given ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Element}</span> the element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItem"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span>
+					<b>getItem</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the accordion item with the given ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span> the item or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItemByIndex"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span>
+					<b>getItemByIndex</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the item by index.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item index</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a>}</span> the item or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItems"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>getItems</b>()
+					
+					</div>
+					<div class="description">
+						Gets the ordered list of accordion items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array of <a href="../symbols/DwtAccordionItem.html">DwtAccordionItem</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hideAccordionItems"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hideAccordionItems</b>()
+					
+					</div>
+					<div class="description">
+						Hides all accordion items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resize</b>(width, height)
+					
+					</div>
+					<div class="description">
+						Resizes the accordion. This override applies accordion size changes to accordion items as well.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>width</b>
+									
+								</dt>
+								<dd>the new width for accordion</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>height</b>
+									
+								</dt>
+								<dd>the new height for accordion</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setEnabled"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setEnabled</b>(enabled)
+					
+					</div>
+					<div class="description">
+						Allows the accordion items to be clickable or not. If disabled, the label of
+each accordion item will be grayed out.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd>if <code>true</code>, enabled.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setItemContent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setItemContent</b>(id, contentObject)
+					
+					</div>
+					<div class="description">
+						Attaches the HTML content of the given control to the accordion item with
+the given ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> <b>contentObject</b>
+									
+								</dt>
+								<dd>the control that contains this item's content</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="show"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>show</b>(show)
+					
+					</div>
+					<div class="description">
+						Shows or hides the accordion.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>show</b>
+									
+								</dt>
+								<dd>if <code>true</code>, show the accordion; otherwise hide it</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showAccordionItem"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showAccordionItem</b>(id)
+					
+					</div>
+					<div class="description">
+						Shows single accordion item based on given id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showAlert"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showAlert</b>(id, show)
+					
+					</div>
+					<div class="description">
+						Shows or hides an alert (aka orange background) on the accordion header
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>id</b>
+									
+								</dt>
+								<dd>the accordion item ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>show</b>
+									
+								</dt>
+								<dd>if <code>true</code>, show the alert</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Feb 09 2015 18:59:21 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

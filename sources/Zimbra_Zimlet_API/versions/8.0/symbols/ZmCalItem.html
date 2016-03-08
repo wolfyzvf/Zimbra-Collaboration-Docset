@@ -1,0 +1,5012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmCalItem</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmCalItem
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a>.<br />
+				
+				<br>
+				This class represents a calendar item.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_model_ZmCalItem.js.html">ZmCalItem.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmCalItem.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmCalItem.html#constructor">ZmCalItem</a></b>(type, list, id, folderId)
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmCalItem.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_DELETE">MODE_DELETE</a></b>
+								</div>
+								<div class="description">Defines the "delete" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_DELETE_INSTANCE">MODE_DELETE_INSTANCE</a></b>
+								</div>
+								<div class="description">Defines the "delete instance" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_DELETE_SERIES">MODE_DELETE_SERIES</a></b>
+								</div>
+								<div class="description">Defines the "delete series" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_EDIT">MODE_EDIT</a></b>
+								</div>
+								<div class="description">Defines the "edit" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_EDIT_SERIES">MODE_EDIT_SERIES</a></b>
+								</div>
+								<div class="description">Defines the "edit series" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_EDIT_SINGLE_INSTANCE">MODE_EDIT_SINGLE_INSTANCE</a></b>
+								</div>
+								<div class="description">Defines the "edit single instance" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_FORWARD">MODE_FORWARD</a></b>
+								</div>
+								<div class="description">Defines the "forward" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_FORWARD_INVITE">MODE_FORWARD_INVITE</a></b>
+								</div>
+								<div class="description">Defines the "forward" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_FORWARD_SERIES">MODE_FORWARD_SERIES</a></b>
+								</div>
+								<div class="description">Defines the "forward series" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_FORWARD_SINGLE_INSTANCE">MODE_FORWARD_SINGLE_INSTANCE</a></b>
+								</div>
+								<div class="description">Defines the "forward single instance" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_GET">MODE_GET</a></b>
+								</div>
+								<div class="description">Defines the "get" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_LAST">MODE_LAST</a></b>
+								</div>
+								<div class="description">Defines the "last" mode index constant.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_NEW">MODE_NEW</a></b>
+								</div>
+								<div class="description">Defines the "new" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_NEW_FROM_QUICKADD">MODE_NEW_FROM_QUICKADD</a></b>
+								</div>
+								<div class="description">Defines the "new from quick" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_PROPOSE_TIME">MODE_PROPOSE_TIME</a></b>
+								</div>
+								<div class="description">Defines the "propose" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.MODE_PURGE">MODE_PURGE</a></b>
+								</div>
+								<div class="description">Defines the "purge" (delete from trash) mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.PRIORITY_HIGH">PRIORITY_HIGH</a></b>
+								</div>
+								<div class="description">Defines the "high" priority.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.PRIORITY_LOW">PRIORITY_LOW</a></b>
+								</div>
+								<div class="description">Defines the "low" priority.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.PRIORITY_NORMAL">PRIORITY_NORMAL</a></b>
+								</div>
+								<div class="description">Defines the "normal" priority.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.REMINDER_NONE">REMINDER_NONE</a></b>
+								</div>
+								<div class="description">Defines "none" reminder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.REMINDER_UNIT_DAYS">REMINDER_UNIT_DAYS</a></b>
+								</div>
+								<div class="description">Defines "days" reminder units.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.REMINDER_UNIT_HOURS">REMINDER_UNIT_HOURS</a></b>
+								</div>
+								<div class="description">Defines "hours" reminder units.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.REMINDER_UNIT_MINUTES">REMINDER_UNIT_MINUTES</a></b>
+								</div>
+								<div class="description">Defines "minutes "reminder units.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.REMINDER_UNIT_WEEKS">REMINDER_UNIT_WEEKS</a></b>
+								</div>
+								<div class="description">Defines "weeks" reminder units.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.ROLE_CHAIR">ROLE_CHAIR</a></b>
+								</div>
+								<div class="description">Defines the "chair" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.ROLE_NON_PARTICIPANT">ROLE_NON_PARTICIPANT</a></b>
+								</div>
+								<div class="description">Defines the "non-participant" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.ROLE_OPTIONAL">ROLE_OPTIONAL</a></b>
+								</div>
+								<div class="description">Defines the "optional" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.ROLE_REQUIRED">ROLE_REQUIRED</a></b>
+								</div>
+								<div class="description">Defines the "required" role.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmCalItem.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#addExceptionDetails">addExceptionDetails</a></b>(comp, comp)
+								</div>
+								<div class="description">Sets the exception details to soap</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#addReminderAction">addReminderAction</a></b>(action)
+								</div>
+								<div class="description">Adds the given action to this appt's reminders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#cancel">cancel</a></b>(mode, msg, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Deletes/cancels appointment/invite</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#clearRecurrence">clearRecurrence</a></b>()
+								</div>
+								<div class="description">clears the recurrence.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getAttachments">getAttachments</a></b>()
+								</div>
+								<div class="description">Gets the attachments.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getDateRange">getDateRange</a></b>(instance, current, refPath)
+								</div>
+								<div class="description">Gets the date range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getDetails">getDetails</a></b>(viewMode, callback, errorCallback, ignoreOutOfDate, noBusyOverlay, batchCmd)
+								</div>
+								<div class="description">Gets the details.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getFolder">getFolder</a></b>()
+								</div>
+								<div class="description">Gets the folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getHtmlSummary">getHtmlSummary</a></b>()
+								</div>
+								<div class="description">Gets the summary as HTML.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.getImageForPriority">getImageForPriority</a></b>(task, id)
+								</div>
+								<div class="description">Gets the priority image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getInviteDescription">getInviteDescription</a></b>(isHtml)
+								</div>
+								<div class="description">Gets a string representation of the invite content.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.getLabelForParticipationStatus">getLabelForParticipationStatus</a></b>(status)
+								</div>
+								<div class="description">Gets the participation status label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.getLabelForPriority">getLabelForPriority</a></b>(priority)
+								</div>
+								<div class="description">Gets the priority label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.getLabelForStatus">getLabelForStatus</a></b>(status)
+								</div>
+								<div class="description">Gets the status label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getLocalFolderId">getLocalFolderId</a></b>()
+								</div>
+								<div class="description">Gets the "local" folder id even for remote folders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getMailFromAddress">getMailFromAddress</a></b>()
+								</div>
+								<div class="description">Gets the mail from address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getMailNotificationOption">getMailNotificationOption</a></b>()
+								</div>
+								<div class="description">Gets the mail notification option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getNotesPart">getNotesPart</a></b>(contentType)
+								</div>
+								<div class="description">Gets the notes part.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrganizer">getOrganizer</a></b>()
+								</div>
+								<div class="description">Gets the organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrig">getOrig</a></b>()
+								</div>
+								<div class="description">Gets the original calendar item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrigEndDate">getOrigEndDate</a></b>()
+								</div>
+								<div class="description">Gets the original end date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrigEndTime">getOrigEndTime</a></b>()
+								</div>
+								<div class="description">Gets the original end time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrigStartDate">getOrigStartDate</a></b>()
+								</div>
+								<div class="description">Gets the original start date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrigStartTime">getOrigStartTime</a></b>()
+								</div>
+								<div class="description">Gets the original start time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getOrigTimezone">getOrigTimezone</a></b>()
+								</div>
+								<div class="description">Gets the original timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmCalItem.<b><a href="../symbols/ZmCalItem.html#.getParticipationStatusIcon">getParticipationStatusIcon</a></b>(status)
+								</div>
+								<div class="description">Gets the participation status icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getRecurBlurb">getRecurBlurb</a></b>()
+								</div>
+								<div class="description">Gets the recurrence "blurb".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getRecurrence">getRecurrence</a></b>()
+								</div>
+								<div class="description">Gets the recurrence.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getRecurType">getRecurType</a></b>()
+								</div>
+								<div class="description">Gets the recurrence "type".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getRemoteFolderOwner">getRemoteFolderOwner</a></b>()
+								</div>
+								<div class="description">Gets the remote folder owner.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getSentBy">getSentBy</a></b>()
+								</div>
+								<div class="description">Gets the sent by.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getShortStartHour">getShortStartHour</a></b>()
+								</div>
+								<div class="description">Gets the start hour in short date format.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getSummary">getSummary</a></b>(isHtml)
+								</div>
+								<div class="description">Gets the summary.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getTextSummary">getTextSummary</a></b>()
+								</div>
+								<div class="description">Gets the summary as text.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getTimezone">getTimezone</a></b>()
+								</div>
+								<div class="description">Gets the timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getToolTip">getToolTip</a></b>(controller)
+								</div>
+								<div class="description">Gets the tool tip.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getUniqueEndDate">getUniqueEndDate</a></b>()
+								</div>
+								<div class="description">Gets the unique end date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getUniqueStartDate">getUniqueStartDate</a></b>()
+								</div>
+								<div class="description">Gets the unique start date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#getViewMode">getViewMode</a></b>(mode)
+								</div>
+								<div class="description">Gets the view mode</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#hasAttachments">hasAttachments</a></b>()
+								</div>
+								<div class="description">Checks if this item has attachments.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#hasAttendeeForType">hasAttendeeForType</a></b>(type)
+								</div>
+								<div class="description">Checks if this item has attendee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#hasAttendees">hasAttendees</a></b>()
+								</div>
+								<div class="description">Checks if this item has attendees.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#hasPersonAttendees">hasPersonAttendees</a></b>()
+								</div>
+								<div class="description">Checks if this item has person attendees.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isCustomRecurrence">isCustomRecurrence</a></b>()
+								</div>
+								<div class="description">Checks if this item has a custom recurrence.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isEndInRange">isEndInRange</a></b>(startTime, endTime)
+								</div>
+								<div class="description">Checks if the end date is in range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isInRange">isInRange</a></b>(startTime, endTime)
+								</div>
+								<div class="description">Checks if this item is in range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isOrganizer">isOrganizer</a></b>()
+								</div>
+								<div class="description">Checks if this item is an organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isOverlapping">isOverlapping</a></b>(other, checkFolder)
+								</div>
+								<div class="description">Checks if the item is overlapping.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if the item is read-only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isRecurring">isRecurring</a></b>()
+								</div>
+								<div class="description">Checks if this item is recurring.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isStartInRange">isStartInRange</a></b>(startTime, endTime)
+								</div>
+								<div class="description">Checks if the start date is in range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#isValidDuration">isValidDuration</a></b>()
+								</div>
+								<div class="description">Checks whether the duration of this item is valid.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#removeAttachment">removeAttachment</a></b>(part)
+								</div>
+								<div class="description">Removes an attachment.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#removeReminderAction">removeReminderAction</a></b>(action)
+								</div>
+								<div class="description">Removes the given action from this appt's reminders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#resetRepeatCustomDayOfWeek">resetRepeatCustomDayOfWeek</a></b>()
+								</div>
+								<div class="description">Resets the repeat custom day of week.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#resetRepeatMonthlyDayList">resetRepeatMonthlyDayList</a></b>()
+								</div>
+								<div class="description">Resets the repeat monthly day months list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#resetRepeatWeeklyDays">resetRepeatWeeklyDays</a></b>()
+								</div>
+								<div class="description">Resets the repeat weekly days.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#resetRepeatYearlyMonthsList">resetRepeatYearlyMonthsList</a></b>(mo)
+								</div>
+								<div class="description">Resets the repeat yearly months list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#save">save</a></b>(attachmentId, callback, errorCallback, notifyList)
+								</div>
+								<div class="description">Saves the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setAllDayEvent">setAllDayEvent</a></b>(isAllDay)
+								</div>
+								<div class="description">Sets all day event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setAttachments">setAttachments</a></b>(ids)
+								</div>
+								<div class="description">Sets the attachments.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setDateRange">setDateRange</a></b>(rangeObject, instance, parentValue, refPath)
+								</div>
+								<div class="description">Sets the date range.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setEndDate">setEndDate</a></b>(endDate, keepCache)
+								</div>
+								<div class="description">Sets the end date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setEndTimezone">setEndTimezone</a></b>(timezone)
+								</div>
+								<div class="description">Sets the end timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setFolderId">setFolderId</a></b>(folderId)
+								</div>
+								<div class="description">Sets the folder id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setFromSavedResponse">setFromSavedResponse</a></b>(result)
+								</div>
+								<div class="description">Sets the required data from saved response</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setMailNotificationOption">setMailNotificationOption</a></b>(sendNotificationMail)
+								</div>
+								<div class="description">Sets the mail notification option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setName">setName</a></b>(newName)
+								</div>
+								<div class="description">Sets the name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setOrganizer">setOrganizer</a></b>(organizer)
+								</div>
+								<div class="description">Sets the organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setOrigTimezone">setOrigTimezone</a></b>(timezone)
+								</div>
+								<div class="description">Sets the original timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setRecurType">setRecurType</a></b>(repeatType)
+								</div>
+								<div class="description">Sets the repeat type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setReminderMinutes">setReminderMinutes</a></b>(minutes)
+								</div>
+								<div class="description">Sets reminder minutes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setReminderUnits">setReminderUnits</a></b>(reminderValue, reminderUnits, sendEmail)
+								</div>
+								<div class="description">Sets the reminder units</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setStartDate">setStartDate</a></b>(startDate, keepCache)
+								</div>
+								<div class="description">Sets the start date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setTextNotes">setTextNotes</a></b>(notes)
+								</div>
+								<div class="description">Sets the notes (text/plain).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setTimezone">setTimezone</a></b>(timezone, keepCache)
+								</div>
+								<div class="description">Sets the timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setType">setType</a></b>(newType)
+								</div>
+								<div class="description">Sets the item type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#setViewMode">setViewMode</a></b>(mode)
+								</div>
+								<div class="description">Sets the view mode, and resets any other fields that should not be set for that view mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmCalItem.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a>: </dt><dd><a href="../symbols/ZmCalBaseItem.html#adjustMS">adjustMS</a>, <a href="../symbols/ZmCalBaseItem.html#getAlarmData">getAlarmData</a>, <a href="../symbols/ZmCalBaseItem.html#getAlarmInstStart">getAlarmInstStart</a>, <a href="../symbols/ZmCalBaseItem.html#getDuration">getDuration</a>, <a href="../symbols/ZmCalBaseItem.html#getDurationText">getDurationText</a>, <a href="../symbols/ZmCalBaseItem.html#getEndTime">getEndTime</a>, <a href="../symbols/ZmCalBaseItem.html#getLocation">getLocation</a>, <a href="../symbols/ZmCalBaseItem.html#getName">getName</a>, <a href="../symbols/ZmCalBaseItem.html#getParticipantStatusStr">getParticipantStatusStr</a>, <a href="../symbols/ZmCalBaseItem.html#getReminderName">getReminderName</a>, <a href="../symbols/ZmCalBaseItem.html#getStartTime">getStartTime</a>, <a href="../symbols/ZmCalBaseItem.html#getUniqueId">getUniqueId</a>, <a href="../symbols/ZmCalBaseItem.html#hasAlarmData">hasAlarmData</a>, <a href="../symbols/ZmCalBaseItem.html#isAlarmInRange">isAlarmInRange</a>, <a href="../symbols/ZmCalBaseItem.html#isAlarmInstance">isAlarmInstance</a>, <a href="../symbols/ZmCalBaseItem.html#isAlarmOld">isAlarmOld</a>, <a href="../symbols/ZmCalBaseItem.html#isAllDayEvent">isAllDayEvent</a>, <a href="../symbols/ZmCalBaseItem.html#isMultiDay">isMultiDay</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmItem.html">ZmItem</a>: </dt><dd><a href="../symbols/ZmItem.html#cache">cache</a>, <a href="../symbols/ZmItem.html#clear">clear</a>, <a href="../symbols/ZmItem.html#create">create</a>, <a href="../symbols/ZmItem.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmItem.html#flagLocal">flagLocal</a>, <a href="../symbols/ZmItem.html#getById">getById</a>, <a href="../symbols/ZmItem.html#getDefaultDndAction">getDefaultDndAction</a>, <a href="../symbols/ZmItem.html#getFolderId">getFolderId</a>, <a href="../symbols/ZmItem.html#getRestUrl">getRestUrl</a>, <a href="../symbols/ZmItem.html#getTagImageFromIds">getTagImageFromIds</a>, <a href="../symbols/ZmItem.html#getTagImageInfo">getTagImageInfo</a>, <a href="../symbols/ZmItem.html#hasTag">hasTag</a>, <a href="../symbols/ZmItem.html#isShared">isShared</a>, <a href="../symbols/ZmItem.html#modify">modify</a>, <a href="../symbols/ZmItem.html#move">move</a>, <a href="../symbols/ZmItem.html#moveLocal">moveLocal</a>, <a href="../symbols/ZmItem.html#removeAllTagsLocal">removeAllTagsLocal</a>, <a href="../symbols/ZmItem.html#rename">rename</a>, <a href="../symbols/ZmItem.html#setFlag">setFlag</a>, <a href="../symbols/ZmItem.html#tagLocal">tagLocal</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmCalItem</b>(type, list, id, folderId)
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>type</b>
+								
+							</dt>
+								<dd>the item type</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmList.html">ZmList</a>}</span>  <b>list</b>
+								
+							</dt>
+								<dd>the list</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>id</b>
+								
+							</dt>
+								<dd>the task id</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>folderId</b>
+								
+							</dt>
+								<dd>the folder id</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".MODE_DELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_DELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_DELETE_INSTANCE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_DELETE_INSTANCE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete instance" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_DELETE_SERIES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_DELETE_SERIES</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete series" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_EDIT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_EDIT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "edit" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_EDIT_SERIES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_EDIT_SERIES</b>
+					
+					</div>
+					<div class="description">
+						Defines the "edit series" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_EDIT_SINGLE_INSTANCE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_EDIT_SINGLE_INSTANCE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "edit single instance" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_FORWARD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_FORWARD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_FORWARD_INVITE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_FORWARD_INVITE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_FORWARD_SERIES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_FORWARD_SERIES</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward series" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_FORWARD_SINGLE_INSTANCE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_FORWARD_SINGLE_INSTANCE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "forward single instance" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_GET"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_GET</b>
+					
+					</div>
+					<div class="description">
+						Defines the "get" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_LAST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_LAST</b>
+					
+					</div>
+					<div class="description">
+						Defines the "last" mode index constant.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_NEW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_NEW</b>
+					
+					</div>
+					<div class="description">
+						Defines the "new" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_NEW_FROM_QUICKADD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_NEW_FROM_QUICKADD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "new from quick" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_PROPOSE_TIME"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_PROPOSE_TIME</b>
+					
+					</div>
+					<div class="description">
+						Defines the "propose" mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MODE_PURGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>MODE_PURGE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "purge" (delete from trash) mode.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PRIORITY_HIGH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>PRIORITY_HIGH</b>
+					
+					</div>
+					<div class="description">
+						Defines the "high" priority.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PRIORITY_LOW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>PRIORITY_LOW</b>
+					
+					</div>
+					<div class="description">
+						Defines the "low" priority.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PRIORITY_NORMAL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>PRIORITY_NORMAL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "normal" priority.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REMINDER_NONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>REMINDER_NONE</b>
+					
+					</div>
+					<div class="description">
+						Defines "none" reminder.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REMINDER_UNIT_DAYS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>REMINDER_UNIT_DAYS</b>
+					
+					</div>
+					<div class="description">
+						Defines "days" reminder units.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REMINDER_UNIT_HOURS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>REMINDER_UNIT_HOURS</b>
+					
+					</div>
+					<div class="description">
+						Defines "hours" reminder units.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REMINDER_UNIT_MINUTES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>REMINDER_UNIT_MINUTES</b>
+					
+					</div>
+					<div class="description">
+						Defines "minutes "reminder units.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REMINDER_UNIT_WEEKS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>REMINDER_UNIT_WEEKS</b>
+					
+					</div>
+					<div class="description">
+						Defines "weeks" reminder units.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_CHAIR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>ROLE_CHAIR</b>
+					
+					</div>
+					<div class="description">
+						Defines the "chair" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_NON_PARTICIPANT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>ROLE_NON_PARTICIPANT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "non-participant" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_OPTIONAL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>ROLE_OPTIONAL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "optional" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_REQUIRED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmCalItem.</span><b>ROLE_REQUIRED</b>
+					
+					</div>
+					<div class="description">
+						Defines the "required" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addExceptionDetails"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addExceptionDetails</b>(comp, comp)
+					
+					</div>
+					<div class="description">
+						Sets the exception details to soap
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>comp</b>
+									
+								</dt>
+								<dd>soap element</dd>
+							
+								<dt>
+									<b>comp</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addReminderAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addReminderAction</b>(action)
+					
+					</div>
+					<div class="description">
+						Adds the given action to this appt's reminders. A type of action can only be added once.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>action</b>
+									
+								</dt>
+								<dd>alarm action</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="cancel"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>cancel</b>(mode, msg, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Deletes/cancels appointment/invite
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>mode</b>
+									
+								</dt>
+								<dd>designated what kind of delete op is this?</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the message to be sent in lieu of delete</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to trigger after delete</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback to trigger</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>set if part of a batch operation</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearRecurrence"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearRecurrence</b>()
+					
+					</div>
+					<div class="description">
+						clears the recurrence.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_model_ZmAppt.js.html">ZmAppt.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttachments"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getAttachments</b>()
+					
+					</div>
+					<div class="description">
+						Gets the attachments.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of attachments or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDateRange"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Hash}</span>
+					<b>getDateRange</b>(instance, current, refPath)
+					
+					</div>
+					<div class="description">
+						Gets the date range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>instance</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>current</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>refPath</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of <code>startDate</code> and <code>endDate</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDetails"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getDetails</b>(viewMode, callback, errorCallback, ignoreOutOfDate, noBusyOverlay, batchCmd)
+					
+					</div>
+					<div class="description">
+						Gets the details.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>viewMode</b>
+									
+								</dt>
+								<dd>the view mode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback on error</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>ignoreOutOfDate</b>
+									
+								</dt>
+								<dd>if <code>true</code>, ignore out of date items</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noBusyOverlay</b>
+									
+								</dt>
+								<dd>if <code>true</code>, no busy overlay</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>set if part of a batch operation</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFolder"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getFolder</b>()
+					
+					</div>
+					<div class="description">
+						Gets the folder.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the folder</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHtmlSummary"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getHtmlSummary</b>()
+					
+					</div>
+					<div class="description">
+						Gets the summary as HTML.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getImageForPriority"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalItem.</span><b>getImageForPriority</b>(task, id)
+					
+					</div>
+					<div class="description">
+						Gets the priority image.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmTask.html">ZmTask</a>}</span> <b>task</b>
+									
+								</dt>
+								<dd>the task</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the priority image</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getInviteDescription"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getInviteDescription</b>(isHtml)
+					
+					</div>
+					<div class="description">
+						Gets a string representation of the invite content.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isHtml</b>
+									
+								</dt>
+								<dd>if <code>true</code>, get HTML content</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the invite</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getLabelForParticipationStatus"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalItem.</span><b>getLabelForParticipationStatus</b>(status)
+					
+					</div>
+					<div class="description">
+						Gets the participation status label.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>status</b>
+									
+								</dt>
+								<dd>the status (see <code>ZmCalBaseItem.PSTATUS_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the status label</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".getLabelForPriority"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalItem.</span><b>getLabelForPriority</b>(priority)
+					
+					</div>
+					<div class="description">
+						Gets the priority label.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>priority</b>
+									
+								</dt>
+								<dd>the priority (see <code>ZmCalItem.PRIORITY_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the priority label</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getLabelForStatus"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalItem.</span><b>getLabelForStatus</b>(status)
+					
+					</div>
+					<div class="description">
+						Gets the status label.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>status</b>
+									
+								</dt>
+								<dd>the status (see <code>ZmCalendarApp.STATUS_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the status label</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmCalendarApp.html">ZmCalendarApp</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getLocalFolderId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmFolder.html">ZmFolder</a>|String}</span>
+					<b>getLocalFolderId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the "local" folder id even for remote folders. Otherwise, just use <code>this.folderId</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmFolder.html">ZmFolder</a>|String}</span> the folder or folder id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMailFromAddress"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getMailFromAddress</b>()
+					
+					</div>
+					<div class="description">
+						Gets the mail from address.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the address</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMailNotificationOption"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>getMailNotificationOption</b>()
+					
+					</div>
+					<div class="description">
+						Gets the mail notification option.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the mail notification is set; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getNotesPart"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getNotesPart</b>(contentType)
+					
+					</div>
+					<div class="description">
+						Gets the notes part. This method will walk the notesParts array looking for
+the first part that matches given content type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>contentType</b>
+									
+								</dt>
+								<dd>the content type (see ZmMimeTable.TEXT_PLAIN)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the content</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmMimeTable.html">ZmMimeTable</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getOrganizer"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOrganizer</b>()
+					
+					</div>
+					<div class="description">
+						Gets the organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrig"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmCalItem.html">ZmCalItem</a>}</span>
+					<b>getOrig</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original calendar item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmCalItem.html">ZmCalItem</a>}</span> the original calendar item</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigEndDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getOrigEndDate</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original end date.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the original end date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigEndTime"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getOrigEndTime</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original end time.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the original end time</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigStartDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getOrigStartDate</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original start date.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the original start date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigStartTime"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getOrigStartTime</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original start time.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the original start time</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigTimezone"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getOrigTimezone</b>()
+					
+					</div>
+					<div class="description">
+						Gets the original timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the original timezone</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getParticipationStatusIcon"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmCalItem.</span><b>getParticipationStatusIcon</b>(status)
+					
+					</div>
+					<div class="description">
+						Gets the participation status icon.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>status</b>
+									
+								</dt>
+								<dd>the status (see <code>ZmCalBaseItem.PSTATUS_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the status icon or an empty string if status not set</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getRecurBlurb"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRecurBlurb</b>()
+					
+					</div>
+					<div class="description">
+						Gets the recurrence "blurb".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the recurrence blurb</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmRecurrence.html">ZmRecurrence</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getRecurrence"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmRecurrence.html">ZmRecurrence</a>}</span>
+					<b>getRecurrence</b>()
+					
+					</div>
+					<div class="description">
+						Gets the recurrence.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmRecurrence.html">ZmRecurrence</a>}</span> the recurrence</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRecurType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRecurType</b>()
+					
+					</div>
+					<div class="description">
+						Gets the recurrence "type".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the recurrence type</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmRecurrence.html">ZmRecurrence</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getRemoteFolderOwner"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRemoteFolderOwner</b>()
+					
+					</div>
+					<div class="description">
+						Gets the remote folder owner.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the "owner" of remote/shared item folder this item belongs to</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSentBy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSentBy</b>()
+					
+					</div>
+					<div class="description">
+						Gets the sent by.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the sent by</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getShortStartHour"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getShortStartHour</b>()
+					
+					</div>
+					<div class="description">
+						Gets the start hour in short date format.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the start hour</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSummary"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSummary</b>(isHtml)
+					
+					</div>
+					<div class="description">
+						Gets the summary.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isHtml</b>
+									
+								</dt>
+								<dd><code>true</code> to return as html</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTextSummary"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getTextSummary</b>()
+					
+					</div>
+					<div class="description">
+						Gets the summary as text.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTimezone"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxTimezone.html">AjxTimezone</a>}</span>
+					<b>getTimezone</b>()
+					
+					</div>
+					<div class="description">
+						Gets the timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxTimezone.html">AjxTimezone</a>}</span> the timezone</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getToolTip"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getToolTip</b>(controller)
+					
+					</div>
+					<div class="description">
+						Gets the tool tip.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>the controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tool tip</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUniqueEndDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getUniqueEndDate</b>()
+					
+					</div>
+					<div class="description">
+						Gets the unique end date.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the end date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUniqueStartDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getUniqueStartDate</b>()
+					
+					</div>
+					<div class="description">
+						Gets the unique start date.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the start date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getViewMode"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getViewMode</b>(mode)
+					
+					</div>
+					<div class="description">
+						Gets the view mode
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mode</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasAttachments"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasAttachments</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item has attachments.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item has attachments</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasAttendeeForType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasAttendeeForType</b>(type)
+					
+					</div>
+					<div class="description">
+						Checks if this item has attendee type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> always returns <code>false</code>; override if necessary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasAttendees"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasAttendees</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item has attendees.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> always returns <code>false</code>; override if necessary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasPersonAttendees"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasPersonAttendees</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item has person attendees.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> always returns <code>false</code>; override if necessary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isCustomRecurrence"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isCustomRecurrence</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item has a custom recurrence.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> for a custom recurrence</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isEndInRange"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isEndInRange</b>(startTime, endTime)
+					
+					</div>
+					<div class="description">
+						Checks if the end date is in range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>startTime</b>
+									
+								</dt>
+								<dd>the start time of the range</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>endTime</b>
+									
+								</dt>
+								<dd>the end time of the range</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the end date of this item is within range</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isInRange"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isInRange</b>(startTime, endTime)
+					
+					</div>
+					<div class="description">
+						Checks if this item is in range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>startTime</b>
+									
+								</dt>
+								<dd>the start range</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>endTime</b>
+									
+								</dt>
+								<dd>the end range</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the item is in range</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isOrganizer"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isOrganizer</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is an organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> for an organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isOverlapping"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isOverlapping</b>(other, checkFolder)
+					
+					</div>
+					<div class="description">
+						Checks if the item is overlapping.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmCalItem.html">ZmCalItem</a>}</span> <b>other</b>
+									
+								</dt>
+								<dd>the other item to check</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>checkFolder</b>
+									
+								</dt>
+								<dd><code>true</code> to check the folder id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the items overlap; <code>false</code> if the items do not overlap or the item folder ids do not match</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the item is read-only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the item is read-only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isRecurring"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isRecurring</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is recurring.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> for recurrence</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isStartInRange"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isStartInRange</b>(startTime, endTime)
+					
+					</div>
+					<div class="description">
+						Checks if the start date is in range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>startTime</b>
+									
+								</dt>
+								<dd>the start time of the range</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>endTime</b>
+									
+								</dt>
+								<dd>the end time of the range</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the start date of this item is within range</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isValidDuration"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isValidDuration</b>()
+					
+					</div>
+					<div class="description">
+						Checks whether the duration of this item is valid.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the item possess valid duration.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAttachment"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeAttachment</b>(part)
+					
+					</div>
+					<div class="description">
+						Removes an attachment.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>part</b>
+									
+								</dt>
+								<dd>the attachment part to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeReminderAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeReminderAction</b>(action)
+					
+					</div>
+					<div class="description">
+						Removes the given action from this appt's reminders.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>action</b>
+									
+								</dt>
+								<dd>alarm action</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetRepeatCustomDayOfWeek"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetRepeatCustomDayOfWeek</b>()
+					
+					</div>
+					<div class="description">
+						Resets the repeat custom day of week.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetRepeatMonthlyDayList"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetRepeatMonthlyDayList</b>()
+					
+					</div>
+					<div class="description">
+						Resets the repeat monthly day months list.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetRepeatWeeklyDays"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetRepeatWeeklyDays</b>()
+					
+					</div>
+					<div class="description">
+						Resets the repeat weekly days.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetRepeatYearlyMonthsList"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetRepeatYearlyMonthsList</b>(mo)
+					
+					</div>
+					<div class="description">
+						Resets the repeat yearly months list.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>mo</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="save"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>save</b>(attachmentId, callback, errorCallback, notifyList)
+					
+					</div>
+					<div class="description">
+						Saves the item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>attachmentId</b>
+									
+								</dt>
+								<dd>the id of the already uploaded attachment</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback triggered once request for appointment save is complete</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback triggered if error during appointment save request</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>notifyList</b>
+									
+								</dt>
+								<dd>the optional sublist of attendees to be notified (if different from original list of attendees)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setAllDayEvent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAllDayEvent</b>(isAllDay)
+					
+					</div>
+					<div class="description">
+						Sets all day event.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isAllDay</b>
+									
+								</dt>
+								<dd><code>true</code> for an all day event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setAttachments"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAttachments</b>(ids)
+					
+					</div>
+					<div class="description">
+						Sets the attachments.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>ids</b>
+									
+								</dt>
+								<dd>a comma delimited string of ids</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDateRange"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDateRange</b>(rangeObject, instance, parentValue, refPath)
+					
+					</div>
+					<div class="description">
+						Sets the date range.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>rangeObject</b>
+									
+								</dt>
+								<dd>a hash of <code>startDate</code> and <code>endDate</code></dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>instance</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>parentValue</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>refPath</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setEndDate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setEndDate</b>(endDate, keepCache)
+					
+					</div>
+					<div class="description">
+						Sets the end date.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>endDate</b>
+									
+								</dt>
+								<dd>the end date</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>keepCache</b>
+									
+								</dt>
+								<dd>if <code>true</code>, keep the cache; <code>false</code> to reset the cache</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setEndTimezone"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setEndTimezone</b>(timezone)
+					
+					</div>
+					<div class="description">
+						Sets the end timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxTimezone.html">AjxTimezone</a>}</span> <b>timezone</b>
+									
+								</dt>
+								<dd>the timezone</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setFolderId"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setFolderId</b>(folderId)
+					
+					</div>
+					<div class="description">
+						Sets the folder id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderId</b>
+									
+								</dt>
+								<dd>the folder id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setFromSavedResponse"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setFromSavedResponse</b>(result)
+					
+					</div>
+					<div class="description">
+						Sets the required data from saved response
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>result</b>
+									
+								</dt>
+								<dd>create/moify appt response</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setMailNotificationOption"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setMailNotificationOption</b>(sendNotificationMail)
+					
+					</div>
+					<div class="description">
+						Sets the mail notification option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>sendNotificationMail</b>
+									
+								</dt>
+								<dd><code>true</code> to set the mail notification</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setName</b>(newName)
+					
+					</div>
+					<div class="description">
+						Sets the name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>newName</b>
+									
+								</dt>
+								<dd>the name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setOrganizer"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setOrganizer</b>(organizer)
+					
+					</div>
+					<div class="description">
+						Sets the organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>organizer</b>
+									
+								</dt>
+								<dd>the organizer</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setOrigTimezone"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setOrigTimezone</b>(timezone)
+					
+					</div>
+					<div class="description">
+						Sets the original timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>timezone</b>
+									
+								</dt>
+								<dd>the timezone</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setRecurType"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setRecurType</b>(repeatType)
+					
+					</div>
+					<div class="description">
+						Sets the repeat type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>repeatType</b>
+									
+								</dt>
+								<dd>the repeat type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setReminderMinutes"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setReminderMinutes</b>(minutes)
+					
+					</div>
+					<div class="description">
+						Sets reminder minutes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>minutes</b>
+									
+								</dt>
+								<dd>the minutes</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setReminderUnits"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setReminderUnits</b>(reminderValue, reminderUnits, sendEmail)
+					
+					</div>
+					<div class="description">
+						Sets the reminder units
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>reminderValue</b>
+									
+								</dt>
+								<dd>the reminder value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>reminderUnits</b>
+									
+								</dt>
+								<dd>the reminder units</dd>
+							
+								<dt>
+									<b>sendEmail</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setStartDate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setStartDate</b>(startDate, keepCache)
+					
+					</div>
+					<div class="description">
+						Sets the start date.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>startDate</b>
+									
+								</dt>
+								<dd>the start date</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>keepCache</b>
+									
+								</dt>
+								<dd>if <code>true</code>, keep the cache; <code>false</code> to reset the cache</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTextNotes"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTextNotes</b>(notes)
+					
+					</div>
+					<div class="description">
+						Sets the notes (text/plain).
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notes</b>
+									
+								</dt>
+								<dd>the notes</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTimezone"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTimezone</b>(timezone, keepCache)
+					
+					</div>
+					<div class="description">
+						Sets the timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxTimezone.html">AjxTimezone</a>}</span> <b>timezone</b>
+									
+								</dt>
+								<dd>the timezone</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>keepCache</b>
+									
+								</dt>
+								<dd>if <code>true</code>, keep the cache; <code>false</code> to reset the cache</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setType"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setType</b>(newType)
+					
+					</div>
+					<div class="description">
+						Sets the item type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>newType</b>
+									
+								</dt>
+								<dd>the item type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setViewMode"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setViewMode</b>(mode)
+					
+					</div>
+					<div class="description">
+						Sets the view mode, and resets any other fields that should not be set for that view mode.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>mode</b>
+									
+								</dt>
+								<dd>the mode (see <code>ZmCalItem.MODE_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:37 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

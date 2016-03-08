@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmSetting</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmSetting
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmModel.html">ZmModel</a>.<br />
+				
+				<br>
+				This class represents a single setting. A setting's default value never changes; it
+is available in case the user wishes to restore the current value to the default.
+Most but not all settings have a corollary on the server side. Settings that don't
+will depend on the environment or user activity to get their value.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmSetting.js.html">ZmSetting.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmSetting.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmSetting.html#constructor">ZmSetting</a></b>(id, params)
+							</div>
+							<div class="description">Creates a setting.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmSetting.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_AUTH">ACL_AUTH</a></b>
+								</div>
+								<div class="description">Defines the "all" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_DOMAIN">ACL_DOMAIN</a></b>
+								</div>
+								<div class="description">Defines the "domain" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_GROUP">ACL_GROUP</a></b>
+								</div>
+								<div class="description">Defines the "group" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_NONE">ACL_NONE</a></b>
+								</div>
+								<div class="description">Defines the "none" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_PUBLIC">ACL_PUBLIC</a></b>
+								</div>
+								<div class="description">Defines the "public" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.ACL_USER">ACL_USER</a></b>
+								</div>
+								<div class="description">Defines the "user" ACL grantee type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_CONFIG">T_CONFIG</a></b>
+								</div>
+								<div class="description">Defines the "config" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_COS">T_COS</a></b>
+								</div>
+								<div class="description">Defines the "COS" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_DOMAIN">T_DOMAIN</a></b>
+								</div>
+								<div class="description">Defines the "domain" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_METADATA">T_METADATA</a></b>
+								</div>
+								<div class="description">Defines the "meta-data" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_PREF">T_PREF</a></b>
+								</div>
+								<div class="description">Defines the "pref" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmSetting.<b><a href="../symbols/ZmSetting.html#.T_PSEUDO">T_PSEUDO</a></b>
+								</div>
+								<div class="description">Defines the "pseudo" type.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmSetting.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#getDefaultValue">getDefaultValue</a></b>(key, serialize)
+								</div>
+								<div class="description">Gets the default value of this setting.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#getOrigValue">getOrigValue</a></b>(key, serialize)
+								</div>
+								<div class="description">Gets the original value of this setting.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#getValue">getValue</a></b>(key, serialize)
+								</div>
+								<div class="description">Gets the current value of this setting.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#notifyModify">notifyModify</a></b>(obj)
+								</div>
+								<div class="description">Handles modify notification.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#setValue">setValue</a></b>(value, key, setDefault, skipNotify, skipImplicit)
+								</div>
+								<div class="description">Sets the current value of this setting, performing any necessary data type conversion.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSetting.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmSetting</b>(id, params)
+				</div>
+				
+				<div class="description">
+					Creates a setting.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>id</b>
+								
+							</dt>
+								<dd>a unique ID</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.name</b>
+								
+							</dt>
+								<dd>the name of the pref or attr on the server</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.type</b>
+								
+							</dt>
+								<dd>config, pref, or COS (see <code>ZmSetting.T_</code> constants)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.dataType</b>
+								
+							</dt>
+								<dd>string, int, or boolean</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>params.defaultValue</b>
+								
+							</dt>
+								<dd>the default value</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.isGlobal</b>
+								
+							</dt>
+								<dd>if <code>true</code>, this setting is global across accounts</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.isImplicit</b>
+								
+							</dt>
+								<dd>if <code>true</code>, this setting is not represented in Preferences</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ACL_AUTH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_AUTH</b>
+					
+					</div>
+					<div class="description">
+						Defines the "all" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACL_DOMAIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_DOMAIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "domain" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACL_GROUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_GROUP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "group" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACL_NONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_NONE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "none" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACL_PUBLIC"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_PUBLIC</b>
+					
+					</div>
+					<div class="description">
+						Defines the "public" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ACL_USER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmSetting.</span><b>ACL_USER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "user" ACL grantee type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_CONFIG"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_CONFIG</b>
+					
+					</div>
+					<div class="description">
+						Defines the "config" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_COS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_COS</b>
+					
+					</div>
+					<div class="description">
+						Defines the "COS" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_DOMAIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_DOMAIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "domain" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_METADATA"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_METADATA</b>
+					
+					</div>
+					<div class="description">
+						Defines the "meta-data" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_PREF"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_PREF</b>
+					
+					</div>
+					<div class="description">
+						Defines the "pref" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".T_PSEUDO"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmSetting.</span><b>T_PSEUDO</b>
+					
+					</div>
+					<div class="description">
+						Defines the "pseudo" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getDefaultValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getDefaultValue</b>(key, serialize)
+					
+					</div>
+					<div class="description">
+						Gets the default value of this setting.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>key</b>
+									
+								</dt>
+								<dd>the optional key for use by hash table data type</dd>
+							
+								<dt>
+									<b>serialize</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrigValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getOrigValue</b>(key, serialize)
+					
+					</div>
+					<div class="description">
+						Gets the original value of this setting.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>key</b>
+									
+								</dt>
+								<dd>the optional key for use by hash table data type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>serialize</b>
+									
+								</dt>
+								<dd>if <code>true</code>, serialize non-string value into string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getValue</b>(key, serialize)
+					
+					</div>
+					<div class="description">
+						Gets the current value of this setting.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>key</b>
+									
+								</dt>
+								<dd>the optional key for use by hash table data type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>serialize</b>
+									
+								</dt>
+								<dd>if <code>true</code>, serialize non-string value into string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyModify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyModify</b>(obj)
+					
+					</div>
+					<div class="description">
+						Handles modify notification.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setValue"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setValue</b>(value, key, setDefault, skipNotify, skipImplicit)
+					
+					</div>
+					<div class="description">
+						Sets the current value of this setting, performing any necessary data type conversion.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the new value for the setting</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>key</b>
+									
+								</dt>
+								<dd>optional key for use by hash table data type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>setDefault</b>
+									
+								</dt>
+								<dd>if <code>true</code>, also set the default value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not notify listeners</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>skipImplicit</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not check for change to implicit pref</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:32:02 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

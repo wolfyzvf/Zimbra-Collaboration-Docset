@@ -1,0 +1,900 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2012, 2013 Zimbra Software, LLC.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Zimbra Public License
+<span class='line'>  7</span>  * Version 1.4 ("License"); you may not use this file except in
+<span class='line'>  8</span>  * compliance with the License.  You may obtain a copy of the License at
+<span class='line'>  9</span>  * http://www.zimbra.com/license.
+<span class='line'> 10</span>  * 
+<span class='line'> 11</span>  * Software distributed under the License is distributed on an "AS IS"
+<span class='line'> 12</span>  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 13</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 14</span>  */</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="COMM">/**
+<span class='line'> 16</span>  * tinymce.js
+<span class='line'> 17</span>  *
+<span class='line'> 18</span>  * Copyright, Moxiecode Systems AB
+<span class='line'> 19</span>  * Released under LGPL License.
+<span class='line'> 20</span>  *
+<span class='line'> 21</span>  * License: http://www.tinymce.com/license
+<span class='line'> 22</span>  * Contributing: http://www.tinymce.com/contributing
+<span class='line'> 23</span>  */</span><span class="WHIT">
+<span class='line'> 24</span> 
+<span class='line'> 25</span> </span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">win</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">whiteSpaceRe</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/^\s*|\s*$/g</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">		</span><span class="NAME">undef</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">isRegExpBroken</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'B'</span><span class="PUNC">.</span><span class="NAME">replace</span><span class="PUNC">(</span><span class="REGX">/A(.)|B/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'$1'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'$1'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> 
+<span class='line'> 29</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'> 30</span> 	 * Core namespace with core functionality for the TinyMCE API all sub classes will be added to this namespace/object.
+<span class='line'> 31</span> 	 *
+<span class='line'> 32</span> 	 * @static
+<span class='line'> 33</span> 	 * @class tinymce
+<span class='line'> 34</span> 	 * @example
+<span class='line'> 35</span> 	 * // Using each method
+<span class='line'> 36</span> 	 * tinymce.each([1, 2, 3], function(v, i) {
+<span class='line'> 37</span> 	 *   console.log(i + '=' + v);
+<span class='line'> 38</span> 	 * });
+<span class='line'> 39</span> 	 *
+<span class='line'> 40</span> 	 * // Checking for a specific browser
+<span class='line'> 41</span> 	 * if (tinymce.isIE)
+<span class='line'> 42</span> 	 *   console.log("IE");
+<span class='line'> 43</span> 	 */</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">tinymce</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 46</span> 		 * Major version of TinyMCE build.
+<span class='line'> 47</span> 		 *
+<span class='line'> 48</span> 		 * @property majorVersion
+<span class='line'> 49</span> 		 * @type String
+<span class='line'> 50</span> 		 */</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">		</span><span class="NAME">majorVersion</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'@@tinymce_major_version@@'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> 
+<span class='line'> 53</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 54</span> 		 * Major version of TinyMCE build.
+<span class='line'> 55</span> 		 *
+<span class='line'> 56</span> 		 * @property minorVersion
+<span class='line'> 57</span> 		 * @type String
+<span class='line'> 58</span> 		 */</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">		</span><span class="NAME">minorVersion</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'@@tinymce_minor_version@@'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 60</span> 
+<span class='line'> 61</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 62</span> 		 * Release date of TinyMCE build.
+<span class='line'> 63</span> 		 *
+<span class='line'> 64</span> 		 * @property releaseDate
+<span class='line'> 65</span> 		 * @type String
+<span class='line'> 66</span> 		 */</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">		</span><span class="NAME">releaseDate</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'@@tinymce_release_date@@'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 68</span> 
+<span class='line'> 69</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 70</span> 		 * Initializes the TinyMCE global namespace this will setup browser detection and figure out where TinyMCE is running from.
+<span class='line'> 71</span> 		 */</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">		</span><span class="NAME">_init</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">t</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">d</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">na</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">navigator</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ua</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">na.userAgent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">nl</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">base</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">p</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> 
+<span class='line'> 75</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 76</span> 			 * Constant that is true if the browser is Opera.
+<span class='line'> 77</span> 			 *
+<span class='line'> 78</span> 			 * @property isOpera
+<span class='line'> 79</span> 			 * @type Boolean
+<span class='line'> 80</span> 			 * @final
+<span class='line'> 81</span> 			 */</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">			</span><span class="NAME">t.isOpera</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">win.opera</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">opera.buildNumber</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> 
+<span class='line'> 84</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 85</span> 			 * Constant that is true if the browser is WebKit (Safari/Chrome).
+<span class='line'> 86</span> 			 *
+<span class='line'> 87</span> 			 * @property isWebKit
+<span class='line'> 88</span> 			 * @type Boolean
+<span class='line'> 89</span> 			 * @final
+<span class='line'> 90</span> 			 */</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="WHIT">			</span><span class="NAME">t.isWebKit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/WebKit/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 92</span> 
+<span class='line'> 93</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 94</span> 			 * Constant that is true if the browser is IE.
+<span class='line'> 95</span> 			 *
+<span class='line'> 96</span> 			 * @property isIE
+<span class='line'> 97</span> 			 * @type Boolean
+<span class='line'> 98</span> 			 * @final
+<span class='line'> 99</span> 			 */</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">			</span><span class="NAME">t.isIE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">t.isWebKit</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">t.isOpera</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/MSIE/gi</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/Explorer/gi</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">na.appName</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>101</span> 
+<span class='line'>102</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>103</span> 			 * Constant that is true if the browser is IE 6 or older.
+<span class='line'>104</span> 			 *
+<span class='line'>105</span> 			 * @property isIE6
+<span class='line'>106</span> 			 * @type Boolean
+<span class='line'>107</span> 			 * @final
+<span class='line'>108</span> 			 */</span><span class="WHIT">
+<span class='line'>109</span> </span><span class="WHIT">			</span><span class="NAME">t.isIE6</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/MSIE [56]/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>110</span> 
+<span class='line'>111</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>112</span> 			 * Constant that is true if the browser is IE 7.
+<span class='line'>113</span> 			 *
+<span class='line'>114</span> 			 * @property isIE7
+<span class='line'>115</span> 			 * @type Boolean
+<span class='line'>116</span> 			 * @final
+<span class='line'>117</span> 			 */</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="WHIT">			</span><span class="NAME">t.isIE7</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/MSIE [7]/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>119</span> 
+<span class='line'>120</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>121</span> 			 * Constant that is true if the browser is IE 8.
+<span class='line'>122</span> 			 *
+<span class='line'>123</span> 			 * @property isIE8
+<span class='line'>124</span> 			 * @type Boolean
+<span class='line'>125</span> 			 * @final
+<span class='line'>126</span> 			 */</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="WHIT">			</span><span class="NAME">t.isIE8</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/MSIE [8]/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>128</span> 
+<span class='line'>129</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>130</span> 			 * Constant that is true if the browser is IE 9.
+<span class='line'>131</span> 			 *
+<span class='line'>132</span> 			 * @property isIE9
+<span class='line'>133</span> 			 * @type Boolean
+<span class='line'>134</span> 			 * @final
+<span class='line'>135</span> 			 */</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">			</span><span class="NAME">t.isIE9</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/MSIE [9]/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>137</span> 
+<span class='line'>138</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>139</span> 			 * Constant that is true if the browser is Gecko.
+<span class='line'>140</span> 			 *
+<span class='line'>141</span> 			 * @property isGecko
+<span class='line'>142</span> 			 * @type Boolean
+<span class='line'>143</span> 			 * @final
+<span class='line'>144</span> 			 */</span><span class="WHIT">
+<span class='line'>145</span> </span><span class="WHIT">			</span><span class="NAME">t.isGecko</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">t.isWebKit</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/Gecko/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>146</span> 
+<span class='line'>147</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>148</span> 			 * Constant that is true if the os is Mac OS.
+<span class='line'>149</span> 			 *
+<span class='line'>150</span> 			 * @property isMac
+<span class='line'>151</span> 			 * @type Boolean
+<span class='line'>152</span> 			 * @final
+<span class='line'>153</span> 			 */</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">			</span><span class="NAME">t.isMac</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ua.indexOf</span><span class="PUNC">(</span><span class="STRN">'Mac'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>155</span> 
+<span class='line'>156</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>157</span> 			 * Constant that is true if the runtime is Adobe Air.
+<span class='line'>158</span> 			 *
+<span class='line'>159</span> 			 * @property isAir
+<span class='line'>160</span> 			 * @type Boolean
+<span class='line'>161</span> 			 * @final
+<span class='line'>162</span> 			 */</span><span class="WHIT">
+<span class='line'>163</span> </span><span class="WHIT">			</span><span class="NAME">t.isAir</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/adobeair/i</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>164</span> 
+<span class='line'>165</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>166</span> 			 * Constant that tells if the current browser is an iPhone or iPad.
+<span class='line'>167</span> 			 *
+<span class='line'>168</span> 			 * @property isIDevice
+<span class='line'>169</span> 			 * @type Boolean
+<span class='line'>170</span> 			 * @final
+<span class='line'>171</span> 			 */</span><span class="WHIT">
+<span class='line'>172</span> </span><span class="WHIT">			</span><span class="NAME">t.isIDevice</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/(iPad|iPhone)/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">ua</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="WHIT">			</span><span class="WHIT">
+<span class='line'>174</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'>175</span> 			 * Constant that is true if the current browser is running on iOS 5 or greater.
+<span class='line'>176</span> 			 *
+<span class='line'>177</span> 			 * @property isIOS5
+<span class='line'>178</span> 			 * @type Boolean
+<span class='line'>179</span> 			 * @final
+<span class='line'>180</span> 			 */</span><span class="WHIT">
+<span class='line'>181</span> </span><span class="WHIT">			</span><span class="NAME">t.isIOS5</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.isIDevice</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">ua.match</span><span class="PUNC">(</span><span class="REGX">/AppleWebKit\/(\d*)/</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">1</span><span class="PUNC">]</span><span class="PUNC">>=</span><span class="NUMB">534</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>182</span> 
+<span class='line'>183</span> </span><span class="WHIT">			</span><span class="COMM">// TinyMCE .NET webcontrol might be setting the values for TinyMCE</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.tinyMCEPreInit</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>185</span> </span><span class="WHIT">				</span><span class="NAME">t.suffix</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinyMCEPreInit.suffix</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>186</span> </span><span class="WHIT">				</span><span class="NAME">t.baseURL</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinyMCEPreInit.base</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>187</span> </span><span class="WHIT">				</span><span class="NAME">t.query</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinyMCEPreInit.query</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>190</span> 
+<span class='line'>191</span> </span><span class="WHIT">			</span><span class="COMM">// Get suffix and base</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="WHIT">			</span><span class="NAME">t.suffix</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>193</span> 
+<span class='line'>194</span> </span><span class="WHIT">			</span><span class="COMM">// If base element found, add that infront of baseURL</span><span class="WHIT">
+<span class='line'>195</span> </span><span class="WHIT">			</span><span class="NAME">nl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'base'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>196</span> </span><span class="WHIT">			</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">=</span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">&lt;</span><span class="NAME">nl.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>197</span> </span><span class="WHIT">				</span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nl</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">href</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="WHIT">					</span><span class="COMM">// Host only value like http://site.com or http://site.com:8008</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/^https?:\/\/[^\/]+$/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">						</span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'/'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>202</span> 
+<span class='line'>203</span> </span><span class="WHIT">					</span><span class="NAME">base</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">v.match</span><span class="PUNC">(</span><span class="REGX">/.*\//</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// Get only directory</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>205</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>206</span> 
+<span class='line'>207</span> </span><span class="WHIT">			</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">getBase</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>208</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n.src</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="REGX">/tiny_mce(|_gzip|_jquery|_prototype|_full)(_dev|_src)?.js/</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">n.src</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>209</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="REGX">/_(src|dev)\.js/g</span><span class="PUNC">.</span><span class="NAME">test</span><span class="PUNC">(</span><span class="NAME">n.src</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>210</span> </span><span class="WHIT">						</span><span class="NAME">t.suffix</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'_src'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>211</span> 
+<span class='line'>212</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">p</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.src.indexOf</span><span class="PUNC">(</span><span class="STRN">'?'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>213</span> </span><span class="WHIT">						</span><span class="NAME">t.query</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.src.substring</span><span class="PUNC">(</span><span class="NAME">p</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>214</span> 
+<span class='line'>215</span> </span><span class="WHIT">					</span><span class="NAME">t.baseURL</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.src.substring</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n.src.lastIndexOf</span><span class="PUNC">(</span><span class="STRN">'/'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>216</span> 
+<span class='line'>217</span> </span><span class="WHIT">					</span><span class="COMM">// If path to script is relative and a base href was found add that one infront</span><span class="WHIT">
+<span class='line'>218</span> </span><span class="WHIT">					</span><span class="COMM">// the src property will always be an absolute one on non IE browsers and IE 8</span><span class="WHIT">
+<span class='line'>219</span> </span><span class="WHIT">					</span><span class="COMM">// so this logic will basically only be executed on older IE versions</span><span class="WHIT">
+<span class='line'>220</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">base</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">t.baseURL.indexOf</span><span class="PUNC">(</span><span class="STRN">'://'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">t.baseURL.indexOf</span><span class="PUNC">(</span><span class="STRN">'/'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>221</span> </span><span class="WHIT">						</span><span class="NAME">t.baseURL</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">base</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">t.baseURL</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>222</span> 
+<span class='line'>223</span> </span><span class="WHIT">					</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">t.baseURL</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>224</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>225</span> 
+<span class='line'>226</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>227</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>228</span> 
+<span class='line'>229</span> </span><span class="WHIT">			</span><span class="COMM">// Check document</span><span class="WHIT">
+<span class='line'>230</span> </span><span class="WHIT">			</span><span class="NAME">nl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'script'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>231</span> </span><span class="WHIT">			</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">=</span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">&lt;</span><span class="NAME">nl.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>232</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">getBase</span><span class="PUNC">(</span><span class="NAME">nl</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>233</span> </span><span class="WHIT">					</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>234</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>235</span> 
+<span class='line'>236</span> </span><span class="WHIT">			</span><span class="COMM">// Check head</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">			</span><span class="NAME">n</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">d.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'head'</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>239</span> </span><span class="WHIT">				</span><span class="NAME">nl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.getElementsByTagName</span><span class="PUNC">(</span><span class="STRN">'script'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="WHIT">				</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">=</span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">&lt;</span><span class="NAME">nl.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">getBase</span><span class="PUNC">(</span><span class="NAME">nl</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>243</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>244</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>245</span> 
+<span class='line'>246</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>247</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>248</span> 
+<span class='line'>249</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>250</span> 		 * Checks if a object is of a specific type for example an array.
+<span class='line'>251</span> 		 *
+<span class='line'>252</span> 		 * @method is
+<span class='line'>253</span> 		 * @param {Object} o Object to check type of.
+<span class='line'>254</span> 		 * @param {string} t Optional type to check for.
+<span class='line'>255</span> 		 * @return {Boolean} true/false if the object is of the specified type.
+<span class='line'>256</span> 		 */</span><span class="WHIT">
+<span class='line'>257</span> </span><span class="WHIT">		</span><span class="NAME">is</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">t</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>258</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">t</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>259</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">undef</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>260</span> 
+<span class='line'>261</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">t</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'array'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o.hasOwnProperty</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">Array</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>262</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>263</span> 
+<span class='line'>264</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">t</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>265</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>266</span> 
+<span class='line'>267</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>268</span> 		 * Makes a name/object map out of an array with names.
+<span class='line'>269</span> 		 *
+<span class='line'>270</span> 		 * @method makeMap
+<span class='line'>271</span> 		 * @param {Array/String} items Items to make map out of.
+<span class='line'>272</span> 		 * @param {String} delim Optional delimiter to split string by.
+<span class='line'>273</span> 		 * @param {Object} map Optional map to add items to.
+<span class='line'>274</span> 		 * @return {Object} Name/value map of items.
+<span class='line'>275</span> 		 */</span><span class="WHIT">
+<span class='line'>276</span> </span><span class="WHIT">		</span><span class="NAME">makeMap</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">items</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">delim</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">map</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>277</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>278</span> 
+<span class='line'>279</span> </span><span class="WHIT">			</span><span class="NAME">items</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">items</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>280</span> </span><span class="WHIT">			</span><span class="NAME">delim</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">delim</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">','</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>281</span> 
+<span class='line'>282</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="PUNC">(</span><span class="NAME">items</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"string"</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>283</span> </span><span class="WHIT">				</span><span class="NAME">items</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">items.split</span><span class="PUNC">(</span><span class="NAME">delim</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>284</span> 
+<span class='line'>285</span> </span><span class="WHIT">			</span><span class="NAME">map</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">map</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>286</span> 
+<span class='line'>287</span> </span><span class="WHIT">			</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">items.length</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>288</span> </span><span class="WHIT">			</span><span class="KEYW">while</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">--</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>289</span> </span><span class="WHIT">				</span><span class="NAME">map</span><span class="PUNC">[</span><span class="NAME">items</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>290</span> 
+<span class='line'>291</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">map</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>292</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>293</span> 
+<span class='line'>294</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>295</span> 		 * Performs an iteration of all items in a collection such as an object or array. This method will execure the
+<span class='line'>296</span> 		 * callback function for each item in the collection, if the callback returns false the iteration will terminate.
+<span class='line'>297</span> 		 * The callback has the following format: cb(value, key_or_index).
+<span class='line'>298</span> 		 *
+<span class='line'>299</span> 		 * @method each
+<span class='line'>300</span> 		 * @param {Object} o Collection to iterate.
+<span class='line'>301</span> 		 * @param {function} cb Callback function to execute for each item.
+<span class='line'>302</span> 		 * @param {Object} s Optional scope to execute the callback in.
+<span class='line'>303</span> 		 * @example
+<span class='line'>304</span> 		 * // Iterate an array
+<span class='line'>305</span> 		 * tinymce.each([1,2,3], function(v, i) {
+<span class='line'>306</span> 		 *     console.debug("Value: " + v + ", Index: " + i);
+<span class='line'>307</span> 		 * });
+<span class='line'>308</span> 		 * 
+<span class='line'>309</span> 		 * // Iterate an object
+<span class='line'>310</span> 		 * tinymce.each({a : 1, b : 2, c: 3], function(v, k) {
+<span class='line'>311</span> 		 *     console.debug("Value: " + v + ", Key: " + k);
+<span class='line'>312</span> 		 * });
+<span class='line'>313</span> 		 */</span><span class="WHIT">
+<span class='line'>314</span> </span><span class="WHIT">		</span><span class="NAME">each</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">cb</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>315</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>316</span> 
+<span class='line'>317</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>318</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>319</span> 
+<span class='line'>320</span> </span><span class="WHIT">			</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>321</span> 
+<span class='line'>322</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o.length</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">undef</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>323</span> </span><span class="WHIT">				</span><span class="COMM">// Indexed arrays, needed for Safari</span><span class="WHIT">
+<span class='line'>324</span> </span><span class="WHIT">				</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">=</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">n</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>325</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cb.call</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>326</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>327</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>328</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>329</span> </span><span class="WHIT">				</span><span class="COMM">// Hashtables</span><span class="WHIT">
+<span class='line'>330</span> </span><span class="WHIT">				</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>331</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o.hasOwnProperty</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>332</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cb.call</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>333</span> </span><span class="WHIT">							</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>334</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>335</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>336</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>337</span> 
+<span class='line'>338</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>339</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>340</span> 
+<span class='line'>341</span> </span><span class="WHIT">		</span><span class="COMM">// #ifndef jquery</span><span class="WHIT">
+<span class='line'>342</span> 
+<span class='line'>343</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>344</span> 		 * Creates a new array by the return value of each iteration function call. This enables you to convert
+<span class='line'>345</span> 		 * one array list into another.
+<span class='line'>346</span> 		 *
+<span class='line'>347</span> 		 * @method map
+<span class='line'>348</span> 		 * @param {Array} a Array of items to iterate.
+<span class='line'>349</span> 		 * @param {function} f Function to call for each item. It's return value will be the new value.
+<span class='line'>350</span> 		 * @return {Array} Array with new values based on function return values.
+<span class='line'>351</span> 		 */</span><span class="WHIT">
+<span class='line'>352</span> </span><span class="WHIT">		</span><span class="NAME">map</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>353</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>354</span> 
+<span class='line'>355</span> </span><span class="WHIT">			</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>356</span> </span><span class="WHIT">				</span><span class="NAME">o.push</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>357</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>358</span> 
+<span class='line'>359</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>360</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>361</span> 
+<span class='line'>362</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>363</span> 		 * Filters out items from the input array by calling the specified function for each item.
+<span class='line'>364</span> 		 * If the function returns false the item will be excluded if it returns true it will be included.
+<span class='line'>365</span> 		 *
+<span class='line'>366</span> 		 * @method grep
+<span class='line'>367</span> 		 * @param {Array} a Array of items to loop though.
+<span class='line'>368</span> 		 * @param {function} f Function to call for each item. Include/exclude depends on it's return value.
+<span class='line'>369</span> 		 * @return {Array} New array with values imported and filtered based in input.
+<span class='line'>370</span> 		 * @example
+<span class='line'>371</span> 		 * // Filter out some items, this will return an array with 4 and 5
+<span class='line'>372</span> 		 * var items = tinymce.grep([1,2,3,4,5], function(v) {return v > 3;});
+<span class='line'>373</span> 		 */</span><span class="WHIT">
+<span class='line'>374</span> </span><span class="WHIT">		</span><span class="NAME">grep</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>375</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>376</span> 
+<span class='line'>377</span> </span><span class="WHIT">			</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>378</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">f</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>379</span> </span><span class="WHIT">					</span><span class="NAME">o.push</span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>380</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>381</span> 
+<span class='line'>382</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>383</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>384</span> 
+<span class='line'>385</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>386</span> 		 * Returns the index of a value in an array, this method will return -1 if the item wasn't found.
+<span class='line'>387</span> 		 *
+<span class='line'>388</span> 		 * @method inArray
+<span class='line'>389</span> 		 * @param {Array} a Array/Object to search for value in.
+<span class='line'>390</span> 		 * @param {Object} v Value to check for inside the array.
+<span class='line'>391</span> 		 * @return {Number/String} Index of item inside the array inside an object. Or -1 if it wasn't found.
+<span class='line'>392</span> 		 * @example
+<span class='line'>393</span> 		 * // Get index of value in array this will alert 1 since 2 is at that index
+<span class='line'>394</span> 		 * alert(tinymce.inArray([1,2,3], 2));
+<span class='line'>395</span> 		 */</span><span class="WHIT">
+<span class='line'>396</span> </span><span class="WHIT">		</span><span class="NAME">inArray</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>397</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>398</span> 
+<span class='line'>399</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>400</span> </span><span class="WHIT">				</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">a.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>401</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">a</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>402</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>403</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>404</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>405</span> 
+<span class='line'>406</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>407</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>408</span> 
+<span class='line'>409</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>410</span> 		 * Extends an object with the specified other object(s).
+<span class='line'>411</span> 		 *
+<span class='line'>412</span> 		 * @method extend
+<span class='line'>413</span> 		 * @param {Object} obj Object to extend with new items.
+<span class='line'>414</span> 		 * @param {Object} ext..n Object(s) to extend the specified object with.
+<span class='line'>415</span> 		 * @return {Object} o New extended object, same reference as the input object.
+<span class='line'>416</span> 		 * @example
+<span class='line'>417</span> 		 * // Extends obj1 with two new fields
+<span class='line'>418</span> 		 * var obj = tinymce.extend(obj1, {
+<span class='line'>419</span> 		 *     somefield1 : 'a',
+<span class='line'>420</span> 		 *     somefield2 : 'a'
+<span class='line'>421</span> 		 * });
+<span class='line'>422</span> 		 * 
+<span class='line'>423</span> 		 * // Extends obj with obj2 and obj3
+<span class='line'>424</span> 		 * tinymce.extend(obj, obj2, obj3);
+<span class='line'>425</span> 		 */</span><span class="WHIT">
+<span class='line'>426</span> </span><span class="WHIT">		</span><span class="NAME">extend</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>427</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">name</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">value</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>428</span> 
+<span class='line'>429</span> </span><span class="WHIT">			</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">args.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>430</span> </span><span class="WHIT">				</span><span class="NAME">ext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">args</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>431</span> </span><span class="WHIT">				</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">name</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">ext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>432</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ext.hasOwnProperty</span><span class="PUNC">(</span><span class="NAME">name</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>433</span> </span><span class="WHIT">						</span><span class="NAME">value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ext</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>434</span> 
+<span class='line'>435</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">value</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">undef</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>436</span> </span><span class="WHIT">							</span><span class="NAME">obj</span><span class="PUNC">[</span><span class="NAME">name</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">value</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>437</span> </span><span class="WHIT">						</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>438</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>439</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>440</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>441</span> 
+<span class='line'>442</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>443</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>444</span> 
+<span class='line'>445</span> </span><span class="WHIT">		</span><span class="COMM">// #endif</span><span class="WHIT">
+<span class='line'>446</span> 
+<span class='line'>447</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>448</span> 		 * Removes whitespace from the beginning and end of a string.
+<span class='line'>449</span> 		 *
+<span class='line'>450</span> 		 * @method trim
+<span class='line'>451</span> 		 * @param {String} s String to remove whitespace from.
+<span class='line'>452</span> 		 * @return {String} New string with removed whitespace.
+<span class='line'>453</span> 		 */</span><span class="WHIT">
+<span class='line'>454</span> </span><span class="WHIT">		</span><span class="NAME">trim</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>455</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">replace</span><span class="PUNC">(</span><span class="NAME">whiteSpaceRe</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>456</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>457</span> 
+<span class='line'>458</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>459</span> 		 * Creates a class, subclass or static singleton.
+<span class='line'>460</span> 		 * More details on this method can be found in the Wiki.
+<span class='line'>461</span> 		 *
+<span class='line'>462</span> 		 * @method create
+<span class='line'>463</span> 		 * @param {String} s Class name, inheritage and prefix.
+<span class='line'>464</span> 		 * @param {Object} p Collection of methods to add to the class.
+<span class='line'>465</span> 		 * @param {Object} root Optional root object defaults to the global window object.
+<span class='line'>466</span> 		 * @example
+<span class='line'>467</span> 		 * // Creates a basic class
+<span class='line'>468</span> 		 * tinymce.create('tinymce.somepackage.SomeClass', {
+<span class='line'>469</span> 		 *     SomeClass : function() {
+<span class='line'>470</span> 		 *         // Class constructor
+<span class='line'>471</span> 		 *     },
+<span class='line'>472</span> 		 * 
+<span class='line'>473</span> 		 *     method : function() {
+<span class='line'>474</span> 		 *         // Some method
+<span class='line'>475</span> 		 *     }
+<span class='line'>476</span> 		 * });
+<span class='line'>477</span> 		 *
+<span class='line'>478</span> 		 * // Creates a basic subclass class
+<span class='line'>479</span> 		 * tinymce.create('tinymce.somepackage.SomeSubClass:tinymce.somepackage.SomeClass', {
+<span class='line'>480</span> 		 *     SomeSubClass: function() {
+<span class='line'>481</span> 		 *         // Class constructor
+<span class='line'>482</span> 		 *         this.parent(); // Call parent constructor
+<span class='line'>483</span> 		 *     },
+<span class='line'>484</span> 		 * 
+<span class='line'>485</span> 		 *     method : function() {
+<span class='line'>486</span> 		 *         // Some method
+<span class='line'>487</span> 		 *         this.parent(); // Call parent method
+<span class='line'>488</span> 		 *     },
+<span class='line'>489</span> 		 * 
+<span class='line'>490</span> 		 *     'static' : {
+<span class='line'>491</span> 		 *         staticMethod : function() {
+<span class='line'>492</span> 		 *             // Static method
+<span class='line'>493</span> 		 *         }
+<span class='line'>494</span> 		 *     }
+<span class='line'>495</span> 		 * });
+<span class='line'>496</span> 		 *
+<span class='line'>497</span> 		 * // Creates a singleton/static class
+<span class='line'>498</span> 		 * tinymce.create('static tinymce.somepackage.SomeSingletonClass', {
+<span class='line'>499</span> 		 *     method : function() {
+<span class='line'>500</span> 		 *         // Some method
+<span class='line'>501</span> 		 *     }
+<span class='line'>502</span> 		 * });
+<span class='line'>503</span> 		 */</span><span class="WHIT">
+<span class='line'>504</span> </span><span class="WHIT">		</span><span class="NAME">create</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">p</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">root</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>505</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">t</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">sp</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ns</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">cn</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">scn</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">c</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">de</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>506</span> 
+<span class='line'>507</span> </span><span class="WHIT">			</span><span class="COMM">// Parse : &lt;prefix> &lt;class>:&lt;super class></span><span class="WHIT">
+<span class='line'>508</span> </span><span class="WHIT">			</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/^((static) )?([\w.]+)(:([\w.]+))?/</span><span class="PUNC">.</span><span class="NAME">exec</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>509</span> </span><span class="WHIT">			</span><span class="NAME">cn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">3</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">match</span><span class="PUNC">(</span><span class="REGX">/(^|\.)(\w+)$/i</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">2</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// Class name</span><span class="WHIT">
+<span class='line'>510</span> 
+<span class='line'>511</span> </span><span class="WHIT">			</span><span class="COMM">// Create namespace for new class</span><span class="WHIT">
+<span class='line'>512</span> </span><span class="WHIT">			</span><span class="NAME">ns</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.createNS</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">3</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">replace</span><span class="PUNC">(</span><span class="REGX">/\.\w+$/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">root</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>513</span> 
+<span class='line'>514</span> </span><span class="WHIT">			</span><span class="COMM">// Class already exists</span><span class="WHIT">
+<span class='line'>515</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>516</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>517</span> 
+<span class='line'>518</span> </span><span class="WHIT">			</span><span class="COMM">// Make pure static class</span><span class="WHIT">
+<span class='line'>519</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">2</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'static'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>520</span> </span><span class="WHIT">				</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">p</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>521</span> 
+<span class='line'>522</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.onCreate</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>523</span> </span><span class="WHIT">					</span><span class="NAME">this.onCreate</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">2</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">3</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>524</span> 
+<span class='line'>525</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>526</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>527</span> 
+<span class='line'>528</span> </span><span class="WHIT">			</span><span class="COMM">// Create default constructor</span><span class="WHIT">
+<span class='line'>529</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">p</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>530</span> </span><span class="WHIT">				</span><span class="NAME">p</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>531</span> </span><span class="WHIT">				</span><span class="NAME">de</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>532</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>533</span> 
+<span class='line'>534</span> </span><span class="WHIT">			</span><span class="COMM">// Add constructor and methods</span><span class="WHIT">
+<span class='line'>535</span> </span><span class="WHIT">			</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">p</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>536</span> </span><span class="WHIT">			</span><span class="NAME">t.extend</span><span class="PUNC">(</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">p</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>537</span> 
+<span class='line'>538</span> </span><span class="WHIT">			</span><span class="COMM">// Extend</span><span class="WHIT">
+<span class='line'>539</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">5</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>540</span> </span><span class="WHIT">				</span><span class="NAME">sp</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.resolve</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">5</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>541</span> </span><span class="WHIT">				</span><span class="NAME">scn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">5</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">match</span><span class="PUNC">(</span><span class="REGX">/\.(\w+)$/i</span><span class="PUNC">)</span><span class="PUNC">[</span><span class="NUMB">1</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// Class name</span><span class="WHIT">
+<span class='line'>542</span> 
+<span class='line'>543</span> </span><span class="WHIT">				</span><span class="COMM">// Extend constructor</span><span class="WHIT">
+<span class='line'>544</span> </span><span class="WHIT">				</span><span class="NAME">c</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>545</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">de</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>546</span> </span><span class="WHIT">					</span><span class="COMM">// Add passthrough constructor</span><span class="WHIT">
+<span class='line'>547</span> </span><span class="WHIT">					</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>548</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">sp</span><span class="PUNC">[</span><span class="NAME">scn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>549</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>550</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>551</span> </span><span class="WHIT">					</span><span class="COMM">// Add inherit constructor</span><span class="WHIT">
+<span class='line'>552</span> </span><span class="WHIT">					</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>553</span> </span><span class="WHIT">						</span><span class="NAME">this.parent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">sp</span><span class="PUNC">[</span><span class="NAME">scn</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>554</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">c.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>555</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>556</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>557</span> </span><span class="WHIT">				</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>558</span> 
+<span class='line'>559</span> </span><span class="WHIT">				</span><span class="COMM">// Add super methods</span><span class="WHIT">
+<span class='line'>560</span> </span><span class="WHIT">				</span><span class="NAME">t.each</span><span class="PUNC">(</span><span class="NAME">sp</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>561</span> </span><span class="WHIT">					</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">sp</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>562</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>563</span> 
+<span class='line'>564</span> </span><span class="WHIT">				</span><span class="COMM">// Add overridden methods</span><span class="WHIT">
+<span class='line'>565</span> </span><span class="WHIT">				</span><span class="NAME">t.each</span><span class="PUNC">(</span><span class="NAME">p</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>566</span> </span><span class="WHIT">					</span><span class="COMM">// Extend methods if needed</span><span class="WHIT">
+<span class='line'>567</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">sp</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>568</span> </span><span class="WHIT">						</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>569</span> </span><span class="WHIT">							</span><span class="NAME">this.parent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">sp</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>570</span> </span><span class="WHIT">							</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">f.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>571</span> </span><span class="WHIT">						</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>572</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>573</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">cn</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>574</span> </span><span class="WHIT">							</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>575</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>576</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>577</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>578</span> 
+<span class='line'>579</span> </span><span class="WHIT">			</span><span class="COMM">// Add static methods</span><span class="WHIT">
+<span class='line'>580</span> </span><span class="WHIT">			</span><span class="NAME">t.each</span><span class="PUNC">(</span><span class="NAME">p</span><span class="PUNC">[</span><span class="STRN">'static'</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>581</span> </span><span class="WHIT">				</span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>582</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>583</span> 
+<span class='line'>584</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.onCreate</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>585</span> </span><span class="WHIT">				</span><span class="NAME">this.onCreate</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">2</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">[</span><span class="NUMB">3</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ns</span><span class="PUNC">[</span><span class="NAME">cn</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">prototype</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>586</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>587</span> 
+<span class='line'>588</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>589</span> 		 * Executed the specified function for each item in a object tree.
+<span class='line'>590</span> 		 *
+<span class='line'>591</span> 		 * @method walk
+<span class='line'>592</span> 		 * @param {Object} o Object tree to walk though.
+<span class='line'>593</span> 		 * @param {function} f Function to call for each item.
+<span class='line'>594</span> 		 * @param {String} n Optional name of collection inside the objects to walk for example childNodes.
+<span class='line'>595</span> 		 * @param {String} s Optional scope to execute the function in.
+<span class='line'>596</span> 		 */</span><span class="WHIT">
+<span class='line'>597</span> </span><span class="WHIT">		</span><span class="NAME">walk</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>598</span> </span><span class="WHIT">			</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>599</span> 
+<span class='line'>600</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>601</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>602</span> </span><span class="WHIT">					</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>603</span> 
+<span class='line'>604</span> </span><span class="WHIT">				</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>605</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">f.call</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>606</span> </span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>607</span> 
+<span class='line'>608</span> </span><span class="WHIT">					</span><span class="NAME">tinymce.walk</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>609</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>610</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>611</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>612</span> 
+<span class='line'>613</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>614</span> 		 * Creates a namespace on a specific object.
+<span class='line'>615</span> 		 *
+<span class='line'>616</span> 		 * @method createNS
+<span class='line'>617</span> 		 * @param {String} n Namespace to create for example a.b.c.d.
+<span class='line'>618</span> 		 * @param {Object} o Optional object to add namespace to, defaults to window.
+<span class='line'>619</span> 		 * @return {Object} New namespace object the last item in path.
+<span class='line'>620</span> 		 * @example
+<span class='line'>621</span> 		 * // Create some namespace
+<span class='line'>622</span> 		 * tinymce.createNS('tinymce.somepackage.subpackage');
+<span class='line'>623</span> 		 *
+<span class='line'>624</span> 		 * // Add a singleton
+<span class='line'>625</span> 		 * var tinymce.somepackage.subpackage.SomeSingleton = {
+<span class='line'>626</span> 		 *     method : function() {
+<span class='line'>627</span> 		 *         // Some method
+<span class='line'>628</span> 		 *     }
+<span class='line'>629</span> 		 * };
+<span class='line'>630</span> 		 */</span><span class="WHIT">
+<span class='line'>631</span> </span><span class="WHIT">		</span><span class="NAME">createNS</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>632</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>633</span> 
+<span class='line'>634</span> </span><span class="WHIT">			</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">win</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>635</span> 
+<span class='line'>636</span> </span><span class="WHIT">			</span><span class="NAME">n</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.split</span><span class="PUNC">(</span><span class="STRN">'.'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>637</span> </span><span class="WHIT">			</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">=</span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">&lt;</span><span class="NAME">n.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>638</span> </span><span class="WHIT">				</span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>639</span> 
+<span class='line'>640</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">v</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>641</span> </span><span class="WHIT">					</span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">v</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>642</span> 
+<span class='line'>643</span> </span><span class="WHIT">				</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">v</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>644</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>645</span> 
+<span class='line'>646</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>647</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>648</span> 
+<span class='line'>649</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>650</span> 		 * Resolves a string and returns the object from a specific structure.
+<span class='line'>651</span> 		 *
+<span class='line'>652</span> 		 * @method resolve
+<span class='line'>653</span> 		 * @param {String} n Path to resolve for example a.b.c.d.
+<span class='line'>654</span> 		 * @param {Object} o Optional object to search though, defaults to window.
+<span class='line'>655</span> 		 * @return {Object} Last object in path or null if it couldn't be resolved.
+<span class='line'>656</span> 		 * @example
+<span class='line'>657</span> 		 * // Resolve a path into an object reference
+<span class='line'>658</span> 		 * var obj = tinymce.resolve('a.b.c.d');
+<span class='line'>659</span> 		 */</span><span class="WHIT">
+<span class='line'>660</span> </span><span class="WHIT">		</span><span class="NAME">resolve</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>661</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>662</span> 
+<span class='line'>663</span> </span><span class="WHIT">			</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">win</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>664</span> 
+<span class='line'>665</span> </span><span class="WHIT">			</span><span class="NAME">n</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.split</span><span class="PUNC">(</span><span class="STRN">'.'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>666</span> </span><span class="WHIT">			</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">l</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">n.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">l</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>667</span> </span><span class="WHIT">				</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>668</span> 
+<span class='line'>669</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">o</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>670</span> </span><span class="WHIT">					</span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>671</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>672</span> 
+<span class='line'>673</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>674</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>675</span> 
+<span class='line'>676</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>677</span> 		 * Adds an unload handler to the document. This handler will be executed when the document gets unloaded.
+<span class='line'>678</span> 		 * This method is useful for dealing with browser memory leaks where it might be vital to remove DOM references etc.
+<span class='line'>679</span> 		 *
+<span class='line'>680</span> 		 * @method addUnload
+<span class='line'>681</span> 		 * @param {function} f Function to execute before the document gets unloaded.
+<span class='line'>682</span> 		 * @param {Object} s Optional scope to execute the function in.
+<span class='line'>683</span> 		 * @return {function} Returns the specified unload handler function.
+<span class='line'>684</span> 		 * @example
+<span class='line'>685</span> 		 * // Fixes a leak with a DOM element that was palces in the someObject
+<span class='line'>686</span> 		 * tinymce.addUnload(function() {
+<span class='line'>687</span> 		 *     // Null DOM element to reduce IE memory leak
+<span class='line'>688</span> 		 *     someObject.someElement = null;
+<span class='line'>689</span> 		 * });
+<span class='line'>690</span> 		 */</span><span class="WHIT">
+<span class='line'>691</span> </span><span class="WHIT">		</span><span class="NAME">addUnload</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>692</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">t</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>693</span> 
+<span class='line'>694</span> </span><span class="WHIT">			</span><span class="NAME">unload</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>695</span> </span><span class="WHIT">				</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">li</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.unloads</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">n</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>696</span> 
+<span class='line'>697</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">li</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>698</span> </span><span class="WHIT">					</span><span class="COMM">// Call unload handlers</span><span class="WHIT">
+<span class='line'>699</span> </span><span class="WHIT">					</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">n</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">li</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>700</span> </span><span class="WHIT">						</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">li</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>701</span> 
+<span class='line'>702</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">o.func</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>703</span> </span><span class="WHIT">							</span><span class="NAME">o.func.call</span><span class="PUNC">(</span><span class="NAME">o.scope</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// Send in one arg to distinct unload and user destroy</span><span class="WHIT">
+<span class='line'>704</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>705</span> 
+<span class='line'>706</span> </span><span class="WHIT">					</span><span class="COMM">// Detach unload function</span><span class="WHIT">
+<span class='line'>707</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.detachEvent</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>708</span> </span><span class="WHIT">						</span><span class="NAME">win.detachEvent</span><span class="PUNC">(</span><span class="STRN">'onbeforeunload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fakeUnload</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>709</span> </span><span class="WHIT">						</span><span class="NAME">win.detachEvent</span><span class="PUNC">(</span><span class="STRN">'onunload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>710</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.removeEventListener</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>711</span> </span><span class="WHIT">						</span><span class="NAME">win.removeEventListener</span><span class="PUNC">(</span><span class="STRN">'unload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>712</span> 
+<span class='line'>713</span> </span><span class="WHIT">					</span><span class="COMM">// Destroy references</span><span class="WHIT">
+<span class='line'>714</span> </span><span class="WHIT">					</span><span class="NAME">t.unloads</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">li</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">w</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>715</span> 
+<span class='line'>716</span> </span><span class="WHIT">					</span><span class="COMM">// Run garbarge collector on IE</span><span class="WHIT">
+<span class='line'>717</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.CollectGarbage</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>718</span> </span><span class="WHIT">						</span><span class="NAME">CollectGarbage</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>719</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>720</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>721</span> 
+<span class='line'>722</span> </span><span class="WHIT">			</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">fakeUnload</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>723</span> </span><span class="WHIT">				</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">d</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>724</span> 
+<span class='line'>725</span> </span><span class="WHIT">				</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">stop</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>726</span> </span><span class="WHIT">					</span><span class="COMM">// Prevent memory leak</span><span class="WHIT">
+<span class='line'>727</span> </span><span class="WHIT">					</span><span class="NAME">d.detachEvent</span><span class="PUNC">(</span><span class="STRN">'onstop'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stop</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>728</span> 
+<span class='line'>729</span> </span><span class="WHIT">					</span><span class="COMM">// Call unload handler</span><span class="WHIT">
+<span class='line'>730</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">unload</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>731</span> </span><span class="WHIT">						</span><span class="NAME">unload</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>732</span> 
+<span class='line'>733</span> </span><span class="WHIT">					</span><span class="NAME">d</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>734</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>735</span> 
+<span class='line'>736</span> </span><span class="WHIT">				</span><span class="COMM">// Is there things still loading, then do some magic</span><span class="WHIT">
+<span class='line'>737</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">d.readyState</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'interactive'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>738</span> </span><span class="WHIT">					</span><span class="COMM">// Fire unload when the currently loading page is stopped</span><span class="WHIT">
+<span class='line'>739</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">d</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>740</span> </span><span class="WHIT">						</span><span class="NAME">d.attachEvent</span><span class="PUNC">(</span><span class="STRN">'onstop'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stop</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>741</span> 
+<span class='line'>742</span> </span><span class="WHIT">					</span><span class="COMM">// Remove onstop listener after a while to prevent the unload function</span><span class="WHIT">
+<span class='line'>743</span> </span><span class="WHIT">					</span><span class="COMM">// to execute if the user presses cancel in an onbeforeunload</span><span class="WHIT">
+<span class='line'>744</span> </span><span class="WHIT">					</span><span class="COMM">// confirm dialog and then presses the browser stop button</span><span class="WHIT">
+<span class='line'>745</span> </span><span class="WHIT">					</span><span class="NAME">win.setTimeout</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>746</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">d</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>747</span> </span><span class="WHIT">							</span><span class="NAME">d.detachEvent</span><span class="PUNC">(</span><span class="STRN">'onstop'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stop</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>748</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>749</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>750</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>751</span> 
+<span class='line'>752</span> </span><span class="WHIT">			</span><span class="NAME">f</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">func</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">scope</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>753</span> 
+<span class='line'>754</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">t.unloads</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>755</span> </span><span class="WHIT">				</span><span class="COMM">// Attach unload handler</span><span class="WHIT">
+<span class='line'>756</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.attachEvent</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>757</span> </span><span class="WHIT">					</span><span class="NAME">win.attachEvent</span><span class="PUNC">(</span><span class="STRN">'onunload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>758</span> </span><span class="WHIT">					</span><span class="NAME">win.attachEvent</span><span class="PUNC">(</span><span class="STRN">'onbeforeunload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fakeUnload</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>759</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">win.addEventListener</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>760</span> </span><span class="WHIT">					</span><span class="NAME">win.addEventListener</span><span class="PUNC">(</span><span class="STRN">'unload'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">unload</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>761</span> 
+<span class='line'>762</span> </span><span class="WHIT">				</span><span class="COMM">// Setup initial unload handler array</span><span class="WHIT">
+<span class='line'>763</span> </span><span class="WHIT">				</span><span class="NAME">t.unloads</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">f</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>764</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT">
+<span class='line'>765</span> </span><span class="WHIT">				</span><span class="NAME">t.unloads.push</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>766</span> 
+<span class='line'>767</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>768</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>769</span> 
+<span class='line'>770</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>771</span> 		 * Removes the specified function form the unload handler list.
+<span class='line'>772</span> 		 *
+<span class='line'>773</span> 		 * @method removeUnload
+<span class='line'>774</span> 		 * @param {function} f Function to remove from unload handler list.
+<span class='line'>775</span> 		 * @return {function} Removed function name or null if it wasn't found.
+<span class='line'>776</span> 		 */</span><span class="WHIT">
+<span class='line'>777</span> </span><span class="WHIT">		</span><span class="NAME">removeUnload</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">f</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>778</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">u</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.unloads</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">r</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>779</span> 
+<span class='line'>780</span> </span><span class="WHIT">			</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">u</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>781</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">o</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">o.func</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>782</span> </span><span class="WHIT">					</span><span class="NAME">u.splice</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>783</span> </span><span class="WHIT">					</span><span class="NAME">r</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>784</span> </span><span class="WHIT">					</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>785</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>786</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>787</span> 
+<span class='line'>788</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">r</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>789</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>790</span> 
+<span class='line'>791</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>792</span> 		 * Splits a string but removes the whitespace before and after each value.
+<span class='line'>793</span> 		 *
+<span class='line'>794</span> 		 * @method explode
+<span class='line'>795</span> 		 * @param {string} s String to split.
+<span class='line'>796</span> 		 * @param {string} d Delimiter to split by.
+<span class='line'>797</span> 		 * @example
+<span class='line'>798</span> 		 * // Split a string into an array with a,b,c
+<span class='line'>799</span> 		 * var arr = tinymce.explode('a, b,   c');
+<span class='line'>800</span> 		 */</span><span class="WHIT">
+<span class='line'>801</span> </span><span class="WHIT">		</span><span class="NAME">explode</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">d</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>802</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">tinymce.is</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'array'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>803</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>804</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>805</span> 
+<span class='line'>806</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">tinymce.map</span><span class="PUNC">(</span><span class="NAME">s.split</span><span class="PUNC">(</span><span class="NAME">d</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">','</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tinymce.trim</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>807</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>808</span> 
+<span class='line'>809</span> </span><span class="WHIT">		</span><span class="NAME">_addVer</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">u</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>810</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>811</span> 
+<span class='line'>812</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.query</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>813</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">u</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>814</span> 
+<span class='line'>815</span> </span><span class="WHIT">			</span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">u.indexOf</span><span class="PUNC">(</span><span class="STRN">'?'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">'?'</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'&'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this.query</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>816</span> 
+<span class='line'>817</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">u.indexOf</span><span class="PUNC">(</span><span class="STRN">'#'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>818</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">u</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>819</span> 
+<span class='line'>820</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">u.replace</span><span class="PUNC">(</span><span class="STRN">'#'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'#'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>821</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>822</span> 
+<span class='line'>823</span> </span><span class="WHIT">		</span><span class="COMM">// Fix function for IE 9 where regexps isn't working correctly</span><span class="WHIT">
+<span class='line'>824</span> </span><span class="WHIT">		</span><span class="COMM">// Todo: remove me once MS fixes the bug</span><span class="WHIT">
+<span class='line'>825</span> </span><span class="WHIT">		</span><span class="NAME">_replace</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">find</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">replace</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>826</span> </span><span class="WHIT">			</span><span class="COMM">// On IE9 we have to fake $x replacement</span><span class="WHIT">
+<span class='line'>827</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">isRegExpBroken</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>828</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="NAME">find</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>829</span> </span><span class="WHIT">					</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">val</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">replace</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>830</span> 
+<span class='line'>831</span> </span><span class="WHIT">					</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">args.length</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>832</span> </span><span class="WHIT">						</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">args</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undef</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>833</span> </span><span class="WHIT">							</span><span class="NAME">val</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">val.replace</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">RegExp</span><span class="PUNC">(</span><span class="STRN">'\\$'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'g'</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>834</span> </span><span class="WHIT">						</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>835</span> </span><span class="WHIT">							</span><span class="NAME">val</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">val.replace</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">RegExp</span><span class="PUNC">(</span><span class="STRN">'\\$'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'g'</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">args</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>836</span> </span><span class="WHIT">						</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>837</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>838</span> 
+<span class='line'>839</span> </span><span class="WHIT">					</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">val</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>840</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>841</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>842</span> 
+<span class='line'>843</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="NAME">find</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">replace</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>844</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>845</span> 
+<span class='line'>846</span> </span><span class="WHIT">		</span><span class="COMM">/**#@-*/</span><span class="WHIT">
+<span class='line'>847</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>848</span> 
+<span class='line'>849</span> </span><span class="WHIT">	</span><span class="COMM">// Initialize the API</span><span class="WHIT">
+<span class='line'>850</span> </span><span class="WHIT">	</span><span class="NAME">tinymce._init</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>851</span> 
+<span class='line'>852</span> </span><span class="WHIT">	</span><span class="COMM">// Expose tinymce namespace to the global namespace (window)</span><span class="WHIT">
+<span class='line'>853</span> </span><span class="WHIT">	</span><span class="NAME">win.tinymce</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">win.tinyMCE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinymce</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>854</span> 
+<span class='line'>855</span> </span><span class="WHIT">	</span><span class="COMM">// Describe the different namespaces</span><span class="WHIT">
+<span class='line'>856</span> 
+<span class='line'>857</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>858</span> 	 * Root level namespace this contains classes directly releated to the TinyMCE editor.
+<span class='line'>859</span> 	 *
+<span class='line'>860</span> 	 * @namespace tinymce
+<span class='line'>861</span> 	 */</span><span class="WHIT">
+<span class='line'>862</span> 
+<span class='line'>863</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>864</span> 	 * Contains classes for handling the browsers DOM.
+<span class='line'>865</span> 	 *
+<span class='line'>866</span> 	 * @namespace tinymce.dom
+<span class='line'>867</span> 	 */</span><span class="WHIT">
+<span class='line'>868</span> 
+<span class='line'>869</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>870</span> 	 * Contains html parser and serializer logic.
+<span class='line'>871</span> 	 *
+<span class='line'>872</span> 	 * @namespace tinymce.html
+<span class='line'>873</span> 	 */</span><span class="WHIT">
+<span class='line'>874</span> 
+<span class='line'>875</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>876</span> 	 * Contains the different UI types such as buttons, listboxes etc.
+<span class='line'>877</span> 	 *
+<span class='line'>878</span> 	 * @namespace tinymce.ui
+<span class='line'>879</span> 	 */</span><span class="WHIT">
+<span class='line'>880</span> 
+<span class='line'>881</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>882</span> 	 * Contains various utility classes such as json parser, cookies etc.
+<span class='line'>883</span> 	 *
+<span class='line'>884</span> 	 * @namespace tinymce.util
+<span class='line'>885</span> 	 */</span><span class="WHIT">
+<span class='line'>886</span> 
+<span class='line'>887</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'>888</span> 	 * Contains plugin classes.
+<span class='line'>889</span> 	 *
+<span class='line'>890</span> 	 * @namespace tinymce.plugins
+<span class='line'>891</span> 	 */</span><span class="WHIT">
+<span class='line'>892</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="NAME">window</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>893</span> </span></pre></body></html>

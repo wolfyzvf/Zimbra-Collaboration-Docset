@@ -1,0 +1,1728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - AjxVector</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2011 VMware, Inc.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.3 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class AjxVector
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class represents a vector.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_util_AjxVector.js.html">AjxVector.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class AjxVector.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/AjxVector.html#constructor">AjxVector</a></b>()
+							</div>
+							<div class="description">Creates a vector.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class AjxVector.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#add">add</a></b>(obj, index, noDuplicates)
+								</div>
+								<div class="description">Adds a object to the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#addList">addList</a></b>(list)
+								</div>
+								<div class="description">Adds the given array.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#binarySearch">binarySearch</a></b>(valueToFind, sortFunc)
+								</div>
+								<div class="description">Performs a binary search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#clone">clone</a></b>()
+								</div>
+								<div class="description">Clones the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#contains">contains</a></b>(obj)
+								</div>
+								<div class="description">Checks if the vector contains an object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#containsLike">containsLike</a></b>(obj, compareFunc)
+								</div>
+								<div class="description">Returns true if the vector contains the given object, using the given
+function to compare objects.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxVector.<b><a href="../symbols/AjxVector.html#.fromArray">fromArray</a></b>(list)
+								</div>
+								<div class="description">Creates a vector from a given array.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#get">get</a></b>(index)
+								</div>
+								<div class="description">Gets the object at a given index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#getArray">getArray</a></b>()
+								</div>
+								<div class="description">Gets an array of the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#getLast">getLast</a></b>()
+								</div>
+								<div class="description">Gets the last object in the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#getNext">getNext</a></b>(obj)
+								</div>
+								<div class="description">Gets the next object in the vector after a given object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#getPrev">getPrev</a></b>(obj)
+								</div>
+								<div class="description">Gets the previous object in the vector before a given object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#indexOf">indexOf</a></b>(obj)
+								</div>
+								<div class="description">Returns the index of the obj given w/in vector</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#indexOfLike">indexOfLike</a></b>(obj, compareFunc)
+								</div>
+								<div class="description">Returns the index of the obj given w/in vector</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#join">join</a></b>(sep)
+								</div>
+								<div class="description">Joins the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#map">map</a></b>(f, obj)
+								</div>
+								<div class="description">Return a new AjxVector which contains the results of calling f
+(optionally in the context obj) for each element of this array.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#remove">remove</a></b>(obj)
+								</div>
+								<div class="description">Removes the object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#removeAll">removeAll</a></b>()
+								</div>
+								<div class="description">Removes all objects from vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#removeAt">removeAt</a></b>(index)
+								</div>
+								<div class="description">Removes the object at the given index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#removeLast">removeLast</a></b>()
+								</div>
+								<div class="description">Removes the last object in the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#replace">replace</a></b>(index, newObj)
+								</div>
+								<div class="description">Replaces the object at a given index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#replaceObject">replaceObject</a></b>(obj, newObj)
+								</div>
+								<div class="description">Replaces an object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#reverse">reverse</a></b>()
+								</div>
+								<div class="description">Reverses the order of the objects in the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#size">size</a></b>()
+								</div>
+								<div class="description">Gets the size of the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#sort">sort</a></b>(sortFunc)
+								</div>
+								<div class="description">Sorts the vector.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#sub">sub</a></b>(f, obj)
+								</div>
+								<div class="description">Return a new AjxVector containing the elements from this vector
+except those for which f(el) returns true.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/AjxVector.html#toString">toString</a></b>(sep, compress)
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>AjxVector</b>()
+				</div>
+				
+				<div class="description">
+					Creates a vector.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="add"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>add</b>(obj, index, noDuplicates)
+					
+					</div>
+					<div class="description">
+						Adds a object to the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index where to add</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>noDuplicates</b>
+									
+								</dt>
+								<dd>if <code>true</code>, confirm the object is not in vector before adding</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addList"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addList</b>(list)
+					
+					</div>
+					<div class="description">
+						Adds the given array.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>list</b>
+									
+								</dt>
+								<dd>an array</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="binarySearch"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>binarySearch</b>(valueToFind, sortFunc)
+					
+					</div>
+					<div class="description">
+						Performs a binary search.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>valueToFind</b>
+									
+								</dt>
+								<dd>the value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>sortFunc</b>
+									
+								</dt>
+								<dd>the sort function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clone"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>clone</b>()
+					
+					</div>
+					<div class="description">
+						Clones the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the new vector</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="contains"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>contains</b>(obj)
+					
+					</div>
+					<div class="description">
+						Checks if the vector contains an object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the object is found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="containsLike"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>containsLike</b>(obj, compareFunc)
+					
+					</div>
+					<div class="description">
+						Returns true if the vector contains the given object, using the given
+function to compare objects. The comparison function should return a
+type for which the equality test (==) is meaningful, such as a string
+or a base type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object being looked for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>compareFunc</b>
+									
+								</dt>
+								<dd>a function for comparing objects</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the object is found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fromArray"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<span class="light">AjxVector.</span><b>fromArray</b>(list)
+					
+					</div>
+					<div class="description">
+						Creates a vector from a given array.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>list</b>
+									
+								</dt>
+								<dd>an array</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the vector</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="get"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>get</b>(index)
+					
+					</div>
+					<div class="description">
+						Gets the object at a given index.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the object or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getArray"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>getArray</b>()
+					
+					</div>
+					<div class="description">
+						Gets an array of the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getLast"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getLast</b>()
+					
+					</div>
+					<div class="description">
+						Gets the last object in the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the object or <code>null</code> if vector is empty</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getNext"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getNext</b>(obj)
+					
+					</div>
+					<div class="description">
+						Gets the next object in the vector after a given object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the object or <code>null</code> if object not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getPrev"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getPrev</b>(obj)
+					
+					</div>
+					<div class="description">
+						Gets the previous object in the vector before a given object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the object or <code>null</code> if object not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="indexOf"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>indexOf</b>(obj)
+					
+					</div>
+					<div class="description">
+						Returns the index of the obj given w/in vector
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object being looked for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the index or -1 if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="indexOfLike"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>indexOfLike</b>(obj, compareFunc)
+					
+					</div>
+					<div class="description">
+						Returns the index of the obj given w/in vector
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object being looked for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>compareFunc</b>
+									
+								</dt>
+								<dd>a function for comparing objects</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the index or -1 if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="join"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>join</b>(sep)
+					
+					</div>
+					<div class="description">
+						Joins the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sep</b>
+									
+								</dt>
+								<dd>the string separator</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the vector</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="map"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>map</b>(f, obj)
+					
+					</div>
+					<div class="description">
+						Return a new AjxVector which contains the results of calling f
+(optionally in the context obj) for each element of this array.
+<ul>
+<li>If "f" is a string, then for each element el:
+<ul>
+<li>if el[f] is a function, call el[f] and push the result in the returned array.</li>
+<li>otherwise push el[f]</li>
+</ul>
+</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>f</b>
+									
+								</dt>
+								<dd>the function</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the obj context</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the resulting vector</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="remove"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>remove</b>(obj)
+					
+					</div>
+					<div class="description">
+						Removes the object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the object is removed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAll"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeAll</b>()
+					
+					</div>
+					<div class="description">
+						Removes all objects from vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAt"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>removeAt</b>(index)
+					
+					</div>
+					<div class="description">
+						Removes the object at the given index.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the object at the index or <code>null</code> if no object at index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeLast"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeLast</b>()
+					
+					</div>
+					<div class="description">
+						Removes the last object in the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="replace"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>replace</b>(index, newObj)
+					
+					</div>
+					<div class="description">
+						Replaces the object at a given index.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>newObj</b>
+									
+								</dt>
+								<dd>the new object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the old object</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="replaceObject"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>replaceObject</b>(obj, newObj)
+					
+					</div>
+					<div class="description">
+						Replaces an object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the object to replace</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>newObj</b>
+									
+								</dt>
+								<dd>the new object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the replaced object or <code>null</code> if not replaced</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="reverse"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reverse</b>()
+					
+					</div>
+					<div class="description">
+						Reverses the order of the objects in the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="size"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>size</b>()
+					
+					</div>
+					<div class="description">
+						Gets the size of the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the size</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="sort"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sort</b>(sortFunc)
+					
+					</div>
+					<div class="description">
+						Sorts the vector.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>sortFunc</b>
+									
+								</dt>
+								<dd>the function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sub"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>sub</b>(f, obj)
+					
+					</div>
+					<div class="description">
+						Return a new AjxVector containing the elements from this vector
+except those for which f(el) returns true.  Otherwise said,
+"SUBtracts" from this vector those elements for which f(el) returns true.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>f</b>
+									
+								</dt>
+								<dd>the function</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the obj context</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> the resulting vector</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toString</b>(sep, compress)
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sep</b>
+									
+								</dt>
+								<dd>the seperator</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>compress</b>
+									
+								</dt>
+								<dd>if <code>true</code>, compress</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Thu May 23 2013 12:04:57 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

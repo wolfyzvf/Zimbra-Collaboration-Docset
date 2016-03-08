@@ -1,0 +1,1820 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtKeyMap</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtKeyMap
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class provides the basic keyboard mappings for <a href="../symbols/Dwt.html">Dwt</a> components. The
+key bindings are taken from the class AjxKeys, which is populated from a
+properties file. The identifiers used in the properties file must match
+those used here.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_keyboard_DwtKeyMap.js.html">DwtKeyMap.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtKeyMap.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtKeyMap.html#constructor">DwtKeyMap</a></b>(subclassInit)
+							</div>
+							<div class="description">Creates and loads a key map.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtKeyMap.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ACTION">ACTION</a></b>
+								</div>
+								<div class="description">Defines the "action menu" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ADD_SELECT_NEXT">ADD_SELECT_NEXT</a></b>
+								</div>
+								<div class="description">Defines the "add next" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ADD_SELECT_PREV">ADD_SELECT_PREV</a></b>
+								</div>
+								<div class="description">Defines the "add previous" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ARROW_DOWN">ARROW_DOWN</a></b>
+								</div>
+								<div class="description">Defines the "arrow down" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ARROW_LEFT">ARROW_LEFT</a></b>
+								</div>
+								<div class="description">Defines the "arrow left" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ARROW_RIGHT">ARROW_RIGHT</a></b>
+								</div>
+								<div class="description">Defines the "arrow right" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ARROW_UP">ARROW_UP</a></b>
+								</div>
+								<div class="description">Defines the "arrow up" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.BACKSLASH">BACKSLASH</a></b>
+								</div>
+								<div class="description">Defines the "backslash" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.BACKSPACE">BACKSPACE</a></b>
+								</div>
+								<div class="description">Defines the "backspace" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.CANCEL">CANCEL</a></b>
+								</div>
+								<div class="description">Defines the "cancel" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.COLLAPSE">COLLAPSE</a></b>
+								</div>
+								<div class="description">Defines the "collapse" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.COMMA">COMMA</a></b>
+								</div>
+								<div class="description">Defines the "comma" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.DBLCLICK">DBLCLICK</a></b>
+								</div>
+								<div class="description">Defines the "double-click" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.DELETE">DELETE</a></b>
+								</div>
+								<div class="description">Defines the "delete" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.END">END</a></b>
+								</div>
+								<div class="description">Defines the "end" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ENTER">ENTER</a></b>
+								</div>
+								<div class="description">Defines the "enter" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.ESC">ESC</a></b>
+								</div>
+								<div class="description">Defines the "esc" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.EXPAND">EXPAND</a></b>
+								</div>
+								<div class="description">Defines the "expand" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.HOME">HOME</a></b>
+								</div>
+								<div class="description">Defines the "home" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.INSERT_LINK">INSERT_LINK</a></b>
+								</div>
+								<div class="description">Defines the "text InsertLink" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.JUSTIFY_CENTER">JUSTIFY_CENTER</a></b>
+								</div>
+								<div class="description">Defines the "justify center" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.JUSTIFY_LEFT">JUSTIFY_LEFT</a></b>
+								</div>
+								<div class="description">Defines the "justify left" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.JUSTIFY_RIGHT">JUSTIFY_RIGHT</a></b>
+								</div>
+								<div class="description">Defines the "justify right" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.NEXT">NEXT</a></b>
+								</div>
+								<div class="description">Defines the "next" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.NEXT_TAB">NEXT_TAB</a></b>
+								</div>
+								<div class="description">Defines the "next tab" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.PGDOWN">PGDOWN</a></b>
+								</div>
+								<div class="description">Defines the "page down" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.PGUP">PGUP</a></b>
+								</div>
+								<div class="description">Defines the "page up" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.PREV">PREV</a></b>
+								</div>
+								<div class="description">Defines the "previous" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.PREV_TAB">PREV_TAB</a></b>
+								</div>
+								<div class="description">Defines the "previous tab" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT">SELECT</a></b>
+								</div>
+								<div class="description">Defines the "select" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_ALL">SELECT_ALL</a></b>
+								</div>
+								<div class="description">Defines the "select all" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_CURRENT">SELECT_CURRENT</a></b>
+								</div>
+								<div class="description">Defines the "select current" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_FIRST">SELECT_FIRST</a></b>
+								</div>
+								<div class="description">Defines the "select first" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_LAST">SELECT_LAST</a></b>
+								</div>
+								<div class="description">Defines the "select last" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_NEXT">SELECT_NEXT</a></b>
+								</div>
+								<div class="description">Defines the "select next" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SELECT_PREV">SELECT_PREV</a></b>
+								</div>
+								<div class="description">Defines the "select previous" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SEMICOLON">SEMICOLON</a></b>
+								</div>
+								<div class="description">Defines the "semicolon" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SPACE">SPACE</a></b>
+								</div>
+								<div class="description">Defines the "space" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SUBMENU">SUBMENU</a></b>
+								</div>
+								<div class="description">Defines the "sub-menu" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.SWITCH_MODE">SWITCH_MODE</a></b>
+								</div>
+								<div class="description">Defines the "switch mode" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.TAB">TAB</a></b>
+								</div>
+								<div class="description">Defines the "tab" key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.TEXT_BOLD">TEXT_BOLD</a></b>
+								</div>
+								<div class="description">Defines the "text bold" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.TEXT_ITALIC">TEXT_ITALIC</a></b>
+								</div>
+								<div class="description">Defines the "text italic" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.TEXT_STRIKETHRU">TEXT_STRIKETHRU</a></b>
+								</div>
+								<div class="description">Defines the "text strikethru" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtKeyMap.<b><a href="../symbols/DwtKeyMap.html#.TEXT_UNDERLINE">TEXT_UNDERLINE</a></b>
+								</div>
+								<div class="description">Defines the "text underline" action.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtKeyMap</b>(subclassInit)
+				</div>
+				
+				<div class="description">
+					Creates and loads a key map.
+					<br /><i>Author: </i>Ross Dargahi.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>subclassInit</b>
+								
+							</dt>
+								<dd>if <code>true</code>, the sub-class will initialize</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ACTION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ACTION</b>
+					
+					</div>
+					<div class="description">
+						Defines the "action menu" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ADD_SELECT_NEXT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ADD_SELECT_NEXT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "add next" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ADD_SELECT_PREV"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ADD_SELECT_PREV</b>
+					
+					</div>
+					<div class="description">
+						Defines the "add previous" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ARROW_DOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ARROW_DOWN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "arrow down" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ARROW_LEFT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ARROW_LEFT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "arrow left" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ARROW_RIGHT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ARROW_RIGHT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "arrow right" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ARROW_UP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ARROW_UP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "arrow up" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".BACKSLASH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>BACKSLASH</b>
+					
+					</div>
+					<div class="description">
+						Defines the "backslash" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".BACKSPACE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>BACKSPACE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "backspace" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CANCEL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>CANCEL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "cancel" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".COLLAPSE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>COLLAPSE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "collapse" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".COMMA"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>COMMA</b>
+					
+					</div>
+					<div class="description">
+						Defines the "comma" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DBLCLICK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>DBLCLICK</b>
+					
+					</div>
+					<div class="description">
+						Defines the "double-click" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>DELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".END"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>END</b>
+					
+					</div>
+					<div class="description">
+						Defines the "end" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ENTER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ENTER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "enter" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ESC"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>ESC</b>
+					
+					</div>
+					<div class="description">
+						Defines the "esc" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".EXPAND"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>EXPAND</b>
+					
+					</div>
+					<div class="description">
+						Defines the "expand" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".HOME"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>HOME</b>
+					
+					</div>
+					<div class="description">
+						Defines the "home" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".INSERT_LINK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>INSERT_LINK</b>
+					
+					</div>
+					<div class="description">
+						Defines the "text InsertLink" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".JUSTIFY_CENTER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>JUSTIFY_CENTER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "justify center" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".JUSTIFY_LEFT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>JUSTIFY_LEFT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "justify left" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".JUSTIFY_RIGHT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>JUSTIFY_RIGHT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "justify right" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NEXT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>NEXT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "next" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NEXT_TAB"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>NEXT_TAB</b>
+					
+					</div>
+					<div class="description">
+						Defines the "next tab" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PGDOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>PGDOWN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "page down" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PGUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>PGUP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "page up" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PREV"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>PREV</b>
+					
+					</div>
+					<div class="description">
+						Defines the "previous" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PREV_TAB"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>PREV_TAB</b>
+					
+					</div>
+					<div class="description">
+						Defines the "previous tab" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_ALL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_ALL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select all" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_CURRENT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_CURRENT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select current" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_FIRST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_FIRST</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select first" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_LAST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_LAST</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select last" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_NEXT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_NEXT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select next" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECT_PREV"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SELECT_PREV</b>
+					
+					</div>
+					<div class="description">
+						Defines the "select previous" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SEMICOLON"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SEMICOLON</b>
+					
+					</div>
+					<div class="description">
+						Defines the "semicolon" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SPACE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SPACE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "space" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SUBMENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SUBMENU</b>
+					
+					</div>
+					<div class="description">
+						Defines the "sub-menu" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SWITCH_MODE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>SWITCH_MODE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "switch mode" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TAB"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>TAB</b>
+					
+					</div>
+					<div class="description">
+						Defines the "tab" key.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TEXT_BOLD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>TEXT_BOLD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "text bold" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TEXT_ITALIC"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>TEXT_ITALIC</b>
+					
+					</div>
+					<div class="description">
+						Defines the "text italic" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TEXT_STRIKETHRU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>TEXT_STRIKETHRU</b>
+					
+					</div>
+					<div class="description">
+						Defines the "text strikethru" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TEXT_UNDERLINE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtKeyMap.</span><b>TEXT_UNDERLINE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "text underline" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:31:48 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

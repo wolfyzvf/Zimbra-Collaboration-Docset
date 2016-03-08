@@ -1,0 +1,1293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmContactsApp</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmContactsApp
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmApp.html">ZmApp</a>.<br />
+				
+				<br>
+				The contacts app manages the creation and display of contacts, which are grouped
+into address books.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_abook_ZmContactsApp.js.html">ZmContactsApp.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmContactsApp.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmContactsApp.html#constructor">ZmContactsApp</a></b>(container, parentController)
+							</div>
+							<div class="description">Creates and initializes the contacts application.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmContactsApp.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#activate">activate</a></b>(active)
+								</div>
+								<div class="description">Activates the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactByEmail">getContactByEmail</a></b>(address, callback)
+								</div>
+								<div class="description">Gets the contact with the given address, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactByIMAddress">getContactByIMAddress</a></b>(addr)
+								</div>
+								<div class="description">Gets the contact by IM address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactByPhone">getContactByPhone</a></b>(phone)
+								</div>
+								<div class="description">Gets information about the contact with the given phone number, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactController">getContactController</a></b>(sessionId)
+								</div>
+								<div class="description">Gets the contact controller.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactList">getContactList</a></b>(callback, errorCallback, account)
+								</div>
+								<div class="description">Gets a <a href="../symbols/ZmContactList.html">ZmContactList</a> with all of the user's local contacts.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactListController">getContactListController</a></b>(sessionId, searchResultsController)
+								</div>
+								<div class="description">Gets the contact list controller.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getContactsByEmails">getContactsByEmails</a></b>(addresses, callback)
+								</div>
+								<div class="description">Gets the contacts with the given addresses, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getGalContactList">getGalContactList</a></b>()
+								</div>
+								<div class="description">Gets the GAL contact list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getInitialSearchType">getInitialSearchType</a></b>()
+								</div>
+								<div class="description">Gets the initial search type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#getLimit">getLimit</a></b>(offset)
+								</div>
+								<div class="description">Gets the limit for the search triggered by the application launch or an overview click.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#isContactListLoaded">isContactListLoaded</a></b>(acctId)
+								</div>
+								<div class="description">Checks if the contact list is loaded for the specified account.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#launch">launch</a></b>(params, callback)
+								</div>
+								<div class="description">Launches the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#setActive">setActive</a></b>(active)
+								</div>
+								<div class="description">Sets the app as active.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#setAddrLookupGroup">setAddrLookupGroup</a></b>(addrs)
+								</div>
+								<div class="description">Sets up a list of email addresses to use to find their contacts with a single search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#showSearchResults">showSearchResults</a></b>(results, callback, searchResultsController)
+								</div>
+								<div class="description">Shows the search results.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmContactsApp.html#updateIdHash">updateIdHash</a></b>(contact, doDelete)
+								</div>
+								<div class="description">Adds/remove contacts from the contact list hash</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmApp.html">ZmApp</a>: </dt><dd><a href="../symbols/ZmApp.html#addDeferredFolder">addDeferredFolder</a>, <a href="../symbols/ZmApp.html#createView">createView</a>, <a href="../symbols/ZmApp.html#disposeTreeControllers">disposeTreeControllers</a>, <a href="../symbols/ZmApp.html#getDisplayName">getDisplayName</a>, <a href="../symbols/ZmApp.html#getName">getName</a>, <a href="../symbols/ZmApp.html#getNumSessionControllers">getNumSessionControllers</a>, <a href="../symbols/ZmApp.html#getOverview">getOverview</a>, <a href="../symbols/ZmApp.html#getOverviewContainer">getOverviewContainer</a>, <a href="../symbols/ZmApp.html#getOverviewId">getOverviewId</a>, <a href="../symbols/ZmApp.html#getOverviewPanelContent">getOverviewPanelContent</a>, <a href="../symbols/ZmApp.html#getRemoteFolderIds">getRemoteFolderIds</a>, <a href="../symbols/ZmApp.html#getSearchParams">getSearchParams</a>, <a href="../symbols/ZmApp.html#getSessionController">getSessionController</a>, <a href="../symbols/ZmApp.html#isActive">isActive</a>, <a href="../symbols/ZmApp.html#popView">popView</a>, <a href="../symbols/ZmApp.html#pushView">pushView</a>, <a href="../symbols/ZmApp.html#reset">reset</a>, <a href="../symbols/ZmApp.html#resetOverview">resetOverview</a>, <a href="../symbols/ZmApp.html#setAppView">setAppView</a>, <a href="../symbols/ZmApp.html#setOverviewPanelContent">setOverviewPanelContent</a>, <a href="../symbols/ZmApp.html#setView">setView</a>, <a href="../symbols/ZmApp.html#stageView">stageView</a>, <a href="../symbols/ZmApp.html#startAlert">startAlert</a>, <a href="../symbols/ZmApp.html#stopAlert">stopAlert</a>, <a href="../symbols/ZmApp.html#toString">toString</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmContactsApp</b>(container, parentController)
+				</div>
+				
+				<div class="description">
+					Creates and initializes the contacts application.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>  <b>container</b>
+								
+							</dt>
+								<dd>the container</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span>  <b>parentController</b>
+								
+							</dt>
+								<dd>the parent controller</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="activate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>activate</b>(active)
+					
+					</div>
+					<div class="description">
+						Activates the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>active</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactByEmail"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span>
+					<b>getContactByEmail</b>(address, callback)
+					
+					</div>
+					<div class="description">
+						Gets the contact with the given address, if any. If it's not in our cache
+and we are given a callback, we do a search. If a search is performed then any
+addresses in the Address Lookup Group are also searched for.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>address</b>
+									
+								</dt>
+								<dd>an email address</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> the contact</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setAddrLookupGroup">#setAddrLookupGroup</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getContactByIMAddress"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span>
+					<b>getContactByIMAddress</b>(addr)
+					
+					</div>
+					<div class="description">
+						Gets the contact by IM address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>addr</b>
+									
+								</dt>
+								<dd>the IM address</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> the contact</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactByPhone"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getContactByPhone</b>(phone)
+					
+					</div>
+					<div class="description">
+						Gets information about the contact with the given phone number, if any.
+Canonical list only.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>phone</b>
+									
+								</dt>
+								<dd>the phone number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> an object with contact = the contact & field = the field with the matching phone number</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactController"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContactController.html">ZmContactController</a>}</span>
+					<b>getContactController</b>(sessionId)
+					
+					</div>
+					<div class="description">
+						Gets the contact controller.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>sessionId</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContactController.html">ZmContactController</a>}</span> the controller</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContactList.html">ZmContactList</a>}</span>
+					<b>getContactList</b>(callback, errorCallback, account)
+					
+					</div>
+					<div class="description">
+						Gets a <a href="../symbols/ZmContactList.html">ZmContactList</a> with all of the user's local contacts. If that's a
+large number, performance may be slow.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to trigger after contact list loaded</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback to trigger in the event of an error</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span> <b>account</b>
+									
+								</dt>
+								<dd>the account to fetch contacts for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContactList.html">ZmContactList</a>}</span> the contact list</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactListController"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContactListController.html">ZmContactListController</a>}</span>
+					<b>getContactListController</b>(sessionId, searchResultsController)
+					
+					</div>
+					<div class="description">
+						Gets the contact list controller.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>sessionId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>searchResultsController</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContactListController.html">ZmContactListController</a>}</span> the controller</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getContactsByEmails"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getContactsByEmails</b>(addresses, callback)
+					
+					</div>
+					<div class="description">
+						Gets the contacts with the given addresses, if any. If there are addresses not in our cache
+and we are given a callback, we do a search. Unlike <a href="#getContactByEmail">#getContactByEmail</a>, this method does not
+use or modify the Address Lookup Group.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>addresses</b>
+									
+								</dt>
+								<dd>an array of <a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a> objects</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of [<a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a>, <a href="../symbols/ZmContact.html">ZmContact</a>] pairs.</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setAddrLookupGroup">#setAddrLookupGroup</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getGalContactList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmContactList.html">ZmContactList</a>}</span>
+					<b>getGalContactList</b>()
+					
+					</div>
+					<div class="description">
+						Gets the GAL contact list. NOTE: calling method should handle exceptions.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmContactList.html">ZmContactList</a>}</span> the contact list</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getInitialSearchType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{constant}</span>
+					<b>getInitialSearchType</b>()
+					
+					</div>
+					<div class="description">
+						Gets the initial search type.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{constant}</span> the search (see <a href="../symbols/ZmId.html">ZmId</a><code>.SEARCH_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getLimit"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{int}</span>
+					<b>getLimit</b>(offset)
+					
+					</div>
+					<div class="description">
+						Gets the limit for the search triggered by the application launch or an overview click.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>offset</b>
+									
+								</dt>
+								<dd>if <code>true</code> app has offset</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> the limit</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isContactListLoaded"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isContactListLoaded</b>(acctId)
+					
+					</div>
+					<div class="description">
+						Checks if the contact list is loaded for the specified account.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>acctId</b>
+									
+								</dt>
+								<dd>the account id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if contact list is loaded</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="launch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>launch</b>(params, callback)
+					
+					</div>
+					<div class="description">
+						Launches the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>params</b>
+									
+								</dt>
+								<dd>(not used)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setActive"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setActive</b>(active)
+					
+					</div>
+					<div class="description">
+						Sets the app as active.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>active</b>
+									
+								</dt>
+								<dd>if <code>true</code> active and shows application</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setAddrLookupGroup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAddrLookupGroup</b>(addrs)
+					
+					</div>
+					<div class="description">
+						Sets up a list of email addresses to use to find their contacts with a single search. The addresses passed
+in can either be raw email addresses (strings), or <a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a> objects. A list of the addresses is kept
+so that it can later be used to create a single search query. Each address will also keep track of the
+callbacks that will need to be run with its search result (it's a list of callbacks since the same address
+may be used in more than one context).
+<p>
+One example of this group approach is in rendering a message header, where each email address in the header
+is rendered based on whether it maps to a contact. The group approach lets us do a single search rather than
+several.
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>addrs</b>
+									
+								</dt>
+								<dd>a list of email addresses to look up</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showSearchResults"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showSearchResults</b>(results, callback, searchResultsController)
+					
+					</div>
+					<div class="description">
+						Shows the search results.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>results</b>
+									
+								</dt>
+								<dd>the results</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearchResultsController.html">ZmSearchResultsController</a>}</span> <b>searchResultsController</b>
+									
+								</dt>
+								<dd>owning controller</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateIdHash"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateIdHash</b>(contact, doDelete)
+					
+					</div>
+					<div class="description">
+						Adds/remove contacts from the contact list hash
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>contact</b>
+									
+								</dt>
+								<dd>{Object}     contact object</dd>
+							
+								<dt>
+									<b>doDelete</b>
+									
+								</dt>
+								<dd>{boolean}    true to delete from hash</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:31:55 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

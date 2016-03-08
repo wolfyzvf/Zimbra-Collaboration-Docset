@@ -1,0 +1,1566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtEvent</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtEvent
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class is the base class of all DWT events.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_events_DwtEvent.js.html">DwtEvent.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtEvent.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtEvent.html#constructor">DwtEvent</a></b>(__init)
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtEvent.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ACTION">ACTION</a></b>
+								</div>
+								<div class="description">Action event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.CONTROL">CONTROL</a></b>
+								</div>
+								<div class="description">Control event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.DATE_RANGE">DATE_RANGE</a></b>
+								</div>
+								<div class="description">Date Range events are fired by the <a href="../symbols/DwtCalendar.html">DwtCalendar</a> widget.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.DISPOSE">DISPOSE</a></b>
+								</div>
+								<div class="description">The dispose event is fired when the <a href="../symbols/DwtControl.html#dispose">DwtControl#dispose</a> method of a control is called.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/DwtEvent.html#dwtObj">dwtObj</a></b>
+								</div>
+								<div class="description">The Dwt object that generated the event</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.HOVEROUT">HOVEROUT</a></b>
+								</div>
+								<div class="description">This event is fired when the mouse stops hovering over a control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.HOVEROVER">HOVEROVER</a></b>
+								</div>
+								<div class="description">This event is fired when the mouse hovers over a control for a certain period of time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.KEY_EVENTS">KEY_EVENTS</a></b>
+								</div>
+								<div class="description">An array of key event types.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.MOUSE_EVENTS">MOUSE_EVENTS</a></b>
+								</div>
+								<div class="description">An array of mouse event types.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONBLUR">ONBLUR</a></b>
+								</div>
+								<div class="description">Browser "onblug" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONCHANGE">ONCHANGE</a></b>
+								</div>
+								<div class="description">Browser "onchange" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONCLICK">ONCLICK</a></b>
+								</div>
+								<div class="description">Browser "onclick" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONCONTEXTMENU">ONCONTEXTMENU</a></b>
+								</div>
+								<div class="description">Browser "oncontextmenu" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONCUT">ONCUT</a></b>
+								</div>
+								<div class="description">Browser "oncut" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONDBLCLICK">ONDBLCLICK</a></b>
+								</div>
+								<div class="description">Browser double-click event "ondblclick" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONFOCUS">ONFOCUS</a></b>
+								</div>
+								<div class="description">Browser "onfocus" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONKEYDOWN">ONKEYDOWN</a></b>
+								</div>
+								<div class="description">Browser "onkeydown" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONKEYPRESS">ONKEYPRESS</a></b>
+								</div>
+								<div class="description">Browser "onkeypress" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONKEYUP">ONKEYUP</a></b>
+								</div>
+								<div class="description">Browser "onkeyup" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEDOWN">ONMOUSEDOWN</a></b>
+								</div>
+								<div class="description">Browser "onmousedown" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEENTER">ONMOUSEENTER</a></b>
+								</div>
+								<div class="description">Browser "onmouseenter" event (IE Only) - reported only for the element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSELEAVE">ONMOUSELEAVE</a></b>
+								</div>
+								<div class="description">Browser "onmouseleave" event (IE Only) - reported only for the element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEMOVE">ONMOUSEMOVE</a></b>
+								</div>
+								<div class="description">Browser "onmousemove" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEOUT">ONMOUSEOUT</a></b>
+								</div>
+								<div class="description">Browser "onmouseout" event - reported for element and children.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEOVER">ONMOUSEOVER</a></b>
+								</div>
+								<div class="description">Browser "onmouseover" event - reported for element and children.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEUP">ONMOUSEUP</a></b>
+								</div>
+								<div class="description">Browser "onmouseup" event</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONMOUSEWHEEL">ONMOUSEWHEEL</a></b>
+								</div>
+								<div class="description">Browser "onmousewheel" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONPASTE">ONPASTE</a></b>
+								</div>
+								<div class="description">Browser "onpaste" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONSCROLL">ONSCROLL</a></b>
+								</div>
+								<div class="description">Browser "onscroll" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.ONSELECTSTART">ONSELECTSTART</a></b>
+								</div>
+								<div class="description">Browser "onselectstart" event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.POPDOWN">POPDOWN</a></b>
+								</div>
+								<div class="description">The popdown event is fired when a item (such as a <a href="../symbols/DwtMenu.html">DwtMenu</a>) is popped down.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.POPUP">POPUP</a></b>
+								</div>
+								<div class="description">The popup event is fired when a item (such as a <a href="../symbols/DwtMenu.html">DwtMenu</a>) is popped up.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.SELECTION">SELECTION</a></b>
+								</div>
+								<div class="description">The selection event is fired when controls are selected.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.STATE_CHANGE">STATE_CHANGE</a></b>
+								</div>
+								<div class="description">State change events are fired when some intrinsic state of a widget changes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtEvent.<b><a href="../symbols/DwtEvent.html#.TREE">TREE</a></b>
+								</div>
+								<div class="description">A tree event is fired when a <a href="../symbols/DwtTree.html">DwtTree</a> node is expanded or collapsed.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtEvent.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtEvent.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtEvent</b>(__init)
+				</div>
+				
+				<div class="description">
+					
+					<br /><i>Author: </i>Ross Dargahi, Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>__init</b>
+								
+							</dt>
+								<dd>a dummy parameter used for class initialization</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ACTION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ACTION</b>
+					
+					</div>
+					<div class="description">
+						Action event. An example is right-clicking on a list item or tree item
+generally brings up a context menu.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CONTROL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>CONTROL</b>
+					
+					</div>
+					<div class="description">
+						Control event. Control events are fired by resizing or repositioning <a href="../symbols/DwtControl.html">DwtControl</a>s.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DATE_RANGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>DATE_RANGE</b>
+					
+					</div>
+					<div class="description">
+						Date Range events are fired by the <a href="../symbols/DwtCalendar.html">DwtCalendar</a> widget. This event is
+fired when the date range of the calendar widget changes.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DISPOSE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>DISPOSE</b>
+					
+					</div>
+					<div class="description">
+						The dispose event is fired when the <a href="../symbols/DwtControl.html#dispose">DwtControl#dispose</a> method of a control is called.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="dwtObj"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<b>dwtObj</b>
+					
+					</div>
+					<div class="description">
+						The Dwt object that generated the event
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".HOVEROUT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>HOVEROUT</b>
+					
+					</div>
+					<div class="description">
+						This event is fired when the mouse stops hovering over a control.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".HOVEROVER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>HOVEROVER</b>
+					
+					</div>
+					<div class="description">
+						This event is fired when the mouse hovers over a control for a certain period of time.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".KEY_EVENTS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>KEY_EVENTS</b>
+					
+					</div>
+					<div class="description">
+						An array of key event types.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MOUSE_EVENTS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>MOUSE_EVENTS</b>
+					
+					</div>
+					<div class="description">
+						An array of mouse event types.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONBLUR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONBLUR</b>
+					
+					</div>
+					<div class="description">
+						Browser "onblug" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONCHANGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONCHANGE</b>
+					
+					</div>
+					<div class="description">
+						Browser "onchange" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONCLICK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONCLICK</b>
+					
+					</div>
+					<div class="description">
+						Browser "onclick" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONCONTEXTMENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONCONTEXTMENU</b>
+					
+					</div>
+					<div class="description">
+						Browser "oncontextmenu" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONCUT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONCUT</b>
+					
+					</div>
+					<div class="description">
+						Browser "oncut" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONDBLCLICK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONDBLCLICK</b>
+					
+					</div>
+					<div class="description">
+						Browser double-click event "ondblclick" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONFOCUS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONFOCUS</b>
+					
+					</div>
+					<div class="description">
+						Browser "onfocus" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONKEYDOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONKEYDOWN</b>
+					
+					</div>
+					<div class="description">
+						Browser "onkeydown" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONKEYPRESS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONKEYPRESS</b>
+					
+					</div>
+					<div class="description">
+						Browser "onkeypress" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONKEYUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONKEYUP</b>
+					
+					</div>
+					<div class="description">
+						Browser "onkeyup" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEDOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEDOWN</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmousedown" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEENTER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEENTER</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmouseenter" event (IE Only) - reported only for the element.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSELEAVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSELEAVE</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmouseleave" event (IE Only) - reported only for the element.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEMOVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEMOVE</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmousemove" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEOUT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEOUT</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmouseout" event - reported for element and children.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEOVER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEOVER</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmouseover" event - reported for element and children.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEUP</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmouseup" event
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONMOUSEWHEEL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONMOUSEWHEEL</b>
+					
+					</div>
+					<div class="description">
+						Browser "onmousewheel" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONPASTE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONPASTE</b>
+					
+					</div>
+					<div class="description">
+						Browser "onpaste" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONSCROLL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONSCROLL</b>
+					
+					</div>
+					<div class="description">
+						Browser "onscroll" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ONSELECTSTART"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>ONSELECTSTART</b>
+					
+					</div>
+					<div class="description">
+						Browser "onselectstart" event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".POPDOWN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>POPDOWN</b>
+					
+					</div>
+					<div class="description">
+						The popdown event is fired when a item (such as a <a href="../symbols/DwtMenu.html">DwtMenu</a>) is popped down.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".POPUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>POPUP</b>
+					
+					</div>
+					<div class="description">
+						The popup event is fired when a item (such as a <a href="../symbols/DwtMenu.html">DwtMenu</a>) is popped up.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SELECTION"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>SELECTION</b>
+					
+					</div>
+					<div class="description">
+						The selection event is fired when controls are selected. This generally means
+that there has been a "left mouse button click" in the control (for example: a button, or
+list item, or tree node).
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".STATE_CHANGE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>STATE_CHANGE</b>
+					
+					</div>
+					<div class="description">
+						State change events are fired when some intrinsic state of a widget changes. For
+example it may be the font style of some text in <a href="../symbols/DwtHtmlEditor.html">DwtHtmlEditor</a> changed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TREE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtEvent.</span><b>TREE</b>
+					
+					</div>
+					<div class="description">
+						A tree event is fired when a <a href="../symbols/DwtTree.html">DwtTree</a> node is expanded or collapsed.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:31:48 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

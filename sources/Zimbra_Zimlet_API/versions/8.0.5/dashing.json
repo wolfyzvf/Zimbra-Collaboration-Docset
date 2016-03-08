@@ -1,0 +1,15 @@
+{
+    "name": "Zimbra Zimlet API",
+    "package": "zimbra-js-api",
+    "index": "index.html",
+    "selectors": {
+        "title": {
+          "type":"Class",
+          "regexp": "Zimlet JavaScript API Reference -",
+          "replacement": ""
+        }  
+    },
+    "icon32x32": "icon.png",
+    "allowJS": false,
+    "ExternalURL": "https://wiki.zimbra.com/wiki/Zimlet_Developers_Guide:Zimbra_JavaScript_API_Reference"
+}

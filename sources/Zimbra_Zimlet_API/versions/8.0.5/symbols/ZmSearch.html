@@ -1,0 +1,1126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmSearch</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmSearch
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class represents a search to be performed on the server. It has properties for
+the different search parameters that may be used. It can be used for a regular search,
+or to search within a conversation. The results are returned via a callback.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmSearch.js.html">ZmSearch.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmSearch.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmSearch.html#constructor">ZmSearch</a></b>(params)
+							</div>
+							<div class="description">Creates a new search with the given properties.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmSearch.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#clearCursor">clearCursor</a></b>()
+								</div>
+								<div class="description">Clears cursor-related fields from this search so that it will not create a cursor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#getConv">getConv</a></b>(params)
+								</div>
+								<div class="description">Fetches a conversation from the server.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#getTitle">getTitle</a></b>()
+								</div>
+								<div class="description">Gets a title that summarizes this search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#hasContentTerm">hasContentTerm</a></b>()
+								</div>
+								<div class="description">Returns true if the query has a "content" term.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#hasFolderTerm">hasFolderTerm</a></b>(path)
+								</div>
+								<div class="description">Returns true if the query has a folder-related term with the given value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#hasTagTerm">hasTagTerm</a></b>(tagName)
+								</div>
+								<div class="description">Returns true if the query has a tag term with the given value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#hasUnreadTerm">hasUnreadTerm</a></b>()
+								</div>
+								<div class="description">Returns true if the query has a term related to unread status.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#isAnywhere">isAnywhere</a></b>()
+								</div>
+								<div class="description">Returns true if the query has the term "is:anywhere".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#isMultiAccount">isMultiAccount</a></b>()
+								</div>
+								<div class="description">Checks if this search is multi-account.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#isSimple">isSimple</a></b>()
+								</div>
+								<div class="description">Returns true if the query has just one term, and it's a folder or tag term.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#matches">matches</a></b>(item)
+								</div>
+								<div class="description">Tests the given item against a matching function generated from the query.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#replaceFolderTerm">replaceFolderTerm</a></b>(oldPath, newPath)
+								</div>
+								<div class="description">Replaces the old folder path with the new folder path in the query string, if found.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearch.html#replaceTagTerm">replaceTagTerm</a></b>(oldName, newName)
+								</div>
+								<div class="description">Replaces the old tag name with the new tag name in the query string, if found.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmSearch</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a new search with the given properties.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.query</b>
+								
+							</dt>
+								<dd>the query string</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.queryHint</b>
+								
+							</dt>
+								<dd>the query string that gets appended to the query but not something the user needs to know about</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>  <b>params.types</b>
+								
+							</dt>
+								<dd>the item types to search for</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.sortBy</b>
+								
+							</dt>
+								<dd>the sort order</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.offset</b>
+								
+							</dt>
+								<dd>the starting point within result set</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.limit</b>
+								
+							</dt>
+								<dd>the number of results to return</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.getHtml</b>
+								
+							</dt>
+								<dd>if <code>true</code>, return HTML part for inlined msg</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.contactSource</b>
+								
+							</dt>
+								<dd>where to search for contacts (GAL or personal)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.isGalAutocompleteSearch</b>
+								
+							</dt>
+								<dd>if <code>true</code>, autocomplete against GAL</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.galType</b>
+								
+							</dt>
+								<dd>the type of GAL autocomplete (account or resource)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.lastId</b>
+								
+							</dt>
+								<dd>the ID of last item displayed (for pagination)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.lastSortVal</b>
+								
+							</dt>
+								<dd>the value of sort field for above item</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.fetch</b>
+								
+							</dt>
+								<dd>if <code>true</code>, fetch first hit message</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.searchId</b>
+								
+							</dt>
+								<dd>the ID of owning search folder (if any)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Array}</span>  <b>params.conds</b>
+								
+							</dt>
+								<dd>the list of search conditions (<code><SearchCalendarResourcesRequest></code>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Array}</span>  <b>params.attrs</b>
+								
+							</dt>
+								<dd>the list of attributes to return (<code><SearchCalendarResourcesRequest></code>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.field</b>
+								
+							</dt>
+								<dd>the field to search within (instead of default)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>params.soapInfo</b>
+								
+							</dt>
+								<dd>the object with method, namespace, response, and additional attribute fields for creating soap doc</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>params.response</b>
+								
+							</dt>
+								<dd>the canned JSON response (no request will be made)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Array}</span>  <b>params.folders</b>
+								
+							</dt>
+								<dd>the list of folders for autocomplete</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Array}</span>  <b>params.allowableTaskStatus</b>
+								
+							</dt>
+								<dd>the list of task status types to return (assuming one of the values for "types" is "task")</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.accountName</b>
+								
+							</dt>
+								<dd>the account name to run this search against</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.idsOnly</b>
+								
+							</dt>
+								<dd>if <code>true</code>, response returns item IDs only</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.inDumpster</b>
+								
+							</dt>
+								<dd>if <code>true</code>, search in the dumpster</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.origin</b>
+								
+							</dt>
+								<dd>indicates what initiated the search</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.isEmpty</b>
+								
+							</dt>
+								<dd>if true, return empty response without sending a request</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="clearCursor"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearCursor</b>()
+					
+					</div>
+					<div class="description">
+						Clears cursor-related fields from this search so that it will not create a cursor.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getConv"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getConv</b>(params)
+					
+					</div>
+					<div class="description">
+						Fetches a conversation from the server.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.cid</b>
+									
+								</dt>
+								<dd>the conv ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>params.callback</b>
+									
+								</dt>
+								<dd>the callback to run with result</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.fetchId</b>
+									
+								</dt>
+								<dd>the ID of msg to load</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.markRead</b>
+									
+								</dt>
+								<dd>if <code>true</code>, mark msg read</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.noTruncate</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not limit size of msg</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>params.needExp</b>
+									
+								</dt>
+								<dd>if not <code>false</code>, have server check if addresses are DLs</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTitle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getTitle</b>()
+					
+					</div>
+					<div class="description">
+						Gets a title that summarizes this search.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the title</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasContentTerm"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasContentTerm</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if the query has a "content" term.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasFolderTerm"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasFolderTerm</b>(path)
+					
+					</div>
+					<div class="description">
+						Returns true if the query has a folder-related term with the given value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>path</b>
+									
+								</dt>
+								<dd>a folder path (optional)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasTagTerm"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasTagTerm</b>(tagName)
+					
+					</div>
+					<div class="description">
+						Returns true if the query has a tag term with the given value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>tagName</b>
+									
+								</dt>
+								<dd>a tag name (optional)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasUnreadTerm"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasUnreadTerm</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if the query has a term related to unread status.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isAnywhere"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>isAnywhere</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if the query has the term "is:anywhere".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isMultiAccount"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isMultiAccount</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this search is multi-account.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if multi-account</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isSimple"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>isSimple</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if the query has just one term, and it's a folder or tag term.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="matches"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>matches</b>(item)
+					
+					</div>
+					<div class="description">
+						Tests the given item against a matching function generated from the query.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmItem.html">ZmItem</a>}</span> <b>item</b>
+									
+								</dt>
+								<dd>an item</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if the item matches, false if it doesn't, and null if a matching function could not be generated</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="replaceFolderTerm"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>replaceFolderTerm</b>(oldPath, newPath)
+					
+					</div>
+					<div class="description">
+						Replaces the old folder path with the new folder path in the query string, if found.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>oldPath</b>
+									
+								</dt>
+								<dd>the old folder path</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>newPath</b>
+									
+								</dt>
+								<dd>the new folder path</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> true if replacement was performed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="replaceTagTerm"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>replaceTagTerm</b>(oldName, newName)
+					
+					</div>
+					<div class="description">
+						Replaces the old tag name with the new tag name in the query string, if found.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>oldName</b>
+									
+								</dt>
+								<dd>the old tag name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>newName</b>
+									
+								</dt>
+								<dd>the new tag name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> true if replacement was performed</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Sep 10 2013 13:15:58 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

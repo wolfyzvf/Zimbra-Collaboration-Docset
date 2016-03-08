@@ -1,0 +1,784 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+<span class='line'>  7</span>  * you may not use this file except in compliance with the License. 
+<span class='line'>  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class='line'>  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class='line'> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class='line'> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class='line'> 12</span>  * 
+<span class='line'> 13</span>  * Software distributed under the License is distributed on an "AS IS" basis, 
+<span class='line'> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class='line'> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class='line'> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class='line'> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class='line'> 18</span>  * All portions of the code are Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+<span class='line'> 19</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 20</span>  */</span><span class="WHIT">
+<span class='line'> 21</span> 
+<span class='line'> 22</span> </span><span class="COMM">/**
+<span class='line'> 23</span>  * @overview
+<span class='line'> 24</span>  * This file contains the edit task view classes.
+<span class='line'> 25</span>  */</span><span class="WHIT">
+<span class='line'> 26</span> 
+<span class='line'> 27</span> </span><span class="COMM">/**
+<span class='line'> 28</span>  * Creates the edit task view.
+<span class='line'> 29</span>  * @class
+<span class='line'> 30</span>  * This class represents the edit task view.
+<span class='line'> 31</span>  * 
+<span class='line'> 32</span>  * @param	{DwtComposite}	parent		the parent
+<span class='line'> 33</span>  * @param	{ZmTaskController}		controller		the controller
+<span class='line'> 34</span>  * 
+<span class='line'> 35</span>  * @extends		ZmCalItemEditView
+<span class='line'> 36</span>  */</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="NAME">ZmTaskEditView</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">controller</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 38</span> 
+<span class='line'> 39</span> </span><span class="WHIT">    </span><span class="NAME">this._view</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">controller.getCurrentViewId</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">	</span><span class="NAME">this._sessionId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">controller.getSessionId</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 41</span> 
+<span class='line'> 42</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">idParams</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">		</span><span class="NAME">skinComponent</span><span class="PUNC">:</span><span class="WHIT">  </span><span class="NAME">ZmId.SKIN_APP_MAIN</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">		</span><span class="NAME">app</span><span class="PUNC">:</span><span class="WHIT">            </span><span class="NAME">ZmId.APP_TASKS</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">		</span><span class="NAME">componentType</span><span class="PUNC">:</span><span class="WHIT">  </span><span class="NAME">ZmId.WIDGET_VIEW</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">		</span><span class="NAME">componentName</span><span class="PUNC">:</span><span class="WHIT">  </span><span class="NAME">ZmId.VIEW_TASKEDIT</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> 
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">domId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmId.create</span><span class="PUNC">(</span><span class="NAME">idParams</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"A task editing view"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">    </span><span class="NAME">ZmCalItemEditView.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">controller</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtControl.ABSOLUTE_STYLE</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"ZmTaskEditView"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">domId</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 52</span> 
+<span class='line'> 53</span> </span><span class="NAME">ZmTaskEditView.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">ZmCalItemEditView</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="NAME">ZmTaskEditView.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmTaskEditView</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 55</span> 
+<span class='line'> 56</span> 
+<span class='line'> 57</span> </span><span class="COMM">// Consts</span><span class="WHIT">
+<span class='line'> 58</span> 
+<span class='line'> 59</span> </span><span class="COMM">/**
+<span class='line'> 60</span>  * Defines the priority values.
+<span class='line'> 61</span>  * 
+<span class='line'> 62</span>  * @see		ZmCalItem
+<span class='line'> 63</span>  */</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="NAME">ZmTaskEditView.PRIORITY_VALUES</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalItem.PRIORITY_LOW</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalItem.PRIORITY_NORMAL</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalItem.PRIORITY_HIGH</span><span class="WHIT"> </span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 68</span> 
+<span class='line'> 69</span> </span><span class="COMM">/**
+<span class='line'> 70</span>  * Defines the status values.
+<span class='line'> 71</span>  * 
+<span class='line'> 72</span>  * @see		ZmCalendarApp
+<span class='line'> 73</span>  */</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="NAME">ZmTaskEditView.STATUS_VALUES</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalendarApp.STATUS_NEED</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalendarApp.STATUS_COMP</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalendarApp.STATUS_INPR</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalendarApp.STATUS_WAIT</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">	</span><span class="NAME">ZmCalendarApp.STATUS_DEFR</span><span class="WHIT"> </span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 80</span> 
+<span class='line'> 81</span> </span><span class="COMM">// Message dialog placement</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="NAME">ZmTaskEditView.DIALOG_X</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">50</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="NAME">ZmTaskEditView.DIALOG_Y</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">100</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 84</span> 
+<span class='line'> 85</span> </span><span class="COMM">// Characters disallowed in the Task subject name</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="NAME">ZmTaskEditView.INVALID_SUBJECT_REGEX</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="REGX">/[/</span><span class="TOKN">\</span><span class="STRN">":]/;
+<span class='line'> 87</span> 
+<span class='line'> 88</span> 
+<span class='line'> 89</span> // Public Methods
+<span class='line'> 90</span> 
+<span class='line'> 91</span> /**
+<span class='line'> 92</span>  * Returns a string representation of the object.
+<span class='line'> 93</span>  * 
+<span class='line'> 94</span>  * @return		{String}		a string representation of the object
+<span class='line'> 95</span>  */
+<span class='line'> 96</span> ZmTaskEditView.prototype.toString =
+<span class='line'> 97</span> function() {
+<span class='line'> 98</span> 	return "</span><span class="NAME">ZmTaskEditView</span><span class="STRN">";
+<span class='line'> 99</span> };
+<span class='line'>100</span> 
+<span class='line'>101</span> /**
+<span class='line'>102</span>  * @private
+<span class='line'>103</span>  */
+<span class='line'>104</span> ZmTaskEditView.prototype.set =
+<span class='line'>105</span> function(calItem, mode, isDirty) {
+<span class='line'>106</span> 	this.initialize(calItem, mode, isDirty);
+<span class='line'>107</span> 
+<span class='line'>108</span> 	// HACK: TEV takes too long to init so design mode never gets set properly
+<span class='line'>109</span> 	if (AjxEnv.isGeckoBased) {
+<span class='line'>110</span> 		var ta = new AjxTimedAction(this, this.reEnableDesignMode);
+<span class='line'>111</span> 		AjxTimedAction.scheduleAction(ta, 500);
+<span class='line'>112</span> 	}
+<span class='line'>113</span> };
+<span class='line'>114</span> 
+<span class='line'>115</span> /**
+<span class='line'>116</span>  * Gets the controller.
+<span class='line'>117</span>  * 
+<span class='line'>118</span>  * @return	{ZmTaskController}		the controller
+<span class='line'>119</span>  */
+<span class='line'>120</span> ZmTaskEditView.prototype.getController =
+<span class='line'>121</span> function() {
+<span class='line'>122</span> 	return this._controller;
+<span class='line'>123</span> };
+<span class='line'>124</span> 
+<span class='line'>125</span> ZmTaskEditView.prototype._getClone =
+<span class='line'>126</span> function() {
+<span class='line'>127</span> 	return ZmTask.quickClone(this._calItem);
+<span class='line'>128</span> };
+<span class='line'>129</span> 
+<span class='line'>130</span> ZmTaskEditView.prototype._populateForEdit =
+<span class='line'>131</span> function(calItem, mode) {
+<span class='line'>132</span> 	ZmCalItemEditView.prototype._populateForEdit.call(this, calItem, mode);
+<span class='line'>133</span> 
+<span class='line'>134</span> 	if (calItem.startDate) {
+<span class='line'>135</span> 		var sd = new Date(calItem.startDate.getTime());
+<span class='line'>136</span> 		this._startDateField.value = AjxDateUtil.simpleComputeDateStr(sd);
+<span class='line'>137</span> 	}
+<span class='line'>138</span> 	if (calItem.endDate) {
+<span class='line'>139</span> 		var ed = new Date(calItem.endDate.getTime());
+<span class='line'>140</span> 		this._endDateField.value = AjxDateUtil.simpleComputeDateStr(ed);
+<span class='line'>141</span> 	}
+<span class='line'>142</span> 
+<span class='line'>143</span> 
+<span class='line'>144</span>     var rd = new Date(calItem.remindDate.getTime());
+<span class='line'>145</span> 
+<span class='line'>146</span>     if (calItem.alarm) {
+<span class='line'>147</span>         if (calItem.remindDate && calItem._reminderAbs) {
+<span class='line'>148</span>             this._remindTimeSelect.set(calItem.remindDate);
+<span class='line'>149</span>         }
+<span class='line'>150</span>     } else {
+<span class='line'>151</span>         var now = AjxDateUtil.roundTimeMins(new Date(), 30);
+<span class='line'>152</span>         this._remindTimeSelect.set(now);        
+<span class='line'>153</span>     }
+<span class='line'>154</span> 
+<span class='line'>155</span>     if (this._hasReminderSupport) {
+<span class='line'>156</span>         this._remindDateField.value = AjxDateUtil.simpleComputeDateStr(rd);
+<span class='line'>157</span>         this._reminderCheckbox.setSelected(calItem.alarm);
+<span class='line'>158</span>         this._setRemindersEnabled(calItem.alarm);
+<span class='line'>159</span> 		
+<span class='line'>160</span>         if (calItem.alarmActions.contains(ZmCalItem.ALARM_EMAIL)) {
+<span class='line'>161</span>             this._reminderEmailCheckbox.setSelected(true);
+<span class='line'>162</span>         }
+<span class='line'>163</span>         if (calItem.alarmActions.contains(ZmCalItem.ALARM_DEVICE_EMAIL)) {
+<span class='line'>164</span>             this._reminderDeviceEmailCheckbox.setSelected(true);
+<span class='line'>165</span>         }
+<span class='line'>166</span>     }
+<span class='line'>167</span> 
+<span class='line'>168</span> 	this._location.setValue(calItem.getLocation());
+<span class='line'>169</span> 	this._setPriority(calItem.priority);
+<span class='line'>170</span> 	this._statusSelect.setSelectedValue(calItem.status);
+<span class='line'>171</span>     this._pCompleteSelectInput.setValue(this.formatPercentComplete(calItem.pComplete));
+<span class='line'>172</span>     if (!this._notesHtmlEditor.getContent() && calItem.message){
+<span class='line'>173</span>         this._notesHtmlEditor.setContent(calItem.message.getInviteDescriptionContentValue(ZmMimeTable.TEXT_PLAIN) || "</span><span class="STRN">");
+<span class='line'>174</span>     }
+<span class='line'>175</span>     this._setEmailReminderControls();
+<span class='line'>176</span> };
+<span class='line'>177</span> 
+<span class='line'>178</span> ZmTaskEditView.prototype._populateForSave =
+<span class='line'>179</span> function(calItem) {
+<span class='line'>180</span> 
+<span class='line'>181</span> 	ZmCalItemEditView.prototype._populateForSave.call(this, calItem);
+<span class='line'>182</span> 
+<span class='line'>183</span> 	calItem.location = this._location.getValue();
+<span class='line'>184</span> 	// TODO - normalize
+<span class='line'>185</span> 	var startDate = AjxDateUtil.simpleParseDateStr(this._startDateField.value);
+<span class='line'>186</span> 	var endDate = AjxDateUtil.simpleParseDateStr(this._endDateField.value);
+<span class='line'>187</span> 
+<span class='line'>188</span> 	if (startDate) {
+<span class='line'>189</span> 		calItem.setStartDate(startDate, true);
+<span class='line'>190</span> 	} else {
+<span class='line'>191</span> 		calItem.startDate = null;	// explicitly null out in case item has old data
+<span class='line'>192</span> 	}
+<span class='line'>193</span> 
+<span class='line'>194</span> 	if (endDate) {
+<span class='line'>195</span> 		calItem.setEndDate(endDate, true);
+<span class='line'>196</span> 	} else {
+<span class='line'>197</span> 		calItem.endDate = null;		// explicitly null out in case item has old data
+<span class='line'>198</span> 	}
+<span class='line'>199</span> 
+<span class='line'>200</span>     //set reminder
+<span class='line'>201</span>     var reminders = [
+<span class='line'>202</span>         { control: this._reminderEmailCheckbox,       action: ZmCalItem.ALARM_EMAIL        },
+<span class='line'>203</span>         { control: this._reminderDeviceEmailCheckbox, action: ZmCalItem.ALARM_DEVICE_EMAIL }
+<span class='line'>204</span>     ];
+<span class='line'>205</span>     if (this._hasReminderSupport && this._reminderCheckbox.isSelected()) {
+<span class='line'>206</span>         var remindDate = AjxDateUtil.simpleParseDateStr(this._remindDateField.value);
+<span class='line'>207</span>         calItem.alarm = true;
+<span class='line'>208</span>         calItem.remindDate = remindDate;
+<span class='line'>209</span>         remindDate = this._remindTimeSelect.getValue(remindDate);
+<span class='line'>210</span>         var remindFmtStr = AjxDateUtil.getServerDateTime(remindDate,true);
+<span class='line'>211</span>         calItem.setTaskReminder(remindFmtStr);
+<span class='line'>212</span>         for (var i = 0; i &lt; reminders.length; i++) {
+<span class='line'>213</span>             var reminder = reminders[i];
+<span class='line'>214</span>             if (reminder.control && reminder.control.isSelected()) {
+<span class='line'>215</span>                 calItem.addReminderAction(reminder.action);
+<span class='line'>216</span>             }
+<span class='line'>217</span>             else {
+<span class='line'>218</span>                 calItem.removeReminderAction(reminder.action);
+<span class='line'>219</span>             }
+<span class='line'>220</span>         }
+<span class='line'>221</span>     } else {
+<span class='line'>222</span>        calItem.alarm = false;
+<span class='line'>223</span>        calItem.remindDate = new Date();
+<span class='line'>224</span>        calItem.setTaskReminder(null);
+<span class='line'>225</span>     }
+<span class='line'>226</span>     
+<span class='line'>227</span> 	calItem.setAllDayEvent(true);
+<span class='line'>228</span>     var completion = this.getpCompleteInputValue();
+<span class='line'>229</span>     // Should always be valid at this point - made it past isValid
+<span class='line'>230</span>     calItem.pComplete = completion.valid ? completion.percent : 0;
+<span class='line'>231</span> 	calItem.priority = this._getPriority();
+<span class='line'>232</span> 	calItem.status = this._statusSelect.getValue();
+<span class='line'>233</span> 
+<span class='line'>234</span>     //bug:51913 disable alarm when stats is completed
+<span class='line'>235</span>     if (calItem.pComplete === 100 && this._statusSelect.getValue() === ZmCalendarApp.STATUS_COMP) {
+<span class='line'>236</span>        calItem.alarm = false;
+<span class='line'>237</span>        calItem.remindDate = new Date();
+<span class='line'>238</span>        calItem.setTaskReminder(null);
+<span class='line'>239</span>        for (var i = 0; i &lt; reminders.length; i++) {
+<span class='line'>240</span>            var reminder = reminders[i];
+<span class='line'>241</span>            if (reminder.control && reminder.control.isSelected()) {
+<span class='line'>242</span>                calItem.removeReminderAction(reminder.action);
+<span class='line'>243</span>            }
+<span class='line'>244</span>        }
+<span class='line'>245</span>     }
+<span class='line'>246</span> 
+<span class='line'>247</span> //	XXX: uncomment when supported
+<span class='line'>248</span> //	this._getRecurrence(calItem);	// set any recurrence rules LAST
+<span class='line'>249</span> 
+<span class='line'>250</span> 	return calItem;
+<span class='line'>251</span> };
+<span class='line'>252</span> 
+<span class='line'>253</span> ZmTaskEditView.prototype.isValid =
+<span class='line'>254</span> function() {
+<span class='line'>255</span> 	var errorMsg;
+<span class='line'>256</span> 	var subj = AjxStringUtil.trim(this._subjectField.getValue());
+<span class='line'>257</span>     if (subj && subj.length) {
+<span class='line'>258</span> 
+<span class='line'>259</span>         if (ZmTaskEditView.INVALID_SUBJECT_REGEX.test(subj)) {
+<span class='line'>260</span>             errorMsg = ZmMsg.invalidTaskSubject;
+<span class='line'>261</span>         } else {
+<span class='line'>262</span>             var startDate = AjxStringUtil.trim(this._startDateField.value);
+<span class='line'>263</span>             var endDate =   AjxStringUtil.trim(this._endDateField.value);
+<span class='line'>264</span>             if (startDate.length > 0 && (!DwtTimeSelect.validStartEnd(this._startDateField, this._endDateField))) {
+<span class='line'>265</span>                 if(endDate.length &lt;= 0) {
+<span class='line'>266</span>                     errorMsg = ZmMsg.errorEmptyTaskDueDate;
+<span class='line'>267</span>                 } else {
+<span class='line'>268</span>                     errorMsg = ZmMsg.errorInvalidDates;
+<span class='line'>269</span>                 }
+<span class='line'>270</span>             }
+<span class='line'>271</span>             var remindTime =  DwtTimeSelect.parse(this._remindTimeSelect.getInputField().getValue());
+<span class='line'>272</span>             if (!remindTime) {
+<span class='line'>273</span>                 errorMsg = AjxMsg.invalidTimeString;
+<span class='line'>274</span>             }
+<span class='line'>275</span>             var completion =  this.getpCompleteInputValue();
+<span class='line'>276</span>             if (!completion.valid) {
+<span class='line'>277</span>                 errorMsg = ZmMsg.errorInvalidPercentage;
+<span class='line'>278</span>             } else if ((completion.percent &lt; 0) || (completion.percent > 100)) {
+<span class='line'>279</span>                 errorMsg = ZmMsg.errorInvalidPercentage;
+<span class='line'>280</span>             }
+<span class='line'>281</span>         }
+<span class='line'>282</span>     } else {
+<span class='line'>283</span> 		errorMsg = ZmMsg.errorMissingSubject;
+<span class='line'>284</span> 	}
+<span class='line'>285</span> 
+<span class='line'>286</span> 	if (errorMsg) {
+<span class='line'>287</span> 		throw errorMsg;
+<span class='line'>288</span> 	}
+<span class='line'>289</span> 
+<span class='line'>290</span> 	return true;
+<span class='line'>291</span> };
+<span class='line'>292</span> 
+<span class='line'>293</span> ZmTaskEditView.prototype.cleanup =
+<span class='line'>294</span> function() {
+<span class='line'>295</span> 	ZmCalItemEditView.prototype.cleanup.call(this);
+<span class='line'>296</span> 
+<span class='line'>297</span> 	this._startDateField.value = "</span><span class="STRN">";
+<span class='line'>298</span> 	this._endDateField.value = "</span><span class="STRN">";
+<span class='line'>299</span> };
+<span class='line'>300</span> 
+<span class='line'>301</span> 
+<span class='line'>302</span> // Private/protected Methods
+<span class='line'>303</span> 
+<span class='line'>304</span> ZmTaskEditView.prototype._createHTML =
+<span class='line'>305</span> function() {
+<span class='line'>306</span> 	//this._repeatDescId		= this._htmlElId + "</span><span class="NAME">_repeatDesc</span><span class="STRN">";
+<span class='line'>307</span>     this._isAppt = false;
+<span class='line'>308</span> 	var subs = {
+<span class='line'>309</span> 		id: this._htmlElId,
+<span class='line'>310</span> 		height: (this.parent.getSize().y - 30),
+<span class='line'>311</span> 		locationId: (this._htmlElId + "</span><span class="NAME">_location</span><span class="STRN">"),
+<span class='line'>312</span> 		isGalEnabled: appCtxt.get(ZmSetting.GAL_ENABLED),
+<span class='line'>313</span> 		isAppt: false
+<span class='line'>314</span> 	};
+<span class='line'>315</span> 
+<span class='line'>316</span> 	// XXX: rename template name to CalItem#CalItemEdit
+<span class='line'>317</span> 	this.getHtmlElement().innerHTML = AjxTemplate.expand("</span><span class="NAME">calendar.Appointment</span><span class="TOKN">#</span><span class="NAME">EditView</span><span class="STRN">", subs);
+<span class='line'>318</span> };
+<span class='line'>319</span> 
+<span class='line'>320</span> ZmTaskEditView.prototype._getPriorityImage =
+<span class='line'>321</span> function(flag) {
+<span class='line'>322</span> 	if (ZmCalItem.isPriorityHigh(flag))	{ return "</span><span class="NAME">PriorityHigh_list</span><span class="STRN">"; }
+<span class='line'>323</span> 	if (ZmCalItem.isPriorityLow(flag))	{ return "</span><span class="NAME">PriorityLow_list</span><span class="STRN">"; }
+<span class='line'>324</span> 	return "</span><span class="NAME">PriorityNormal_list</span><span class="STRN">";
+<span class='line'>325</span> };
+<span class='line'>326</span> 
+<span class='line'>327</span> ZmTaskEditView.prototype._getPriorityText =
+<span class='line'>328</span> function(flag) {
+<span class='line'>329</span> 	if (ZmCalItem.isPriorityHigh(flag))	{ return ZmMsg.high; }
+<span class='line'>330</span> 	if (ZmCalItem.isPriorityLow(flag))	{ return ZmMsg.low; }
+<span class='line'>331</span> 	return ZmMsg.normal;
+<span class='line'>332</span> };
+<span class='line'>333</span> 
+<span class='line'>334</span> ZmTaskEditView.prototype._createPriorityMenuItem =
+<span class='line'>335</span> function(menu, text, flag) {
+<span class='line'>336</span> 	// I prefer a readable ID part for the priority, over the 1, 5 and 9 that those constants are set to.
+<span class='line'>337</span> 	var priorityId = ZmCalItem.isPriorityHigh(flag) ? "</span><span class="NAME">high</span><span class="STRN">" : ZmCalItem.isPriorityLow(flag) ? "</span><span class="NAME">low</span><span class="STRN">" : "</span><span class="NAME">normal</span><span class="STRN">";
+<span class='line'>338</span> 	var item = DwtMenuItem.create({parent: menu, imageInfo: this._getPriorityImage(flag), text: text, id: Dwt.getNextId("</span><span class="NAME">EditTaskPriorityMenu_</span><span class="STRN">" + priorityId + "</span><span class="NAME">_</span><span class="STRN">")});
+<span class='line'>339</span> 	item._priorityFlag = flag;
+<span class='line'>340</span> 	item.addSelectionListener(this._priorityMenuListnerObj);
+<span class='line'>341</span> };
+<span class='line'>342</span> 
+<span class='line'>343</span> ZmTaskEditView.prototype._priorityButtonMenuCallback =
+<span class='line'>344</span> function() {
+<span class='line'>345</span> 	var menu = new DwtMenu({parent: this._prioritySelect, id: Dwt.getNextId("</span><span class="NAME">EditTaskPriorityMenu_</span><span class="STRN">")});
+<span class='line'>346</span> 	this._priorityMenuListnerObj = new AjxListener(this, this._priorityMenuListner);
+<span class='line'>347</span> 	this._createPriorityMenuItem(menu, ZmMsg.high, ZmCalItem.PRIORITY_HIGH);
+<span class='line'>348</span> 	this._createPriorityMenuItem(menu, ZmMsg.normal, ZmCalItem.PRIORITY_NORMAL);
+<span class='line'>349</span> 	this._createPriorityMenuItem(menu, ZmMsg.low, ZmCalItem.PRIORITY_LOW);
+<span class='line'>350</span> 	return menu;
+<span class='line'>351</span> };
+<span class='line'>352</span> 
+<span class='line'>353</span> ZmTaskEditView.prototype._priorityMenuListner =
+<span class='line'>354</span> function(ev) {
+<span class='line'>355</span> 	this._setPriority(ev.dwtObj._priorityFlag);
+<span class='line'>356</span> };
+<span class='line'>357</span> 
+<span class='line'>358</span> ZmTaskEditView.prototype._getPriority =
+<span class='line'>359</span> function() {
+<span class='line'>360</span> 	return (this._prioritySelect)
+<span class='line'>361</span> 		? (this._prioritySelect._priorityFlag || "</span><span class="STRN">") : "</span><span class="STRN">";
+<span class='line'>362</span> };
+<span class='line'>363</span> 
+<span class='line'>364</span> ZmTaskEditView.prototype._setPriority =
+<span class='line'>365</span> function(flag) {
+<span class='line'>366</span> 	if (this._prioritySelect) {
+<span class='line'>367</span> 		flag = flag || "</span><span class="STRN">";
+<span class='line'>368</span> 		this._prioritySelect.setImage(this._getPriorityImage(flag));
+<span class='line'>369</span>         this._prioritySelect.setText(this._getPriorityText(flag))
+<span class='line'>370</span> 		this._prioritySelect._priorityFlag = flag;
+<span class='line'>371</span> 	}
+<span class='line'>372</span> };
+<span class='line'>373</span> 
+<span class='line'>374</span> ZmTaskEditView.prototype.getpCompleteInputValue = function() {
+<span class='line'>375</span>     var pValue  = this._pCompleteSelectInput.getValue();
+<span class='line'>376</span>     pValue      = pValue.replace(/[%]/g,"</span><span class="STRN">");
+<span class='line'>377</span> 	pValue      = pValue.trim();
+<span class='line'>378</span>     var valid = /^\d*$/.test(pValue);
+<span class='line'>379</span>     var percent = 0;
+<span class='line'>380</span>     if (valid) {
+<span class='line'>381</span>         percent = Math.round(pValue);
+<span class='line'>382</span>     }
+<span class='line'>383</span> 
+<span class='line'>384</span>   return { valid: valid, percent: percent};
+<span class='line'>385</span> };
+<span class='line'>386</span> 
+<span class='line'>387</span> ZmTaskEditView.prototype._unSelectRemindersCheckbox = function() {
+<span class='line'>388</span>     var reminders = [
+<span class='line'>389</span>         { control: this._reminderEmailCheckbox},
+<span class='line'>390</span>         { control: this._reminderDeviceEmailCheckbox},
+<span class='line'>391</span>         { control: this._reminderCheckbox}
+<span class='line'>392</span>     ];
+<span class='line'>393</span>     for (var i = 0; i &lt; reminders.length; i++) {
+<span class='line'>394</span>         var reminder = reminders[i];
+<span class='line'>395</span>         if (reminder.control) {
+<span class='line'>396</span>             reminder.control.setSelected(false);
+<span class='line'>397</span>         }
+<span class='line'>398</span>     }
+<span class='line'>399</span> };
+<span class='line'>400</span> 
+<span class='line'>401</span> ZmTaskEditView.prototype.formatPercentComplete = function(pValue) {
+<span class='line'>402</span> 
+<span class='line'>403</span>    var formatter = new AjxMessageFormat(AjxMsg.percentageString);
+<span class='line'>404</span>    if(AjxUtil.isString(pValue) && pValue.indexOf("</span><span class="PUNC">%</span><span class="STRN">") != -1) {
+<span class='line'>405</span>        return formatter.format(Math.round(pValue.replace(/[%]/g,"</span><span class="STRN">")));
+<span class='line'>406</span>    } else {
+<span class='line'>407</span>        return formatter.format(Math.round(pValue));
+<span class='line'>408</span>    }
+<span class='line'>409</span> };
+<span class='line'>410</span> 
+<span class='line'>411</span> ZmTaskEditView.prototype._createWidgets =
+<span class='line'>412</span> function(width) {
+<span class='line'>413</span> 	ZmCalItemEditView.prototype._createWidgets.call(this, width);
+<span class='line'>414</span> 
+<span class='line'>415</span> 	// add location
+<span class='line'>416</span> 	var params = {parent: this, type: DwtInputField.STRING};
+<span class='line'>417</span> 	this._location = new DwtInputField(params);
+<span class='line'>418</span> 	Dwt.setSize(this._location.getInputElement(), width, "</span><span class="NUMB">2</span><span class="NAME">rem</span><span class="STRN">");
+<span class='line'>419</span> 	this._location.reparentHtmlElement(this._htmlElId + "</span><span class="NAME">_location</span><span class="STRN">");
+<span class='line'>420</span> 
+<span class='line'>421</span> 	// add priority DwtButton
+<span class='line'>422</span> 	this._prioritySelect = new DwtButton({parent:this});
+<span class='line'>423</span>     this._prioritySelect.setSize(60, Dwt.DEFAULT);
+<span class='line'>424</span> 	this._prioritySelect.setMenu(new AjxCallback(this, this._priorityButtonMenuCallback));
+<span class='line'>425</span> 	this._prioritySelect.reparentHtmlElement(this._htmlElId + "</span><span class="NAME">_priority</span><span class="STRN">");
+<span class='line'>426</span> 
+<span class='line'>427</span> 	var listener = new AjxListener(this, this._selectListener);
+<span class='line'>428</span> 	// add status DwtSelect
+<span class='line'>429</span> 	this._statusSelect = new DwtSelect({parent:this});
+<span class='line'>430</span> 	for (var i = 0; i &lt; ZmTaskEditView.STATUS_VALUES.length; i++) {
+<span class='line'>431</span> 		var v = ZmTaskEditView.STATUS_VALUES[i];
+<span class='line'>432</span> 		this._statusSelect.addOption(ZmCalItem.getLabelForStatus(v), i==0, v);
+<span class='line'>433</span> 	}
+<span class='line'>434</span> 	this._statusSelect.addChangeListener(listener);
+<span class='line'>435</span> 	this._statusSelect.reparentHtmlElement(this._htmlElId + "</span><span class="NAME">_status</span><span class="STRN">");
+<span class='line'>436</span> 
+<span class='line'>437</span>     var params = {
+<span class='line'>438</span>         parent: this,
+<span class='line'>439</span>         parentElement: (this._htmlElId + "</span><span class="NAME">_pCompleteSelectInput</span><span class="STRN">"),
+<span class='line'>440</span>         type: DwtInputField.STRING,
+<span class='line'>441</span>         errorIconStyle: DwtInputField.ERROR_ICON_NONE,
+<span class='line'>442</span>         validationStyle: DwtInputField.CONTINUAL_VALIDATION
+<span class='line'>443</span>     };
+<span class='line'>444</span>     this._pCompleteSelectInput = new DwtInputField(params);
+<span class='line'>445</span>     var pCompleteInputEl = this._pCompleteSelectInput.getInputElement();
+<span class='line'>446</span>     Dwt.setSize(pCompleteInputEl, Dwt.DEFAULT, "</span><span class="NUMB">2</span><span class="NAME">rem</span><span class="STRN">");
+<span class='line'>447</span>     pCompleteInputEl.onblur = AjxCallback.simpleClosure(this._handleCompleteOnBlur, this, pCompleteInputEl);
+<span class='line'>448</span> 
+<span class='line'>449</span>     var pCompleteButtonListener = new AjxListener(this, this._pCompleteButtonListener);
+<span class='line'>450</span>     var pCompleteSelectListener = new AjxListener(this, this._pCompleteSelectListener);
+<span class='line'>451</span>     this._pCompleteButton = ZmTasksApp.createpCompleteButton(this, this._htmlElId + "</span><span class="NAME">_pCompleteSelect</span><span class="STRN">", pCompleteButtonListener, pCompleteSelectListener);
+<span class='line'>452</span> 
+<span class='line'>453</span> 	this._hasReminderSupport = Dwt.byId(this._htmlElId + "</span><span class="NAME">_reminderCheckbox</span><span class="STRN">") != null;
+<span class='line'>454</span> 
+<span class='line'>455</span>     if (this._hasReminderSupport) {
+<span class='line'>456</span>         // reminder date DwtButton's
+<span class='line'>457</span>         var remindDateBtnListener = new AjxListener(this, this._remindDateBtnListener);
+<span class='line'>458</span>         var remindDateCalSelectionListener = new AjxListener(this, this._dateCalSelectionListener);
+<span class='line'>459</span> 
+<span class='line'>460</span>         this._reminderLabel = Dwt.byId(this._htmlElId+"</span><span class="NAME">_reminderLabel</span><span class="STRN">");
+<span class='line'>461</span> 
+<span class='line'>462</span>         this._reminderCheckbox = new DwtCheckbox({parent:this});
+<span class='line'>463</span>         this._reminderCheckbox.replaceElement(this._htmlElId+"</span><span class="NAME">_reminderCheckbox</span><span class="STRN">");
+<span class='line'>464</span>         this._reminderCheckbox.addSelectionListener(new AjxListener(this, this._setEmailReminderControls));
+<span class='line'>465</span> 
+<span class='line'>466</span>         this._remindDateField = document.getElementById(this._htmlElId + "</span><span class="NAME">_remindDateField</span><span class="STRN">");
+<span class='line'>467</span>         this._remindDateButton = ZmCalendarApp.createMiniCalButton(this, this._htmlElId + "</span><span class="NAME">_remindMiniCalBtn</span><span class="STRN">", remindDateBtnListener, remindDateCalSelectionListener);
+<span class='line'>468</span>         this._remindDateButton.reparentHtmlElement(this._htmlElId + "</span><span class="NAME">_remindMiniCalBtn</span><span class="STRN">");
+<span class='line'>469</span> 
+<span class='line'>470</span>         // time DwtTimeSelect
+<span class='line'>471</span>         this._remindTimeSelect = new DwtTimeInput(this, DwtTimeInput.START);
+<span class='line'>472</span>         this._remindTimeSelect.reparentHtmlElement(this._htmlElId + "</span><span class="NAME">_remindTimeSelect</span><span class="STRN">");
+<span class='line'>473</span> 
+<span class='line'>474</span>         this._reminderEmailCheckbox = new DwtCheckbox({parent: this});
+<span class='line'>475</span>         this._reminderEmailCheckbox.replaceElement(document.getElementById(this._htmlElId + "</span><span class="NAME">_reminderEmailCheckbox</span><span class="STRN">"));
+<span class='line'>476</span>         this._reminderEmailCheckbox.setText(ZmMsg.email);
+<span class='line'>477</span>         this._reminderDeviceEmailCheckbox = new DwtCheckbox({parent: this});
+<span class='line'>478</span>         this._reminderDeviceEmailCheckbox.replaceElement(document.getElementById(this._htmlElId + "</span><span class="NAME">_reminderDeviceEmailCheckbox</span><span class="STRN">"));
+<span class='line'>479</span>         this._reminderDeviceEmailCheckbox.setText(ZmMsg.deviceEmail);
+<span class='line'>480</span>         this._reminderConfigure = new DwtText({parent:this,className:"</span><span class="NAME">FakeAnchor</span><span class="STRN">"});
+<span class='line'>481</span>         this._reminderConfigure.setText(ZmMsg.remindersConfigure);
+<span class='line'>482</span>         this._reminderConfigure.replaceElement(document.getElementById(this._htmlElId+"</span><span class="NAME">_reminderConfigure</span><span class="STRN">"));
+<span class='line'>483</span>         this._setEmailReminderControls();
+<span class='line'>484</span>         
+<span class='line'>485</span>         var settings = appCtxt.getSettings();
+<span class='line'>486</span>         var listener = new AjxListener(this, this._settingChangeListener);
+<span class='line'>487</span>         settings.getSetting(ZmSetting.CAL_EMAIL_REMINDERS_ADDRESS).addChangeListener(listener);
+<span class='line'>488</span>         settings.getSetting(ZmSetting.CAL_DEVICE_EMAIL_REMINDERS_ADDRESS).addChangeListener(listener);
+<span class='line'>489</span>     }
+<span class='line'>490</span> };
+<span class='line'>491</span> 
+<span class='line'>492</span> ZmTaskEditView.prototype._remindDateBtnListener =
+<span class='line'>493</span> function(ev) {
+<span class='line'>494</span> 	var calDate = ev.item == this._remindDateButton
+<span class='line'>495</span> 		? AjxDateUtil.simpleParseDateStr(this._remindDateField.value)
+<span class='line'>496</span> 		: null;
+<span class='line'>497</span> 
+<span class='line'>498</span> 	// if date was input by user and its foobar, reset to today's date
+<span class='line'>499</span> 	if (calDate == null || isNaN(calDate)) {
+<span class='line'>500</span> 		calDate = new Date();
+<span class='line'>501</span> 		var field = ev.item == this._remindDateButton ? this._remindDateField : null;
+<span class='line'>502</span> 
+<span class='line'>503</span>         var calEndDate = AjxDateUtil.simpleParseDateStr(this._endDateField.value);
+<span class='line'>504</span>         if (calEndDate != null || isNaN(calEndDate)) {
+<span class='line'>505</span>             calDate = calEndDate;
+<span class='line'>506</span>         }
+<span class='line'>507</span>         
+<span class='line'>508</span>         field.value = AjxDateUtil.simpleComputeDateStr(calDate);
+<span class='line'>509</span> 	}
+<span class='line'>510</span> 
+<span class='line'>511</span> 	// always reset the date to current field's date
+<span class='line'>512</span> 	var menu = ev.item.getMenu();
+<span class='line'>513</span> 	var cal = menu.getItem(0);
+<span class='line'>514</span> 	cal.setDate(calDate, true);
+<span class='line'>515</span> 	ev.item.popup();
+<span class='line'>516</span> };
+<span class='line'>517</span> 
+<span class='line'>518</span> ZmTaskEditView.prototype._checkReminderDate =
+<span class='line'>519</span> function(){
+<span class='line'>520</span>     var currDate = new Date();
+<span class='line'>521</span>     var rd = AjxDateUtil.simpleParseDateStr(this._remindDateField.value);
+<span class='line'>522</span>     if (rd.valueOf() &lt; currDate.valueOf()){
+<span class='line'>523</span>         this._remindDateField.value = AjxDateFormat.getDateInstance(AjxDateFormat.SHORT).format(currDate);
+<span class='line'>524</span>     }
+<span class='line'>525</span> };
+<span class='line'>526</span> 
+<span class='line'>527</span> ZmTaskEditView.prototype._dateCalSelectionListener = function(ev) {
+<span class='line'>528</span> 
+<span class='line'>529</span>     ZmCalItemEditView.prototype._dateCalSelectionListener.call(this,ev);
+<span class='line'>530</span> 
+<span class='line'>531</span>     var parentButton = ev.item.parent.parent;
+<span class='line'>532</span> 	var newDate = AjxDateUtil.simpleComputeDateStr(ev.detail);
+<span class='line'>533</span> 
+<span class='line'>534</span>     var ed = AjxDateUtil.simpleParseDateStr(this._endDateField.value);
+<span class='line'>535</span>     var sd = AjxDateUtil.simpleParseDateStr(this._startDateField.value);
+<span class='line'>536</span>     var rd = AjxDateUtil.simpleParseDateStr(this._remindDateField.value);
+<span class='line'>537</span> 
+<span class='line'>538</span> 	// change the start/end date if they mismatch
+<span class='line'>539</span> 	if (parentButton == this._endDateButton) {
+<span class='line'>540</span> 		if(rd && (rd.valueOf() > ev.detail.valueOf())) {
+<span class='line'>541</span>             this._remindDateField.value = newDate;
+<span class='line'>542</span>         }
+<span class='line'>543</span> 		//this._endDateField.value = newDate;
+<span class='line'>544</span> 	} else if(parentButton == this._remindDateButton) {
+<span class='line'>545</span>         if (ed && (ed.valueOf() &lt; ev.detail.valueOf())) {
+<span class='line'>546</span> 			this._endDateField.value = newDate;
+<span class='line'>547</span>         }
+<span class='line'>548</span>         if (ed == null && sd && (sd.valueOf() &lt; ev.detail.valueOf())) {
+<span class='line'>549</span> 			this._startDateField.value = newDate;
+<span class='line'>550</span>         }
+<span class='line'>551</span> 		this._remindDateField.value = newDate;
+<span class='line'>552</span> 	} else if(parentButton == this._startDateButton) {
+<span class='line'>553</span>         if (ed == null && rd && (rd.valueOf() > ev.detail.valueOf())) {
+<span class='line'>554</span>               this._remindDateField.value = newDate;
+<span class='line'>555</span>         }
+<span class='line'>556</span>     }
+<span class='line'>557</span>     this._checkReminderDate();
+<span class='line'>558</span> };
+<span class='line'>559</span> 
+<span class='line'>560</span> 
+<span class='line'>561</span> ZmTaskEditView.prototype._addEventHandlers =
+<span class='line'>562</span> function() {
+<span class='line'>563</span> 	var edvId = AjxCore.assignId(this);
+<span class='line'>564</span> 
+<span class='line'>565</span> 	// add event listeners where necessary
+<span class='line'>566</span> 	//Dwt.setHandler(this._repeatDescField, DwtEvent.ONCLICK, ZmCalItemEditView._onClick);
+<span class='line'>567</span> 	//Dwt.setHandler(this._repeatDescField, DwtEvent.ONMOUSEOVER, ZmCalItemEditView._onMouseOver);
+<span class='line'>568</span> 	//Dwt.setHandler(this._repeatDescField, DwtEvent.ONMOUSEOUT, ZmCalItemEditView._onMouseOut);
+<span class='line'>569</span> 
+<span class='line'>570</span> 	//this._repeatDescField._editViewId =
+<span class='line'>571</span>     if (this._hasReminderSupport) {
+<span class='line'>572</span>         // TODO: What is this for?
+<span class='line'>573</span>         this._reminderCheckbox._editViewId = edvId;
+<span class='line'>574</span>     }
+<span class='line'>575</span> };
+<span class='line'>576</span> 
+<span class='line'>577</span> // cache all input fields so we dont waste time traversing DOM each time
+<span class='line'>578</span> ZmTaskEditView.prototype._cacheFields =
+<span class='line'>579</span> function() {
+<span class='line'>580</span> 	ZmCalItemEditView.prototype._cacheFields.call(this);
+<span class='line'>581</span> 	// HACK: hide all recurrence-related fields until tasks supports it
+<span class='line'>582</span> 	//this._repeatSelect.setVisibility(false);
+<span class='line'>583</span> 	//var repeatLabel = document.getElementById(this._htmlElId + "</span><span class="NAME">_repeatLabel</span><span class="STRN">");
+<span class='line'>584</span> 	//Dwt.setVisibility(repeatLabel, false);
+<span class='line'>585</span> 	//Dwt.setVisibility(this._repeatDescField, false);
+<span class='line'>586</span>     this._setRemindersEnabled(false);
+<span class='line'>587</span> };
+<span class='line'>588</span> 
+<span class='line'>589</span> // Returns a string representing the form content
+<span class='line'>590</span> ZmTaskEditView.prototype._formValue =
+<span class='line'>591</span> function(excludeAttendees) {
+<span class='line'>592</span> 	var vals = [];
+<span class='line'>593</span> 
+<span class='line'>594</span> 	vals.push(this._subjectField.getValue());
+<span class='line'>595</span> 	vals.push(this._location.getValue());
+<span class='line'>596</span> 	vals.push(this._getPriority());
+<span class='line'>597</span> 	vals.push(this._folderSelect.getValue());
+<span class='line'>598</span>     var completion = this.getpCompleteInputValue();
+<span class='line'>599</span> 	vals.push(completion.valid ? completion.percent : 0);
+<span class='line'>600</span> 	vals.push(this._statusSelect.getValue());
+<span class='line'>601</span> 	var startDate = AjxDateUtil.simpleParseDateStr(this._startDateField.value);
+<span class='line'>602</span> 	if (startDate) vals.push(AjxDateUtil.getServerDateTime(startDate));
+<span class='line'>603</span> 	var endDate = AjxDateUtil.simpleParseDateStr(this._endDateField.value);
+<span class='line'>604</span> 	if (endDate) vals.push(AjxDateUtil.getServerDateTime(endDate));
+<span class='line'>605</span> 
+<span class='line'>606</span>     if (this._hasReminderSupport) {
+<span class='line'>607</span>         var hasReminder = this._reminderCheckbox.isSelected();
+<span class='line'>608</span>         vals.push(hasReminder);
+<span class='line'>609</span>         if (hasReminder) {
+<span class='line'>610</span>             var remindDate = AjxDateUtil.simpleParseDateStr(this._remindDateField.value);
+<span class='line'>611</span>             remindDate = this._remindTimeSelect.getValue(remindDate);
+<span class='line'>612</span>             if(remindDate) {
+<span class='line'>613</span>                 vals.push(
+<span class='line'>614</span>                     AjxDateUtil.getServerDateTime(remindDate)
+<span class='line'>615</span>                 );
+<span class='line'>616</span>             }
+<span class='line'>617</span>             vals.push(this._reminderEmailCheckbox.isSelected());
+<span class='line'>618</span>             vals.push(this._reminderDeviceEmailCheckbox.isSelected());
+<span class='line'>619</span>         }
+<span class='line'>620</span>     }
+<span class='line'>621</span> 
+<span class='line'>622</span> 	//vals.push(this._repeatSelect.getValue());
+<span class='line'>623</span> 	vals.push(this._notesHtmlEditor.getContent());
+<span class='line'>624</span> 
+<span class='line'>625</span> 	var str = vals.join("</span><span class="PUNC">|</span><span class="STRN">");
+<span class='line'>626</span> 	str = str.replace(/\|+/, "</span><span class="PUNC">|</span><span class="STRN">");
+<span class='line'>627</span> 	return str;
+<span class='line'>628</span> };
+<span class='line'>629</span> 
+<span class='line'>630</span> ZmTaskEditView.prototype._addTabGroupMembers =
+<span class='line'>631</span> function(tabGroup) {
+<span class='line'>632</span> 	tabGroup.addMember(this._subjectField);
+<span class='line'>633</span> 	tabGroup.addMember(this._location);
+<span class='line'>634</span> 
+<span class='line'>635</span> 	var bodyFieldId = this._notesHtmlEditor.getBodyFieldId();
+<span class='line'>636</span> 	tabGroup.addMember(document.getElementById(bodyFieldId));
+<span class='line'>637</span> };
+<span class='line'>638</span> 
+<span class='line'>639</span> // Consistent spot to locate various dialogs
+<span class='line'>640</span> ZmTaskEditView.prototype._getDialogXY =
+<span class='line'>641</span> function() {
+<span class='line'>642</span> 	var loc = Dwt.toWindow(this.getHtmlElement(), 0, 0);
+<span class='line'>643</span> 	return new DwtPoint(loc.x + ZmTaskEditView.DIALOG_X, loc.y + ZmTaskEditView.DIALOG_Y);
+<span class='line'>644</span> };
+<span class='line'>645</span> 
+<span class='line'>646</span> ZmTaskEditView.prototype._setPercentCompleteFields =
+<span class='line'>647</span> function(isComplete) {
+<span class='line'>648</span> 	var val = isComplete
+<span class='line'>649</span> 		? ZmTaskEditView.STATUS_VALUES[1]
+<span class='line'>650</span> 		: ZmTaskEditView.STATUS_VALUES[0];
+<span class='line'>651</span> 	this._statusSelect.setSelectedValue(val);
+<span class='line'>652</span>     this._pCompleteSelectInput.setValue(this.formatPercentComplete(isComplete ? 100 : 0));
+<span class='line'>653</span> };
+<span class='line'>654</span> 
+<span class='line'>655</span> // Listeners
+<span class='line'>656</span> ZmTaskEditView.prototype._handleCompleteOnBlur =
+<span class='line'>657</span> function(inputEl) {
+<span class='line'>658</span> 	var pCompleteString = inputEl.value;
+<span class='line'>659</span>     if (!pCompleteString) {
+<span class='line'>660</span> 		inputEl.value = this.formatPercentComplete(0);
+<span class='line'>661</span> 		return;
+<span class='line'>662</span> 	}
+<span class='line'>663</span>     var newVal = this.getpCompleteInputValue();
+<span class='line'>664</span>     if (newVal.valid) {
+<span class='line'>665</span>         if (newVal.percent == 100) {
+<span class='line'>666</span>             this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_COMP);
+<span class='line'>667</span>             this._unSelectRemindersCheckbox();   //bug:51913 disable alarm when stats is completed
+<span class='line'>668</span>         } else if (newVal.percent == 0) {
+<span class='line'>669</span>             this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_NEED);
+<span class='line'>670</span>         } else if ((newVal.percent > 0 || newVal.percent &lt; 100) && (this._statusSelect.getValue() != ZmCalendarApp.STATUS_COMP ||
+<span class='line'>671</span>                     this._statusSelect.getValue() != ZmCalendarApp.STATUS_NEED)) {
+<span class='line'>672</span>             this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_INPR);
+<span class='line'>673</span>         }
+<span class='line'>674</span>         inputEl.value = this.formatPercentComplete(pCompleteString);
+<span class='line'>675</span>     }
+<span class='line'>676</span> };
+<span class='line'>677</span> 
+<span class='line'>678</span> ZmTaskEditView.prototype._pCompleteButtonListener =
+<span class='line'>679</span> function(ev) {
+<span class='line'>680</span> 	var menu = ev.item.getMenu();
+<span class='line'>681</span> 	ev.item.popup();
+<span class='line'>682</span> };
+<span class='line'>683</span> 
+<span class='line'>684</span> ZmTaskEditView.prototype._pCompleteSelectListener =
+<span class='line'>685</span> function(ev) {
+<span class='line'>686</span> 	if(ev.item && ev.item instanceof DwtMenuItem){
+<span class='line'>687</span>         var newVal = ev.item.getData("</span><span class="NAME">value</span><span class="STRN">");
+<span class='line'>688</span>         this._pCompleteSelectInput.setValue(ev.item.getText());
+<span class='line'>689</span> 
+<span class='line'>690</span>         if (newVal == 100) {
+<span class='line'>691</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_COMP);
+<span class='line'>692</span>             this._unSelectRemindersCheckbox();  //bug:51913 disable alarm when stats is completed
+<span class='line'>693</span> 		} else if (newVal == 0) {
+<span class='line'>694</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_NEED);
+<span class='line'>695</span> 		} else if ((newVal > 0 || newVal &lt; 100) && (this._statusSelect.getValue() != ZmCalendarApp.STATUS_COMP || this._statusSelect.getValue() != ZmCalendarApp.STATUS_NEED))
+<span class='line'>696</span> 		{
+<span class='line'>697</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_INPR);
+<span class='line'>698</span> 		}
+<span class='line'>699</span> 		this._setEmailReminderControls();
+<span class='line'>700</span>         return;
+<span class='line'>701</span>     }
+<span class='line'>702</span> };
+<span class='line'>703</span> 
+<span class='line'>704</span> ZmTaskEditView.prototype._selectListener =
+<span class='line'>705</span> function(ev) {
+<span class='line'>706</span> 	var newVal = ev._args.newValue;
+<span class='line'>707</span> 	var oldVal = ev._args.oldValue;
+<span class='line'>708</span> 
+<span class='line'>709</span> 	if (newVal == oldVal) { return; }
+<span class='line'>710</span> 
+<span class='line'>711</span> 	var selObj = ev._args.selectObj;
+<span class='line'>712</span> 
+<span class='line'>713</span> 	if (selObj == this._statusSelect) {
+<span class='line'>714</span> 		if (newVal == ZmCalendarApp.STATUS_COMP) {
+<span class='line'>715</span> 			this._pCompleteSelectInput.setValue(this.formatPercentComplete(100));
+<span class='line'>716</span>             this._unSelectRemindersCheckbox();    //bug:51913 disable alarm when stats is completed
+<span class='line'>717</span> 		} else if (newVal == ZmCalendarApp.STATUS_NEED) {
+<span class='line'>718</span> 			this._pCompleteSelectInput.setValue(this.formatPercentComplete(0));
+<span class='line'>719</span> 		} else if (newVal == ZmCalendarApp.STATUS_INPR) {
+<span class='line'>720</span>             var completion = this.getpCompleteInputValue();
+<span class='line'>721</span>             if (completion.valid && (completion.percent == 100)) {
+<span class='line'>722</span> 				this._pCompleteSelectInput.setValue(this.formatPercentComplete(0));
+<span class='line'>723</span> 			}
+<span class='line'>724</span> 		}
+<span class='line'>725</span> 	} else {
+<span class='line'>726</span> 		if (newVal == 100) {
+<span class='line'>727</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_COMP);
+<span class='line'>728</span>             this._unSelectRemindersCheckbox();
+<span class='line'>729</span> 		} else if (newVal == 0) {
+<span class='line'>730</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_NEED);
+<span class='line'>731</span> 		} else if ((oldVal == 0 || oldVal == 100) &&
+<span class='line'>732</span> 			 		(newVal > 0 || newVal &lt; 100) &&
+<span class='line'>733</span> 					(this._statusSelect.getValue() == ZmCalendarApp.STATUS_COMP ||
+<span class='line'>734</span> 					 this._statusSelect.getValue() == ZmCalendarApp.STATUS_NEED))
+<span class='line'>735</span> 		{
+<span class='line'>736</span> 			this._statusSelect.setSelectedValue(ZmCalendarApp.STATUS_INPR);
+<span class='line'>737</span> 		}
+<span class='line'>738</span> 	}
+<span class='line'>739</span> 	this._setEmailReminderControls();
+<span class='line'>740</span> };
+<span class='line'>741</span> 
+<span class='line'>742</span> 
+<span class='line'>743</span> // Callbacks
+<span class='line'>744</span> 
+<span class='line'>745</span> ZmTaskEditView.prototype._handleOnClick =
+<span class='line'>746</span> function(el) {
+<span class='line'>747</span> 		ZmCalItemEditView.prototype._handleOnClick.call(this, el);
+<span class='line'>748</span> };
+<span class='line'>749</span> 
+<span class='line'>750</span> 
+<span class='line'>751</span> ZmTaskEditView.prototype._setRemindersEnabled =
+<span class='line'>752</span> function(isEnabled) {
+<span class='line'>753</span>     if (this._hasReminderSupport) {
+<span class='line'>754</span>         this._remindDateButton.setEnabled(isEnabled);
+<span class='line'>755</span>         this._remindTimeSelect.setEnabled(isEnabled);
+<span class='line'>756</span>         Dwt.addClass(this._remindDateField.parentNode, !isEnabled ? 'DWTInputField-disabled' : 'DWTInputField', !isEnabled ? 'DWTInputField' : 'DWTInputField-disabled');
+<span class='line'>757</span>         this._remindDateField.disabled = !isEnabled;
+<span class='line'>758</span>     }
+<span class='line'>759</span> };
+<span class='line'>760</span> 
+<span class='line'>761</span> ZmTaskEditView.prototype._setRemindersConfigureEnabled = function(enabled) {
+<span class='line'>762</span> 	this._reminderConfigure.setEnabled(enabled);
+<span class='line'>763</span>     this._reminderConfigure.getHtmlElement().onclick = enabled ? AjxCallback.simpleClosure(skin.gotoPrefs, skin, "</span><span class="NAME">NOTIFICATIONS</span><span class="STRN">") : null;
+<span class='line'>764</span> };
+<span class='line'>765</span> 
+<span class='line'>766</span> //
+<span class='line'>767</span> // ZmCalItemEditView methods
+<span class='line'>768</span> //
+<span class='line'>769</span> 
+<span class='line'>770</span> ZmTaskEditView.prototype._setEmailReminderControls = function() {
+<span class='line'>771</span>     if (this._hasReminderSupport) {
+<span class='line'>772</span> 
+<span class='line'>773</span> 		ZmCalItemEditView.prototype._setEmailReminderControls.apply(this, arguments);
+<span class='line'>774</span> 
+<span class='line'>775</span> 		// Bug 55392: Disable reminders altogether when task is completed
+<span class='line'>776</span> 		var remindersEnabled = (this._statusSelect.getValue() != ZmCalendarApp.STATUS_COMP);
+<span class='line'>777</span> 		Dwt.condClass(this._reminderLabel, remindersEnabled, "</span><span class="STRN">", "</span><span class="NAME">ZDisabled</span><span class="TOKN"></span></pre></body></html>

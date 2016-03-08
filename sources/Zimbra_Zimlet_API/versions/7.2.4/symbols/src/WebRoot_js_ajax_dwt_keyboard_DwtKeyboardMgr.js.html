@@ -1,0 +1,933 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011 VMware, Inc.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Zimbra Public License
+<span class='line'>  7</span>  * Version 1.3 ("License"); you may not use this file except in
+<span class='line'>  8</span>  * compliance with the License.  You may obtain a copy of the License at
+<span class='line'>  9</span>  * http://www.zimbra.com/license.
+<span class='line'> 10</span>  * 
+<span class='line'> 11</span>  * Software distributed under the License is distributed on an "AS IS"
+<span class='line'> 12</span>  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 13</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 14</span>  */</span><span class="WHIT">
+<span class='line'> 15</span> 
+<span class='line'> 16</span> </span><span class="COMM">/**
+<span class='line'> 17</span>  * Creates an empty keyboard manager. Tab groups must be added for it to do
+<span class='line'> 18</span>  * anything.
+<span class='line'> 19</span>  * @constructor
+<span class='line'> 20</span>  * @class
+<span class='line'> 21</span>  * This class is responsible for managing keyboard events. That includes dispatching
+<span class='line'> 22</span>  * keyboard events, as well as managing focus and tab groups. It is at the heart of the
+<span class='line'> 23</span>  * Dwt keyboard navigation framework.
+<span class='line'> 24</span>  * &lt;p>
+<span class='line'> 25</span>  * {@link DwtKeyboardMgr} intercepts key strokes and translates
+<span class='line'> 26</span>  * them into actions which it then dispatches to the component with focus. If the key
+<span class='line'> 27</span>  * stroke is a TAB (or Shift-TAB), then focus is moved based on the current tab group.
+<span class='line'> 28</span>  * &lt;/p>&lt;p>
+<span class='line'> 29</span>  * A {@link DwtShell} instantiates its own &lt;i>DwtKeyboardMgr&lt;/i> at construction.
+<span class='line'> 30</span>  * The keyboard manager may then be retrieved via the shell's &lt;code>getKeyboardMgr()&lt;/code>
+<span class='line'> 31</span>  * function. Once a handle to the shell's keyboard manager is retrieved, then the user is free
+<span class='line'> 32</span>  * to add tab groups and register keymaps and handlers with the keyboard manager.
+<span class='line'> 33</span>  * &lt;/p>&lt;p>
+<span class='line'> 34</span>  * Focus is managed among a stack of tab groups. The TAB button will move the focus within the
+<span class='line'> 35</span>  * current tab group. When a non-TAB is received, we first check if the control can handle it.
+<span class='line'> 36</span>  * In general, control key events simulate something the user could do with the mouse, and change
+<span class='line'> 37</span>  * the state/appearance of the control. For example, ENTER on a DwtButton simulates a button
+<span class='line'> 38</span>  * press. If the control does not handle the key event, the event is handed to the application,
+<span class='line'> 39</span>  * which handles it based on its current state. The application key event handler is in a sense
+<span class='line'> 40</span>  * global, since it does not matter which control received the event.
+<span class='line'> 41</span>  * &lt;/p>&lt;p>
+<span class='line'> 42</span>  * At any given time there is a default handler, which is responsible for determining what
+<span class='line'> 43</span>  * action is associated with a particular key sequence, and then taking it. A handler should support
+<span class='line'> 44</span>  * the following methods:
+<span class='line'> 45</span>  * 
+<span class='line'> 46</span>  * &lt;ul>
+<span class='line'> 47</span>  * &lt;li>&lt;i>getKeyMapName()&lt;/i> -- returns the name of the map that defines shortcuts for this handler&lt;/li>
+<span class='line'> 48</span>  * &lt;li>&lt;i>handleKeyAction()&lt;/i> -- performs the action associated with a shortcut&lt;/li>
+<span class='line'> 49</span>  * &lt;li>&lt;i>handleKeyEvent()&lt;/i>	-- override; handler solely responsible for handling event&lt;/li>
+<span class='line'> 50</span>  * &lt;/ul>
+<span class='line'> 51</span>  * &lt;/p>
+<span class='line'> 52</span>  *
+<span class='line'> 53</span>  * @author Ross Dargahi
+<span class='line'> 54</span>  *
+<span class='line'> 55</span>  * @param	{DwtShell}	shell		the shell
+<span class='line'> 56</span>  * @see DwtShell
+<span class='line'> 57</span>  * @see DwtTabGroup
+<span class='line'> 58</span>  * @see DwtKeyMap
+<span class='line'> 59</span>  * @see DwtKeyMapMgr
+<span class='line'> 60</span>  * 
+<span class='line'> 61</span>  * @private
+<span class='line'> 62</span>  */</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="NAME">DwtKeyboardMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">shell</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">	</span><span class="NAME">DwtKeyboardMgr.__shell</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">shell</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">	</span><span class="NAME">this.__tabGrpStack</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">	</span><span class="NAME">this.__defaultHandlerStack</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">	</span><span class="NAME">this.__tabGroupChangeListenerObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxListener</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.__tabGrpChangeListener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">	</span><span class="NAME">this.__kbEventStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">	</span><span class="NAME">this.__keyTimeout</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">750</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">	</span><span class="NAME">this.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">	</span><span class="NAME">this.__currDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">	</span><span class="NAME">this._evtMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxEventMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> 
+<span class='line'> 75</span> </span><span class="COMM">/**@private*/</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="COMM">/**@private*/</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_HANDLED</span><span class="WHIT">		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="COMM">/**@private*/</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_PENDING</span><span class="WHIT">		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> 
+<span class='line'> 82</span> </span><span class="NAME">DwtKeyboardMgr.FOCUS_FIELD_ID</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"kbff"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> 
+<span class='line'> 84</span> </span><span class="COMM">/**
+<span class='line'> 85</span>  * Checks if the event may be a shortcut from within an input (text input or
+<span class='line'> 86</span>  * textarea). Since printable characters are echoed, the shortcut must be non-printable:
+<span class='line'> 87</span>  * 
+<span class='line'> 88</span>  * &lt;ul>
+<span class='line'> 89</span>  * &lt;li>Alt or Ctrl or Meta plus another key&lt;/li>
+<span class='line'> 90</span>  * &lt;li>Esc&lt;/li>
+<span class='line'> 91</span>  * &lt;li>Enter within a text input (but not a textarea)&lt;/li>
+<span class='line'> 92</span>  * &lt;/ul>
+<span class='line'> 93</span>  * 
+<span class='line'> 94</span>  * @param {DwtKeyEvent}	ev	the key event
+<span class='line'> 95</span>  * @return	{boolean}	&lt;code>true&lt;/code> if the event may be a shortcut
+<span class='line'> 96</span>  */</span><span class="WHIT">
+<span class='line'> 97</span> </span><span class="NAME">DwtKeyboardMgr.isPossibleInputShortcut</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 99</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">target</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getTarget</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">DwtKeyMap.IS_MODIFIER</span><span class="PUNC">[</span><span class="NAME">ev.keyCode</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="WHIT">			</span><span class="PUNC">(</span><span class="NAME">ev.keyCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">27</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">DwtKeyMapMgr.hasModifier</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>102</span> </span><span class="WHIT">			</span><span class="PUNC">(</span><span class="NAME">target</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">target.nodeName.toUpperCase</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"INPUT"</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ev.keyCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">13</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">ev.keyCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>103</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>104</span> 
+<span class='line'>105</span> </span><span class="COMM">/**
+<span class='line'>106</span>  * Returns the string representation of this object.
+<span class='line'>107</span>  * 
+<span class='line'>108</span>  * @return	{string}	the string representation of this object
+<span class='line'>109</span>  */</span><span class="WHIT">
+<span class='line'>110</span> </span><span class="NAME">DwtKeyboardMgr.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> 
+<span class='line'>111</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> 
+<span class='line'>115</span> </span><span class="COMM">/**
+<span class='line'>116</span>  * Pushes the tab group onto the stack and makes it the active tab group.
+<span class='line'>117</span>  * 
+<span class='line'>118</span>  * @param 	{DwtTabGroup}	tabGroup	the tab group to push onto the stack
+<span class='line'>119</span>  * 
+<span class='line'>120</span>  * @see		#popTabGroup
+<span class='line'>121</span>  */</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="NAME">DwtKeyboardMgr.prototype.pushTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>123</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>124</span> </span><span class="COMM">//	DBG.println("kbnav", "PUSH tab group " + tabGroup.__name);</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">		
+<span class='line'>127</span> 	</span><span class="NAME">this.__tabGrpStack.push</span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>128</span> </span><span class="WHIT">	</span><span class="NAME">this.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tabGroup</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>129</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">focusMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tabGroup.getFocusMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="WHIT">		</span><span class="NAME">focusMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tabGroup.resetFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>132</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>133</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="COMM">//		DBG.println("kbnav", "DwtKeyboardMgr.pushTabGroup: tab group " + tabGroup.__name + " has no members!");</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>137</span> </span><span class="WHIT">	</span><span class="NAME">tabGroup.addFocusChangeListener</span><span class="PUNC">(</span><span class="NAME">this.__tabGroupChangeListenerObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="WHIT">	</span><span class="NAME">this.grabFocus</span><span class="PUNC">(</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>140</span> 
+<span class='line'>141</span> </span><span class="COMM">/**
+<span class='line'>142</span>  * Pops the current tab group off the top of the tab group stack. The previous 
+<span class='line'>143</span>  * tab group (if there is one) then becomes the current tab group.
+<span class='line'>144</span>  * 
+<span class='line'>145</span>  * @param {DwtTabGroup} [tabGroup]		the tab group to pop. If supplied, then the tab group
+<span class='line'>146</span>  * 		stack is searched for the tab group and it is removed. If &lt;code>null&lt;/code>, then the
+<span class='line'>147</span>  * 		top tab group is popped.
+<span class='line'>148</span>  * 
+<span class='line'>149</span>  * @return {DwtTabGroup}	the popped tab group or &lt;code>null&lt;/code> if there is one or less tab groups
+<span class='line'>150</span>  */</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="NAME">DwtKeyboardMgr.prototype.popTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>152</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="COMM">//	DBG.println("kbnav", "POP tab group " + tabGroup.__name);</span><span class="WHIT">
+<span class='line'>156</span> </span><span class="WHIT">	
+<span class='line'>157</span> 	</span><span class="COMM">// we never want an empty stack</span><span class="WHIT">
+<span class='line'>158</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__tabGrpStack.length</span><span class="WHIT"> </span><span class="PUNC">&lt;=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>159</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="WHIT">	
+<span class='line'>162</span> 	</span><span class="COMM">/* If we are popping a tab group that is not on the top of the stack then 
+<span class='line'>163</span> 	 * we need to find it and remove it. */</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.__tabGrpStack</span><span class="PUNC">[</span><span class="NAME">this.__tabGrpStack.length</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">a</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__tabGrpStack</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">len</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">a.length</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">		</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">len</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">>=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">--</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">a</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="WHIT">				</span><span class="NAME">a</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">dump</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>170</span> </span><span class="WHIT">				</span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>171</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>172</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="WHIT">		
+<span class='line'>174</span> 		</span><span class="COMM">/* If there is no match in the stack for tabGroup, then simply return null,
+<span class='line'>175</span> 		 * else if the match is not the top item on the stack, then remove it from 
+<span class='line'>176</span> 		 * the stack. Else we are dealing with the topmost item on the stack so handle it 
+<span class='line'>177</span> 		 * as a simple pop. */</span><span class="WHIT">
+<span class='line'>178</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="COMM">// No match</span><span class="WHIT">
+<span class='line'>179</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>180</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">len</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="COMM">// item is not on top</span><span class="WHIT">
+<span class='line'>181</span> </span><span class="WHIT">			</span><span class="COMM">// Remove tabGroup</span><span class="WHIT">
+<span class='line'>182</span> </span><span class="WHIT">			</span><span class="NAME">a.splice</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>183</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">tabGroup</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>185</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> 
+<span class='line'>186</span> 
+<span class='line'>187</span> 	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">tabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__tabGrpStack.pop</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="WHIT">	</span><span class="NAME">tabGroup.removeFocusChangeListener</span><span class="PUNC">(</span><span class="NAME">this.__tabGroupChangeListenerObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">	
+<span class='line'>190</span> 	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">currTg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__tabGrpStack.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="WHIT">		</span><span class="NAME">currTg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__tabGrpStack</span><span class="PUNC">[</span><span class="NAME">this.__tabGrpStack.length</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>193</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">focusMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">currTg.getFocusMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>194</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>195</span> </span><span class="WHIT">			</span><span class="NAME">focusMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">currTg.resetFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>196</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>197</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="WHIT">			</span><span class="NAME">this.grabFocus</span><span class="PUNC">(</span><span class="NAME">focusMember</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">	</span><span class="NAME">this.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">currTg</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>202</span> 
+<span class='line'>203</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">tabGroup</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>205</span> 
+<span class='line'>206</span> </span><span class="COMM">/**
+<span class='line'>207</span>  * Replaces the current tab group with the given tab group.
+<span class='line'>208</span>  * 
+<span class='line'>209</span>  * @param {DwtTabGroup} tabGroup 	the tab group to use
+<span class='line'>210</span>  * @return {DwtTabGroup}	the old tab group
+<span class='line'>211</span>  */</span><span class="WHIT">
+<span class='line'>212</span> </span><span class="NAME">DwtKeyboardMgr.prototype.setTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>213</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>214</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>215</span> </span><span class="WHIT">	
+<span class='line'>216</span> 	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">otg</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.popTabGroup</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>217</span> </span><span class="WHIT">	</span><span class="NAME">this.pushTabGroup</span><span class="PUNC">(</span><span class="NAME">tabGroup</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>218</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">otg</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>219</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>220</span> 
+<span class='line'>221</span> </span><span class="COMM">/**
+<span class='line'>222</span>  * Gets current tab group
+<span class='line'>223</span>  *
+<span class='line'>224</span>  * @return {DwtTabGroup}	current tab group
+<span class='line'>225</span>  */</span><span class="WHIT">
+<span class='line'>226</span> </span><span class="NAME">DwtKeyboardMgr.prototype.getCurrentTabGroup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>227</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>228</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.__currTabGroup</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>229</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>230</span> 
+<span class='line'>231</span> </span><span class="NAME">DwtKeyboardMgr.prototype.pushDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>232</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">handler</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>233</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">handler</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>234</span> </span><span class="COMM">//	DBG.println("kbnav", "PUSH default handler: " + handler);</span><span class="WHIT">
+<span class='line'>235</span> </span><span class="WHIT">		
+<span class='line'>236</span> 	</span><span class="NAME">this.__defaultHandlerStack.push</span><span class="PUNC">(</span><span class="NAME">handler</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">	</span><span class="NAME">this.__currDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">handler</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>239</span> 
+<span class='line'>240</span> </span><span class="NAME">DwtKeyboardMgr.prototype.popDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="COMM">//	DBG.println("kbnav", "POP default handler");</span><span class="WHIT">
+<span class='line'>243</span> </span><span class="WHIT">	</span><span class="COMM">// we never want an empty stack</span><span class="WHIT">
+<span class='line'>244</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__defaultHandlerStack.length</span><span class="WHIT"> </span><span class="PUNC">&lt;=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>245</span> 
+<span class='line'>246</span> </span><span class="COMM">//	DBG.println("kbnav", "Default handler stack length: " + this.__defaultHandlerStack.length);</span><span class="WHIT">
+<span class='line'>247</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">handler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__defaultHandlerStack.pop</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>248</span> </span><span class="WHIT">	</span><span class="NAME">this.__currDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__defaultHandlerStack</span><span class="PUNC">[</span><span class="NAME">this.__defaultHandlerStack.length</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>249</span> </span><span class="COMM">//	DBG.println("kbnav", "Default handler is now: " + this.__currDefaultHandler);</span><span class="WHIT">
+<span class='line'>250</span> 
+<span class='line'>251</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">handler</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>252</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>253</span> 
+<span class='line'>254</span> </span><span class="COMM">/**
+<span class='line'>255</span>  * Sets the focus to the given object.
+<span class='line'>256</span>  * 
+<span class='line'>257</span>  * @param {HTMLInputElement|DwtControl|string} focusObj		the object to which to set focus, or its ID
+<span class='line'>258</span>  */</span><span class="WHIT"> 
+<span class='line'>259</span> </span><span class="NAME">DwtKeyboardMgr.prototype.grabFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>260</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>261</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>262</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>263</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>264</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>265</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"string"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>266</span> </span><span class="WHIT">		</span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>267</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>268</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>269</span> 
+<span class='line'>270</span> </span><span class="WHIT">	</span><span class="COMM">/* We may not be using tab groups, so be prepared for that case */</span><span class="WHIT">
+<span class='line'>271</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__currTabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>272</span> </span><span class="WHIT">		</span><span class="NAME">this.__currTabGroup.setFocusMember</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>273</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>274</span> </span><span class="WHIT">		
+<span class='line'>275</span> 	</span><span class="NAME">this.__doGrabFocus</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>276</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>277</span> 
+<span class='line'>278</span> </span><span class="NAME">DwtKeyboardMgr.prototype.inputGotFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>279</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">inputCtrl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>280</span> 
+<span class='line'>281</span> </span><span class="WHIT">	</span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">inputCtrl</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>282</span> </span><span class="WHIT">	</span><span class="NAME">this.__dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>283</span> </span><span class="WHIT">	</span><span class="NAME">this.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>284</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__currTabGroup</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>285</span> </span><span class="WHIT">		</span><span class="NAME">this.__currTabGroup.setFocusMember</span><span class="PUNC">(</span><span class="NAME">inputCtrl.getTabGroupMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>286</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>287</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>288</span> 
+<span class='line'>289</span> </span><span class="COMM">/**
+<span class='line'>290</span>  * Gets the object that has focus.
+<span class='line'>291</span>  *
+<span class='line'>292</span>  * @return {HTMLInputElement|DwtControl} focusObj		the object with focus
+<span class='line'>293</span>  */</span><span class="WHIT">
+<span class='line'>294</span> </span><span class="NAME">DwtKeyboardMgr.prototype.getFocusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>295</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>296</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.__focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>297</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>298</span> 
+<span class='line'>299</span> </span><span class="COMM">/**
+<span class='line'>300</span>  * Checks if the specified component currently has keyboard focus.
+<span class='line'>301</span>  *
+<span class='line'>302</span>  * @param {DwtControl} control		the object for which to check focus
+<span class='line'>303</span>  * @return {boolean}	&lt;code>true&lt;/code> if the control has keyboard focus; otherwise &lt;code>false&lt;/code>
+<span class='line'>304</span>  */</span><span class="WHIT">
+<span class='line'>305</span> </span><span class="NAME">DwtKeyboardMgr.prototype.dwtControlHasFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>306</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">control</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>307</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>308</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>309</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>310</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>311</span> </span><span class="WHIT">		
+<span class='line'>312</span> 	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">control</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>313</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>314</span> 
+<span class='line'>315</span> </span><span class="COMM">/** 
+<span class='line'>316</span>  * This method is used to register an application key handler. If registered, this
+<span class='line'>317</span>  * handler must support the following methods:
+<span class='line'>318</span>  * &lt;ul>
+<span class='line'>319</span>  * &lt;li>&lt;i>getKeyMapName&lt;/i>: This method returns a string representing the key map 
+<span class='line'>320</span>  * to be used for looking up actions
+<span class='line'>321</span>  * &lt;li>&lt;i>handleKeyAction&lt;/i>: This method should handle the key action and return
+<span class='line'>322</span>  * true if it handled it else false. &lt;i>handleKeyAction&lt;/i> has two formal parameters
+<span class='line'>323</span>  *    &lt;ul>
+<span class='line'>324</span>  *    &lt;li>&lt;i>actionCode&lt;/i>: The action code to be handled&lt;/li>
+<span class='line'>325</span>  *    &lt;li>&lt;i>ev&lt;/i>: the {@link DwtKeyEvent} corresponding to the last key event in the sequence&lt;/li>
+<span class='line'>326</span>  *    &lt;/ul>
+<span class='line'>327</span>  * &lt;/ul>
+<span class='line'>328</span>  * 
+<span class='line'>329</span>  * @param 	{function}	hdlr	the handler function. This method should have the following
+<span class='line'>330</span>  * 									signature &lt;code>Boolean hdlr(Int actionCode DwtKeyEvent event);&lt;/code>
+<span class='line'>331</span>  * 
+<span class='line'>332</span>  * @see DwtKeyEvent
+<span class='line'>333</span>  */</span><span class="WHIT">
+<span class='line'>334</span> </span><span class="NAME">DwtKeyboardMgr.prototype.registerDefaultKeyActionHandler</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>335</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">hdlr</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>336</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>337</span> </span><span class="WHIT">	</span><span class="NAME">this.__defaultKeyActionHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hdlr</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>338</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>339</span> 
+<span class='line'>340</span> </span><span class="COMM">/**
+<span class='line'>341</span>  * Registers a keymap with the shell. A keymap typically
+<span class='line'>342</span>  * is a subclass of {@link DwtKeyMap} and defines the mappings from key sequences to
+<span class='line'>343</span>  * actions.
+<span class='line'>344</span>  *
+<span class='line'>345</span>  * @param {DwtKeyMap} keyMap		the key map to register
+<span class='line'>346</span>  * 
+<span class='line'>347</span>  */</span><span class="WHIT">
+<span class='line'>348</span> </span><span class="NAME">DwtKeyboardMgr.prototype.registerKeyMap</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>349</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">keyMap</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>350</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__checkStatus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>351</span> </span><span class="WHIT">	</span><span class="NAME">this.__keyMapMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtKeyMapMgr</span><span class="PUNC">(</span><span class="NAME">keyMap</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>352</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>353</span> 
+<span class='line'>354</span> </span><span class="COMM">/**
+<span class='line'>355</span>  * Sets the timeout (in milliseconds) between key presses for handling multi-keypress sequences.
+<span class='line'>356</span>  * 
+<span class='line'>357</span>  * @param 	{number}	timeout		the timeout (in milliseconds)
+<span class='line'>358</span>  */</span><span class="WHIT">
+<span class='line'>359</span> </span><span class="NAME">DwtKeyboardMgr.prototype.setKeyTimeout</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>360</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">timeout</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>361</span> </span><span class="WHIT">	</span><span class="NAME">this.__keyTimeout</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">timeout</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>362</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>363</span> 
+<span class='line'>364</span> </span><span class="COMM">/**
+<span class='line'>365</span>  * Clears the key sequence. The next key event will begin a new one.
+<span class='line'>366</span>  * 
+<span class='line'>367</span>  */</span><span class="WHIT">
+<span class='line'>368</span> </span><span class="NAME">DwtKeyboardMgr.prototype.clearKeySeq</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>369</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>370</span> </span><span class="WHIT">	</span><span class="NAME">this.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>371</span> </span><span class="WHIT">	</span><span class="NAME">this.__keySequence</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>372</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>373</span> 
+<span class='line'>374</span> </span><span class="COMM">/**
+<span class='line'>375</span>  * Enables/disables keyboard nav.
+<span class='line'>376</span>  * 
+<span class='line'>377</span>  * @param 	{boolean}	enabled		if &lt;code>true&lt;/code>, enable keyboard nav
+<span class='line'>378</span>  */</span><span class="WHIT">
+<span class='line'>379</span> </span><span class="NAME">DwtKeyboardMgr.prototype.enable</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>380</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>381</span> </span><span class="WHIT">	</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="NAME">AjxDebug.DBG2</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"keyboard nav enabled: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>382</span> </span><span class="WHIT">	</span><span class="NAME">this.__enabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>383</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>384</span> </span><span class="WHIT">		</span><span class="NAME">this.__checkStatus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">	</span><span class="COMM">// make sure we're initialized</span><span class="WHIT">
+<span class='line'>385</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.setHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYDOWN</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__keyDownHdlr</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>386</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.setHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYUP</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__keyUpHdlr</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>387</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.setHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYPRESS</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__keyPressHdlr</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>388</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>389</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.clearHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYDOWN</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>390</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.clearHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYUP</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>391</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.clearHandler</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONKEYPRESS</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>392</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>393</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>394</span> 
+<span class='line'>395</span> </span><span class="NAME">DwtKeyboardMgr.prototype.isEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>396</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>397</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.__enabled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>398</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>399</span> 
+<span class='line'>400</span> </span><span class="COMM">/**
+<span class='line'>401</span>  * Adds a global key event listener.
+<span class='line'>402</span>  *
+<span class='line'>403</span>  * @param {constant}	ev			key event type
+<span class='line'>404</span>  * @param {AjxListener}	listener	listener to notify
+<span class='line'>405</span>  */</span><span class="WHIT">
+<span class='line'>406</span> </span><span class="NAME">DwtKeyboardMgr.prototype.addListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>407</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>408</span> </span><span class="WHIT">	</span><span class="NAME">this._evtMgr.addListener</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>409</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>410</span> 
+<span class='line'>411</span> </span><span class="COMM">/**
+<span class='line'>412</span>  * Removes a global key event listener.
+<span class='line'>413</span>  *
+<span class='line'>414</span>  * @param {constant}	ev			key event type
+<span class='line'>415</span>  * @param {AjxListener}	listener	listener to remove
+<span class='line'>416</span>  */</span><span class="WHIT">
+<span class='line'>417</span> </span><span class="NAME">DwtKeyboardMgr.prototype.removeListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>418</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>419</span> </span><span class="WHIT">	</span><span class="NAME">this._evtMgr.removeListener</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>420</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>421</span> 
+<span class='line'>422</span> </span><span class="COMM">/**
+<span class='line'>423</span>  * @private
+<span class='line'>424</span>  */</span><span class="WHIT">
+<span class='line'>425</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__initKeyboardHandling</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>426</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>427</span> </span><span class="WHIT">	</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="NAME">AjxDebug.DBG3</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Initializing Keyboard Handling"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>428</span> 
+<span class='line'>429</span> </span><span class="WHIT">	</span><span class="COMM">/* Create our keyboard focus field. This is a dummy input field that will take text
+<span class='line'>430</span> 	 * input for keyboard shortcuts. */</span><span class="WHIT">
+<span class='line'>431</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbff</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._kbFocusField</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.createElement</span><span class="PUNC">(</span><span class="STRN">"textarea"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>432</span> </span><span class="WHIT">	</span><span class="NAME">kbff.id</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.FOCUS_FIELD_ID</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>433</span> </span><span class="WHIT">	</span><span class="NAME">kbff.tabIndex</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>434</span> </span><span class="WHIT">	</span><span class="NAME">kbff.style.position</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Dwt.ABSOLUTE_STYLE</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>435</span> </span><span class="WHIT">	</span><span class="NAME">kbff.style.top</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbff.style.left</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Dwt.LOC_NOWHERE</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>436</span> </span><span class="WHIT">	</span><span class="NAME">kbff.onblur</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__onBlurHdlr</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>437</span> </span><span class="WHIT">	</span><span class="NAME">kbff.onfocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__onFocusHdlr</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>438</span> </span><span class="WHIT">	</span><span class="NAME">document.body.appendChild</span><span class="PUNC">(</span><span class="NAME">kbff</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>439</span> </span><span class="WHIT">	
+<span class='line'>440</span> 	</span><span class="NAME">this.__killKeySeqTimedAction</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxTimedAction</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.__killKeySequenceAction</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>441</span> </span><span class="WHIT">	</span><span class="NAME">this.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>442</span> </span><span class="WHIT">	</span><span class="NAME">this.__keySequence</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>443</span> 
+<span class='line'>444</span> </span><span class="WHIT">	</span><span class="NAME">this.__keyboardHandlingInited</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>445</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>446</span> 
+<span class='line'>447</span> </span><span class="COMM">/**
+<span class='line'>448</span>  * @private
+<span class='line'>449</span>  */</span><span class="WHIT">
+<span class='line'>450</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__checkStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>451</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>452</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>453</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>454</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>455</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.__keyboardHandlingInited</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>456</span> </span><span class="WHIT">		</span><span class="NAME">this.__initKeyboardHandling</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>457</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>458</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>459</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>460</span> 
+<span class='line'>461</span> </span><span class="COMM">/** 
+<span class='line'>462</span>  * Sets keyboard focus to the given object.
+<span class='line'>463</span>  *
+<span class='line'>464</span>  * @private
+<span class='line'>465</span>  */</span><span class="WHIT">
+<span class='line'>466</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__doGrabFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>467</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>468</span> 
+<span class='line'>469</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>470</span> </span><span class="WHIT">	
+<span class='line'>471</span> 	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">Dwt.instanceOf</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtInputField"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>472</span> </span><span class="WHIT">						</span><span class="NAME">Dwt.instanceOf</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtHtmlEditor"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>473</span> </span><span class="WHIT">						</span><span class="NAME">Dwt.instanceOf</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtCheckbox"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>474</span> </span><span class="WHIT">						</span><span class="NAME">Dwt.instanceOf</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtRadioButton"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>475</span> </span><span class="WHIT">						</span><span class="NAME">Dwt.instanceOf</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"ZmAdvancedHtmlEditor"</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>476</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr._doGrabFocus: " + focusObj);</span><span class="WHIT">
+<span class='line'>477</span> </span><span class="WHIT">	</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="STRN">"focus"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr._doGrabFocus: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>478</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">DwtControl</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>479</span> </span><span class="WHIT">		</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="STRN">"focus"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr._doGrabFocus: input or non-control"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>480</span> </span><span class="WHIT">		</span><span class="COMM">// dealing with an input field</span><span class="WHIT">
+<span class='line'>481</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">DwtControl</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.__dwtInputCtrl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>482</span> </span><span class="WHIT">			</span><span class="COMM">// ctrl -> input</span><span class="WHIT">
+<span class='line'>483</span> </span><span class="WHIT">			</span><span class="NAME">this.__oldFocusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>484</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>485</span> </span><span class="WHIT">		</span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>486</span> </span><span class="WHIT">		</span><span class="NAME">this.__dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">dwtInputCtrl</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>487</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">el</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">focusObj.getInputElement</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>488</span> </span><span class="WHIT">		</span><span class="COMM">// IE throws JS error if you try to focus a disabled or invisible input</span><span class="WHIT">
+<span class='line'>489</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">AjxEnv.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">focusObj.focus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>490</span> </span><span class="WHIT">			</span><span class="PUNC">(</span><span class="NAME">AjxEnv.isIE</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">focusObj.focus</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">el.disabled</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">Dwt.getVisible</span><span class="PUNC">(</span><span class="NAME">el</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>491</span> </span><span class="WHIT">			</span><span class="COMM">// ignore exception - IE sometimes still throws error, don't know why</span><span class="WHIT">
+<span class='line'>492</span> </span><span class="WHIT">			</span><span class="KEYW">try</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>493</span> </span><span class="WHIT">				</span><span class="NAME">focusObj.focus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>494</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">catch</span><span class="PUNC">(</span><span class="NAME">ex</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>495</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>496</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>497</span> </span><span class="WHIT">		</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="STRN">"focus"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr._doGrabFocus: control"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>498</span> </span><span class="WHIT">		</span><span class="COMM">/* If the current focus of obj and the one grabbing focus are both DwtControls
+<span class='line'>499</span> 		 * then we need to simulate a blur on the control losing focus */</span><span class="WHIT">
+<span class='line'>500</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">DwtControl</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>501</span> </span><span class="WHIT">			</span><span class="COMM">// ctrl -> ctrl: blur old ctrl</span><span class="WHIT">
+<span class='line'>502</span> </span><span class="WHIT">			</span><span class="NAME">DwtKeyboardMgr.__onBlurHdlr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>503</span> </span><span class="WHIT">			</span><span class="NAME">this.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">	</span><span class="COMM">// reset</span><span class="WHIT">
+<span class='line'>504</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>505</span> </span><span class="WHIT">			
+<span class='line'>506</span> 		</span><span class="NAME">this.__focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>507</span> </span><span class="WHIT">		</span><span class="NAME">this.__dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>508</span> </span><span class="WHIT">		
+<span class='line'>509</span> 		</span><span class="COMM">/* If a DwtControl already has focus, then we need to manually call
+<span class='line'>510</span> 		 * DwtKeyboardMgr.__onFocusHdlr to simulate focus since calling the focus()
+<span class='line'>511</span> 		 * method on the input field does nothing. */</span><span class="WHIT">
+<span class='line'>512</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.__dwtCtrlHasFocus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>513</span> </span><span class="WHIT">			</span><span class="COMM">// ctrl -> ctrl: tell newly focused ctrl it got focus</span><span class="WHIT">
+<span class='line'>514</span> </span><span class="WHIT">			</span><span class="NAME">DwtKeyboardMgr.__onFocusHdlr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>515</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>516</span> </span><span class="WHIT">			</span><span class="NAME">DwtKeyboardMgr.__onFocusHdlr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>517</span> </span><span class="WHIT">			</span><span class="COMM">// input -> ctrl: set browser focus to keyboard input field</span><span class="WHIT">
+<span class='line'>518</span> </span><span class="WHIT">			</span><span class="NAME">this._kbFocusField.focus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>519</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>520</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>521</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>522</span> 
+<span class='line'>523</span> </span><span class="COMM">/**
+<span class='line'>524</span>  * Focus handler for keyboard focus input field.
+<span class='line'>525</span>  * 
+<span class='line'>526</span>  * @private
+<span class='line'>527</span>  */</span><span class="WHIT">
+<span class='line'>528</span> </span><span class="NAME">DwtKeyboardMgr.__onFocusHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>529</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>530</span> </span><span class="WHIT">	</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="STRN">"focus"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr.__onFocusHdlr"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>531</span> 
+<span class='line'>532</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>533</span> </span><span class="WHIT">	</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>534</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>535</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr: ONFOCUS - " + focusObj);</span><span class="WHIT">
+<span class='line'>536</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">focusObj.__doFocus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>537</span> </span><span class="WHIT">		</span><span class="NAME">focusObj.__doFocus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>538</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>539</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>540</span> 
+<span class='line'>541</span> </span><span class="COMM">/**
+<span class='line'>542</span>  * Blur handler for keyboard focus input field.
+<span class='line'>543</span>  * 
+<span class='line'>544</span>  * @private
+<span class='line'>545</span>  */</span><span class="WHIT">
+<span class='line'>546</span> </span><span class="NAME">DwtKeyboardMgr.__onBlurHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>547</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>548</span> </span><span class="WHIT">	</span><span class="NAME">DBG.println</span><span class="PUNC">(</span><span class="STRN">"focus"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"DwtKeyboardMgr.__onBlurHdlr"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>549</span> 
+<span class='line'>550</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>551</span> 
+<span class='line'>552</span> </span><span class="WHIT">	</span><span class="COMM">// Got to play the trick with HTML elements which get focus before blur is</span><span class="WHIT">
+<span class='line'>553</span> </span><span class="WHIT">	</span><span class="COMM">// called on the old focus object. (see _grabFocus)</span><span class="WHIT">
+<span class='line'>554</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__oldFocusObj</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">kbMgr.__focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>555</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr: ONBLUR - " + focusObj);</span><span class="WHIT">
+<span class='line'>556</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">focusObj</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">focusObj.__doBlur</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>557</span> </span><span class="WHIT">		</span><span class="NAME">focusObj.__doBlur</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>558</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>559</span> </span><span class="WHIT">		
+<span class='line'>560</span> 	</span><span class="COMM">/* FIXME The code below that is commented out fixes a bug that surfaces if you tab in
+<span class='line'>561</span> 	 * the address bar or search field in FF. The bug is that depending on where
+<span class='line'>562</span> 	 * you had focus, you could get a visual artifact (temporary). However, the code
+<span class='line'>563</span> 	 * broke the fact that when focus leaves the browser window, then returns, then
+<span class='line'>564</span> 	 * if a DwtControl had focus it will not get the appropriate highlight.
+<span class='line'>565</span> 	 */</span><span class="WHIT">	
+<span class='line'>566</span> </span><span class="COMM">//	kbMgr.__oldFocusObj = kbMgr.__focusObj = null;</span><span class="WHIT">
+<span class='line'>567</span> </span><span class="WHIT">	</span><span class="NAME">kbMgr.__oldFocusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>568</span> </span><span class="WHIT">	</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">	
+<span class='line'>569</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>570</span> 
+<span class='line'>571</span> 
+<span class='line'>572</span> </span><span class="COMM">/**
+<span class='line'>573</span>  * @private
+<span class='line'>574</span>  */</span><span class="WHIT">
+<span class='line'>575</span> </span><span class="NAME">DwtKeyboardMgr.__keyUpHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>576</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>577</span> </span><span class="WHIT">	</span><span class="NAME">ev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>578</span> </span><span class="COMM">//	DBG.println("kbnav", "keyup: " + ev.keyCode);</span><span class="WHIT">
+<span class='line'>579</span> 
+<span class='line'>580</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>581</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr._evtMgr.notifyListeners</span><span class="PUNC">(</span><span class="NAME">DwtEvent.ONKEYUP</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>582</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>583</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>584</span> 
+<span class='line'>585</span> </span><span class="WHIT">	</span><span class="COMM">// clear saved Gecko key</span><span class="WHIT">
+<span class='line'>586</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">AjxEnv.isMac</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">AjxEnv.isGeckoBased</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">ev.keyCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>587</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__keyDownHdlr</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>588</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>589</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__handleKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>590</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>591</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>592</span> 
+<span class='line'>593</span> </span><span class="COMM">/**
+<span class='line'>594</span>  * @private
+<span class='line'>595</span>  */</span><span class="WHIT">
+<span class='line'>596</span> </span><span class="NAME">DwtKeyboardMgr.__keyPressHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>597</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>598</span> </span><span class="WHIT">	</span><span class="NAME">ev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>599</span> </span><span class="COMM">//	DBG.println("kbnav", "keypress: " + (ev.keyCode || ev.charCode));</span><span class="WHIT">
+<span class='line'>600</span> 
+<span class='line'>601</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>602</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr._evtMgr.notifyListeners</span><span class="PUNC">(</span><span class="NAME">DwtEvent.ONKEYPRESS</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>603</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>604</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>605</span> 
+<span class='line'>606</span> </span><span class="WHIT">	</span><span class="NAME">DwtKeyEvent.geckoCheck</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>607</span> 
+<span class='line'>608</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__handleKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>609</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>610</span> 
+<span class='line'>611</span> </span><span class="COMM">/**
+<span class='line'>612</span>  * @private
+<span class='line'>613</span>  */</span><span class="WHIT">
+<span class='line'>614</span> </span><span class="NAME">DwtKeyboardMgr.__handleKeyEvent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>615</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>616</span> 
+<span class='line'>617</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">DwtKeyboardMgr.__shell._blockInput</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>618</span> 
+<span class='line'>619</span> </span><span class="WHIT">	</span><span class="NAME">ev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>620</span> </span><span class="COMM">//	DBG.println("kbnav", [ev.type, ev.keyCode, ev.charCode, ev.which].join(" / "));</span><span class="WHIT">
+<span class='line'>621</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>622</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtShell.keyEvent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>623</span> </span><span class="WHIT">	</span><span class="NAME">kev.setFromDhtmlEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>624</span> 
+<span class='line'>625</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__kbEventStatus</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>626</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">kbMgr.__processKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>627</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>628</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>629</span> 
+<span class='line'>630</span> </span><span class="COMM">/*
+<span class='line'>631</span>  * There are a number of focus cases that we must handle because of the way
+<span class='line'>632</span>  * tabbing works in the browser, and because of user actions:
+<span class='line'>633</span>  * 
+<span class='line'>634</span>  * Case 1
+<span class='line'>635</span>  * ------
+<span class='line'>636</span>  * User tabs in from address bar. w/FF we get no indication of this. Focus will
+<span class='line'>637</span>  * go to the next input field as seen by the browser
+<span class='line'>638</span>  * 
+<span class='line'>639</span>  * Solution: Make our hidden input field the first tab item. On focus get the last
+<span class='line'>640</span>  * element that had focus from the tab group and set focus to that
+<span class='line'>641</span>  * 
+<span class='line'>642</span>  * Case 2
+<span class='line'>643</span>  * ------
+<span class='line'>644</span>  * User clicks in an input that is part of the tab group hierarchy. 
+<span class='line'>645</span>  * 
+<span class='line'>646</span>  * Solution: When the user types into such a field we will detect the key event and
+<span class='line'>647</span>  * set the tab groups current focus member appropriately
+<span class='line'>648</span>  * 
+<span class='line'>649</span>  * Case 3
+<span class='line'>650</span>  * ------
+<span class='line'>651</span>  * User clicks in an input that is not part of the tab group hierarchy
+<span class='line'>652</span>  * 
+<span class='line'>653</span>  * Solution: Not much we can do here except ignore events. This is really not a good
+<span class='line'>654</span>  * thing as all visible elements should be part of the tabbing hierarchy
+<span class='line'>655</span>  * 
+<span class='line'>656</span>  * Case 4
+<span class='line'>657</span>  * ------
+<span class='line'>658</span>  * User clicks in an external input field (e.g. the browser address bar)
+<span class='line'>659</span>  * 
+<span class='line'>660</span>  * Solution: we actually don't have to do anything here as case 1 should adress
+<span class='line'>661</span>  * the situation when the user clicks/tabs back into elements we control
+<span class='line'>662</span>  */</span><span class="WHIT">
+<span class='line'>663</span> 
+<span class='line'>664</span> </span><span class="COMM">/**
+<span class='line'>665</span>  * This method does a focus check. If a DwtControl does not have focus, then we
+<span class='line'>666</span>  * are dealing with an input element. If this element is not the current focus object
+<span class='line'>667</span>  * then try and set it to the current focus object (case 2). If the object is not in the
+<span class='line'>668</span>  * tab group hierarchy return false indicating that we should leave all events
+<span class='line'>669</span>  * related to it alone (case 3).
+<span class='line'>670</span>  * 
+<span class='line'>671</span>  * @private
+<span class='line'>672</span>  */</span><span class="WHIT">
+<span class='line'>673</span> </span><span class="NAME">DwtKeyboardMgr.__syncFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>674</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">kbMgr</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>675</span> </span><span class="COMM">//	DBG.println("kbnav", "sync focus ----- obj: " + obj + ", __focusObj: " + kbMgr.__focusObj + ", __dwtCtrlHasFocus: "</span><span class="WHIT">
+<span class='line'>676</span> </span><span class="COMM">//			+ kbMgr.__dwtCtrlHasFocus + ", __dwtInputCtrl: " + kbMgr.__dwtInputCtrl + ", __oldFocusObj: " + kbMgr.__oldFocusObj);</span><span class="WHIT">
+<span class='line'>677</span> </span><span class="WHIT">	</span><span class="COMM">/* (BUG 8588) If obj is not the hidden input field (it's some other input field), and if
+<span class='line'>678</span> 	 * a control has focus, then we have a focus mismatch and we need to blur the
+<span class='line'>679</span> 	 * control that thinks it has focus. That can happen due to the way focus
+<span class='line'>680</span> 	 * can be set in input fields. */</span><span class="WHIT"> 
+<span class='line'>681</span> 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">kbMgr._kbFocusField</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>682</span> </span><span class="COMM">//		DBG.println("kbnav", "FOCUS MISMATCH! focus obj: " + kbMgr.__focusObj + ", obj: " + obj);</span><span class="WHIT">
+<span class='line'>683</span> </span><span class="COMM">//		DwtKeyboardMgr.__onBlurHdlr();</span><span class="WHIT">
+<span class='line'>684</span> </span><span class="WHIT">		</span><span class="NAME">kbMgr._kbFocusField.focus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>685</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>686</span> </span><span class="WHIT">	
+<span class='line'>687</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr.__syncFocus: focus obj: " + kbMgr.__focusObj + " - obj: " + obj);</span><span class="WHIT">
+<span class='line'>688</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>689</span> </span><span class="WHIT">		</span><span class="COMM">// DwtInputField DwtHtmlEditor</span><span class="WHIT">
+<span class='line'>690</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__focusObj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">kbMgr.__dwtInputCtrl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>691</span> </span><span class="COMM">//			DBG.println("kbnav", "Focus out of sync, resetting");</span><span class="WHIT">
+<span class='line'>692</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">kbMgr.__currTabGroup.setFocusMember</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>693</span> </span><span class="WHIT">				</span><span class="NAME">kbMgr.__focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>694</span> </span><span class="WHIT">				</span><span class="NAME">kbMgr.__oldFocusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>695</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>696</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>697</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>698</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>699</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>700</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>701</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>702</span> 
+<span class='line'>703</span> </span><span class="COMM">/**
+<span class='line'>704</span>  * @private
+<span class='line'>705</span>  */</span><span class="WHIT">
+<span class='line'>706</span> </span><span class="NAME">DwtKeyboardMgr.__keyDownHdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>707</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>708</span> 
+<span class='line'>709</span> </span><span class="WHIT">	</span><span class="KEYW">try</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>710</span> 
+<span class='line'>711</span> </span><span class="WHIT">	</span><span class="NAME">ev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>712</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__shell.getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>713</span> </span><span class="WHIT">	</span><span class="NAME">ev.focusObj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>714</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr._evtMgr.notifyListeners</span><span class="PUNC">(</span><span class="NAME">DwtEvent.ONKEYDOWN</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>715</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>716</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>717</span> 
+<span class='line'>718</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">DwtKeyboardMgr.__shell._blockInput</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>719</span> </span><span class="COMM">//	DBG.println("kbnav", [ev.type, ev.keyCode, ev.charCode, ev.which].join(" / "));</span><span class="WHIT">
+<span class='line'>720</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">kbMgr.isEnabled</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">  </span><span class="COMM">// Allow key events to propagate when keyboard manager is disabled (to avoid taking over browser shortcuts). Bugzilla #45469.</span><span class="WHIT">
+<span class='line'>721</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">kbMgr</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">kbMgr.__checkStatus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>722</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtShell.keyEvent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>723</span> </span><span class="WHIT">	</span><span class="NAME">kev.setFromDhtmlEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>724</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">keyCode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyEvent.getCharCode</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>725</span> </span><span class="COMM">//	DBG.println("kbnav", "keydown: " + keyCode + " -------- " + ev.target);</span><span class="WHIT">
+<span class='line'>726</span> 
+<span class='line'>727</span> </span><span class="WHIT">	</span><span class="COMM">// Popdown any tooltip</span><span class="WHIT">
+<span class='line'>728</span> </span><span class="WHIT">	</span><span class="NAME">DwtKeyboardMgr.__shell.getToolTip</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">popdown</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>729</span> </span><span class="WHIT">	
+<span class='line'>730</span> 	</span><span class="COMM">// Sync up focus if needed</span><span class="WHIT">
+<span class='line'>731</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">focusInTGMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__syncFocus</span><span class="PUNC">(</span><span class="NAME">kbMgr</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev.target</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>732</span> </span><span class="WHIT">	
+<span class='line'>733</span> 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">focusInTGMember</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>734</span> </span><span class="COMM">//		DBG.println("kbnav", "Object is not in tab hierarchy");</span><span class="WHIT">
+<span class='line'>735</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>736</span> </span><span class="WHIT">			
+<span class='line'>737</span> 	</span><span class="COMM">/* The first thing we care about is the tab key since we want to manage
+<span class='line'>738</span> 	 * focus based on the tab groups. 
+<span class='line'>739</span> 	 * 
+<span class='line'>740</span> 	 * If the tab hit happens in the currently
+<span class='line'>741</span> 	 * focused obj, the go to the next/prev element in the tab group. 
+<span class='line'>742</span> 	 * 
+<span class='line'>743</span> 	 * If the tab happens in an element that is in the tab group hierarchy, but that 
+<span class='line'>744</span> 	 * element is not the currently focus element in the tab hierarchy (e.g. the user
+<span class='line'>745</span> 	 * clicked in it and we didnt detect it) then sync the tab group's current focus 
+<span class='line'>746</span> 	 * element and handle the tab
+<span class='line'>747</span> 	 * 
+<span class='line'>748</span> 	 * If the tab happens in an object not under the tab group hierarchy, then set
+<span class='line'>749</span> 	 * focus to the current focus object in the tab hierarchy i.e. grab back control
+<span class='line'>750</span> 	 */</span><span class="WHIT">
+<span class='line'>751</span> </span><span class="WHIT">	 </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">keyCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtKeyMapMgr.TAB_KEYCODE</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>752</span> </span><span class="WHIT">	 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">DwtKeyMapMgr.hasModifier</span><span class="PUNC">(</span><span class="NAME">kev</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>753</span> </span><span class="WHIT">		 	</span><span class="COMM">// If a menu is popped up then don't act on the Tab</span><span class="WHIT">
+<span class='line'>754</span> </span><span class="WHIT">		 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">DwtMenu.menuShowing</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>755</span> </span><span class="COMM">//			 	DBG.println("kbnav", "Tab");</span><span class="WHIT">
+<span class='line'>756</span> </span><span class="WHIT">			 	</span><span class="COMM">// If the tab hit is in an element or if the current tab group has</span><span class="WHIT">
+<span class='line'>757</span> </span><span class="WHIT">			 	</span><span class="COMM">// a focus member</span><span class="WHIT">
+<span class='line'>758</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">focusInTGMember</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">kbMgr.__currTabGroup.getFocusMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>759</span> </span><span class="WHIT">				 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">kev.shiftKey</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>760</span> </span><span class="COMM">//				 		kbMgr.__currTabGroup.dump("kbnav");</span><span class="WHIT">
+<span class='line'>761</span> </span><span class="WHIT">				 		</span><span class="NAME">kbMgr.__currTabGroup.getNextFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>762</span> </span><span class="WHIT">				 	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>763</span> </span><span class="WHIT">				 		</span><span class="NAME">kbMgr.__currTabGroup.getPrevFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>764</span> </span><span class="WHIT">				 	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>765</span> </span><span class="WHIT">			 	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>766</span> </span><span class="COMM">//			 		DBG.println("kbnav", "DwtKeyboardMgr.__keyDownHdlr: no current focus member, resetting to first in tab group");</span><span class="WHIT">
+<span class='line'>767</span> </span><span class="WHIT">			 		</span><span class="COMM">// If there is no current focus member, then reset</span><span class="WHIT">
+<span class='line'>768</span> </span><span class="WHIT">			 		</span><span class="NAME">kbMgr.__currTabGroup.resetFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>769</span> </span><span class="WHIT">			 	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>770</span> </span><span class="WHIT">		 	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>771</span> </span><span class="WHIT">		 	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">kbMgr.__processKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_HANDLED</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>772</span> </span><span class="WHIT">	 	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>773</span> </span><span class="WHIT">	 		</span><span class="COMM">// No tab groups registered, or Alt or Ctrl was down. Let the browser handle it.</span><span class="WHIT">
+<span class='line'>774</span> </span><span class="WHIT">		 	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">kbMgr.__processKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>775</span> </span><span class="WHIT">	 	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>776</span> </span><span class="WHIT">	 </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">focusInTGMember</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">AjxEnv.isGecko</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">kev.target</span><span class="WHIT"> </span><span class="KEYW">instanceof</span><span class="WHIT"> </span><span class="NAME">HTMLHtmlElement</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>777</span> </span><span class="WHIT">	 	</span><span class="COMM">/* With FF we focus get set to the &lt;html> element when tabbing in
+<span class='line'>778</span> 	 	 * from the address or search fields. What we want to do is capture
+<span class='line'>779</span> 	 	 * this here and reset the focus to the first element in the tabgroup
+<span class='line'>780</span> 	 	 * 
+<span class='line'>781</span> 	 	 * TODO Verify this trick is needed/works with IE/Safari
+<span class='line'>782</span> 	 	 */</span><span class="WHIT">
+<span class='line'>783</span> </span><span class="WHIT">		</span><span class="NAME">kbMgr.__currTabGroup.resetFocusMember</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>784</span> </span><span class="WHIT">	 </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>785</span> </span><span class="WHIT">	 
+<span class='line'>786</span> 	</span><span class="COMM">// If the focus object is a DwtControl, then clear the keyboard focus field</span><span class="WHIT">
+<span class='line'>787</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>788</span> </span><span class="WHIT">		</span><span class="NAME">kbMgr._kbFocusField.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>789</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>790</span> </span><span class="WHIT">	 
+<span class='line'>791</span> 	</span><span class="COMM">// Filter out modifier keys. If we're in an input field, filter out legitimate input.</span><span class="WHIT">
+<span class='line'>792</span> </span><span class="WHIT">	</span><span class="COMM">// (A shortcut from an input field must use a modifier key.)</span><span class="WHIT">
+<span class='line'>793</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.IS_MODIFIER</span><span class="PUNC">[</span><span class="NAME">keyCode</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT">
+<span class='line'>794</span> </span><span class="WHIT">		</span><span class="NAME">DwtKeyMapMgr.isInputElement</span><span class="PUNC">(</span><span class="NAME">kev.target</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">DwtKeyboardMgr.isPossibleInputShortcut</span><span class="PUNC">(</span><span class="NAME">kev</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>795</span> 
+<span class='line'>796</span> </span><span class="WHIT">	 	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">kbMgr.__processKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>797</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>798</span> </span><span class="WHIT">	 
+<span class='line'>799</span> 	</span><span class="COMM">/* Cancel any pending time action to kill the keysequence */</span><span class="WHIT">
+<span class='line'>800</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>801</span> </span><span class="WHIT">		</span><span class="NAME">AjxTimedAction.cancelAction</span><span class="PUNC">(</span><span class="NAME">kbMgr.__killKeySeqTimedActionId</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>802</span> </span><span class="WHIT">		</span><span class="NAME">kbMgr.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>803</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>804</span> </span><span class="WHIT">		
+<span class='line'>805</span>  	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">parts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>806</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kev.altKey</span><span class="PUNC">)</span><span class="WHIT"> 	</span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">parts.push</span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.ALT</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>807</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kev.ctrlKey</span><span class="PUNC">)</span><span class="WHIT"> 	</span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">parts.push</span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.CTRL</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>808</span> </span><span class="WHIT"> 	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kev.metaKey</span><span class="PUNC">)</span><span class="WHIT"> 	</span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">parts.push</span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.META</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>809</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kev.shiftKey</span><span class="PUNC">)</span><span class="WHIT"> 	</span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">parts.push</span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.SHIFT</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>810</span> </span><span class="WHIT">	</span><span class="NAME">parts.push</span><span class="PUNC">(</span><span class="NAME">keyCode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>811</span> </span><span class="WHIT">	</span><span class="NAME">kbMgr.__keySequence</span><span class="PUNC">[</span><span class="NAME">kbMgr.__keySequence.length</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parts.join</span><span class="PUNC">(</span><span class="NAME">DwtKeyMap.JOIN</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>812</span> 
+<span class='line'>813</span> </span><span class="COMM">//	DBG.println("kbnav", "KEYCODE: " + keyCode + " - KEY SEQ: " + kbMgr.__keySequence.join(""));</span><span class="WHIT">
+<span class='line'>814</span> </span><span class="WHIT">	
+<span class='line'>815</span> 	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>816</span> 
+<span class='line'>817</span> </span><span class="WHIT">	</span><span class="COMM">// First see if the control that currently has focus can handle the key event</span><span class="WHIT">
+<span class='line'>818</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ev.focusObj</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">kbMgr.__focusObj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>819</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">obj</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">obj.handleKeyAction</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">kbMgr.__dwtCtrlHasFocus</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">kbMgr.__dwtInputCtrl</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">obj.hasFocus</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">obj.hasFocus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>820</span> </span><span class="COMM">//		DBG.println("kbnav", obj + " has focus: " + obj.hasFocus());</span><span class="WHIT">
+<span class='line'>821</span> </span><span class="WHIT">		</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__dispatchKeyEvent</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>822</span> </span><span class="WHIT">		</span><span class="KEYW">while</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">obj.parent</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">obj.parent.getKeyMapName</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>823</span> </span><span class="WHIT">			</span><span class="NAME">obj</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">obj.parent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>824</span> </span><span class="WHIT">			</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__dispatchKeyEvent</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>825</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>826</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>827</span> 
+<span class='line'>828</span> </span><span class="WHIT">	</span><span class="COMM">// If the currently focused control didn't handle the event, hand it to the default key</span><span class="WHIT">
+<span class='line'>829</span> </span><span class="WHIT">	</span><span class="COMM">// event handler</span><span class="WHIT">
+<span class='line'>830</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">kbMgr.__currDefaultHandler</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT">
+<span class='line'>831</span> </span><span class="WHIT">		</span><span class="PUNC">!</span><span class="PUNC">(</span><span class="NAME">kbMgr.__currTabGroup</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">kbMgr.__currTabGroup.isDefaultHandlingBlocked</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>832</span> </span><span class="WHIT">		</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">kbMgr.__dispatchKeyEvent</span><span class="PUNC">(</span><span class="NAME">kbMgr.__currDefaultHandler</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>833</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>834</span> 
+<span class='line'>835</span> </span><span class="WHIT">	</span><span class="NAME">kbMgr.__kbEventStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">handled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>836</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">propagate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>837</span> 
+<span class='line'>838</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_PENDING</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>839</span> </span><span class="WHIT">		</span><span class="NAME">kbMgr.clearKeySeq</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>840</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>841</span> 
+<span class='line'>842</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">kbMgr.__processKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">propagate</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>843</span> 
+<span class='line'>844</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">catch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">ex</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>845</span> </span><span class="WHIT">		</span><span class="NAME">AjxException.reportScriptError</span><span class="PUNC">(</span><span class="NAME">ex</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>846</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>847</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>848</span> 
+<span class='line'>849</span> </span><span class="COMM">/**
+<span class='line'>850</span>  * Handles event dispatching
+<span class='line'>851</span>  * 
+<span class='line'>852</span>  * @private
+<span class='line'>853</span>  */</span><span class="WHIT">
+<span class='line'>854</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__dispatchKeyEvent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> 
+<span class='line'>855</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">hdlr</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">forceActionCode</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>856</span> 
+<span class='line'>857</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">hdlr</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">hdlr.handleKeyEvent</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>858</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hdlr.handleKeyEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>859</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">handled</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_HANDLED</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>860</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>861</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">mapName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">hdlr</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">hdlr.getKeyMapName</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">hdlr.getKeyMapName</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>862</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">mapName</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>863</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>864</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>865</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr.__dispatchKeyEvent: handler " + hdlr.toString() + " handling " + this.__keySequence + " for map: " + mapName);</span><span class="WHIT">
+<span class='line'>866</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">actionCode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.__keyMapMgr.getActionCode</span><span class="PUNC">(</span><span class="NAME">this.__keySequence</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">mapName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">forceActionCode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>867</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">actionCode</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtKeyMapMgr.NOT_A_TERMINAL</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>868</span> </span><span class="COMM">//		DBG.println("kbnav", "scheduling action to kill key sequence");</span><span class="WHIT">
+<span class='line'>869</span> </span><span class="WHIT">		</span><span class="COMM">/* setup a timed action to redispatch/kill the key sequence in the event
+<span class='line'>870</span> 		 * the user does not press another key in the allotted time */</span><span class="WHIT">
+<span class='line'>871</span> </span><span class="WHIT">		</span><span class="NAME">this.__hdlr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hdlr</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>872</span> </span><span class="WHIT">		</span><span class="NAME">this.__mapName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">mapName</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>873</span> </span><span class="WHIT">		</span><span class="NAME">this.__ev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>874</span> </span><span class="WHIT">		</span><span class="NAME">this.__killKeySeqTimedActionId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxTimedAction.scheduleAction</span><span class="PUNC">(</span><span class="NAME">this.__killKeySeqTimedAction</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.__keyTimeout</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>875</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_PENDING</span><span class="PUNC">;</span><span class="WHIT">	
+<span class='line'>876</span> 	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">actionCode</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>877</span> </span><span class="WHIT">		</span><span class="COMM">/* It is possible that the component may not handle a valid action
+<span class='line'>878</span> 		 * particulary actions defined in the default map */</span><span class="WHIT">
+<span class='line'>879</span> </span><span class="COMM">//		DBG.println("kbnav", "DwtKeyboardMgr.__dispatchKeyEvent: handling action: " + actionCode);</span><span class="WHIT">
+<span class='line'>880</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">hdlr.handleKeyAction</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>881</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>882</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>883</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">hdlr.handleKeyAction</span><span class="PUNC">(</span><span class="NAME">actionCode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>884</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_HANDLED</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>885</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">	
+<span class='line'>886</span> </span><span class="COMM">//		DBG.println("kbnav", "DwtKeyboardMgr.__dispatchKeyEvent: no action code for " + this.__keySequence);</span><span class="WHIT">
+<span class='line'>887</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">DwtKeyboardMgr.__KEYSEQ_NOT_HANDLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>888</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>889</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>890</span> 
+<span class='line'>891</span> </span><span class="COMM">/**
+<span class='line'>892</span>  * This method will reattempt to handle the event in the case that the intermediate
+<span class='line'>893</span>  * node in the keymap may have an action code associated with it.
+<span class='line'>894</span>  * 
+<span class='line'>895</span>  * @private
+<span class='line'>896</span>  */</span><span class="WHIT">
+<span class='line'>897</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__killKeySequenceAction</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>898</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>899</span> </span><span class="COMM">//	DBG.println("kbnav", "DwtKeyboardMgr.__killKeySequenceAction: " + this.__mapName);</span><span class="WHIT">
+<span class='line'>900</span> </span><span class="WHIT">	</span><span class="NAME">this.__dispatchKeyEvent</span><span class="PUNC">(</span><span class="NAME">this.__hdlr</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.__ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>901</span> </span><span class="WHIT">	</span><span class="NAME">this.clearKeySeq</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>902</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>903</span> 
+<span class='line'>904</span> </span><span class="COMM">/**
+<span class='line'>905</span>  * @private
+<span class='line'>906</span>  */</span><span class="WHIT">
+<span class='line'>907</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__tabGrpChangeListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>908</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>909</span> </span><span class="WHIT">	</span><span class="NAME">this.__doGrabFocus</span><span class="PUNC">(</span><span class="NAME">ev.newFocusMember</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>910</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>911</span> 
+<span class='line'>912</span> </span><span class="COMM">/**
+<span class='line'>913</span>  * @private
+<span class='line'>914</span>  */</span><span class="WHIT">
+<span class='line'>915</span> </span><span class="NAME">DwtKeyboardMgr.prototype.__processKeyEvent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>916</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">kev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">propagate</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">status</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>917</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">status</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>918</span> </span><span class="WHIT">		</span><span class="NAME">this.__kbEventStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">status</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>919</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>920</span> </span><span class="WHIT">	</span><span class="NAME">kev._stopPropagation</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">propagate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>921</span> </span><span class="WHIT">	</span><span class="NAME">kev._returnValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">propagate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>922</span> </span><span class="WHIT">	</span><span class="NAME">kev.setToDhtmlEvent</span><span class="PUNC">(</span><span class="NAME">ev</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>923</span> </span><span class="COMM">//	DBG.println("kbnav", "key event returning: " + propagate);</span><span class="WHIT">
+<span class='line'>924</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">propagate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>925</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>926</span> </span></pre></body></html>

@@ -1,0 +1,1375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtChooser</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtChooser
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtComposite.html">DwtComposite</a>.<br />
+				
+				<br>
+				This class creates and manages a control that lets the user
+select items from a list. Two lists are maintained, one with items to select 
+from, and one that contains the selected items. Between them are buttons 
+to shuffle items back and forth between the two lists.
+<p>
+There are two types of buttons: one or more transfer buttons move items from
+the source list to the target list, and the remove button moves items from the
+target list to the source list. The client can specify its transfer buttons.
+If no specification is given, there will be a single transfer button called 
+"Add".</p>
+<p>
+The parent must implement search(columnItem, ascending) if column sorting
+is supported. It should also create a subclass of <a href="../symbols/DwtChooser.html">DwtChooser</a> which returns
+the appropriate source and target list views, themselves subclasses of
+<a href="../symbols/DwtChooserListView.html">DwtChooserListView</a>. Those subclasses must implement _getHeaderList() and
+_createItemHtml(item).</p>
+<p>
+There are two different layout styles, horizontal (with the list views at the
+left and right) and vertical (with the list views at the top and bottom). There
+are two different selection styles, single and multiple, which control how many
+items may appear in the target list view. There are two different transfer modes:
+one where items are copied between lists, and one where they're moved.</p>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtChooser.js.html">DwtChooser.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtChooser.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtChooser.html#constructor">DwtChooser</a></b>(params)
+							</div>
+							<div class="description">Creates a control that allows the user to select items from a list, and
+places the selected items in another list.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtChooser.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtChooser.<b><a href="../symbols/DwtChooser.html#.HORIZ_STYLE">HORIZ_STYLE</a></b>
+								</div>
+								<div class="description">Defines a "horizontal" layout style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtChooser.<b><a href="../symbols/DwtChooser.html#.MULTI_SELECT">MULTI_SELECT</a></b>
+								</div>
+								<div class="description">Defines a "multi" select.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtChooser.<b><a href="../symbols/DwtChooser.html#.SINGLE_SELECT">SINGLE_SELECT</a></b>
+								</div>
+								<div class="description">Defines a "single" select.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtChooser.<b><a href="../symbols/DwtChooser.html#.VERT_STYLE">VERT_STYLE</a></b>
+								</div>
+								<div class="description">Defines a "vertical" layout style.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtChooser.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#addItems">addItems</a></b>(items, view, skipNotify, id)
+								</div>
+								<div class="description">Adds items to the given list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#addStateChangeListener">addStateChangeListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a state change listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#getButtons">getButtons</a></b>()
+								</div>
+								<div class="description">Gets the source <code>&lt;div&gt;</code> that contains the buttons</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#getItems">getItems</a></b>(view)
+								</div>
+								<div class="description">Gets a copy of the items in the given list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#getSourceListView">getSourceListView</a></b>()
+								</div>
+								<div class="description">Gets the source <code>&lt;divgt;</code> that contains the source list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#getTargetListView">getTargetListView</a></b>()
+								</div>
+								<div class="description">Gets the source <code>&lt;div&gt;</code> that contains the target list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#getTextField">getTextField</a></b>()
+								</div>
+								<div class="description">Gets the text input field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#remove">remove</a></b>(list, skipNotify)
+								</div>
+								<div class="description">Removes items from target list, paying attention to current mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#removeItems">removeItems</a></b>(list, view, skipNotify)
+								</div>
+								<div class="description">Removes items from the given list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#removeStateChangeListener">removeStateChangeListener</a></b>(listener)
+								</div>
+								<div class="description">Removes a state change listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#reset">reset</a></b>(style)
+								</div>
+								<div class="description">Resets one or both list views, and the buttons.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#resize">resize</a></b>(width, height)
+								</div>
+								<div class="description">Sizes the list views based on the given available width and height.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#setItems">setItems</a></b>(items, view, clearOtherView)
+								</div>
+								<div class="description">Sets the given list view with the given list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#setSelectStyle">setSelectStyle</a></b>(style, noResize)
+								</div>
+								<div class="description">Sets the select style to the given style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtChooser.html#transfer">transfer</a></b>(list, id, skipNotify)
+								</div>
+								<div class="description">Moves or copies items from the source list to the target list, paying attention
+to current mode.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/DwtComposite.html">DwtComposite</a>: </dt><dd><a href="../symbols/DwtComposite.html#addChild">addChild</a>, <a href="../symbols/DwtComposite.html#cleanupSeparators">cleanupSeparators</a>, <a href="../symbols/DwtComposite.html#clear">clear</a>, <a href="../symbols/DwtComposite.html#dispose">dispose</a>, <a href="../symbols/DwtComposite.html#getChildren">getChildren</a>, <a href="../symbols/DwtComposite.html#getNumChildren">getNumChildren</a>, <a href="../symbols/DwtComposite.html#removeChild">removeChild</a>, <a href="../symbols/DwtComposite.html#removeChildren">removeChildren</a></dd><dt>Methods borrowed from class <a href="../symbols/DwtControl.html">DwtControl</a>: </dt><dd><a href="../symbols/DwtControl.html#addClassName">addClassName</a>, <a href="../symbols/DwtControl.html#addControlListener">addControlListener</a>, <a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a>, <a href="../symbols/DwtControl.html#addListener">addListener</a>, <a href="../symbols/DwtControl.html#appendElement">appendElement</a>, <a href="../symbols/DwtControl.html#clearContent">clearContent</a>, <a href="../symbols/DwtControl.html#clearHandler">clearHandler</a>, <a href="../symbols/DwtControl.html#condClassName">condClassName</a>, <a href="../symbols/DwtControl.html#delClassName">delClassName</a>, <a href="../symbols/DwtControl.html#focus">focus</a>, <a href="../symbols/DwtControl.html#getBounds">getBounds</a>, <a href="../symbols/DwtControl.html#getClassName">getClassName</a>, <a href="../symbols/DwtControl.html#getCursor">getCursor</a>, <a href="../symbols/DwtControl.html#getData">getData</a>, <a href="../symbols/DwtControl.html#getDragBox">getDragBox</a>, <a href="../symbols/DwtControl.html#getDragSource">getDragSource</a>, <a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a>, <a href="../symbols/DwtControl.html#getEnabled">getEnabled</a>, <a href="../symbols/DwtControl.html#getH">getH</a>, <a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a>, <a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a>, <a href="../symbols/DwtControl.html#getLocation">getLocation</a>, <a href="../symbols/DwtControl.html#getPosition">getPosition</a>, <a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a>, <a href="../symbols/DwtControl.html#getSize">getSize</a>, <a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a>, <a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a>, <a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a>, <a href="../symbols/DwtControl.html#getVisibility">getVisibility</a>, <a href="../symbols/DwtControl.html#getVisible">getVisible</a>, <a href="../symbols/DwtControl.html#getW">getW</a>, <a href="../symbols/DwtControl.html#getX">getX</a>, <a href="../symbols/DwtControl.html#getXW">getXW</a>, <a href="../symbols/DwtControl.html#getY">getY</a>, <a href="../symbols/DwtControl.html#getYH">getYH</a>, <a href="../symbols/DwtControl.html#getZIndex">getZIndex</a>, <a href="../symbols/DwtControl.html#hasFocus">hasFocus</a>, <a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a>, <a href="../symbols/DwtControl.html#isDisposed">isDisposed</a>, <a href="../symbols/DwtControl.html#isInitialized">isInitialized</a>, <a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a>, <a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a>, <a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a>, <a href="../symbols/DwtControl.html#preventSelection">preventSelection</a>, <a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a>, <a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a>, <a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a>, <a href="../symbols/DwtControl.html#removeListener">removeListener</a>, <a href="../symbols/DwtControl.html#reparent">reparent</a>, <a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a>, <a href="../symbols/DwtControl.html#replaceElement">replaceElement</a>, <a href="../symbols/DwtControl.html#setBounds">setBounds</a>, <a href="../symbols/DwtControl.html#setClassName">setClassName</a>, <a href="../symbols/DwtControl.html#setContent">setContent</a>, <a href="../symbols/DwtControl.html#setCursor">setCursor</a>, <a href="../symbols/DwtControl.html#setData">setData</a>, <a href="../symbols/DwtControl.html#setDisplay">setDisplay</a>, <a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a>, <a href="../symbols/DwtControl.html#setDragBox">setDragBox</a>, <a href="../symbols/DwtControl.html#setDragSource">setDragSource</a>, <a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a>, <a href="../symbols/DwtControl.html#setEnabled">setEnabled</a>, <a href="../symbols/DwtControl.html#setHandler">setHandler</a>, <a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a>, <a href="../symbols/DwtControl.html#setLocation">setLocation</a>, <a href="../symbols/DwtControl.html#setPosition">setPosition</a>, <a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a>, <a href="../symbols/DwtControl.html#setSize">setSize</a>, <a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a>, <a href="../symbols/DwtControl.html#setVisibility">setVisibility</a>, <a href="../symbols/DwtControl.html#setVisible">setVisible</a>, <a href="../symbols/DwtControl.html#setZIndex">setZIndex</a>, <a href="../symbols/DwtControl.html#showAlert">showAlert</a>, <a href="../symbols/DwtControl.html#zShow">zShow</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtChooser</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a control that allows the user to select items from a list, and
+places the selected items in another list.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the containing widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.slvClassName</b>
+								
+							</dt>
+								<dd>the CSS class for source list view</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.tlvClassName</b>
+								
+							</dt>
+								<dd>the CSS class for target list view</dd>
+						
+							<dt>
+								<span class="light fixedFont">{array}</span>  <b>params.buttonInfo</b>
+								
+							</dt>
+								<dd>the id/label pairs for transfer buttons</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtChooser.html#.HORIZ_STYLE">DwtChooser.HORIZ_STYLE</a>|<a href="../symbols/DwtChooser.html#.VERT_STYLE">DwtChooser.VERT_STYLE</a>}</span>  <b>params.layoutStyle</b>
+								
+							</dt>
+								<dd>the layout style (vertical or horizontal)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtChooser.html#.SINGLE_SELECT">DwtChooser.SINGLE_SELECT</a>|<a href="../symbols/DwtChooser.html#.MULTI_SELECT">DwtChooser.MULTI_SELECT</a>}</span>  <b>params.selectStyle</b>
+								
+							</dt>
+								<dd>the multi-select (default) or single-select</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.mode</b>
+								
+							</dt>
+								<dd>the items are moved or copied</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.noDuplicates</b>
+								
+							</dt>
+								<dd>if <code>true</code>, prevent duplicates in target list</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.singleHeight</b>
+								
+							</dt>
+								<dd>the height of list view for single select style</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.listSize</b>
+								
+							</dt>
+								<dd>the list width (if <a href="../symbols/DwtChooser.html#.HORIZ_STYLE">DwtChooser.HORIZ_STYLE</a>) or height (if <a href="../symbols/DwtChooser.html#.VERT_STYLE">DwtChooser.VERT_STYLE</a>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.sourceEmptyOk</b>
+								
+							</dt>
+								<dd>if <code>true</code>, do not show "No Results" in source list view</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.allButtons</b>
+								
+							</dt>
+								<dd>if <code>true</code>, offer "Add All" and "Remove All" buttons</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.hasTextField</b>
+								
+							</dt>
+								<dd>if <code>true</code>, create a text field for user input</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".HORIZ_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtChooser.</span><b>HORIZ_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines a "horizontal" layout style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MULTI_SELECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtChooser.</span><b>MULTI_SELECT</b>
+					
+					</div>
+					<div class="description">
+						Defines a "multi" select.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SINGLE_SELECT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtChooser.</span><b>SINGLE_SELECT</b>
+					
+					</div>
+					<div class="description">
+						Defines a "single" select.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".VERT_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtChooser.</span><b>VERT_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines a "vertical" layout style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addItems"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addItems</b>(items, view, skipNotify, id)
+					
+					</div>
+					<div class="description">
+						Adds items to the given list view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span> <b>items</b>
+									
+								</dt>
+								<dd>a list of items or hash of lists</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooserListView.html#.SOURCE">DwtChooserListView.SOURCE</a>|<a href="../symbols/DwtChooserListView.html#.TARGET">DwtChooserListView.TARGET</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view to set</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not notify listeners</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>the button ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addStateChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addStateChangeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a state change listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getButtons"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Element}</span>
+					<b>getButtons</b>()
+					
+					</div>
+					<div class="description">
+						Gets the source <code>&lt;div&gt;</code> that contains the buttons
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Element}</span> the element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItems"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span>
+					<b>getItems</b>(view)
+					
+					</div>
+					<div class="description">
+						Gets a copy of the items in the given list. If that's the target list and 
+there are multiple transfer buttons, then a hash with a vector for each one
+is returned. Otherwise, a single vector is returned. Defaults to target view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooserListView.html#.SOURCE">DwtChooserListView.SOURCE</a>|<a href="../symbols/DwtChooserListView.html#.TARGET">DwtChooserListView.TARGET</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view to set</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span> the item(s)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSourceListView"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Element}</span>
+					<b>getSourceListView</b>()
+					
+					</div>
+					<div class="description">
+						Gets the source <code>&lt;divgt;</code> that contains the source list view.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Element}</span> the element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTargetListView"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Element}</span>
+					<b>getTargetListView</b>()
+					
+					</div>
+					<div class="description">
+						Gets the source <code>&lt;div&gt;</code> that contains the target list view.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Element}</span> the element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTextField"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtInputField.html">DwtInputField</a>}</span>
+					<b>getTextField</b>()
+					
+					</div>
+					<div class="description">
+						Gets the text input field.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtInputField.html">DwtInputField</a>}</span> the text input field</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="remove"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>remove</b>(list, skipNotify)
+					
+					</div>
+					<div class="description">
+						Removes items from target list, paying attention to current mode. Also handles button state.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span> <b>list</b>
+									
+								</dt>
+								<dd>a list of items or hash of lists</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not notify listeners</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeItems"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeItems</b>(list, view, skipNotify)
+					
+					</div>
+					<div class="description">
+						Removes items from the given list view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span> <b>list</b>
+									
+								</dt>
+								<dd>a list of items or hash of lists</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooserListView.html#.SOURCE">DwtChooserListView.SOURCE</a>|<a href="../symbols/DwtChooserListView.html#.TARGET">DwtChooserListView.TARGET</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view to set</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not notify listeners</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeStateChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeStateChangeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Removes a state change listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="reset"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reset</b>(style)
+					
+					</div>
+					<div class="description">
+						Resets one or both list views, and the buttons. Defaults to resetting both list views.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooser.html#.SINGLE_SELECT">DwtChooser.SINGLE_SELECT</a>|<a href="../symbols/DwtChooser.html#.MULTI_SELECT">DwtChooser.MULTI_SELECT</a>}</span> <b>style</b>
+									
+								</dt>
+								<dd>the style single or multiple select</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resize</b>(width, height)
+					
+					</div>
+					<div class="description">
+						Sizes the list views based on the given available width and height.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>width</b>
+									
+								</dt>
+								<dd>the width (in pixels)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>height</b>
+									
+								</dt>
+								<dd>the height (in pixels)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setItems"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setItems</b>(items, view, clearOtherView)
+					
+					</div>
+					<div class="description">
+						Sets the given list view with the given list. Defaults to source view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|Array|Object|Hash}</span> <b>items</b>
+									
+								</dt>
+								<dd>a list of items or hash of lists</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooserListView.html#.SOURCE">DwtChooserListView.SOURCE</a>|<a href="../symbols/DwtChooserListView.html#.TARGET">DwtChooserListView.TARGET</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view to set</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>clearOtherView</b>
+									
+								</dt>
+								<dd>if <code>true</code>, clear out other view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSelectStyle"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSelectStyle</b>(style, noResize)
+					
+					</div>
+					<div class="description">
+						Sets the select style to the given style. Performs a resize
+in order to adjust the layout, and changes the label on the transfer button if it's
+the default one.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtChooser.html#.SINGLE_SELECT">DwtChooser.SINGLE_SELECT</a>|<a href="../symbols/DwtChooser.html#.MULTI_SELECT">DwtChooser.MULTI_SELECT</a>}</span> <b>style</b>
+									
+								</dt>
+								<dd>the style single or multiple select</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>noResize</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not perform resize</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="transfer"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>transfer</b>(list, id, skipNotify)
+					
+					</div>
+					<div class="description">
+						Moves or copies items from the source list to the target list, paying attention
+to current mode.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>|array|Object|hash}</span> <b>list</b>
+									
+								</dt>
+								<dd>a list of items or hash of lists</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>the ID of the transfer button that was used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>skipNotify</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not notify listeners</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:26 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

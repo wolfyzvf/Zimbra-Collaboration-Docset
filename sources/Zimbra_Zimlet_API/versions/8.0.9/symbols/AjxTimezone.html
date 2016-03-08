@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - AjxTimezone</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class AjxTimezone
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_util_AjxTimezone.js.html">AjxTimezone.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class AjxTimezone.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/AjxTimezone.html#constructor">AjxTimezone</a></b>()
+							</div>
+							<div class="description">This class holds all of the known timezone rules.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class AjxTimezone.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxTimezone.<b><a href="../symbols/AjxTimezone.html#.AUTO_DETECTED">AUTO_DETECTED</a></b>
+								</div>
+								<div class="description"><strong>Note:</strong>
+Do NOT change this value because it is used to reference messages.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxTimezone.<b><a href="../symbols/AjxTimezone.html#.GMT">GMT</a></b>
+								</div>
+								<div class="description">Client identifier for GMT.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxTimezone.<b><a href="../symbols/AjxTimezone.html#.GMT_NO_DST">GMT_NO_DST</a></b>
+								</div>
+								<div class="description">Client identifier for GMT with no daylight savings time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxTimezone.<b><a href="../symbols/AjxTimezone.html#.STANDARD_RULES">STANDARD_RULES</a></b>
+								</div>
+								<div class="description">The data is specified using the server identifiers for historical
+reasons.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>AjxTimezone</b>()
+				</div>
+				
+				<div class="description">
+					This class holds all of the known timezone rules. Each timezone
+is represented by an object that has a unique identifier and the
+offset to UTC in standard time. If the timezone defines daylight
+savings time, then additional information is provided (e.g. when
+the DST takes effect and it's offset to UTC).
+<p>
+Both the standard and daylight information are specified as objects
+with the following properties:
+<dl>
+<dt> offset
+  <dd> The offset to UTC (in minutes)
+<dt> mon
+  <dd> The transition month of the year (January = 1, ...).
+<dt> week
+  <dd> The transition week of the month (First = 1, ..., Fourth = 4,
+       Last = -1).
+<dt> wkday
+  <dd> The transition day of the week (Sunday = 1, ...).
+<dt> mday
+  <dd> The transition day of the month (1, ... 31).
+<dt> hour
+  <dd> The transition hour (midnight = 0, noon = 12, ...).
+<dt> min
+  <dd> The transition minute.
+<dt> sec
+  <dt> The transition second (which is usually 0).
+</dl>
+
+<h5>Notes</h5>
+<ul>
+<li> Timezones with no DST only specify an id and a standard info
+     object with a single "offset" property.
+<li> Timezones with a DST <em>must</em> provide standard and
+     daylight info objects.
+<li> If timezone has DST, then the following properties of the
+     standard and daylight info objects are <em>required</em>:
+     offset, month, hour, min, sec.
+<li> Transition dates are specified in only one of the following ways:
+  <ul>
+  <li> by specifying a specific date of the year (e.g. March 10);
+  <li> or by specifying the day of a specific week within some
+       month (e.g. Second Wednesday, Last Saturday, etc).
+  </ul>
+<li> If the transition date is specified as a specific date of the
+     year, then the following field in the standard and/or daylight
+     info objects are <em>required</em>: mday.
+<li> If the transition date is specified as the day of a specific
+     week, then the following fields in the standard and/or daylight
+     info objects are <em>required</em>: week, wkday.
+</ul>
+
+<h5>Examples</h5>
+<dl>
+<dt> Timezone with no DST
+  <dd>
+  <pre>
+  var timezone = { clientId: "My Timezone", standard: { offset: -480 } };
+  </pre>
+<dt> America/Los_Angeles, 2007
+  <dd>
+  <pre>
+  var standard = {
+    offset: -480,
+    mon: 11, week: 1, wkday: 1,
+    hour: 2, min: 0, sec: 0    
+  };
+  var daylight = {
+    offset: -420,
+    mon: 3, week: 2, wkday: 1,
+    hour: 2, min: 0, sec: 0
+  };
+  var timezone = { clientId: "My Timezone",
+                   standard: standard, daylight: daylight };
+  </pre>
+<dt> Custom US/Pacific using 11 Mar 2007 and 2 Dec 2007
+  <dd>
+  <pre>
+  var standard = {
+    offset: -480,
+    mon: 11, mday: 2,
+    hour: 2, min: 0, sec: 0
+  };
+  var daylight = {
+    offset: -420,
+    mon: 3, mday: 11,
+    hour: 2, min: 0, sec: 0
+  };
+  var timezone = { clientId: "My Timezone",
+                   standard: standard, daylight: daylight };
+  </pre>
+</dl>
+<p>
+<strong>Note:</strong>
+Specifying a transition date using a specific date of the year
+<em>should</em> be avoided.
+
+<hr>
+
+<p>
+This class stores mappings between client and server identifiers for
+timezones as well as attempting to guess the default timezone. The 
+application can override this value, through a user preference perhaps, 
+by setting the <code>DEFAULT</code> property's value. The default 
+timezone is specified using the client identifier.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".AUTO_DETECTED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxTimezone.</span><b>AUTO_DETECTED</b>
+					
+					</div>
+					<div class="description">
+						<strong>Note:</strong>
+Do NOT change this value because it is used to reference messages.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".GMT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxTimezone.</span><b>GMT</b>
+					
+					</div>
+					<div class="description">
+						Client identifier for GMT.
+<p>
+<strong>Note:</strong>
+UK observes daylight savings time so this constant should
+<em>not</em> be used as the reference point (i.e. UTC) --
+use <a href="../symbols/AjxTimezone.html#.GMT_NO_DST">AjxTimezone.GMT_NO_DST</a> instead. The name of
+this constant is historical.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".GMT_NO_DST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxTimezone.</span><b>GMT_NO_DST</b>
+					
+					</div>
+					<div class="description">
+						Client identifier for GMT with no daylight savings time.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".STANDARD_RULES"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxTimezone.</span><b>STANDARD_RULES</b>
+					
+					</div>
+					<div class="description">
+						The data is specified using the server identifiers for historical
+reasons. Perhaps in the future we'll use the client (i.e. Java)
+identifiers on the server as well.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:31:53 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

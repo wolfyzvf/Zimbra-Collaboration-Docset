@@ -1,0 +1,3178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmInvite</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmInvite
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmModel.html">ZmModel</a>.<br />
+				
+				<br>
+				This class represents an invite to a calendar appointment.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmInvite.js.html">ZmInvite.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmInvite.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmInvite.html#constructor">ZmInvite</a></b>()
+							</div>
+							<div class="description">Creates an invite.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmInvite.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmInvite.<b><a href="../symbols/ZmInvite.html#.createFromDom">createFromDom</a></b>(node)
+								</div>
+								<div class="description">Creates the invite from the DOM.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getAlarm">getAlarm</a></b>(compNum)
+								</div>
+								<div class="description">Gets the alarm.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getAppointmentId">getAppointmentId</a></b>(compNum)
+								</div>
+								<div class="description">Gets the appointment id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getApptSummary">getApptSummary</a></b>(isHtml)
+								</div>
+								<div class="description">Gets the Appt summary.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getAttendees">getAttendees</a></b>(compNum)
+								</div>
+								<div class="description">Gets the attendees.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getComponent">getComponent</a></b>(id)
+								</div>
+								<div class="description">Gets the component.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getComponentComment">getComponentComment</a></b>(compNum)
+								</div>
+								<div class="description">Gets the comment.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getComponentDescription">getComponentDescription</a></b>(compNum)
+								</div>
+								<div class="description">Gets the description.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getComponentDescriptionHtml">getComponentDescriptionHtml</a></b>(compNum)
+								</div>
+								<div class="description">Gets the description html.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getComponents">getComponents</a></b>()
+								</div>
+								<div class="description">Gets the components.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getDurationText">getDurationText</a></b>(compNum, emptyAllDay, startOnly, isText, startDate, endDate)
+								</div>
+								<div class="description">Gets the duration text.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getEventName">getEventName</a></b>(compNum)
+								</div>
+								<div class="description">Gets the event name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getExceptId">getExceptId</a></b>(compNum)
+								</div>
+								<div class="description">Gets the except id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getFreeBusy">getFreeBusy</a></b>(compNum)
+								</div>
+								<div class="description">Gets the free busy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getInviteMethod">getInviteMethod</a></b>(compNum)
+								</div>
+								<div class="description">Gets the invite method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getLocation">getLocation</a></b>(compNum)
+								</div>
+								<div class="description">Gets the location.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getMessageId">getMessageId</a></b>()
+								</div>
+								<div class="description">Gets the message id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getName">getName</a></b>(compNum)
+								</div>
+								<div class="description">Gets the name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getOrganizerEmail">getOrganizerEmail</a></b>(compNum)
+								</div>
+								<div class="description">Gets the organizer email.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getOrganizerName">getOrganizerName</a></b>(compNum)
+								</div>
+								<div class="description">Gets the organizer name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getPrivacy">getPrivacy</a></b>(compNum)
+								</div>
+								<div class="description">Gets the privacy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getProposedTimeStr">getProposedTimeStr</a></b>(compNum)
+								</div>
+								<div class="description">returns proposed time from counter invite</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getRecurrenceId">getRecurrenceId</a></b>(compNum)
+								</div>
+								<div class="description">Gets the recurrence id (ridZ) - applicable to recurring appointment .</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getRecurrenceRules">getRecurrenceRules</a></b>(compNum)
+								</div>
+								<div class="description">Gets the recurrence.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getReplies">getReplies</a></b>(compNum)
+								</div>
+								<div class="description">Gets the replies.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getResources">getResources</a></b>(compNum)
+								</div>
+								<div class="description">Gets the resources.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getSentBy">getSentBy</a></b>(compNum)
+								</div>
+								<div class="description">Gets the sent by.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getSequenceNo">getSequenceNo</a></b>(compNum)
+								</div>
+								<div class="description">Gets the sequence no</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerEndDate">getServerEndDate</a></b>(compNum, noSpecialUtcCase)
+								</div>
+								<div class="description">Gets the server end date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerEndTime">getServerEndTime</a></b>(compNum)
+								</div>
+								<div class="description">Gets the server end time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerEndTimeTz">getServerEndTimeTz</a></b>(compNum)
+								</div>
+								<div class="description">Gets the server end time timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerStartDate">getServerStartDate</a></b>(compNum, noSpecialUtcCase)
+								</div>
+								<div class="description">Gets the server start date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerStartTime">getServerStartTime</a></b>(compNum)
+								</div>
+								<div class="description">Gets the server start time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getServerStartTimeTz">getServerStartTimeTz</a></b>(compNum)
+								</div>
+								<div class="description">Gets the server start time timezone.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getStartDateFromExceptId">getStartDateFromExceptId</a></b>(compNum)
+								</div>
+								<div class="description">Gets start date from exception ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getStatus">getStatus</a></b>(compNum)
+								</div>
+								<div class="description">Gets the status.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getSummary">getSummary</a></b>(isHtml)
+								</div>
+								<div class="description">Gets the summary.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getToolTip">getToolTip</a></b>()
+								</div>
+								<div class="description">Gets the tool tip in HTML for this invite.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getTransparency">getTransparency</a></b>(compNum)
+								</div>
+								<div class="description">Gets the transparency.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#getXProp">getXProp</a></b>(compNum)
+								</div>
+								<div class="description">Gets the x-prop.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasAcceptableComponents">hasAcceptableComponents</a></b>()
+								</div>
+								<div class="description">Checks the invite has acceptable components.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasAttendeeResponse">hasAttendeeResponse</a></b>()
+								</div>
+								<div class="description">Returns true if this invite has attendees, one of which replied back with an
+"actioned" response (e.g.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasCounterMethod">hasCounterMethod</a></b>(compNum)
+								</div>
+								<div class="description">Checks the invite has a counter method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasInviteReplyMethod">hasInviteReplyMethod</a></b>(compNum)
+								</div>
+								<div class="description">Checks the invite has a reply method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasMultipleComponents">hasMultipleComponents</a></b>()
+								</div>
+								<div class="description">Checks if the invite has multiple components.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#hasOtherAttendees">hasOtherAttendees</a></b>(compNum)
+								</div>
+								<div class="description">Checks if the invite has other attendees.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isAllDayEvent">isAllDayEvent</a></b>(compNum)
+								</div>
+								<div class="description">Checks if the invite is an all day event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isEmpty">isEmpty</a></b>()
+								</div>
+								<div class="description">Checks if the invite is empty.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isException">isException</a></b>(compNum)
+								</div>
+								<div class="description">Checks if the invite is an exception.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isMultiDay">isMultiDay</a></b>(compNum)
+								</div>
+								<div class="description">Checks if the invite is multi-day.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isOrganizer">isOrganizer</a></b>(compNum)
+								</div>
+								<div class="description">Checks if is organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#isRecurring">isRecurring</a></b>(compNum)
+								</div>
+								<div class="description">Checks if the invite is recurring.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#setMessageId">setMessageId</a></b>(id)
+								</div>
+								<div class="description">Sets the message id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#shouldRsvp">shouldRsvp</a></b>(compNum)
+								</div>
+								<div class="description">Gets the RSVP.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmInvite.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmInvite</b>()
+				</div>
+				
+				<div class="description">
+					Creates an invite.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".createFromDom"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmInvite.html">ZmInvite</a>}</span>
+					<span class="light">ZmInvite.</span><b>createFromDom</b>(node)
+					
+					</div>
+					<div class="description">
+						Creates the invite from the DOM.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>node</b>
+									
+								</dt>
+								<dd>the node</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmInvite.html">ZmInvite</a>}</span> the newly created invite</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAlarm"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getAlarm</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the alarm.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the alarm or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAppointmentId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getAppointmentId</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the appointment id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getApptSummary"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getApptSummary</b>(isHtml)
+					
+					</div>
+					<div class="description">
+						Gets the Appt summary.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isHtml</b>
+									
+								</dt>
+								<dd><code>true</code> to return summary as HTML</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the appt summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAttendees"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getAttendees</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the attendees.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of attendees or an empty array for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getComponent"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getComponent</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the component.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the component id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the component</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getComponentComment"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getComponentComment</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the comment.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the comment or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getComponentDescription"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getComponentDescription</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the description.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the description or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getComponentDescriptionHtml"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getComponentDescriptionHtml</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the description html.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the description html or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getComponents"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getComponents</b>()
+					
+					</div>
+					<div class="description">
+						Gets the components.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of components</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDurationText"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getDurationText</b>(compNum, emptyAllDay, startOnly, isText, startDate, endDate)
+					
+					</div>
+					<div class="description">
+						Gets the duration text.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>emptyAllDay</b>
+									
+								</dt>
+								<dd><code>true</code> to return an empty string "" if all day event.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>startOnly</b>
+									
+								</dt>
+								<dd><code>true</code> to include start only</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isText</b>
+									
+								</dt>
+								<dd><code>true</code> to return as text, not html</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>startDate</b>
+									
+								</dt>
+								<dd>Optional. Start date to use instead of the original start date</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>endDate</b>
+									
+								</dt>
+								<dd>Optional. End date to use instead of the original end date</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the duration</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getEventName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getEventName</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the event name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getExceptId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getExceptId</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the except id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the except id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFreeBusy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFreeBusy</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the free busy.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the free busy</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getInviteMethod"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getInviteMethod</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the invite method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the method or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getLocation"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getLocation</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the location.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the location</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMessageId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getMessageId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the message id.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the message id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getName</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrganizerEmail"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOrganizerEmail</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the organizer email.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the organizer email or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOrganizerName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOrganizerName</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the organizer name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the organizer name or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getPrivacy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getPrivacy</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the privacy.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the privacy</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getProposedTimeStr"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getProposedTimeStr</b>(compNum)
+					
+					</div>
+					<div class="description">
+						returns proposed time from counter invite
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> proposed time as formatted string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRecurrenceId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRecurrenceId</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the recurrence id (ridZ) - applicable to recurring appointment .
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the recurrence id, null for non-recurring appointment</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRecurrenceRules"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmRecurrence.html">ZmRecurrence</a>}</span>
+					<b>getRecurrenceRules</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the recurrence.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmRecurrence.html">ZmRecurrence</a>}</span> the recurrence</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getReplies"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getReplies</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the replies.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the reply</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getResources"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getResources</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the resources.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of resources</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSentBy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSentBy</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the sent by.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the sent by or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSequenceNo"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSequenceNo</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the sequence no
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the sequence no</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerEndDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getServerEndDate</b>(compNum, noSpecialUtcCase)
+					
+					</div>
+					<div class="description">
+						Gets the server end date.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+								<dt>
+									<b>noSpecialUtcCase</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the end date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerEndTime"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getServerEndTime</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the server end time.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the end time</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerEndTimeTz"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getServerEndTimeTz</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the server end time timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the timezone</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerStartDate"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getServerStartDate</b>(compNum, noSpecialUtcCase)
+					
+					</div>
+					<div class="description">
+						Gets the server start date.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+								<dt>
+									<b>noSpecialUtcCase</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the start date</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerStartTime"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Date}</span>
+					<b>getServerStartTime</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the server start time.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Date}</span> the start time</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getServerStartTimeTz"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getServerStartTimeTz</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the server start time timezone.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the timezone</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getStartDateFromExceptId"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getStartDateFromExceptId</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets start date from exception ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getStatus"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getStatus</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the status.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the status</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSummary"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSummary</b>(isHtml)
+					
+					</div>
+					<div class="description">
+						Gets the summary.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isHtml</b>
+									
+								</dt>
+								<dd><code>true</code> to return summary as HTML</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getToolTip"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getToolTip</b>()
+					
+					</div>
+					<div class="description">
+						Gets the tool tip in HTML for this invite.
+
+<p>
+<strong>Note:</strong> This method assumes that there are currently one and only one component object on the invite.
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tool tip</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTransparency"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getTransparency</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the transparency.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the transparent value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getXProp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getXProp</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the x-prop.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the x-prop</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasAcceptableComponents"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasAcceptableComponents</b>()
+					
+					</div>
+					<div class="description">
+						Checks the invite has acceptable components.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite has acceptable components</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasAttendeeResponse"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasAttendeeResponse</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if this invite has attendees, one of which replied back with an
+"actioned" response (e.g. accept/decline/tentative)
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasCounterMethod"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasCounterMethod</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks the invite has a counter method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite has a counter method</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasInviteReplyMethod"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasInviteReplyMethod</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks the invite has a reply method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite has a method that REQUIRES a reply (ironically NOT REPLY method but rather REQUEST or PUBLISH)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasMultipleComponents"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasMultipleComponents</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the invite has multiple components.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite has one or more components</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasOtherAttendees"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasOtherAttendees</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if the invite has other attendees.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite has more than one other attendee</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isAllDayEvent"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isAllDayEvent</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if the invite is an all day event.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if an all day event</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isEmpty"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isEmpty</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the invite is empty.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite is empty</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isException"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isException</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if the invite is an exception.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if exception</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isMultiDay"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isMultiDay</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if the invite is multi-day.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the invite is multi-day</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isOrganizer"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isOrganizer</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if is organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if is organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isRecurring"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isRecurring</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Checks if the invite is recurring.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if recurring</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getRecurrenceRules">#getRecurrenceRules</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setMessageId"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setMessageId</b>(id)
+					
+					</div>
+					<div class="description">
+						Sets the message id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the message id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="shouldRsvp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>shouldRsvp</b>(compNum)
+					
+					</div>
+					<div class="description">
+						Gets the RSVP.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>compNum</b>
+									
+								</dt>
+								<dd>the component number</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the RSVP or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Apr 08 2014 13:13:19 GMT-0500 (CDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

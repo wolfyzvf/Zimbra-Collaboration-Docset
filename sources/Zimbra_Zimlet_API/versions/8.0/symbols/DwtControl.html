@@ -1,0 +1,5445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtControl</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtControl
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class is the root class of the Dwt component hierarchy. All
+Dwt components either directly or indirectly inherit from this class.
+<p>
+A <a href="../symbols/DwtControl.html">DwtControl</a> may also be directly instantiated. In this case it is essentially
+a div into which any content may be "drawn"
+<p>
+A control may be created in "deferred" mode, meaning that the UI portion of the control
+will be created "Just In Time". This is useful for widgets which may want to defer construction
+of elements (e.g. <a href="../symbols/DwtTreeItem.html">DwtTreeItem</a>) until such time as is needed, in the interest of efficiency.
+Note that if the control is a child of the shell, it won't become visible until its z-index is set.
+
+<h4>Events</h4><ul>
+<li><i>DwtEvent.CONTROL</i></li>
+<li><i>DwtEvent.DISPOSE</i></li>
+<li><i>DwtEvent.HOVEROVER</i></li>
+<li><i>DwtEvent.HOVEROUT</i></li>
+<li><i>DwtEvent.ONCONTEXTMENU</i></li>
+<li><i>DwtEvent.ONCLICK</i></li>
+<li><i>DwtEvent.ONDBLCLICK</i></li>
+<li><i>DwtEvent.ONFOCUS</i></li>
+<li><i>DwtEvent.ONBLUR</i></li>
+<li><i>DwtEvent.ONMOUSEDOWN</i></li>
+<li><i>DwtEvent.ONMOUSEENTER</i></li>
+<li><i>DwtEvent.ONMOUSELEAVE</i></li>
+<li><i>DwtEvent.ONMOUSEMOVE</i></li>
+<li><i>DwtEvent.ONMOUSEOUT</i></li>
+<li><i>DwtEvent.ONMOUSEOVER</i></li>
+<li><i>DwtEvent.ONMOUSEUP</i></li>
+<li><i>DwtEvent.ONMOUSEWHEEL</i></li>
+<li><i>DwtEvent.ONSELECTSTART</i></li>
+</ul>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtControl.js.html">DwtControl.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtControl.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtControl.html#constructor">DwtControl</a></b>(params, parent, className, posStyle, deferred, id, parentElement, index)
+							</div>
+							<div class="description">Creates a control.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtControl.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.ABSOLUTE_STYLE">ABSOLUTE_STYLE</a></b>
+								</div>
+								<div class="description">Defines the absolute position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.ACTIVE">ACTIVE</a></b>
+								</div>
+								<div class="description">Defines the "active" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.CLIP">CLIP</a></b>
+								</div>
+								<div class="description">Defines clip on overflow.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.DEFAULT">DEFAULT</a></b>
+								</div>
+								<div class="description">Defines the default value for sizing/position methods.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.DISABLED">DISABLED</a></b>
+								</div>
+								<div class="description">Defines the "disabled" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.ERROR">ERROR</a></b>
+								</div>
+								<div class="description">Defines the "error" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.FIXED_SCROLL">FIXED_SCROLL</a></b>
+								</div>
+								<div class="description">Defines always have scrollbars whether content overflows or not.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.FIXED_STYLE">FIXED_STYLE</a></b>
+								</div>
+								<div class="description">Defines the fixed position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.FOCUSED">FOCUSED</a></b>
+								</div>
+								<div class="description">Defines the "focused" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.HOVER">HOVER</a></b>
+								</div>
+								<div class="description">Defines the "hover" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.NORMAL">NORMAL</a></b>
+								</div>
+								<div class="description">Defines the "normal" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.RELATIVE_STYLE">RELATIVE_STYLE</a></b>
+								</div>
+								<div class="description">Defines the relative position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.SCROLL">SCROLL</a></b>
+								</div>
+								<div class="description">Defines automatically create scrollbars if content overflows.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.SELECTED">SELECTED</a></b>
+								</div>
+								<div class="description">Defines the "selected" display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.STATIC_STYLE">STATIC_STYLE</a></b>
+								</div>
+								<div class="description">Defines the static position style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtControl.<b><a href="../symbols/DwtControl.html#.VISIBLE">VISIBLE</a></b>
+								</div>
+								<div class="description">Defines allow overflow to be visible.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtControl.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#addClassName">addClassName</a></b>(className)
+								</div>
+								<div class="description">Adds a class name to this control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#addControlListener">addControlListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a control event listener for control events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a></b>(listener)
+								</div>
+								<div class="description">Registers a dispose listener for control events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#addListener">addListener</a></b>(eventType, listener, index)
+								</div>
+								<div class="description">Adds a listener to the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#appendElement">appendElement</a></b>(elemOrId)
+								</div>
+								<div class="description">Appends this control element to the specified element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#clearContent">clearContent</a></b>()
+								</div>
+								<div class="description">Clears the content of the control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#clearHandler">clearHandler</a></b>(eventType)
+								</div>
+								<div class="description">Clears the event handling function for a given event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#condClassName">condClassName</a></b>(condition, classWhenTrue, classWhenFalse)
+								</div>
+								<div class="description">Conditionally adds or removes a class name to this control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#delClassName">delClassName</a></b>(delClass, addClass)
+								</div>
+								<div class="description">Removes a class name from this control's HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#dispose">dispose</a></b>()
+								</div>
+								<div class="description">Disposes of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.findControl">findControl</a></b>(htmlEl)
+								</div>
+								<div class="description">Finds a control and starts the search at the given element and works
+up the element chain until it finds one with an ID that maps to a <a href="../symbols/DwtControl.html">DwtControl</a>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#focus">focus</a></b>()
+								</div>
+								<div class="description">This method is called to explicitly set keyboard focus to this component.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.fromElement">fromElement</a></b>(htmlEl)
+								</div>
+								<div class="description">Returns the control associated with the given element, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.fromElementId">fromElementId</a></b>(htmlElId)
+								</div>
+								<div class="description">Returns the control associated with the given element ID, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getBounds">getBounds</a></b>()
+								</div>
+								<div class="description">Gets the bounds of the component.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getClassName">getClassName</a></b>()
+								</div>
+								<div class="description">Gets the class name of this control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getCursor">getCursor</a></b>()
+								</div>
+								<div class="description">Gets the control cursor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getData">getData</a></b>(key)
+								</div>
+								<div class="description">Gets the data associated with the specified key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getDragBox">getDragBox</a></b>()
+								</div>
+								<div class="description">Gets the control drag box.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getDragSource">getDragSource</a></b>()
+								</div>
+								<div class="description">Gets the control drag source.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a></b>()
+								</div>
+								<div class="description">Gets the control drop target.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getEnabled">getEnabled</a></b>()
+								</div>
+								<div class="description">Gets the enabled state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getH">getH</a></b>()
+								</div>
+								<div class="description">Gets the height of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a></b>()
+								</div>
+								<div class="description">Gets the control containing HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a></b>()
+								</div>
+								<div class="description">Gets the ID of the control containing HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getLocation">getLocation</a></b>()
+								</div>
+								<div class="description">Gets the location of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getPosition">getPosition</a></b>()
+								</div>
+								<div class="description">Returns the positioning style</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a></b>()
+								</div>
+								<div class="description">Gets the control scroll style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getSize">getSize</a></b>(getFromStyle)
+								</div>
+								<div class="description">Gets the size of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a></b>()
+								</div>
+								<div class="description">Gets the tab group member for this control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.getTargetControl">getTargetControl</a></b>(ev, useRelatedTarget)
+								</div>
+								<div class="description">Returns the control associated with the given event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a></b>(hoverEv)
+								</div>
+								<div class="description">Returns the element that should be used as a base for positioning the tooltip.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a></b>(ev)
+								</div>
+								<div class="description">Gets the tooltip content (typically set using <a href="#setToolTipContent">#setToolTipContent</a>).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getVisibility">getVisibility</a></b>()
+								</div>
+								<div class="description">Gets the visibility of the control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getVisible">getVisible</a></b>()
+								</div>
+								<div class="description">Gets the visible state of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getW">getW</a></b>()
+								</div>
+								<div class="description">Gets the width of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getX">getX</a></b>()
+								</div>
+								<div class="description">Gets the X coordinate of the control (if absolutely positioned).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getXW">getXW</a></b>()
+								</div>
+								<div class="description">Gets the horizontal extent of the control (if absolutely positioned).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getY">getY</a></b>()
+								</div>
+								<div class="description">Gets the Y coordinate of the control (if it is absolutely positioned).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getYH">getYH</a></b>()
+								</div>
+								<div class="description">Gets the vertical extent of the control (if it is absolutely positioned).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#getZIndex">getZIndex</a></b>()
+								</div>
+								<div class="description">Gets the control z-index value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#hasFocus">hasFocus</a></b>()
+								</div>
+								<div class="description">Checks if this control has focus.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.hideToolTip">hideToolTip</a></b>()
+								</div>
+								<div class="description">A helper method to hide the toolTip.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a></b>()
+								</div>
+								<div class="description">Checks if the control is showing an alert.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#isDisposed">isDisposed</a></b>()
+								</div>
+								<div class="description">Checks if the control is disposed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#isInitialized">isInitialized</a></b>()
+								</div>
+								<div class="description">Checks if the control is initialized.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a></b>(eventType)
+								</div>
+								<div class="description">Checks if there are any listeners registered for a particular event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a></b>(eventType, event)
+								</div>
+								<div class="description">Notifies all listeners of type <code>eventType</code> with <code>event</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a></b>(targetEl)
+								</div>
+								<div class="description">Prevents a context menu on the specified element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#preventSelection">preventSelection</a></b>(targetEl)
+								</div>
+								<div class="description">Prevents selection on the specified element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a></b>(eventType)
+								</div>
+								<div class="description">Removes all listeners for a particular event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a></b>(listener)
+								</div>
+								<div class="description">Removes a control event listener for control events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a></b>(listener)
+								</div>
+								<div class="description">Removes a dispose event listener for control events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#removeListener">removeListener</a></b>(eventType, listener)
+								</div>
+								<div class="description">Removes a listener from the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#reparent">reparent</a></b>(newParent, index)
+								</div>
+								<div class="description">Re-parents the control within the component hierarchy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a></b>(htmlEl, position)
+								</div>
+								<div class="description">Re-parents the HTML element of the control to the html element supplied as the
+parameter to this method.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#replaceElement">replaceElement</a></b>(elemOrId, inheritClass, inheritStyle)
+								</div>
+								<div class="description">Replaces the specified element with this control element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setBounds">setBounds</a></b>(x, y, width, height)
+								</div>
+								<div class="description">Sets the bounds of a control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setClassName">setClassName</a></b>(className)
+								</div>
+								<div class="description">Sets the control class name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setContent">setContent</a></b>(content)
+								</div>
+								<div class="description">Sets the content of the control HTML element to the provided
+content.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setCursor">setCursor</a></b>(cursorName)
+								</div>
+								<div class="description">Sets the control cursor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setData">setData</a></b>(key, value)
+								</div>
+								<div class="description">Sets the data for a given key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setDisplay">setDisplay</a></b>(value)
+								</div>
+								<div class="description">Sets the display.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a></b>(state)
+								</div>
+								<div class="description">Sets the display state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setDragBox">setDragBox</a></b>(dragBox)
+								</div>
+								<div class="description">Set the control drag box.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setDragSource">setDragSource</a></b>(dragSource)
+								</div>
+								<div class="description">Set the control drag source.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a></b>(dropTarget)
+								</div>
+								<div class="description">Sets the drop target for the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setEnabled">setEnabled</a></b>(enabled, setHtmlElement)
+								</div>
+								<div class="description">Sets the control enabled state.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setHandler">setHandler</a></b>(eventType, hdlrFunc)
+								</div>
+								<div class="description">Sets the event handling function for a given event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a></b>(id)
+								</div>
+								<div class="description">Sets the control HTML element id attribute.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setLocation">setLocation</a></b>(x, y)
+								</div>
+								<div class="description">Sets the location of the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setPosition">setPosition</a></b>(position)
+								</div>
+								<div class="description">Sets the control position.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a></b>(scrollStyle)
+								</div>
+								<div class="description">Sets the control scroll style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setSize">setSize</a></b>(width, height)
+								</div>
+								<div class="description">Sets the size of the control</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a></b>(toolTip, useBrowser)
+								</div>
+								<div class="description">Sets tooltip content for the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setVisibility">setVisibility</a></b>(visible)
+								</div>
+								<div class="description">Sets the visibility of the control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setVisible">setVisible</a></b>(visible)
+								</div>
+								<div class="description">Sets the the visible state of the control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#setZIndex">setZIndex</a></b>(idx)
+								</div>
+								<div class="description">Sets the z-index for the control HTML element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#showAlert">showAlert</a></b>(alert)
+								</div>
+								<div class="description">Shows an alert in the control.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">DwtControl.<b><a href="../symbols/DwtControl.html#.showToolTip">showToolTip</a></b>(content, x, y, obj, hoverEv)
+								</div>
+								<div class="description">A helper method to show the toolTips.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtControl.html#zShow">zShow</a></b>(show)
+								</div>
+								<div class="description">Convenience function to toggle visibility using z-index.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtControl</b>(params, parent, className, posStyle, deferred, id, parentElement, index)
+				</div>
+				
+				<div class="description">
+					Creates a control.
+					<br /><i>Author: </i>Ross Dargahi.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>parent</b>
+								
+							</dt>
+								<dd>the parent widget, except in the case of <a href="../symbols/DwtShell.html">DwtShell</a>, the parent will be a control that is a subclass of <a href="../symbols/DwtComposite.html">DwtComposite</a></dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>posStyle</b>
+								
+							</dt>
+								<dd>the positioning style (absolute, static, or relative). Defaults to <a href="../symbols/DwtControl.html#.STATIC_STYLE">DwtControl.STATIC_STYLE</a>.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>deferred</b>
+								
+							</dt>
+								<dd>if <code>true</code>, postpone initialization until needed</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>id</b>
+								
+							</dt>
+								<dd>an explicit ID to use for the control's HTML element. If not provided, defaults to an auto-generated ID.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string|HTMLElement}</span>  <b>parentElement</b>
+								
+							</dt>
+								<dd>the parent element</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>index</b>
+								
+							</dt>
+								<dd>the index at which to add this control among parent's children</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ABSOLUTE_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>ABSOLUTE_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the absolute position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.ABSOLUTE_STYLE">Dwt.ABSOLUTE_STYLE</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".ACTIVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>ACTIVE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "active" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CLIP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>CLIP</b>
+					
+					</div>
+					<div class="description">
+						Defines clip on overflow.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".DEFAULT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>DEFAULT</b>
+					
+					</div>
+					<div class="description">
+						Defines the default value for sizing/position methods.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.DEFAULT">Dwt.DEFAULT</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".DISABLED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>DISABLED</b>
+					
+					</div>
+					<div class="description">
+						Defines the "disabled" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ERROR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>ERROR</b>
+					
+					</div>
+					<div class="description">
+						Defines the "error" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".FIXED_SCROLL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>FIXED_SCROLL</b>
+					
+					</div>
+					<div class="description">
+						Defines always have scrollbars whether content overflows or not.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".FIXED_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>FIXED_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the fixed position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.FIXED_STYLE">Dwt.FIXED_STYLE</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".FOCUSED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>FOCUSED</b>
+					
+					</div>
+					<div class="description">
+						Defines the "focused" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".HOVER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>HOVER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "hover" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NORMAL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>NORMAL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "normal" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".RELATIVE_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>RELATIVE_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the relative position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.RELATIVE_STYLE">Dwt.RELATIVE_STYLE</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".SCROLL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>SCROLL</b>
+					
+					</div>
+					<div class="description">
+						Defines automatically create scrollbars if content overflows.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".SELECTED"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>SELECTED</b>
+					
+					</div>
+					<div class="description">
+						Defines the "selected" display state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".STATIC_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>STATIC_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the static position style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.STATIC_STYLE">Dwt.STATIC_STYLE</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".VISIBLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>VISIBLE</b>
+					
+					</div>
+					<div class="description">
+						Defines allow overflow to be visible.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a></dd>
+							
+							</dl>
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addClassName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addClassName</b>(className)
+					
+					</div>
+					<div class="description">
+						Adds a class name to this control HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>className</b>
+									
+								</dt>
+								<dd>the class name to add</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addControlListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addControlListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a control event listener for control events. Control events are essentially
+resize and coordinate change events.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to be registered (may not be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>DwtControlEvent</dd>
+							
+								<dd><a href="#removeControlListener">#removeControlListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="addDisposeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addDisposeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Registers a dispose listener for control events. Dispose events are fired when
+a control is "destroyed" via the <a href="#dispose">#dispose</a> call.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to be registered (may not be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>DwtDisposeEvent</dd>
+							
+								<dd><a href="#removeDisposeListener">#removeDisposeListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+								<dd><a href="#dispose">#dispose</a></dd>
+							
+								<dd><a href="#isDisposed">#isDisposed</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="addListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addListener</b>(eventType, listener, index)
+					
+					</div>
+					<div class="description">
+						Adds a listener to the control. The listener will be call when events
+of type <code>eventType</code> fire.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type for which to listen (may not be <code>null</code>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to register (may not be <code>null</code>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index at which to add listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+								<dd><a href="#removeListener">#removeListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+								<dd><a href="#notifyListeners">#notifyListeners</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="appendElement"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>appendElement</b>(elemOrId)
+					
+					</div>
+					<div class="description">
+						Appends this control element to the specified element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element|string}</span> <b>elemOrId</b>
+									
+								</dt>
+								<dd>the DOM element or an element id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearContent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearContent</b>()
+					
+					</div>
+					<div class="description">
+						Clears the content of the control HTML element.
+Care should be taken when using this method as it can blow away all
+the content of the control which can be particularly bad if the control is
+a <a href="../symbols/DwtComposite.html">DwtComposite</a> with children. Generally this method should be used
+controls which are being directly instantiated and used as a canvas.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearHandler</b>(eventType)
+					
+					</div>
+					<div class="description">
+						Clears the event handling function for a given event type. This method
+should be used judiciously as it can lead to unexpected results (for example if
+overriding the control's mouse handlers)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type (defined in {@see DwtEvent}) to override</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="condClassName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>condClassName</b>(condition, classWhenTrue, classWhenFalse)
+					
+					</div>
+					<div class="description">
+						Conditionally adds or removes a class name to this control HTML element.
+The class names are used exclusively, that is: when condition is true,
+<code>classWhenTrue</code> is added and <code>classWhenFalse</code> is removed (if present and
+specified).  When condition is false, <code>classWhenTrue</code> is removed and
+<code>classWhenFalse</code> is added (again, if present and specified).
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>condition</b>
+									
+								</dt>
+								<dd>the condition</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>classWhenTrue</b>
+									
+								</dt>
+								<dd>the class name to add when condition is <code>true</code></dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>classWhenFalse</b>
+									
+								</dt>
+								<dd>the class name to add when contition is <code>false</code> (may be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="delClassName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>delClassName</b>(delClass, addClass)
+					
+					</div>
+					<div class="description">
+						Removes a class name from this control's HTML element. Optionally adds a new class name, if specified.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>delClass</b>
+									
+								</dt>
+								<dd>the class to remove</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>addClass</b>
+									
+								</dt>
+								<dd>the class to add (may be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="dispose"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>dispose</b>()
+					
+					</div>
+					<div class="description">
+						Disposes of the control. This method will remove the control from under the
+control of its parent and release any resources associate with the component
+it will also notify any event listeners on registered <a href="../symbols/DwtEvent.html#.DISPOSE">DwtEvent.DISPOSE</a> event type.
+
+<p>
+Subclasses may override this method to perform their own dispose functionality but
+should generally call up to the parent method.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#isDisposed">#isDisposed</a></dd>
+							
+								<dd><a href="#addDisposeListener">#addDisposeListener</a></dd>
+							
+								<dd><a href="#removeDisposeListener">#removeDisposeListener</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".findControl"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<span class="light">DwtControl.</span><b>findControl</b>(htmlEl)
+					
+					</div>
+					<div class="description">
+						Finds a control and starts the search at the given element and works
+up the element chain until it finds one with an ID that maps to a <a href="../symbols/DwtControl.html">DwtControl</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>htmlEl</b>
+									
+								</dt>
+								<dd>an HTML element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> the control or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="focus"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>focus</b>()
+					
+					</div>
+					<div class="description">
+						This method is called to explicitly set keyboard focus to this component.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fromElement"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<span class="light">DwtControl.</span><b>fromElement</b>(htmlEl)
+					
+					</div>
+					<div class="description">
+						Returns the control associated with the given element, if any.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>htmlEl</b>
+									
+								</dt>
+								<dd>an HTML element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> the control element or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".fromElementId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<span class="light">DwtControl.</span><b>fromElementId</b>(htmlElId)
+					
+					</div>
+					<div class="description">
+						Returns the control associated with the given element ID, if any.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>htmlElId</b>
+									
+								</dt>
+								<dd>an HTML element Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> the control element or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getBounds"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span>
+					<b>getBounds</b>()
+					
+					</div>
+					<div class="description">
+						Gets the bounds of the component. Bounds includes the location (not relevant for
+statically position elements) and dimensions of the control (i.e. the <code>&lt;div&gt;</code> element).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtRectangle.html">DwtRectangle</a>}</span> the control bounds</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtRectangle.html">DwtRectangle</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getClassName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getClassName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the class name of this control. The class name may be set
+when constructing the control. If it is not passed into the constructor, it
+defaults to the control's class name. The class name is generally used as the
+CSS class name for the control, although control's that change visual behaviour
+based on state may append (or even use different) class names. See the documentation
+of the specific component for details.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the control class name</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setClassName">#setClassName</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getCursor"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getCursor</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control cursor.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the control cursor</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setCursor">#setCursor</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getData"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getData</b>(key)
+					
+					</div>
+					<div class="description">
+						Gets the data associated with the specified key.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>key</b>
+									
+								</dt>
+								<dd>the key</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the associated data</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setData">#setData</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getDragBox"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtDragBox.html">DwtDragBox</a>}</span>
+					<b>getDragBox</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control drag box.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtDragBox.html">DwtDragBox</a>}</span> the control drag box or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setDragBox">#setDragBox</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getDragSource"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtDragSource.html">DwtDragSource</a>}</span>
+					<b>getDragSource</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control drag source.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtDragSource.html">DwtDragSource</a>}</span> the control drag source or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setDragSource">#setDragSource</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getDropTarget"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtDropTarget.html">DwtDropTarget</a>}</span>
+					<b>getDropTarget</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control drop target.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtDropTarget.html">DwtDropTarget</a>}</span> the control drop target or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setDropTarget">#setDropTarget</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getEnabled"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>getEnabled</b>()
+					
+					</div>
+					<div class="description">
+						Gets the enabled state.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the control is enabled; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setEnabled">#setEnabled</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getH"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getH</b>()
+					
+					</div>
+					<div class="description">
+						Gets the height of the control.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the height of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getHtmlElement"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{HTMLElement}</span>
+					<b>getHtmlElement</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control containing HTML element. By default this is a <code>div</code> element
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{HTMLElement}</span> the control containing HTML element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHTMLElId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getHTMLElId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the ID of the control containing HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the ID of the control containing HTML element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getLocation"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<b>getLocation</b>()
+					
+					</div>
+					<div class="description">
+						Gets the location of the control.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the location of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="../symbols/Dwt.html">Dwt</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getPosition"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getPosition</b>()
+					
+					</div>
+					<div class="description">
+						Returns the positioning style
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getScrollStyle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getScrollStyle</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control scroll style. The scroll style determines the control
+behavior when content overflows its div's boundaries. Possible values are:
+<ul>
+<li><a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a> - Clip on overflow</li>
+<li><a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a> - Allow overflow to be visible</li>
+<li><a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a> - Automatically create scrollbars if content overflows</li>
+<li><a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a> - Always have scrollbars whether content overflows or not</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the control scroll style</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSize"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span>
+					<b>getSize</b>(getFromStyle)
+					
+					</div>
+					<div class="description">
+						Gets the size of the control. The x value of the returned point is the width
+and the y is the height.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>getFromStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtPoint.html">DwtPoint</a>}</span> the control size</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getTabGroupMember"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<b>getTabGroupMember</b>()
+					
+					</div>
+					<div class="description">
+						Gets the tab group member for this control. Tab group members can
+be a native HTML form element, a <a href="../symbols/DwtControl.html">DwtControl</a>, or a <a href="../symbols/DwtTabGroup.html">DwtTabGroup</a> (for more
+complex or explicit tab-ordering.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> by default, returns this object</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getTargetControl"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<span class="light">DwtControl.</span><b>getTargetControl</b>(ev, useRelatedTarget)
+					
+					</div>
+					<div class="description">
+						Returns the control associated with the given event. Starts with the
+event target and works its way up the element chain until it finds one
+with an ID that maps to a <a href="../symbols/DwtControl.html">DwtControl</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Event}</span> <b>ev</b>
+									
+								</dt>
+								<dd>the DHTML event</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>useRelatedTarget</b>
+									
+								</dt>
+								<dd>if <code>true</code>, use element that was related to this event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> the control or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTooltipBase"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getTooltipBase</b>(hoverEv)
+					
+					</div>
+					<div class="description">
+						Returns the element that should be used as a base for positioning the tooltip.
+If overridden to return null, the cursor position will be used as the base.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{DwtHoverEvent}</span> <b>hoverEv</b>
+									
+								</dt>
+								<dd>hover event (from hover mgr)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getToolTipContent"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getToolTipContent</b>(ev)
+					
+					</div>
+					<div class="description">
+						Gets the tooltip content (typically set using <a href="#setToolTipContent">#setToolTipContent</a>). Controls
+that want to return dynamic tooltip content should override this method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtEvent.html">DwtEvent</a>}</span> <b>ev</b>
+									
+								</dt>
+								<dd>the mouseover event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the tooltip content set for the control</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getVisibility"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>getVisibility</b>()
+					
+					</div>
+					<div class="description">
+						Gets the visibility of the control HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> if <code>true</code>, the control is visible (i.e. the HTML elements visibility play style attribute is not "hidden")</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>Dwt#getVisibility</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getVisible"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>getVisible</b>()
+					
+					</div>
+					<div class="description">
+						Gets the visible state of the control. For example, the control HTML elements display style attribute is not "none".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> if <code>true</code>, the control is visible</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>Dwt#getVisibile</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getW"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getW</b>()
+					
+					</div>
+					<div class="description">
+						Gets the width of the control.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the width of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getX"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getX</b>()
+					
+					</div>
+					<div class="description">
+						Gets the X coordinate of the control (if absolutely positioned).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the X coordinate of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getXW"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getXW</b>()
+					
+					</div>
+					<div class="description">
+						Gets the horizontal extent of the control (if absolutely positioned).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the horizontal extent of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getY"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getY</b>()
+					
+					</div>
+					<div class="description">
+						Gets the Y coordinate of the control (if it is absolutely positioned).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the Y coordinate of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getYH"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getYH</b>()
+					
+					</div>
+					<div class="description">
+						Gets the vertical extent of the control (if it is absolutely positioned).
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the vertical extent of the control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getZIndex"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getZIndex</b>()
+					
+					</div>
+					<div class="description">
+						Gets the control z-index value.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the z-index value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasFocus"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>hasFocus</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this control has focus.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if this control has keyboard focus; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".hideToolTip"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>hideToolTip</b>()
+					
+					</div>
+					<div class="description">
+						A helper method to hide the toolTip.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isAlertShown"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isAlertShown</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the control is showing an alert.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if showing an altert; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isDisposed"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isDisposed</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the control is disposed.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the control is in a disposed state; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#dispose">#dispose</a></dd>
+							
+								<dd><a href="#addDisposeListener">#addDisposeListener</a></dd>
+							
+								<dd><a href="#removeDisposeListener">#removeDisposeListener</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isInitialized"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isInitialized</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the control is initialized. In general, a control will not be
+initialized if it has been created in deferred mode and has not yet been initialized.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the control is in a initialized; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isListenerRegistered"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isListenerRegistered</b>(eventType)
+					
+					</div>
+					<div class="description">
+						Checks if there are any listeners registered for a particular event type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type (may not be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if there is an listener registered for the specified event type</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="notifyListeners"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyListeners</b>(eventType, event)
+					
+					</div>
+					<div class="description">
+						Notifies all listeners of type <code>eventType</code> with <code>event</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type (may not be <code>null</code>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtEvent.html">DwtEvent</a>}</span> <b>event</b>
+									
+								</dt>
+								<dd>the event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="preventContextMenu"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>preventContextMenu</b>(targetEl)
+					
+					</div>
+					<div class="description">
+						Prevents a context menu on the specified element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>targetEl</b>
+									
+								</dt>
+								<dd>the element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="preventSelection"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>preventSelection</b>(targetEl)
+					
+					</div>
+					<div class="description">
+						Prevents selection on the specified element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>targetEl</b>
+									
+								</dt>
+								<dd>the element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAllListeners"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>removeAllListeners</b>(eventType)
+					
+					</div>
+					<div class="description">
+						Removes all listeners for a particular event type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type (may not be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if all listeners are removed</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+								<dd><a href="#addListener">#addListener</a></dd>
+							
+								<dd><a href="#removeListener">#removeListener</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="removeControlListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeControlListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Removes a control event listener for control events. Control events are essentially
+resize and coordinate change events.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>DwtControlEvent</dd>
+							
+								<dd><a href="#addControlListener">#addControlListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="removeDisposeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeDisposeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Removes a dispose event listener for control events. Dispose events are fired when
+a control is "destroyed" via the <a href="#dispose">#dispose</a> method call.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>DwtDisposeEvent</dd>
+							
+								<dd><a href="#addDisposeListener">#addDisposeListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+								<dd><a href="#dispose">#dispose</a></dd>
+							
+								<dd><a href="#isDisposed">#isDisposed</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="removeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeListener</b>(eventType, listener)
+					
+					</div>
+					<div class="description">
+						Removes a listener from the control.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type for which to listen (may not be <code>null</code>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener to remove (may not be <code>null</code>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+								<dd><a href="#addListener">#addListener</a></dd>
+							
+								<dd><a href="#removeAllListeners">#removeAllListeners</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="reparent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reparent</b>(newParent, index)
+					
+					</div>
+					<div class="description">
+						Re-parents the control within the component hierarchy. Unlike <i>reparentHtmlElement</i>
+which re-parents the controls <i>div</i> within the DOM hierarchy, this method re-parents
+the whole control.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>newParent</b>
+									
+								</dt>
+								<dd>the control's new parent</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									
+								</dt>
+								<dd>the index</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#reparentHtmlElement">#reparentHtmlElement</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="reparentHtmlElement"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reparentHtmlElement</b>(htmlEl, position)
+					
+					</div>
+					<div class="description">
+						Re-parents the HTML element of the control to the html element supplied as the
+parameter to this method. Note this method only re-parents the control's <i>div</i>
+element and does not affect the component hierarchy. To re-parent the control within
+the component hierarchy, use the <i>reparent</i> method.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string|HTMLElement}</span> <b>htmlEl</b>
+									
+								</dt>
+								<dd>a string representing an element ID or an HTML element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>position</b>
+									
+								</dt>
+								<dd>the position to insert the element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#reparent">#reparent</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="replaceElement"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>replaceElement</b>(elemOrId, inheritClass, inheritStyle)
+					
+					</div>
+					<div class="description">
+						Replaces the specified element with this control element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element|string}</span> <b>elemOrId</b>
+									
+								</dt>
+								<dd>the DOM element or an element id</dd>
+							
+								<dt>
+									<b>inheritClass</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>inheritStyle</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setBounds"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<b>setBounds</b>(x, y, width, height)
+					
+					</div>
+					<div class="description">
+						Sets the bounds of a control. The position type of the control must
+be absolute or else an exception is thrown. To omit setting a value set the
+actual parameter value to <i>Dwt.DEFAULT</i>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>x</b>
+									
+								</dt>
+								<dd>the x coordinate of the element (for example: 10, "10px", Dwt.DEFAULT)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>y</b>
+									
+								</dt>
+								<dd>the y coordinate of the element (for example: 10, "10px", Dwt.DEFAULT)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>width</b>
+									
+								</dt>
+								<dd>the width of the element (for example: 100, "100px", "75%", Dwt.DEFAULT)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>height</b>
+									
+								</dt>
+								<dd>the height of the element (for example: 100, "100px", "75%", Dwt.DEFAULT)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> this control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtRectangle.html">DwtRectangle</a></dd>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setClassName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setClassName</b>(className)
+					
+					</div>
+					<div class="description">
+						Sets the control class name. This also automatically sets the control CSS
+class name (i.e. the control htmlElement class name). Subclasses of <i>DwtControl</i>
+may override this method to perform a different behavior.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>className</b>
+									
+								</dt>
+								<dd>the new class name for the control</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getClassName">#getClassName</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setContent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setContent</b>(content)
+					
+					</div>
+					<div class="description">
+						Sets the content of the control HTML element to the provided
+content. Care should be taken when using this method as it can blow away all
+the content of the control which can be particularly bad if the control is
+a <i>DwtComposite</i> with children. Generally this method should be used
+controls which are being directly instantiated and used as a canvas
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>content</b>
+									
+								</dt>
+								<dd>the HTML content</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setCursor"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setCursor</b>(cursorName)
+					
+					</div>
+					<div class="description">
+						Sets the control cursor.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>cursorName</b>
+									
+								</dt>
+								<dd>the name of the new cursor</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getCursor">#getCursor</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setData"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setData</b>(key, value)
+					
+					</div>
+					<div class="description">
+						Sets the data for a given key. This method is useful for associating client data with a control.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>key</b>
+									
+								</dt>
+								<dd>the key</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the data</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getData">#getData</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setDisplay"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDisplay</b>(value)
+					
+					</div>
+					<div class="description">
+						Sets the display.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>value</b>
+									
+								</dt>
+								<dd>the display value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDisplayState"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDisplayState</b>(state)
+					
+					</div>
+					<div class="description">
+						Sets the display state.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>state</b>
+									
+								</dt>
+								<dd>the state</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDragBox"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDragBox</b>(dragBox)
+					
+					</div>
+					<div class="description">
+						Set the control drag box. The drag box handles the display of a dotted rectangle
+that is typically used to select items.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtDragBox.html">DwtDragBox</a>}</span> <b>dragBox</b>
+									
+								</dt>
+								<dd>the control drag box</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getDragBox">#getDragBox</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setDragSource"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDragSource</b>(dragSource)
+					
+					</div>
+					<div class="description">
+						Set the control drag source. The drag source binds the drag-and-drop system with
+an application. Setting a control drag source makes the control "draggable".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtDragSource.html">DwtDragSource</a>}</span> <b>dragSource</b>
+									
+								</dt>
+								<dd>the control drag source</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getDragSource">#getDragSource</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setDropTarget"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDropTarget</b>(dropTarget)
+					
+					</div>
+					<div class="description">
+						Sets the drop target for the control. The drop target binds the drag-and-drop system with
+an application. Setting a control drop target makes the control a potential drop
+target within an application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtDropTarget.html">DwtDropTarget</a>}</span> <b>dropTarget</b>
+									
+								</dt>
+								<dd>the control drop target</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getDropTarget">#getDropTarget</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setEnabled"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setEnabled</b>(enabled, setHtmlElement)
+					
+					</div>
+					<div class="description">
+						Sets the control enabled state. If <code>setHtmlElement</code> is true, then
+this method will also set the control HTML element disabled attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd><code>true</code> if the control is enabled</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>setHtmlElement</b>
+									
+								</dt>
+								<dd><code>true</code> to set the control HTML element disabled attribute</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setHandler"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setHandler</b>(eventType, hdlrFunc)
+					
+					</div>
+					<div class="description">
+						Sets the event handling function for a given event type. This method
+should be used judiciously as it can lead to unexpected results (for example if
+overriding the control's mouse handlers). This method calls through to <i>Dwt.setHandler</i>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>eventType</b>
+									
+								</dt>
+								<dd>the event type (defined in {@see DwtEvent}) to override</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>hdlrFunc</b>
+									
+								</dt>
+								<dd>Event handler function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/DwtEvent.html">DwtEvent</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setHtmlElementId"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setHtmlElementId</b>(id)
+					
+					</div>
+					<div class="description">
+						Sets the control HTML element id attribute.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>the new element Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setLocation"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<b>setLocation</b>(x, y)
+					
+					</div>
+					<div class="description">
+						Sets the location of the control. The position style of the control must
+be absolute or else an exception is thrown. To only set one of the coordinates,
+pass in a value of <i>Dwt.DEFAULT</i> for the coordinate for which the value is
+not to be set. Any <i>DwtEvent.CONTROL</i> listeners registered on the control
+will be called.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>x</b>
+									
+								</dt>
+								<dd>the x coordinate of the element (for example: 10, "10px", Dwt.DEFAULT)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>y</b>
+									
+								</dt>
+								<dd>the y coordinate of the element (for example: 10, "10px", Dwt.DEFAULT)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> this control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#getLocation">#getLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+								<dd><a href="#setSize">#setSize</a></dd>
+							
+								<dd><a href="../symbols/Dwt.html">Dwt</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setPosition"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setPosition</b>(position)
+					
+					</div>
+					<div class="description">
+						Sets the control position. The position determines the control's
+location within the context of which it was created. Possible values are:
+<ul>
+<li><a href="../symbols/DwtControl.html#.STATIC_STYLE">DwtControl.STATIC_STYLE</a> - Allow browser to control content flow</li>
+<li><a href="../symbols/DwtControl.html#.ABSOLUTE_STYLE">DwtControl.ABSOLUTE_STYLE</a> - Allow content to be positioned relative to parent or body</li>
+<li><a href="../symbols/DwtControl.html#.RELATIVE_STYLE">DwtControl.RELATIVE_STYLE</a> - Allow browser to control content flow but relative to parent</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>position</b>
+									
+								</dt>
+								<dd>the control new position</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setScrollStyle"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setScrollStyle</b>(scrollStyle)
+					
+					</div>
+					<div class="description">
+						Sets the control scroll style. The scroll style determines the control's
+behavior when content overflows its div's boundaries. Possible values are:
+<ul>
+<li><a href="../symbols/Dwt.html#.CLIP">Dwt.CLIP</a> - Clip on overflow</li>
+<li><a href="../symbols/Dwt.html#.VISIBLE">Dwt.VISIBLE</a> - Allow overflow to be visible</li>
+<li><a href="../symbols/Dwt.html#.SCROLL">Dwt.SCROLL</a> - Automatically create scrollbars if content overflows</li>
+<li><a href="../symbols/Dwt.html#.FIXED_SCROLL">Dwt.FIXED_SCROLL</a> - Always have scrollbars whether content overflows or not</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>scrollStyle</b>
+									
+								</dt>
+								<dd>the control new scroll style</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSize"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>
+					<b>setSize</b>(width, height)
+					
+					</div>
+					<div class="description">
+						Sets the size of the control
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>width</b>
+									
+								</dt>
+								<dd>the width of the control (for example: 100, "100px", "75%", Dwt.DEFAULT)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number|string}</span> <b>height</b>
+									
+								</dt>
+								<dd>the height of the control (for example: 100, "100px", "75%", Dwt.DEFAULT)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span> this control</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#getBounds">#getBounds</a></dd>
+							
+								<dd><a href="#getSize">#getSize</a></dd>
+							
+								<dd><a href="#setLocation">#setLocation</a></dd>
+							
+								<dd><a href="#getH">#getH</a></dd>
+							
+								<dd><a href="#getW">#getW</a></dd>
+							
+								<dd><a href="#getX">#getX</a></dd>
+							
+								<dd><a href="#getXW">#getXW</a></dd>
+							
+								<dd><a href="#getY">#getY</a></dd>
+							
+								<dd><a href="#getYH">#getYH</a></dd>
+							
+								<dd><a href="#setBounds">#setBounds</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setToolTipContent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setToolTipContent</b>(toolTip, useBrowser)
+					
+					</div>
+					<div class="description">
+						Sets tooltip content for the control. The toolTip passed in may be plain text,
+HTML or an object containing a callback function.
+If DwtControl.useBrowserTooltips is set to true, and the tooltip does not have
+HTML, returns, or tabs, use a browser tooltip by setting the 'title' attribute
+on the element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string/object}</span> <b>toolTip</b>
+									
+								</dt>
+								<dd>the tooltip content</dd>
+							
+								<dt>
+									<b>useBrowser</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setVisibility"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setVisibility</b>(visible)
+					
+					</div>
+					<div class="description">
+						Sets the visibility of the control HTML element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>visible</b>
+									
+								</dt>
+								<dd>if <code>true</code> then the control is visible</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>Dwt#setVisibility</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setVisible"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setVisible</b>(visible)
+					
+					</div>
+					<div class="description">
+						Sets the the visible state of the control HTML element. <i>Note: Gets style
+"display: none", don't confuse with setVisibility).</i>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>visible</b>
+									
+								</dt>
+								<dd>if <code>true</code>, the control should be displayed; if <code>false</code>, the control should not be displayed</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>Dwt#setVisible</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setZIndex"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setZIndex</b>(idx)
+					
+					</div>
+					<div class="description">
+						Sets the z-index for the control HTML element. Since z-index is only relevant among peer
+elements, we make sure that all elements that are being displayed via z-index hang off the
+main shell.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>idx</b>
+									
+								</dt>
+								<dd>the new z-index for this element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showAlert"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showAlert</b>(alert)
+					
+					</div>
+					<div class="description">
+						Shows an alert in the control. For example, to indicate that a new message has arrived.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>alert</b>
+									
+								</dt>
+								<dd>the alert</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".showToolTip"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtControl.</span><b>showToolTip</b>(content, x, y, obj, hoverEv)
+					
+					</div>
+					<div class="description">
+						A helper method to show the toolTips.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>content</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>x</b>
+									
+								</dt>
+								<dd>[Number] The x coordinate of the toolTip.</dd>
+							
+								<dt>
+									<b>y</b>
+									
+								</dt>
+								<dd>[Number] The y coordinate of the toolTip.</dd>
+							
+								<dt>
+									<b>obj</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>hoverEv</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="zShow"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>zShow</b>(show)
+					
+					</div>
+					<div class="description">
+						Convenience function to toggle visibility using z-index. It uses the two lowest level
+z-indexes (<a href="../symbols/Dwt.html#.Z_VIEW">Dwt.Z_VIEW</a> and <a href="../symbols/Dwt.html#.Z_HIDDEN">Dwt.Z_HIDDEN</a> respectively). Any further
+stacking will have to use <a href="#setZIndex">#setZIndex</a> directly.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>show</b>
+									
+								</dt>
+								<dd>if <code>true</code>, show the element; <code>false</code> to hide the element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setZIndex">#setZIndex</a></dd>
+							
+							</dl>
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:27 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

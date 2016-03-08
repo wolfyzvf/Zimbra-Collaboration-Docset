@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmResourceList</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmResourceList
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmContactList.html">ZmContactList</a>.<br />
+				
+				<br>
+				This class represents a list of calendar resources. A calendar resource can be a
+location or a piece of equipment. All calendar resource records are stored in the GAL.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_model_ZmResourceList.js.html">ZmResourceList.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmResourceList.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmResourceList.html#constructor">ZmResourceList</a></b>(resType, search)
+							</div>
+							<div class="description">Create a new, empty calendar resources list.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmResourceList.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResourceList.html#getResourceByEmail">getResourceByEmail</a></b>(address)
+								</div>
+								<div class="description">Gets the resource with the given address, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResourceList.html#getResourceByName">getResourceByName</a></b>(name)
+								</div>
+								<div class="description">Gets the resource with the given name, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResourceList.html#load">load</a></b>(batchCmd)
+								</div>
+								<div class="description">Loads the list.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResourceList.html#searchCalResources">searchCalResources</a></b>(params)
+								</div>
+								<div class="description">Searches the calendar resources.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmContactList.html">ZmContactList</a>: </dt><dd><a href="../symbols/ZmContactList.html#createLocal">createLocal</a>, <a href="../symbols/ZmContactList.html#deleteItems">deleteItems</a>, <a href="../symbols/ZmContactList.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmContactList.html#getById">getById</a>, <a href="../symbols/ZmContactList.html#getContactByEmail">getContactByEmail</a>, <a href="../symbols/ZmContactList.html#getContactByIMAddress">getContactByIMAddress</a>, <a href="../symbols/ZmContactList.html#getContactByPhone">getContactByPhone</a>, <a href="../symbols/ZmContactList.html#getIdHash">getIdHash</a>, <a href="../symbols/ZmContactList.html#getSubList">getSubList</a>, <a href="../symbols/ZmContactList.html#moveItems">moveItems</a>, <a href="../symbols/ZmContactList.html#moveLocal">moveLocal</a>, <a href="../symbols/ZmContactList.html#setIsGal">setIsGal</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmList.html">ZmList</a>: </dt><dd><a href="../symbols/ZmList.html#add">add</a>, <a href="../symbols/ZmList.html#addFromDom">addFromDom</a>, <a href="../symbols/ZmList.html#cache">cache</a>, <a href="../symbols/ZmList.html#clear">clear</a>, <a href="../symbols/ZmList.html#copyItems">copyItems</a>, <a href="../symbols/ZmList.html#create">create</a>, <a href="../symbols/ZmList.html#flagItems">flagItems</a>, <a href="../symbols/ZmList.html#get">get</a>, <a href="../symbols/ZmList.html#getArray">getArray</a>, <a href="../symbols/ZmList.html#getVector">getVector</a>, <a href="../symbols/ZmList.html#hasMore">hasMore</a>, <a href="../symbols/ZmList.html#indexOf">indexOf</a>, <a href="../symbols/ZmList.html#modifyItem">modifyItem</a>, <a href="../symbols/ZmList.html#modifyLocal">modifyLocal</a>, <a href="../symbols/ZmList.html#notifyCreate">notifyCreate</a>, <a href="../symbols/ZmList.html#remove">remove</a>, <a href="../symbols/ZmList.html#removeAllTags">removeAllTags</a>, <a href="../symbols/ZmList.html#set">set</a>, <a href="../symbols/ZmList.html#setHasMore">setHasMore</a>, <a href="../symbols/ZmList.html#size">size</a>, <a href="../symbols/ZmList.html#tagItems">tagItems</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmResourceList</b>(resType, search)
+				</div>
+				
+				<div class="description">
+					Create a new, empty calendar resources list.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>resType</b>
+								
+							</dt>
+								<dd>the type of resources (location or equipment)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmSearch.html">ZmSearch</a>}</span>  <b>search</b>
+								
+							</dt>
+								<dd>the search that generated this list</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getResourceByEmail"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmResource.html">ZmResource</a>}</span>
+					<b>getResourceByEmail</b>(address)
+					
+					</div>
+					<div class="description">
+						Gets the resource with the given address, if any. Canonical list only.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>address</b>
+									
+								</dt>
+								<dd>an email address</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmResource.html">ZmResource</a>}</span> the resource or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getResourceByName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmResource.html">ZmResource</a>}</span>
+					<b>getResourceByName</b>(name)
+					
+					</div>
+					<div class="description">
+						Gets the resource with the given name, if any. Canonical list only.
+Since names aren't guaranteed to be unique, this returns the last resource
+with the given name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the resource name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmResource.html">ZmResource</a>}</span> the resource or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="load"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>load</b>(batchCmd)
+					
+					</div>
+					<div class="description">
+						Loads the list.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="searchCalResources"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>searchCalResources</b>(params)
+					
+					</div>
+					<div class="description">
+						Searches the calendar resources.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:38 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

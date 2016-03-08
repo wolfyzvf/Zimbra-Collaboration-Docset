@@ -1,0 +1,357 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+<span class='line'>  7</span>  * you may not use this file except in compliance with the License. 
+<span class='line'>  8</span>  * You may obtain a copy of the License at: http://www.zimbra.com/license
+<span class='line'>  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+<span class='line'> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution 
+<span class='line'> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+<span class='line'> 12</span>  * 
+<span class='line'> 13</span>  * Software distributed under the License is distributed on an "AS IS" basis, 
+<span class='line'> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+<span class='line'> 15</span>  * See the License for the specific language governing rights and limitations under the License. 
+<span class='line'> 16</span>  * The Original Code is Zimbra Open Source Web Client. 
+<span class='line'> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc. 
+<span class='line'> 18</span>  * All portions of the code are Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+<span class='line'> 19</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 20</span>  */</span><span class="WHIT">
+<span class='line'> 21</span> 
+<span class='line'> 22</span> </span><span class="COMM">/**
+<span class='line'> 23</span>  * Creates a checkbox.
+<span class='line'> 24</span>  * @constructor
+<span class='line'> 25</span>  * @class
+<span class='line'> 26</span>  * This class represents a checkbox.
+<span class='line'> 27</span>  * 
+<span class='line'> 28</span>  * @param {hash}	params	a hash of parameters
+<span class='line'> 29</span>  * @param {DwtComposite}	params.parent	the parent widget
+<span class='line'> 30</span>  * @param {DwtCheckbox.TEXT_LEFT|DwtCheckbox.TEXT_RIGHT}       [params.style=DwtCheckbox.TEXT_RIGHT] 	the text style
+<span class='line'> 31</span>  * @param {string}       params.name		the input control name (required for IE)
+<span class='line'> 32</span>  * @param {string}       params.value     the input control value
+<span class='line'> 33</span>  * @param {boolean}       params.checked	the input control checked status (required for IE)
+<span class='line'> 34</span>  * @param {string}       params.className	the CSS class
+<span class='line'> 35</span>  * @param {constant}       params.posStyle	the positioning style (see {@link Dwt})
+<span class='line'> 36</span>  * @param {string}       params.id		an explicit ID to use for the control's HTML element
+<span class='line'> 37</span>  * @param {number}       params.index 	the index at which to add this control among parent's children
+<span class='line'> 38</span>  * 
+<span class='line'> 39</span>  *  @extends		DwtControl
+<span class='line'> 40</span>  */</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="NAME">DwtCheckbox</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">arguments.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 43</span> 
+<span class='line'> 44</span> </span><span class="WHIT">	</span><span class="NAME">params</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Dwt.getParams</span><span class="PUNC">(</span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.PARAMS</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">	</span><span class="NAME">params.className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.className</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">"DwtCheckbox"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="NAME">DwtControl.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> 
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="NAME">this._textPosition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.DEFAULT_POSITION</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">	</span><span class="NAME">this._initName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.name</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">    </span><span class="NAME">this._initValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.value</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">	</span><span class="NAME">this._initChecked</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.checked</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">	</span><span class="NAME">this._createHtml</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 55</span> 
+<span class='line'> 56</span> </span><span class="NAME">DwtCheckbox.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtControl</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="NAME">DwtCheckbox.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 58</span> 
+<span class='line'> 59</span> </span><span class="NAME">DwtCheckbox.prototype.isDwtCheckbox</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="NAME">DwtCheckbox.prototype.isInputControl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="NAME">DwtCheckbox.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"DwtCheckbox"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 62</span> 
+<span class='line'> 63</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="COMM">// Constants</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="NAME">DwtCheckbox.PARAMS</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">	</span><span class="STRN">"parent"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">	</span><span class="STRN">"style"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">	</span><span class="STRN">"name"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">	</span><span class="STRN">"checked"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">	</span><span class="STRN">"className"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">	</span><span class="STRN">"posStyle"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">	</span><span class="STRN">"id"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="WHIT">	</span><span class="STRN">"index"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">    </span><span class="STRN">"value"</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="COMM">/**
+<span class='line'> 78</span>  * Defines the "left" text style position.
+<span class='line'> 79</span>  */</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="NAME">DwtCheckbox.TEXT_LEFT</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"left"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="COMM">/**
+<span class='line'> 82</span>  * Defines the "right" text style position.
+<span class='line'> 83</span>  */</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="NAME">DwtCheckbox.TEXT_RIGHT</span><span class="WHIT">			</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"right"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="COMM">/**
+<span class='line'> 86</span>  * Defines the default text style position.
+<span class='line'> 87</span>  */</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="NAME">DwtCheckbox.DEFAULT_POSITION</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.TEXT_RIGHT</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 89</span> 
+<span class='line'> 90</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="COMM">// Data</span><span class="WHIT">
+<span class='line'> 92</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 93</span> </span><span class="NAME">DwtCheckbox.prototype.TEMPLATE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"dwt.Widgets#DwtCheckbox"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 94</span> 
+<span class='line'> 95</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 96</span> </span><span class="COMM">// Public methods</span><span class="WHIT">
+<span class='line'> 97</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="NAME">DwtCheckbox.prototype.getTabGroupMember</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 99</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._inputEl</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>102</span> 
+<span class='line'>103</span> </span><span class="NAME">DwtCheckbox.prototype.focus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>104</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>105</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>106</span> </span><span class="WHIT">		</span><span class="NAME">this._inputEl.focus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>107</span> </span><span class="WHIT">		</span><span class="NAME">DwtShell.getShell</span><span class="PUNC">(</span><span class="NAME">window</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">grabFocus</span><span class="PUNC">(</span><span class="NAME">this.getTabGroupMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>108</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>109</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>110</span> 
+<span class='line'>111</span> </span><span class="NAME">DwtCheckbox.prototype.blur</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="WHIT">		</span><span class="NAME">this._inputEl.blur</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>115</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>116</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>117</span> 
+<span class='line'>118</span> </span><span class="COMM">// listeners</span><span class="WHIT">
+<span class='line'>119</span> 
+<span class='line'>120</span> </span><span class="COMM">/**
+<span class='line'>121</span>  * Adds a selection listener.
+<span class='line'>122</span>  * 
+<span class='line'>123</span>  * @param	{AjxListener}	listener		the listener
+<span class='line'>124</span>  */</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="NAME">DwtCheckbox.prototype.addSelectionListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="WHIT">	</span><span class="NAME">this.addListener</span><span class="PUNC">(</span><span class="NAME">DwtEvent.SELECTION</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>128</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>129</span> 
+<span class='line'>130</span> </span><span class="COMM">/**
+<span class='line'>131</span>  * Removes a selection listener.
+<span class='line'>132</span>  * 
+<span class='line'>133</span>  * @param	{AjxListener}	listener		the listener
+<span class='line'>134</span>  */</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="NAME">DwtCheckbox.prototype.removeSelectionListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>137</span> </span><span class="WHIT">	</span><span class="NAME">this.removeListener</span><span class="PUNC">(</span><span class="NAME">DwtEvent.SELECTION</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>139</span> 
+<span class='line'>140</span> </span><span class="COMM">// properties</span><span class="WHIT">
+<span class='line'>141</span> 
+<span class='line'>142</span> </span><span class="COMM">/**
+<span class='line'>143</span>  * Sets the enabled state.
+<span class='line'>144</span>  * 
+<span class='line'>145</span>  * @param	{boolean}	enabled		if &lt;code>true&lt;/code>, the checkbox is enabled
+<span class='line'>146</span>  */</span><span class="WHIT">
+<span class='line'>147</span> </span><span class="NAME">DwtCheckbox.prototype.setEnabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>148</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>149</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">enabled</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">this._enabled</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="WHIT">		</span><span class="NAME">DwtControl.prototype.setEnabled.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="WHIT">		</span><span class="NAME">this._inputEl.disabled</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">enabled</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>152</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">enabled</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">"Text"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"DisabledText"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textElLeft</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">this._textElLeft.className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textElRight</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">this._textElRight.className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>156</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>157</span> 
+<span class='line'>158</span> </span><span class="COMM">/**
+<span class='line'>159</span>  * Sets the selected state.
+<span class='line'>160</span>  * 
+<span class='line'>161</span>  * @param	{boolean}	selected		if &lt;code>true&lt;/code>, the checkbox is selected
+<span class='line'>162</span>  */</span><span class="WHIT">
+<span class='line'>163</span> </span><span class="NAME">DwtCheckbox.prototype.setSelected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">selected</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this._inputEl.checked</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">selected</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">		</span><span class="NAME">this._inputEl.checked</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">selected</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>169</span> 
+<span class='line'>170</span> </span><span class="COMM">/**
+<span class='line'>171</span>  * Checks if the checkbox is selected state.
+<span class='line'>172</span>  * 
+<span class='line'>173</span>  * @return	{boolean}	&lt;code>true&lt;/code> if the checkbox is selected
+<span class='line'>174</span>  */</span><span class="WHIT">
+<span class='line'>175</span> </span><span class="NAME">DwtCheckbox.prototype.isSelected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>176</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>177</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._inputEl</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this._inputEl.checked</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>178</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>179</span> 
+<span class='line'>180</span> </span><span class="COMM">/**
+<span class='line'>181</span>  * Sets the checkbox text.
+<span class='line'>182</span>  * 
+<span class='line'>183</span>  * @param		{string}	text		the text
+<span class='line'>184</span>  */</span><span class="WHIT">
+<span class='line'>185</span> </span><span class="NAME">DwtCheckbox.prototype.setText</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>186</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>187</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textEl</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this._text</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">text</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="WHIT">		</span><span class="NAME">this._text</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">text</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">		</span><span class="NAME">this._textEl.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">text</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>190</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>192</span> 
+<span class='line'>193</span> </span><span class="COMM">/**
+<span class='line'>194</span>  * Gets the checkbox text.
+<span class='line'>195</span>  * 
+<span class='line'>196</span>  * @return	{string}	the text
+<span class='line'>197</span>  */</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="NAME">DwtCheckbox.prototype.getText</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._text</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>202</span> 
+<span class='line'>203</span> </span><span class="COMM">/**
+<span class='line'>204</span>  * Sets the text position.
+<span class='line'>205</span>  * 
+<span class='line'>206</span>  * @param	{DwtCheckbox.TEXT_LEFT|DwtCheckbox.TEXT_RIGHT}		position	the position
+<span class='line'>207</span>  */</span><span class="WHIT">
+<span class='line'>208</span> </span><span class="NAME">DwtCheckbox.prototype.setTextPosition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>209</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">position</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>210</span> </span><span class="WHIT">	</span><span class="NAME">this._textEl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">position</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.TEXT_LEFT</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">this._textElLeft</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this._textElRight</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>211</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textPosition</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">position</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>212</span> </span><span class="WHIT">		</span><span class="NAME">this._textPosition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">position</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>213</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textElLeft</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">this._textElLeft.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>214</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textElRight</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">this._textElRight.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>215</span> </span><span class="WHIT">		</span><span class="NAME">this.setText</span><span class="PUNC">(</span><span class="NAME">this._text</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>216</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>217</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>218</span> 
+<span class='line'>219</span> </span><span class="COMM">/**
+<span class='line'>220</span>  * Gets the text position.
+<span class='line'>221</span>  * 
+<span class='line'>222</span>  * @return	{DwtCheckbox.TEXT_LEFT|DwtCheckbox.TEXT_RIGHT}		the position
+<span class='line'>223</span>  */</span><span class="WHIT">
+<span class='line'>224</span> </span><span class="NAME">DwtCheckbox.prototype.getTextPosition</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>225</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>226</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._textPosition</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>227</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>228</span> 
+<span class='line'>229</span> </span><span class="COMM">/**
+<span class='line'>230</span>  * Sets the value.
+<span class='line'>231</span>  * 
+<span class='line'>232</span>  * @param	{string}		value		the value
+<span class='line'>233</span>  */</span><span class="WHIT">
+<span class='line'>234</span> </span><span class="NAME">DwtCheckbox.prototype.setValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>235</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">value</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>236</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">object</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._inputEl</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">object.value</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NAME">value</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="WHIT">        </span><span class="NAME">object.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">value</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>239</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>241</span> 
+<span class='line'>242</span> </span><span class="COMM">/**
+<span class='line'>243</span>  * Gets the value.
+<span class='line'>244</span>  * 
+<span class='line'>245</span>  * @return		{string}		the value
+<span class='line'>246</span>  */</span><span class="WHIT">
+<span class='line'>247</span> </span><span class="NAME">DwtCheckbox.prototype.getValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>248</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>249</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">object</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._inputEl</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>250</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">object.value</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">object.value</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.getText</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>251</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>252</span> 
+<span class='line'>253</span> </span><span class="COMM">/**
+<span class='line'>254</span>  * Gets the input element.
+<span class='line'>255</span>  * 
+<span class='line'>256</span>  * @return		{Element}		the element
+<span class='line'>257</span>  */</span><span class="WHIT">
+<span class='line'>258</span> </span><span class="NAME">DwtCheckbox.prototype.getInputElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>259</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>260</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._inputEl</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>261</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>262</span> 
+<span class='line'>263</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>264</span> </span><span class="COMM">// DwtControl methods</span><span class="WHIT">
+<span class='line'>265</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>266</span> 
+<span class='line'>267</span> </span><span class="NAME">DwtCheckbox.prototype.setToolTipContent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">content</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>268</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">content</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.__mouseEventsSet</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>269</span> </span><span class="WHIT">        </span><span class="COMM">// NOTE: We need mouse events in order to initiate tooltips on hover.</span><span class="WHIT">
+<span class='line'>270</span> </span><span class="WHIT">        </span><span class="COMM">// TODO: This should be done transparently in DwtControl for all</span><span class="WHIT">
+<span class='line'>271</span> </span><span class="WHIT">        </span><span class="COMM">// TODO: controls with tooltips.</span><span class="WHIT">
+<span class='line'>272</span> </span><span class="WHIT">        </span><span class="NAME">this.__mouseEventsSet</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>273</span> </span><span class="WHIT">        </span><span class="NAME">this._setMouseEvents</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>274</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>275</span> </span><span class="WHIT">    </span><span class="NAME">DwtControl.prototype.setToolTipContent.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>276</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>277</span> 
+<span class='line'>278</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>279</span> </span><span class="COMM">// Protected methods</span><span class="WHIT">
+<span class='line'>280</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>281</span> 
+<span class='line'>282</span> </span><span class="COMM">/**
+<span class='line'>283</span>  * The input field inherits the id for accessibility purposes.
+<span class='line'>284</span>  * 
+<span class='line'>285</span>  * @private
+<span class='line'>286</span>  */</span><span class="WHIT">
+<span class='line'>287</span> </span><span class="NAME">DwtCheckbox.prototype._replaceElementHook</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>288</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">oel</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">nel</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">inheritClass</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">inheritStyle</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>289</span> </span><span class="WHIT">	</span><span class="NAME">nel</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getInputElement</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>290</span> </span><span class="WHIT">	</span><span class="NAME">DwtControl.prototype._replaceElementHook.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">oel</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">nel</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">inheritClass</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">inheritStyle</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>291</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">oel.id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>292</span> </span><span class="WHIT">		</span><span class="NAME">this.setHtmlElementId</span><span class="PUNC">(</span><span class="NAME">oel.id</span><span class="PUNC">+</span><span class="STRN">"_control"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>293</span> </span><span class="WHIT">		</span><span class="NAME">nel.id</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">oel.id</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>294</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._textEl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>295</span> </span><span class="WHIT">			</span><span class="NAME">this._textEl.setAttribute</span><span class="PUNC">(</span><span class="NAME">AjxEnv.isIE</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">"htmlFor"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"for"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">oel.id</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>296</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>297</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>298</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>299</span> 
+<span class='line'>300</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>301</span> </span><span class="COMM">// Private methods</span><span class="WHIT">
+<span class='line'>302</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>303</span> 
+<span class='line'>304</span> </span><span class="NAME">DwtCheckbox.prototype._createHtml</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>305</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">templateId</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>306</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">data</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this._htmlElId</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>307</span> </span><span class="WHIT">	</span><span class="NAME">this._createHtmlFromTemplate</span><span class="PUNC">(</span><span class="NAME">templateId</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this.TEMPLATE</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>308</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>309</span> 
+<span class='line'>310</span> </span><span class="NAME">DwtCheckbox.prototype._createHtmlFromTemplate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>311</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">templateId</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>312</span> </span><span class="WHIT">	</span><span class="COMM">// NOTE: If  you don't set the name and checked status when</span><span class="WHIT">
+<span class='line'>313</span> </span><span class="WHIT">	</span><span class="COMM">//       creating checkboxes and radio buttons on IE, they will</span><span class="WHIT">
+<span class='line'>314</span> </span><span class="WHIT">	</span><span class="COMM">//       not take the first programmatic value. So we pass in</span><span class="WHIT">
+<span class='line'>315</span> </span><span class="WHIT">	</span><span class="COMM">//       the init values from the constructor.</span><span class="WHIT">
+<span class='line'>316</span> </span><span class="WHIT">	</span><span class="NAME">data.name</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._initName</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">this._htmlElId</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>317</span> </span><span class="WHIT">    </span><span class="NAME">data.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._initValue</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>318</span> </span><span class="WHIT">	</span><span class="NAME">data.checked</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Boolean</span><span class="PUNC">(</span><span class="NAME">this._initChecked</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">"checked"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>319</span> </span><span class="WHIT">	</span><span class="NAME">DwtControl.prototype._createHtmlFromTemplate.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">templateId</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>320</span> </span><span class="WHIT">	</span><span class="NAME">this._inputEl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">data.id</span><span class="PUNC">+</span><span class="STRN">"_input"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>321</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>322</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">keyboardMgr</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtShell.getShell</span><span class="PUNC">(</span><span class="NAME">window</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getKeyboardMgr</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>323</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">handleFocus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxCallback.simpleClosure</span><span class="PUNC">(</span><span class="NAME">keyboardMgr.grabFocus</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">keyboardMgr</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.getTabGroupMember</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>324</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.setHandler</span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONFOCUS</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">handleFocus</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>325</span> </span><span class="WHIT">		</span><span class="NAME">Dwt.setHandler</span><span class="PUNC">(</span><span class="NAME">this._inputEl</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtEvent.ONCLICK</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.__handleClick</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>326</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>327</span> </span><span class="WHIT">	</span><span class="NAME">this._textElLeft</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">data.id</span><span class="PUNC">+</span><span class="STRN">"_text_left"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>328</span> </span><span class="WHIT">	</span><span class="NAME">this._textElRight</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">data.id</span><span class="PUNC">+</span><span class="STRN">"_text_right"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>329</span> </span><span class="WHIT">	</span><span class="NAME">this.setTextPosition</span><span class="PUNC">(</span><span class="NAME">this._textPosition</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>330</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>331</span> 
+<span class='line'>332</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>333</span> </span><span class="COMM">// Private functions</span><span class="WHIT">
+<span class='line'>334</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'>335</span> 
+<span class='line'>336</span> </span><span class="NAME">DwtCheckbox.__handleClick</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>337</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">evt</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>338</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">event</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getEvent</span><span class="PUNC">(</span><span class="NAME">evt</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>339</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">target</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtUiEvent.getTarget</span><span class="PUNC">(</span><span class="NAME">event</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>340</span> 
+<span class='line'>341</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">selEv</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtShell.selectionEvent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>342</span> </span><span class="WHIT">	</span><span class="NAME">DwtUiEvent.copy</span><span class="PUNC">(</span><span class="NAME">selEv</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">event</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>343</span> </span><span class="WHIT">	</span><span class="NAME">selEv.item</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>344</span> </span><span class="WHIT">	</span><span class="NAME">selEv.detail</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">target.checked</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>345</span> 
+<span class='line'>346</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">checkbox</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtControl.findControl</span><span class="PUNC">(</span><span class="NAME">target</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>347</span> </span><span class="WHIT">	</span><span class="NAME">checkbox.setSelected</span><span class="PUNC">(</span><span class="NAME">target.checked</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>348</span> </span><span class="WHIT">	</span><span class="NAME">checkbox.notifyListeners</span><span class="PUNC">(</span><span class="NAME">DwtEvent.SELECTION</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">selEv</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>349</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>350</span> </span></pre></body></html>

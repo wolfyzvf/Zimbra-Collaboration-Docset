@@ -1,0 +1,1461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtSelect</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtSelect
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtButton.html">DwtButton</a>
+
+TODO: add option to keep options sorted by display text.<br />
+				
+				<br>
+				Widget to replace the native select element.
+<p>
+Note: Currently this does not support multiple selection.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtSelect.js.html">DwtSelect.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtSelect.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtSelect.html#constructor">DwtSelect</a></b>(params, layout)
+							</div>
+							<div class="description">Creates a select element.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtSelect.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#addChangeListener">addChangeListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a change listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#addOption">addOption</a></b>(option, selected, value, image)
+								</div>
+								<div class="description">Adds an option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#clearOptions">clearOptions</a></b>()
+								</div>
+								<div class="description">Clears the options.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#disable">disable</a></b>()
+								</div>
+								<div class="description">Disables the select.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#enable">enable</a></b>()
+								</div>
+								<div class="description">Enables the select.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#enableOption">enableOption</a></b>(value, enabled)
+								</div>
+								<div class="description">Enables or disables an option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getIndexForValue">getIndexForValue</a></b>(value)
+								</div>
+								<div class="description">Gets the index for a given value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getName">getName</a></b>()
+								</div>
+								<div class="description">Gets the select name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getOptionCount">getOptionCount</a></b>()
+								</div>
+								<div class="description">Gets the option count.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getOptions">getOptions</a></b>()
+								</div>
+								<div class="description">Gets the options.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getOptionWithHandle">getOptionWithHandle</a></b>(optionHandle)
+								</div>
+								<div class="description">Gets the option .</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getOptionWithValue">getOptionWithValue</a></b>(optionValue)
+								</div>
+								<div class="description">Gets the option for a given value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getSelectedIndex">getSelectedIndex</a></b>()
+								</div>
+								<div class="description">Gets the selected option index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getSelectedOption">getSelectedOption</a></b>()
+								</div>
+								<div class="description">Gets the selected option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#getValue">getValue</a></b>()
+								</div>
+								<div class="description">Gets the selected value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#removeOption">removeOption</a></b>(option)
+								</div>
+								<div class="description">Removes an option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#removeOptionWithValue">removeOptionWithValue</a></b>(value)
+								</div>
+								<div class="description">Removes an option based on its value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#rename">rename</a></b>(value, newValue)
+								</div>
+								<div class="description">Renames an option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#setName">setName</a></b>(name)
+								</div>
+								<div class="description">Sets the select name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#setSelected">setSelected</a></b>(optionHandle)
+								</div>
+								<div class="description">Sets the option as the selected option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#setSelectedOption">setSelectedOption</a></b>(optionObj)
+								</div>
+								<div class="description">Sets the selected option.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#setSelectedValue">setSelectedValue</a></b>(optionValue)
+								</div>
+								<div class="description">Sets the selected value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtSelect.html#size">size</a></b>()
+								</div>
+								<div class="description">Gets the count of options.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtSelect</b>(params, layout)
+				</div>
+				
+				<div class="description">
+					Creates a select element.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{array}</span>  <b>params.options</b>
+								
+							</dt>
+								<dd>a list of options. This can be either an array of <a href="../symbols/DwtSelectOption.html">DwtSelectOption</a> or {String} objects.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.posStyle</b>
+								
+							</dt>
+								<dd>the positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>layout</b>
+								<i>Optional, Default: true</i>
+							</dt>
+								<dd>layout to use: DwtMenu.LAYOUT_STACK, DwtMenu.LAYOUT_CASCADE or DwtMenu.LAYOUT_SCROLL. A value of [true] defaults to DwtMenu.LAYOUT_CASCADE and a value of [false] defaults to DwtMenu.LAYOUT_STACK.</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addChangeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a change listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addOption"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>addOption</b>(option, selected, value, image)
+					
+					</div>
+					<div class="description">
+						Adds an option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string|<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span> <b>option</b>
+									
+								</dt>
+								<dd>a {String} for the option value or the <a href="../symbols/DwtSelectOption.html">DwtSelectOption</a> object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>selected</b>
+									<i>Optional</i>
+								</dt>
+								<dd>indicates whether option should be the selected option</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>if the option parameter is a <a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>, this will override the value already set in the option.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>image</b>
+									
+								</dt>
+								<dd>(optional)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> a handle to the newly added option
+
+TODO: support adding at an index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearOptions"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearOptions</b>()
+					
+					</div>
+					<div class="description">
+						Clears the options.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="disable"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>disable</b>()
+					
+					</div>
+					<div class="description">
+						Disables the select.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="enable"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>enable</b>()
+					
+					</div>
+					<div class="description">
+						Enables the select.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="enableOption"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>enableOption</b>(value, enabled)
+					
+					</div>
+					<div class="description">
+						Enables or disables an option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the value of the option to enable/disable</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd>if <code>true</code>, enable the option</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIndexForValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getIndexForValue</b>(value)
+					
+					</div>
+					<div class="description">
+						Gets the index for a given value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the select name.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOptionCount"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getOptionCount</b>()
+					
+					</div>
+					<div class="description">
+						Gets the option count.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the option count</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOptions"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span>
+					<b>getOptions</b>()
+					
+					</div>
+					<div class="description">
+						Gets the options.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> a vector of <a href="../symbols/DwtSelectOption.html">DwtSelectOption</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOptionWithHandle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span>
+					<b>getOptionWithHandle</b>(optionHandle)
+					
+					</div>
+					<div class="description">
+						Gets the option .
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>optionHandle</b>
+									
+								</dt>
+								<dd>a handle to the option</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span> the option</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#addOption">#addOption</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getOptionWithValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span>
+					<b>getOptionWithValue</b>(optionValue)
+					
+					</div>
+					<div class="description">
+						Gets the option for a given value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>optionValue</b>
+									
+								</dt>
+								<dd>the value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span> the option</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSelectedIndex"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getSelectedIndex</b>()
+					
+					</div>
+					<div class="description">
+						Gets the selected option index.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the selected option index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSelectedOption"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span>
+					<b>getSelectedOption</b>()
+					
+					</div>
+					<div class="description">
+						Gets the selected option.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span> the selected option</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>getValue</b>()
+					
+					</div>
+					<div class="description">
+						Gets the selected value.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeOption"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>removeOption</b>(option)
+					
+					</div>
+					<div class="description">
+						Removes an option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtSelectOption.html">DwtSelectOption</a>}</span> <b>option</b>
+									
+								</dt>
+								<dd>option to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> index of the option that was removed, or -1 if there was an error</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeOptionWithValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>removeOptionWithValue</b>(value)
+					
+					</div>
+					<div class="description">
+						Removes an option based on its value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>value</b>
+									
+								</dt>
+								<dd>value of the option to remove</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> index of the option that was removed, or -1 if there was an error</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="rename"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>rename</b>(value, newValue)
+					
+					</div>
+					<div class="description">
+						Renames an option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>value</b>
+									
+								</dt>
+								<dd>the value of the option to rename</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>newValue</b>
+									
+								</dt>
+								<dd>the new display value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setName"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setName</b>(name)
+					
+					</div>
+					<div class="description">
+						Sets the select name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSelected"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSelected</b>(optionHandle)
+					
+					</div>
+					<div class="description">
+						Sets the option as the selected option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>optionHandle</b>
+									
+								</dt>
+								<dd>a handle to the option</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#addOption">#addOption</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setSelectedOption"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSelectedOption</b>(optionObj)
+					
+					</div>
+					<div class="description">
+						Sets the selected option.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>optionObj</b>
+									
+								</dt>
+								<dd>the object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSelectedValue"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSelectedValue</b>(optionValue)
+					
+					</div>
+					<div class="description">
+						Sets the selected value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>optionValue</b>
+									
+								</dt>
+								<dd>the value of the option to select</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="size"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>size</b>()
+					
+					</div>
+					<div class="description">
+						Gets the count of options.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the count</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:30 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

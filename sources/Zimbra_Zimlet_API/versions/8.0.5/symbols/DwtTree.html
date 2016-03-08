@@ -1,0 +1,1034 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtTree</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtTree
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtComposite.html">DwtComposite</a>.<br />
+				
+				<br>
+				This class implements a tree widget. Tree widgets may contain one or more DwtTreeItems.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtTree.js.html">DwtTree.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtTree.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtTree.html#constructor">DwtTree</a></b>(params)
+							</div>
+							<div class="description">Creates a Tree widget.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtTree.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtTree.<b><a href="../symbols/DwtTree.html#.CHECKEDITEM_STYLE">CHECKEDITEM_STYLE</a></b>
+								</div>
+								<div class="description">Defines the "checked-item" style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtTree.<b><a href="../symbols/DwtTree.html#.MULTI_STYLE">MULTI_STYLE</a></b>
+								</div>
+								<div class="description">Defines the "multi" style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtTree.<b><a href="../symbols/DwtTree.html#.SINGLE_STYLE">SINGLE_STYLE</a></b>
+								</div>
+								<div class="description">Defines the "single" style.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtTree.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#addSelectionListener">addSelectionListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a selection listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#addSeparator">addSeparator</a></b>()
+								</div>
+								<div class="description">Adds a separator.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#addTreeListener">addTreeListener</a></b>(listener)
+								</div>
+								<div class="description">Adds a tree listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#clearItems">clearItems</a></b>()
+								</div>
+								<div class="description">Clears the tree items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#deselectAll">deselectAll</a></b>()
+								</div>
+								<div class="description">De-selects all items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#getItemCount">getItemCount</a></b>()
+								</div>
+								<div class="description">Gets the tree item count.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#getItems">getItems</a></b>()
+								</div>
+								<div class="description">Gets the items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#getSelection">getSelection</a></b>()
+								</div>
+								<div class="description">Gets an array of selection items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#getStyle">getStyle</a></b>()
+								</div>
+								<div class="description">Gets the style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#getTreeItemList">getTreeItemList</a></b>(visible)
+								</div>
+								<div class="description">Creates a flat list of this tree's items, going depth-first.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#removeSelectionListener">removeSelectionListener</a></b>(listener)
+								</div>
+								<div class="description">Removes a selection listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtTree.html#removeTreeListener">removeTreeListener</a></b>(listener)
+								</div>
+								<div class="description">Removes a selection listener.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/DwtComposite.html">DwtComposite</a>: </dt><dd><a href="../symbols/DwtComposite.html#addChild">addChild</a>, <a href="../symbols/DwtComposite.html#cleanupSeparators">cleanupSeparators</a>, <a href="../symbols/DwtComposite.html#clear">clear</a>, <a href="../symbols/DwtComposite.html#dispose">dispose</a>, <a href="../symbols/DwtComposite.html#getChildren">getChildren</a>, <a href="../symbols/DwtComposite.html#getNumChildren">getNumChildren</a>, <a href="../symbols/DwtComposite.html#removeChild">removeChild</a>, <a href="../symbols/DwtComposite.html#removeChildren">removeChildren</a></dd><dt>Methods borrowed from class <a href="../symbols/DwtControl.html">DwtControl</a>: </dt><dd><a href="../symbols/DwtControl.html#addClassName">addClassName</a>, <a href="../symbols/DwtControl.html#addControlListener">addControlListener</a>, <a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a>, <a href="../symbols/DwtControl.html#addListener">addListener</a>, <a href="../symbols/DwtControl.html#appendElement">appendElement</a>, <a href="../symbols/DwtControl.html#clearContent">clearContent</a>, <a href="../symbols/DwtControl.html#clearHandler">clearHandler</a>, <a href="../symbols/DwtControl.html#condClassName">condClassName</a>, <a href="../symbols/DwtControl.html#delClassName">delClassName</a>, <a href="../symbols/DwtControl.html#focus">focus</a>, <a href="../symbols/DwtControl.html#getBounds">getBounds</a>, <a href="../symbols/DwtControl.html#getClassName">getClassName</a>, <a href="../symbols/DwtControl.html#getCursor">getCursor</a>, <a href="../symbols/DwtControl.html#getData">getData</a>, <a href="../symbols/DwtControl.html#getDragBox">getDragBox</a>, <a href="../symbols/DwtControl.html#getDragSource">getDragSource</a>, <a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a>, <a href="../symbols/DwtControl.html#getEnabled">getEnabled</a>, <a href="../symbols/DwtControl.html#getH">getH</a>, <a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a>, <a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a>, <a href="../symbols/DwtControl.html#getLocation">getLocation</a>, <a href="../symbols/DwtControl.html#getPosition">getPosition</a>, <a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a>, <a href="../symbols/DwtControl.html#getSize">getSize</a>, <a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a>, <a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a>, <a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a>, <a href="../symbols/DwtControl.html#getVisibility">getVisibility</a>, <a href="../symbols/DwtControl.html#getVisible">getVisible</a>, <a href="../symbols/DwtControl.html#getW">getW</a>, <a href="../symbols/DwtControl.html#getX">getX</a>, <a href="../symbols/DwtControl.html#getXW">getXW</a>, <a href="../symbols/DwtControl.html#getY">getY</a>, <a href="../symbols/DwtControl.html#getYH">getYH</a>, <a href="../symbols/DwtControl.html#getZIndex">getZIndex</a>, <a href="../symbols/DwtControl.html#hasFocus">hasFocus</a>, <a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a>, <a href="../symbols/DwtControl.html#isDisposed">isDisposed</a>, <a href="../symbols/DwtControl.html#isInitialized">isInitialized</a>, <a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a>, <a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a>, <a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a>, <a href="../symbols/DwtControl.html#preventSelection">preventSelection</a>, <a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a>, <a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a>, <a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a>, <a href="../symbols/DwtControl.html#removeListener">removeListener</a>, <a href="../symbols/DwtControl.html#reparent">reparent</a>, <a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a>, <a href="../symbols/DwtControl.html#replaceElement">replaceElement</a>, <a href="../symbols/DwtControl.html#setBounds">setBounds</a>, <a href="../symbols/DwtControl.html#setClassName">setClassName</a>, <a href="../symbols/DwtControl.html#setContent">setContent</a>, <a href="../symbols/DwtControl.html#setCursor">setCursor</a>, <a href="../symbols/DwtControl.html#setData">setData</a>, <a href="../symbols/DwtControl.html#setDisplay">setDisplay</a>, <a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a>, <a href="../symbols/DwtControl.html#setDragBox">setDragBox</a>, <a href="../symbols/DwtControl.html#setDragSource">setDragSource</a>, <a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a>, <a href="../symbols/DwtControl.html#setEnabled">setEnabled</a>, <a href="../symbols/DwtControl.html#setHandler">setHandler</a>, <a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a>, <a href="../symbols/DwtControl.html#setLocation">setLocation</a>, <a href="../symbols/DwtControl.html#setPosition">setPosition</a>, <a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a>, <a href="../symbols/DwtControl.html#setSize">setSize</a>, <a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a>, <a href="../symbols/DwtControl.html#setVisibility">setVisibility</a>, <a href="../symbols/DwtControl.html#setVisible">setVisible</a>, <a href="../symbols/DwtControl.html#setZIndex">setZIndex</a>, <a href="../symbols/DwtControl.html#showAlert">showAlert</a>, <a href="../symbols/DwtControl.html#zShow">zShow</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtTree</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a Tree widget.
+					<br /><i>Author: </i>Ross Dargahi.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtTree.html#.SINGLE_STYLE">DwtTree.SINGLE_STYLE</a>|<a href="../symbols/DwtTree.html#.MULTI_STYLE">DwtTree.MULTI_STYLE</a>|<a href="../symbols/DwtTree.html#.CHECKEDITEM_STYLE">DwtTree.CHECKEDITEM_STYLE</a>}</span>  <b>params.style</b>
+								
+							</dt>
+								<dd>the tree style</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.posStyle</b>
+								
+							</dt>
+								<dd>the positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{boolean}</span>  <b>params.isCheckedByDefault</b>
+								
+							</dt>
+								<dd>default checked state if tree styles is "checked"</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".CHECKEDITEM_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtTree.</span><b>CHECKEDITEM_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "checked-item" style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".MULTI_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtTree.</span><b>MULTI_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "multi" style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".SINGLE_STYLE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtTree.</span><b>SINGLE_STYLE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "single" style.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addSelectionListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addSelectionListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a selection listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addSeparator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addSeparator</b>()
+					
+					</div>
+					<div class="description">
+						Adds a separator.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addTreeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addTreeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Adds a tree listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearItems"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearItems</b>()
+					
+					</div>
+					<div class="description">
+						Clears the tree items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="deselectAll"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>deselectAll</b>()
+					
+					</div>
+					<div class="description">
+						De-selects all items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItemCount"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>getItemCount</b>()
+					
+					</div>
+					<div class="description">
+						Gets the tree item count.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> the item count</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItems"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>getItems</b>()
+					
+					</div>
+					<div class="description">
+						Gets the items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array of <a href="../symbols/DwtTreeItem.html">DwtTreeItem</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSelection"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>getSelection</b>()
+					
+					</div>
+					<div class="description">
+						Gets an array of selection items.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array of <a href="../symbols/DwtTreeItem.html">DwtTreeItem</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getStyle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{constant}</span>
+					<b>getStyle</b>()
+					
+					</div>
+					<div class="description">
+						Gets the style.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{constant}</span> the style</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTreeItemList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>getTreeItemList</b>(visible)
+					
+					</div>
+					<div class="description">
+						Creates a flat list of this tree's items, going depth-first.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>visible</b>
+									
+								</dt>
+								<dd>if <code>true</code>, only include visible/selectable items</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> an array of <a href="../symbols/DwtTreeItem.html">DwtTreeItem</a> objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeSelectionListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeSelectionListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Removes a selection listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeTreeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeTreeListener</b>(listener)
+					
+					</div>
+					<div class="description">
+						Removes a selection listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Sep 10 2013 13:15:53 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

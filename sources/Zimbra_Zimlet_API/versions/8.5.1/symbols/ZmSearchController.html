@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmSearchController</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2013, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014 Zimbra, Inc.
+ * 
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at: http://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15 
+ * have been added to cover use of software over a computer network and provide for limited attribution 
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B. 
+ * 
+ * Software distributed under the License is distributed on an "AS IS" basis, 
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing rights and limitations under the License. 
+ * The Original Code is Zimbra Open Source Web Client. 
+ * The Initial Developer of the Original Code is Zimbra, Inc. 
+ * All portions of the code are Copyright (C) 2010, 2014 Zimbra, Inc. All Rights Reserved. 
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmSearchController
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmController.html">ZmController</a>.<br />
+				
+				<br>
+				This class represents the search controller.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_controller_ZmSearchController.js.html">ZmSearchController.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmSearchController.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmSearchController.html#constructor">ZmSearchController</a></b>(container)
+							</div>
+							<div class="description">Creates a search controller.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmSearchController.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#dateSearch">dateSearch</a></b>(d, searchFor)
+								</div>
+								<div class="description">Performs a search by date.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#fromSearch">fromSearch</a></b>(address)
+								</div>
+								<div class="description">Performs a search by from address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#getSearchFieldValue">getSearchFieldValue</a></b>()
+								</div>
+								<div class="description">Gets the search field value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#getSearchForFromType">getSearchForFromType</a></b>(type)
+								</div>
+								<div class="description">Get the searchFor var which is the same as type except for mail, in which case the type is either msg or conv but searchFor is mail.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#getSearchToolbar">getSearchToolbar</a></b>()
+								</div>
+								<div class="description">Gets the search tool bar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#getTypeFromSearchFor">getTypeFromSearchFor</a></b>(searchFor)
+								</div>
+								<div class="description">Gets the item type, based on searchFor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#redoSearch">redoSearch</a></b>(search, noRender, changes, callback, errorCallback)
+								</div>
+								<div class="description">Performs the given search.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#resetSearchAllAccounts">resetSearchAllAccounts</a></b>()
+								</div>
+								<div class="description">Resets search for all accounts.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#resetSearchToolbar">resetSearchToolbar</a></b>()
+								</div>
+								<div class="description">Resets the search toolbar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#search">search</a></b>(params, query, searchFor, types, sortBy, offset, limit, searchId, noRender, userText, callback, errorCallback, response, skipUpdateSearchToolbar, origin, sessionId, noGal)
+								</div>
+								<div class="description">Performs a search and displays the results.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#setDefaultSearchType">setDefaultSearchType</a></b>(type)
+								</div>
+								<div class="description">Sets the default type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#setSearchField">setSearchField</a></b>(searchString)
+								</div>
+								<div class="description">Sets the search field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#toSearch">toSearch</a></b>(address)
+								</div>
+								<div class="description">Performs a search by to address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmSearchController.html#updateOverview">updateOverview</a></b>(searchObj)
+								</div>
+								<div class="description">Selects the appropriate item in the overview based on the search.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmController.html">ZmController</a>: </dt><dd><a href="../symbols/ZmController.html#getApp">getApp</a>, <a href="../symbols/ZmController.html#getCurrentViewId">getCurrentViewId</a>, <a href="../symbols/ZmController.html#getCurrentViewType">getCurrentViewType</a>, <a href="../symbols/ZmController.html#getKeyMapName">getKeyMapName</a>, <a href="../symbols/ZmController.html#getNewFolderCallback">getNewFolderCallback</a>, <a href="../symbols/ZmController.html#getSessionId">getSessionId</a>, <a href="../symbols/ZmController.html#getTabGroup">getTabGroup</a>, <a href="../symbols/ZmController.html#getViewElements">getViewElements</a>, <a href="../symbols/ZmController.html#handleKeyAction">handleKeyAction</a>, <a href="../symbols/ZmController.html#isTransient">isTransient</a>, <a href="../symbols/ZmController.html#mapSupported">mapSupported</a>, <a href="../symbols/ZmController.html#popupErrorDialog">popupErrorDialog</a>, <a href="../symbols/ZmController.html#popupUploadErrorDialog">popupUploadErrorDialog</a>, <a href="../symbols/ZmController.html#setCurrentViewId">setCurrentViewId</a>, <a href="../symbols/ZmController.html#setCurrentViewType">setCurrentViewType</a>, <a href="../symbols/ZmController.html#setSessionId">setSessionId</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmSearchController</b>(container)
+				</div>
+				
+				<div class="description">
+					Creates a search controller.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtControl.html">DwtControl</a>}</span>  <b>container</b>
+								
+							</dt>
+								<dd>the top-level container</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="dateSearch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>dateSearch</b>(d, searchFor)
+					
+					</div>
+					<div class="description">
+						Performs a search by date.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Date}</span> <b>d</b>
+									
+								</dt>
+								<dd>the date or <code>d</code> for now</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>searchFor</b>
+									
+								</dt>
+								<dd>the search for string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="fromSearch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>fromSearch</b>(address)
+					
+					</div>
+					<div class="description">
+						Performs a search by from address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>address</b>
+									
+								</dt>
+								<dd>the from address</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSearchFieldValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSearchFieldValue</b>()
+					
+					</div>
+					<div class="description">
+						Gets the search field value.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the search field value or an empty string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSearchForFromType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSearchForFromType</b>(type)
+					
+					</div>
+					<div class="description">
+						Get the searchFor var which is the same as type except for mail, in which case the type is either msg or conv but searchFor is mail.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>type</b>
+									
+								</dt>
+								<dd>type of items to search for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> searchFor</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#search">#search</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="getSearchToolbar"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>}</span>
+					<b>getSearchToolbar</b>()
+					
+					</div>
+					<div class="description">
+						Gets the search tool bar.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>}</span> the tool bar</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTypeFromSearchFor"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getTypeFromSearchFor</b>(searchFor)
+					
+					</div>
+					<div class="description">
+						Gets the item type, based on searchFor. The type is the same as the searchFor, except for mail in which the type is either msg or conv based on view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>searchFor</b>
+									
+								</dt>
+								<dd>general description of what to search for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> type</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#search">#search</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="redoSearch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>redoSearch</b>(search, noRender, changes, callback, errorCallback)
+					
+					</div>
+					<div class="description">
+						Performs the given search. It takes a ZmSearch, rather than constructing one out of the currently selected menu
+choices. Aside from re-executing a search, it can be used to perform a canned search.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearch.html">ZmSearch</a>}</span> <b>search</b>
+									
+								</dt>
+								<dd>the search object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noRender</b>
+									
+								</dt>
+								<dd>if <code>true</code>, results will not be passed to controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>changes</b>
+									
+								</dt>
+								<dd>the hash of changes to make to search</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the async callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the async callback to run if there is an exception</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetSearchAllAccounts"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetSearchAllAccounts</b>()
+					
+					</div>
+					<div class="description">
+						Resets search for all accounts.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetSearchToolbar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetSearchToolbar</b>()
+					
+					</div>
+					<div class="description">
+						Resets the search toolbar. This is used by the offline client to "reset" the toolbar whenever user
+switches between accounts.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="search"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>search</b>(params, query, searchFor, types, sortBy, offset, limit, searchId, noRender, userText, callback, errorCallback, response, skipUpdateSearchToolbar, origin, sessionId, noGal)
+					
+					</div>
+					<div class="description">
+						Performs a search and displays the results.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters:</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>query</b>
+									
+								</dt>
+								<dd>the search string</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>searchFor</b>
+									
+								</dt>
+								<dd>the semantic type to search for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>types</b>
+									
+								</dt>
+								<dd>the item types to search for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>sortBy</b>
+									
+								</dt>
+								<dd>the sort constraint</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>offset</b>
+									
+								</dt>
+								<dd>the starting point in list of matching items</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>limit</b>
+									
+								</dt>
+								<dd>the maximum number of items to return</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>searchId</b>
+									
+								</dt>
+								<dd>the ID of owning search folder (if any)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noRender</b>
+									
+								</dt>
+								<dd>if <code>true</code>, results will not be passed to controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>userText</b>
+									
+								</dt>
+								<dd>if <code>true</code>, text was typed by user into search box</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the async callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the async callback to run if there is an exception</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>response</b>
+									
+								</dt>
+								<dd>the canned JSON response (no request will be made)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>skipUpdateSearchToolbar</b>
+									
+								</dt>
+								<dd>don't update the search toolbar (e.g. from the ZmDumpsterDialog where the search is called from its own search toolbar</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>origin</b>
+									
+								</dt>
+								<dd>indicates what initiated the search</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>sessionId</b>
+									
+								</dt>
+								<dd>session ID of search results tab (if search came from one)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noGal</b>
+									
+								</dt>
+								<dd>if true, don't search GAL. This is to override the this._contactSource value in contacts search, specifically for clicking on TAGS.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDefaultSearchType"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDefaultSearchType</b>(type)
+					
+					</div>
+					<div class="description">
+						Sets the default type. This method provides a programmatic way to set the search type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>type</b>
+									
+								</dt>
+								<dd>the search type to set as the default</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSearchField"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSearchField</b>(searchString)
+					
+					</div>
+					<div class="description">
+						Sets the search field.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>searchString</b>
+									
+								</dt>
+								<dd>the search string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toSearch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>toSearch</b>(address)
+					
+					</div>
+					<div class="description">
+						Performs a search by to address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>address</b>
+									
+								</dt>
+								<dd>the to address</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="updateOverview"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>updateOverview</b>(searchObj)
+					
+					</div>
+					<div class="description">
+						Selects the appropriate item in the overview based on the search. Selection only happens
+if the search was a simple search for a folder, tag, or saved search. A check is done to
+make sure that item is not already selected, so selection should only occur for a query
+manually run by the user.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmSearch.html">ZmSearch</a>}</span> <b>searchObj</b>
+									
+								</dt>
+								<dd>the current search</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Mon Nov 03 2014 16:32:03 GMT-0600 (CST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

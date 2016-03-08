@@ -1,0 +1,1214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - DwtLabel</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012 VMware, Inc.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.3 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class DwtLabel
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/DwtControl.html">DwtControl</a>.<br />
+				
+				<br>
+				This class represents a label, which consists of an image and/or text. It is used
+both as a concrete class and as the base class for <a href="../symbols/DwtButton.html">DwtButton</a>. The label
+components are managed within a table. The label can be enabled or disabled, which are reflected in 
+its display. A disabled label looks greyed out.
+
+<h4>CSS</h4>
+<ul>
+<li><code>.className table</code> - the label table</li>
+<li><code>.className .Icon</code> - class name for the icon image cell</li>
+<li><code>.className .Text</code> - enabled text cell</li>
+<li><code>.className .DisabledText</code> - disabled text cell</li>
+</ul>
+
+<h4>Keyboard Actions</h4>
+None
+
+<h4>Events</h4>
+None
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_dwt_widgets_DwtLabel.js.html">DwtLabel.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class DwtLabel.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/DwtLabel.html#constructor">DwtLabel</a></b>(params)
+							</div>
+							<div class="description">Creates a label.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class DwtLabel.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtLabel.<b><a href="../symbols/DwtLabel.html#.ALIGN_CENTER">ALIGN_CENTER</a></b>
+								</div>
+								<div class="description">Defines the "center" align label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtLabel.<b><a href="../symbols/DwtLabel.html#.ALIGN_LEFT">ALIGN_LEFT</a></b>
+								</div>
+								<div class="description">Defines the "left" align label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtLabel.<b><a href="../symbols/DwtLabel.html#.ALIGN_RIGHT">ALIGN_RIGHT</a></b>
+								</div>
+								<div class="description">Defines the "right" align label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtLabel.<b><a href="../symbols/DwtLabel.html#.IMAGE_LEFT">IMAGE_LEFT</a></b>
+								</div>
+								<div class="description">Defines the "left" align image (i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								DwtLabel.<b><a href="../symbols/DwtLabel.html#.IMAGE_RIGHT">IMAGE_RIGHT</a></b>
+								</div>
+								<div class="description">Defines the "right" align image (i.e.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class DwtLabel.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#dispose">dispose</a></b>()
+								</div>
+								<div class="description">Disposes of the label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#getImage">getImage</a></b>()
+								</div>
+								<div class="description">Gets the current image info.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#getText">getText</a></b>()
+								</div>
+								<div class="description">Gets the label text.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#isStyle">isStyle</a></b>(style)
+								</div>
+								<div class="description">Checks if the given style is set as the current label style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setAlign">setAlign</a></b>(alignStyle)
+								</div>
+								<div class="description">Sets the align style.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setDisabledImage">setDisabledImage</a></b>(imageInfo)
+								</div>
+								<div class="description">Sets the disabled image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setEnabled">setEnabled</a></b>(enabled)
+								</div>
+								<div class="description">Sets the enabled/disabled state of the label.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setIconEl">setIconEl</a></b>(htmlElement/DOM)
+								</div>
+								<div class="description">Set _iconEl, used for buttons that contains only images</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setImage">setImage</a></b>(imageInfo)
+								</div>
+								<div class="description">Sets the main (enabled) image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setText">setText</a></b>(text)
+								</div>
+								<div class="description">Sets the label text, and manages the placement and display.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setTextBackground">setTextBackground</a></b>(color)
+								</div>
+								<div class="description">Sets the text background.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#setTextForeground">setTextForeground</a></b>(color)
+								</div>
+								<div class="description">Sets the text foreground.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/DwtLabel.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/DwtControl.html">DwtControl</a>: </dt><dd><a href="../symbols/DwtControl.html#addClassName">addClassName</a>, <a href="../symbols/DwtControl.html#addControlListener">addControlListener</a>, <a href="../symbols/DwtControl.html#addDisposeListener">addDisposeListener</a>, <a href="../symbols/DwtControl.html#addListener">addListener</a>, <a href="../symbols/DwtControl.html#appendElement">appendElement</a>, <a href="../symbols/DwtControl.html#clearContent">clearContent</a>, <a href="../symbols/DwtControl.html#clearHandler">clearHandler</a>, <a href="../symbols/DwtControl.html#condClassName">condClassName</a>, <a href="../symbols/DwtControl.html#delClassName">delClassName</a>, <a href="../symbols/DwtControl.html#focus">focus</a>, <a href="../symbols/DwtControl.html#getBounds">getBounds</a>, <a href="../symbols/DwtControl.html#getClassName">getClassName</a>, <a href="../symbols/DwtControl.html#getCursor">getCursor</a>, <a href="../symbols/DwtControl.html#getData">getData</a>, <a href="../symbols/DwtControl.html#getDragBox">getDragBox</a>, <a href="../symbols/DwtControl.html#getDragSource">getDragSource</a>, <a href="../symbols/DwtControl.html#getDropTarget">getDropTarget</a>, <a href="../symbols/DwtControl.html#getEnabled">getEnabled</a>, <a href="../symbols/DwtControl.html#getH">getH</a>, <a href="../symbols/DwtControl.html#getHtmlElement">getHtmlElement</a>, <a href="../symbols/DwtControl.html#getHTMLElId">getHTMLElId</a>, <a href="../symbols/DwtControl.html#getLocation">getLocation</a>, <a href="../symbols/DwtControl.html#getPosition">getPosition</a>, <a href="../symbols/DwtControl.html#getScrollStyle">getScrollStyle</a>, <a href="../symbols/DwtControl.html#getSize">getSize</a>, <a href="../symbols/DwtControl.html#getTabGroupMember">getTabGroupMember</a>, <a href="../symbols/DwtControl.html#getTooltipBase">getTooltipBase</a>, <a href="../symbols/DwtControl.html#getToolTipContent">getToolTipContent</a>, <a href="../symbols/DwtControl.html#getVisibility">getVisibility</a>, <a href="../symbols/DwtControl.html#getVisible">getVisible</a>, <a href="../symbols/DwtControl.html#getW">getW</a>, <a href="../symbols/DwtControl.html#getX">getX</a>, <a href="../symbols/DwtControl.html#getXW">getXW</a>, <a href="../symbols/DwtControl.html#getY">getY</a>, <a href="../symbols/DwtControl.html#getYH">getYH</a>, <a href="../symbols/DwtControl.html#getZIndex">getZIndex</a>, <a href="../symbols/DwtControl.html#hasFocus">hasFocus</a>, <a href="../symbols/DwtControl.html#isAlertShown">isAlertShown</a>, <a href="../symbols/DwtControl.html#isDisposed">isDisposed</a>, <a href="../symbols/DwtControl.html#isInitialized">isInitialized</a>, <a href="../symbols/DwtControl.html#isListenerRegistered">isListenerRegistered</a>, <a href="../symbols/DwtControl.html#notifyListeners">notifyListeners</a>, <a href="../symbols/DwtControl.html#preventContextMenu">preventContextMenu</a>, <a href="../symbols/DwtControl.html#preventSelection">preventSelection</a>, <a href="../symbols/DwtControl.html#removeAllListeners">removeAllListeners</a>, <a href="../symbols/DwtControl.html#removeControlListener">removeControlListener</a>, <a href="../symbols/DwtControl.html#removeDisposeListener">removeDisposeListener</a>, <a href="../symbols/DwtControl.html#removeListener">removeListener</a>, <a href="../symbols/DwtControl.html#reparent">reparent</a>, <a href="../symbols/DwtControl.html#reparentHtmlElement">reparentHtmlElement</a>, <a href="../symbols/DwtControl.html#replaceElement">replaceElement</a>, <a href="../symbols/DwtControl.html#setBounds">setBounds</a>, <a href="../symbols/DwtControl.html#setClassName">setClassName</a>, <a href="../symbols/DwtControl.html#setContent">setContent</a>, <a href="../symbols/DwtControl.html#setCursor">setCursor</a>, <a href="../symbols/DwtControl.html#setData">setData</a>, <a href="../symbols/DwtControl.html#setDisplay">setDisplay</a>, <a href="../symbols/DwtControl.html#setDisplayState">setDisplayState</a>, <a href="../symbols/DwtControl.html#setDragBox">setDragBox</a>, <a href="../symbols/DwtControl.html#setDragSource">setDragSource</a>, <a href="../symbols/DwtControl.html#setDropTarget">setDropTarget</a>, <a href="../symbols/DwtControl.html#setHandler">setHandler</a>, <a href="../symbols/DwtControl.html#setHtmlElementId">setHtmlElementId</a>, <a href="../symbols/DwtControl.html#setLocation">setLocation</a>, <a href="../symbols/DwtControl.html#setPosition">setPosition</a>, <a href="../symbols/DwtControl.html#setScrollStyle">setScrollStyle</a>, <a href="../symbols/DwtControl.html#setSize">setSize</a>, <a href="../symbols/DwtControl.html#setToolTipContent">setToolTipContent</a>, <a href="../symbols/DwtControl.html#setVisibility">setVisibility</a>, <a href="../symbols/DwtControl.html#setVisible">setVisible</a>, <a href="../symbols/DwtControl.html#setZIndex">setZIndex</a>, <a href="../symbols/DwtControl.html#showAlert">showAlert</a>, <a href="../symbols/DwtControl.html#zShow">zShow</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>DwtLabel</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a label.
+					<br /><i>Author: </i>Ross Dargahi.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>the hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent widget</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.style</b>
+								
+							</dt>
+								<dd>the label style: May be one of: <a href="../symbols/DwtLabel.html#.IMAGE_LEFT">DwtLabel.IMAGE_LEFT</a> 
+											or <a href="../symbols/DwtLabel.html#.IMAGE_RIGHT">DwtLabel.IMAGE_RIGHT</a> arithmetically or'd (|) with  one of:
+											<a href="../symbols/DwtLabel.html#.ALIGN_LEFT">DwtLabel.ALIGN_LEFT</a>, <a href="../symbols/DwtLabel.html#.ALIGN_CENTER">DwtLabel.ALIGN_CENTER</a>, or <a href="../symbols/DwtLabel.html#.ALIGN_LEFT">DwtLabel.ALIGN_LEFT</a>
+											The first determines were in the label the icon will appear (if one is set), the second
+											determine how the content of the label will be aligned. The default value for
+											this parameter is: <a href="../symbols/DwtLabel.html#.IMAGE_LEFT">DwtLabel.IMAGE_LEFT</a> | <a href="../symbols/DwtLabel.html#.ALIGN_CENTER">DwtLabel.ALIGN_CENTER</a></dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.className</b>
+								
+							</dt>
+								<dd>the CSS class</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.posStyle</b>
+								
+							</dt>
+								<dd>the positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{string}</span>  <b>params.id</b>
+								
+							</dt>
+								<dd>the to use for the control HTML element</dd>
+						
+							<dt>
+								<span class="light fixedFont">{number}</span>  <b>params.index</b>
+								
+							</dt>
+								<dd>the index at which to add this control among parent's children</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ALIGN_CENTER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtLabel.</span><b>ALIGN_CENTER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "center" align label.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ALIGN_LEFT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtLabel.</span><b>ALIGN_LEFT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "left" align label.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ALIGN_RIGHT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtLabel.</span><b>ALIGN_RIGHT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "right" align label.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".IMAGE_LEFT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtLabel.</span><b>IMAGE_LEFT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "left" align image (i.e. align to the left of text, if both present).
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".IMAGE_RIGHT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">DwtLabel.</span><b>IMAGE_RIGHT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "right" align image (i.e. align to the right of text, if both present).
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="dispose"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>dispose</b>()
+					
+					</div>
+					<div class="description">
+						Disposes of the label.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getImage"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getImage</b>()
+					
+					</div>
+					<div class="description">
+						Gets the current image info.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the image info</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getText"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getText</b>()
+					
+					</div>
+					<div class="description">
+						Gets the label text.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the text or <code>null</code> if not set</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isStyle"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isStyle</b>(style)
+					
+					</div>
+					<div class="description">
+						Checks if the given style is set as the current label style.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>style</b>
+									
+								</dt>
+								<dd>the style</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the style is set</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setAlign"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setAlign</b>(alignStyle)
+					
+					</div>
+					<div class="description">
+						Sets the align style.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>alignStyle</b>
+									
+								</dt>
+								<dd>the align style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDisabledImage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDisabledImage</b>(imageInfo)
+					
+					</div>
+					<div class="description">
+						Sets the disabled image. If the label is currently disabled, its image is updated.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>imageInfo</b>
+									
+								</dt>
+								<dd>the image</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Deprecated:</dt>
+							<dt>
+								no longer support different images for disabled
+							</dt>
+							</dl>
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#setImage">#setImage</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setEnabled"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setEnabled</b>(enabled)
+					
+					</div>
+					<div class="description">
+						Sets the enabled/disabled state of the label. A disabled label may have a different
+image, and greyed out text. This method overrides <a href="../symbols/DwtControl.html#setEnabled">DwtControl#setEnabled</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd>if <code>true</code>, set the label as enabled</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setIconEl"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setIconEl</b>(htmlElement/DOM)
+					
+					</div>
+					<div class="description">
+						Set _iconEl, used for buttons that contains only images
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>htmlElement/DOM</b>
+									
+								</dt>
+								<dd>node</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setImage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setImage</b>(imageInfo)
+					
+					</div>
+					<div class="description">
+						Sets the main (enabled) image. If the label is currently enabled, the image is updated.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>imageInfo</b>
+									
+								</dt>
+								<dd>the image</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setText"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setText</b>(text)
+					
+					</div>
+					<div class="description">
+						Sets the label text, and manages the placement and display.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>text</b>
+									
+								</dt>
+								<dd>the new label text</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTextBackground"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTextBackground</b>(color)
+					
+					</div>
+					<div class="description">
+						Sets the text background.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>color</b>
+									
+								</dt>
+								<dd>the background color</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setTextForeground"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setTextForeground</b>(color)
+					
+					</div>
+					<div class="description">
+						Sets the text foreground.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>color</b>
+									
+								</dt>
+								<dd>the foreground color</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Fri May 24 2013 12:52:32 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2007, 2008, 2009, 2010, 2011 VMware, Inc.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Zimbra Public License
+<span class='line'>  7</span>  * Version 1.3 ("License"); you may not use this file except in
+<span class='line'>  8</span>  * compliance with the License.  You may obtain a copy of the License at
+<span class='line'>  9</span>  * http://www.zimbra.com/license.
+<span class='line'> 10</span>  * 
+<span class='line'> 11</span>  * Software distributed under the License is distributed on an "AS IS"
+<span class='line'> 12</span>  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 13</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 14</span>  */</span><span class="WHIT">
+<span class='line'> 15</span> 
+<span class='line'> 16</span> </span><span class="COMM">/**
+<span class='line'> 17</span>  * Creates a radio button.
+<span class='line'> 18</span>  * @constructor
+<span class='line'> 19</span>  * @class
+<span class='line'> 20</span>  * This class implements a radio button.
+<span class='line'> 21</span>  * 
+<span class='line'> 22</span>  * @param {hash}	params	a hash of parameters
+<span class='line'> 23</span>  * @param  {DwtComposite}     params.parent	the parent widget
+<span class='line'> 24</span>  * @param  {constant}     params.style 	the text style. May be one of: {@link DwtCheckbox.TEXT_LEFT} or
+<span class='line'> 25</span>  * 									{@link DwtCheckbox.TEXT_RIGHT} arithimatically or'd (|) with one of:
+<span class='line'> 26</span>  * 									{@link DwtCheckbox.ALIGN_LEFT}, {@link DwtCheckbox.ALIGN_CENTER}, or
+<span class='line'> 27</span>  * 									{@link DwtCheckbox.ALIGN_LEFT}.
+<span class='line'> 28</span>  * 									The first determines were in the checkbox the text will appear
+<span class='line'> 29</span>  * 									(if set), the second determine how the content of the text will be
+<span class='line'> 30</span>  * 									aligned. The default value for this parameter is: 
+<span class='line'> 31</span>  * 									{@link DwtCheckbox.TEXT_LEFT} | {@link DwtCheckbox.ALIGN_CENTER}
+<span class='line'> 32</span>  * @param  {string}     params.name		the input control name (required for IE)
+<span class='line'> 33</span>  * @param  {string}     params.value     the input control value.
+<span class='line'> 34</span>  * @param  {boolean}     params.checked	the input control checked status (required for IE)
+<span class='line'> 35</span>  * @param  {string}     params.className	the CSS class
+<span class='line'> 36</span>  * @param  {constant}     params.posStyle	the positioning style (see {@link DwtControl})
+<span class='line'> 37</span>  * @param  {string}     params.id		an explicit ID to use for the control's HTML element
+<span class='line'> 38</span>  * @param  {number}     params.index 	the index at which to add this control among parent's children
+<span class='line'> 39</span>  * 
+<span class='line'> 40</span>  * @extends	DwtCheckbox
+<span class='line'> 41</span>  */</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="NAME">DwtRadioButton</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">arguments.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">	</span><span class="NAME">params</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Dwt.getParams</span><span class="PUNC">(</span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtRadioButton.PARAMS</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">	</span><span class="NAME">params.className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.className</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">"DwtRadioButton"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">	</span><span class="NAME">DwtCheckbox.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 48</span> 
+<span class='line'> 49</span> </span><span class="NAME">DwtRadioButton.PARAMS</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox.PARAMS</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> 
+<span class='line'> 51</span> </span><span class="NAME">DwtRadioButton.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtCheckbox</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="NAME">DwtRadioButton.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtRadioButton</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 53</span> 
+<span class='line'> 54</span> </span><span class="NAME">DwtRadioButton.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 55</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"DwtRadioButton"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 57</span> 
+<span class='line'> 58</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="COMM">// Data</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 61</span> 
+<span class='line'> 62</span> </span><span class="NAME">DwtRadioButton.prototype.TEMPLATE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"dwt.Widgets#DwtRadioButton"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span></pre></body></html>

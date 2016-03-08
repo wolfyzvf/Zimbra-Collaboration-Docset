@@ -1,0 +1,942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - AjxDispatcher</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class AjxDispatcher
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This static class serves as a central location for registering and calling
+public API methods. For example, the registration of a public API method for
+pulling up the compose form might look something like this:
+
+<pre>
+AjxDispatcher.register("Compose", "Mail", new AjxCallback(this, this.doAction));
+</pre>
+
+and a client call of it like this:
+
+<pre>
+AjxDispatcher.run("Compose", {action:ZmOperation.NEW_MESSAGE, inNewWindow:false});
+</pre>
+
+Registration will most likely need to happen in a constructor, when 'this' is
+available, since you'll most likely want the function call to happen in that
+object's context.
+<p>
+A package can also register a callback to be run once the package has loaded. One use case for
+that is to register newly-defined classes as drop targets. There is a wrapper method around
+AjxPackage.require() that will call that method and then run the post-load callback (if any):
+
+<pre>
+AjxDispatcher.require("Calendar");
+</pre>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_boot_AjxDispatcher.js.html">AjxDispatcher.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class AjxDispatcher.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/AjxDispatcher.html#constructor">AjxDispatcher</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class AjxDispatcher.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.setPackageLoadFunction">setPackageLoadFunction</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.setPostLoadFunction">setPostLoadFunction</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.setPreLoadFunction">setPreLoadFunction</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class AjxDispatcher.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.addPackageLoadFunction">addPackageLoadFunction</a></b>(pkg, callback)
+								</div>
+								<div class="description">Adds a function to be called after the given package has been loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.addPostLoadFunction">addPostLoadFunction</a></b>(callback)
+								</div>
+								<div class="description">Adds a function to be called after a package has been loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.addPreLoadFunction">addPreLoadFunction</a></b>(callback)
+								</div>
+								<div class="description">Adds a function to be called while a package is being loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.enableLoadFunctions">enableLoadFunctions</a></b>(enabled)
+								</div>
+								<div class="description">Enables/disables the running of the pre/post load functions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.loaded">loaded</a></b>(pkg)
+								</div>
+								<div class="description">Checks if the given package has been loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.registerMethod">registerMethod</a></b>(method, pkg, callback)
+								</div>
+								<div class="description">Registers an API method so that it may be called.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.require">require</a></b>(pkg, async, callback, args, preLoadOk)
+								</div>
+								<div class="description">Loads the given package, and runs its requested post-load callback.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">AjxDispatcher.<b><a href="../symbols/AjxDispatcher.html#.setLoaded">setLoaded</a></b>(pkg, loaded)
+								</div>
+								<div class="description">Programmatically sets whether the given packages has been loaded.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>AjxDispatcher</b>()
+				</div>
+				
+				<div class="description">
+					
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".setPackageLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>setPackageLoadFunction</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+							<dl class="detailList">
+							<dt class="heading">Deprecated:</dt>
+							<dt>
+								Use addPackageLoadFunction instead.
+							</dt>
+							</dl>
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setPostLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>setPostLoadFunction</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+							<dl class="detailList">
+							<dt class="heading">Deprecated:</dt>
+							<dt>
+								Use addPostLoadFunction instead.
+							</dt>
+							</dl>
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setPreLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>setPreLoadFunction</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+							<dl class="detailList">
+							<dt class="heading">Deprecated:</dt>
+							<dt>
+								Use addPreLoadFunction instead.
+							</dt>
+							</dl>
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".addPackageLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>addPackageLoadFunction</b>(pkg, callback)
+					
+					</div>
+					<div class="description">
+						Adds a function to be called after the given package has been loaded.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>pkg</b>
+									
+								</dt>
+								<dd>the name of package</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run after package has loaded</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addPostLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>addPostLoadFunction</b>(callback)
+					
+					</div>
+					<div class="description">
+						Adds a function to be called after a package has been loaded. A typical use
+is to clear a "Loading..." screen.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run after package has loaded</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addPreLoadFunction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>addPreLoadFunction</b>(callback)
+					
+					</div>
+					<div class="description">
+						Adds a function to be called while a package is being loaded. A typical use
+is to display a "Loading..." screen.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run after package has loaded</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".enableLoadFunctions"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>enableLoadFunctions</b>(enabled)
+					
+					</div>
+					<div class="description">
+						Enables/disables the running of the pre/post load functions.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd>if <code>true</code>, run pre/post load functions</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".loaded"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{boolean}</span>
+					<span class="light">AjxDispatcher.</span><b>loaded</b>(pkg)
+					
+					</div>
+					<div class="description">
+						Checks if the given package has been loaded.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>pkg</b>
+									
+								</dt>
+								<dd>the name of package</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the package is loaded</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerMethod"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>registerMethod</b>(method, pkg, callback)
+					
+					</div>
+					<div class="description">
+						Registers an API method so that it may be called.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>method</b>
+									
+								</dt>
+								<dd>the name of the API method</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>pkg</b>
+									
+								</dt>
+								<dd>the name of required package(s)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run for this API call</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".require"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">AjxDispatcher.</span><b>require</b>(pkg, async, callback, args, preLoadOk)
+					
+					</div>
+					<div class="description">
+						Loads the given package, and runs its requested post-load callback. Clients should
+be careful not to mix async and sync calls for the same package, in order to avoid
+race conditions.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>pkg</b>
+									
+								</dt>
+								<dd>the name of the API method</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>async</b>
+									
+								</dt>
+								<dd>if <code>true</code>, load package asynchronously</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run after pkg load</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>args</b>
+									
+								</dt>
+								<dd>the args to pass to callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>preLoadOk</b>
+									
+								</dt>
+								<dd>if <code>true</code>, okay to run registered pre-load function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setLoaded"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{boolean}</span>
+					<span class="light">AjxDispatcher.</span><b>setLoaded</b>(pkg, loaded)
+					
+					</div>
+					<div class="description">
+						Programmatically sets whether the given packages has been loaded. Use with care!
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>pkg</b>
+									
+								</dt>
+								<dd>the name of package</dd>
+							
+								<dt>
+									<b>loaded</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> if <code>true</code>, the package is loaded</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:22 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

@@ -1,0 +1,3706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmZimletBase</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmZimletBase
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmObjectHandler.html">ZmObjectHandler</a>.<br />
+				
+				<br>
+				This class provides the default implementation for Zimlet functions. A Zimlet developer may
+wish to override some functions in order to provide custom functionality. All Zimlet Handler Objects should extend this base class.
+<br />
+<br />
+<code>function com_zimbra_myZimlet_HandlerObject() { };</code>
+<br />
+<br />
+<code>
+com_zimbra_myZimlet_HandlerObject.prototype = new ZmZimletBase();
+com_zimbra_myZimlet_HandlerObject.prototype.constructor = com_zimbra_myZimlet_HandlerObject;
+</code>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmZimletBase.js.html">ZmZimletBase.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmZimletBase.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmZimletBase.html#constructor">ZmZimletBase</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmZimletBase.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmZimletBase.<b><a href="../symbols/ZmZimletBase.html#.CONTENTOBJECT_MENU">CONTENTOBJECT_MENU</a></b>
+								</div>
+								<div class="description">This defines the Content Object Menu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmZimletBase.<b><a href="../symbols/ZmZimletBase.html#.PANEL_MENU">PANEL_MENU</a></b>
+								</div>
+								<div class="description">This defines the Panel Menu.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmZimletBase.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#addCustomMimeHeaders">addCustomMimeHeaders</a></b>(customMimeHeaders)
+								</div>
+								<div class="description">This Zimlet hook allows Zimlets to set custom headers to outgoing emails.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#addSearchDomainItem">addSearchDomainItem</a></b>(icon, label, listener, id)
+								</div>
+								<div class="description">Adds an item to the search toolbar drop-down.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#appActive">appActive</a></b>(appName, active)
+								</div>
+								<div class="description">This method gets called each time the "tab" application is opened or closed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#appendExtraSignature">appendExtraSignature</a></b>(contact, oldMsg)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when adding a signature to an email message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#appLaunch">appLaunch</a></b>(appName)
+								</div>
+								<div class="description">This method gets called when the "tab" application is opened for the first time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#applyXslt">applyXslt</a></b>(xsltUrl, doc)
+								</div>
+								<div class="description">This method will apply and XSL transformation to an XML document.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#checkProperties">checkProperties</a></b>(props)
+								</div>
+								<div class="description">This method is called by the zimlet framework prior to user properties being saved.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#clicked">clicked</a></b>(spanElement, contentObjText, matchContent, event)
+								</div>
+								<div class="description">This method is called when a zimlet content object is clicked.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#createApp">createApp</a></b>(label, image, tooltip, index, style)
+								</div>
+								<div class="description">Creates a "tab" application and registers this zimlet to
+receive <a href="#appActive">#appActive</a> and <a href="#appLaunch">#appLaunch</a> events.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#createPropertyEditor">createPropertyEditor</a></b>(callback)
+								</div>
+								<div class="description">This method is called if there are <code>&lt;userProperties&gt;</code> elements specified in the
+Zimlet Definition File.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#displayErrorMessage">displayErrorMessage</a></b>(msg, data, title)
+								</div>
+								<div class="description">Displays the specified error message in the standard error dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#displayStatusMessage">displayStatusMessage</a></b>(msg)
+								</div>
+								<div class="description">Displays the specified status message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#doDrag">doDrag</a></b>(zmObject)
+								</div>
+								<div class="description">This method is called when an item is dragged on the Zimlet drop target
+in the panel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#doDrop">doDrop</a></b>(zmObject)
+								</div>
+								<div class="description">This method is called when an item is dropped on the Zimlet in the panel.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#doubleClicked">doubleClicked</a></b>(canvas)
+								</div>
+								<div class="description">This method gets called when a double-click is performed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#emailErrorCheck">emailErrorCheck</a></b>(msg, boolAndErrorMsgArray)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a message is about to be sent.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#enableContextMenuItem">enableContextMenuItem</a></b>(contextMenu, menuItemId, enabled)
+								</div>
+								<div class="description">Enables the specified context menu item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getConfigProperty">getConfigProperty</a></b>(propertyName)
+								</div>
+								<div class="description">Gets the configuration property.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getMessage">getMessage</a></b>(msg)
+								</div>
+								<div class="description">Gets the message property.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getMessages">getMessages</a></b>()
+								</div>
+								<div class="description">Gets the message properties.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getMsgsForConv">getMsgsForConv</a></b>(callback, conv)
+								</div>
+								<div class="description">Gets the mail messages for the conversation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getResource">getResource</a></b>(resourceName)
+								</div>
+								<div class="description">Gets the fully qualified resource Url.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getSearchQuery">getSearchQuery</a></b>()
+								</div>
+								<div class="description">Gets the text field value entered in the search bar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getShell">getShell</a></b>()
+								</div>
+								<div class="description">Gets the shell for the zimlet.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getUserID">getUserID</a></b>()
+								</div>
+								<div class="description">Gets the current user id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getUsername">getUsername</a></b>()
+								</div>
+								<div class="description">Gets the current username.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getUserProperty">getUserProperty</a></b>(propertyName)
+								</div>
+								<div class="description">Gets the user property.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getUserPropertyInfo">getUserPropertyInfo</a></b>(propertyName)
+								</div>
+								<div class="description">Gets the user property info for the specified property.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getZimletContext">getZimletContext</a></b>()
+								</div>
+								<div class="description">Gets the zimlet context.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#getZimletManager">getZimletManager</a></b>()
+								</div>
+								<div class="description">Gets the zimlet manager.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#init">init</a></b>()
+								</div>
+								<div class="description">This method is called by the Zimlet framework to indicate that
+the zimlet it being initialized.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#initializeToolbar">initializeToolbar</a></b>(app, toolbar, controller, viewId)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when application toolbars are initialized.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#match">match</a></b>(content, startIndex)
+								</div>
+								<div class="description">This method is called when content (e.g.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#menuItemSelected">menuItemSelected</a></b>(contextMenu, menuItemId, spanElement, contentObjText, canvas)
+								</div>
+								<div class="description">This method is called when a context menu item is selected.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onAction">onAction</a></b>(type, action, currentViewId, lastViewId)
+								</div>
+								<div class="description">This method by the Zimlet framework when an application action occurs.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onActionMenuInitialized">onActionMenuInitialized</a></b>(controller, actionMenu)
+								</div>
+								<div class="description">This method gets called by the Zimlet framework when the action menu is initialized
+on the subject/fragment of an email message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onContactEdit">onContactEdit</a></b>(view, contact, elementId)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a contact is edited.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onContactView">onContactView</a></b>(contact, elementId)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a contact is clicked-on in the contact list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onFindMsgObjects">onFindMsgObjects</a></b>(msg, objMgr)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a user clicks-on a message in either the message or conversation view).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onKeyPressSearchField">onKeyPressSearchField</a></b>(queryStr)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when enter is pressed in the search field.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onMailConfirm">onMailConfirm</a></b>(confirmView, msg)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when the message confirmation dialog is presented.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onMailFlagClick">onMailFlagClick</a></b>(items, on)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when an email message is flagged.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onMsgView">onMsgView</a></b>(msg, oldMsg)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a user clicks-on a message in the mail application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onNewChatWidget">onNewChatWidget</a></b>(widget)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a new chat widget is initialized.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onParticipantActionMenuInitialized">onParticipantActionMenuInitialized</a></b>(controller, actionMenu)
+								</div>
+								<div class="description">This method gets called by the Zimlet framework when the action menu is initialized on the from/sender of an email message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onSearch">onSearch</a></b>(queryStr)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when a search is performed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onSearchButtonClick">onSearchButtonClick</a></b>(queryStr)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when the search button is clicked.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onSelectApp">onSelectApp</a></b>(id)
+								</div>
+								<div class="description">This method by the Zimlet framework when an application button is pressed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onShowView">onShowView</a></b>(view)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when showing an application view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#onTagAction">onTagAction</a></b>(items, tag, doTag)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when an email message is tagged.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#portletCreated">portletCreated</a></b>(portlet)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when the portlet is created.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#portletRefreshed">portletRefreshed</a></b>(portlet)
+								</div>
+								<div class="description">This method is called by the Zimlet framework when the portlet is refreshed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#resetToolbarOperations">resetToolbarOperations</a></b>(parent, enable)
+								</div>
+								<div class="description">Reset the toolbar</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#saveUserProperties">saveUserProperties</a></b>(callback)
+								</div>
+								<div class="description">Saves the user properties.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#sendRequest">sendRequest</a></b>(requestStr, serverURL, requestHeaders, callback, useGet, passErrors)
+								</div>
+								<div class="description">Sends the request content (via Ajax) to the specified server.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#setUserProperty">setUserProperty</a></b>(propertyName, value, save, callback)
+								</div>
+								<div class="description">Sets the value of a given user property</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#singleClicked">singleClicked</a></b>(canvas)
+								</div>
+								<div class="description">This method gets called when a single-click is performed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#toolTipPoppedDown">toolTipPoppedDown</a></b>(spanElement, contentObjText, matchContent, canvas)
+								</div>
+								<div class="description">This method is called when the tool tip is popping-down.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#toolTipPoppedUp">toolTipPoppedUp</a></b>(spanElement, contentObjText, matchContent, canvas)
+								</div>
+								<div class="description">This method is called when the tool tip is popping-up.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimletBase.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the zimlet.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmObjectHandler.html">ZmObjectHandler</a>: </dt><dd><a href="../symbols/ZmObjectHandler.html#getActiveClassName">getActiveClassName</a>, <a href="../symbols/ZmObjectHandler.html#getClassName">getClassName</a>, <a href="../symbols/ZmObjectHandler.html#getHoveredClassName">getHoveredClassName</a>, <a href="../symbols/ZmObjectHandler.html#getToolTipText">getToolTipText</a>, <a href="../symbols/ZmObjectHandler.html#getTypeName">getTypeName</a>, <a href="../symbols/ZmObjectHandler.html#hasToolTipText">hasToolTipText</a>, <a href="../symbols/ZmObjectHandler.html#populateToolTip">populateToolTip</a>, <a href="../symbols/ZmObjectHandler.html#selected">selected</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmZimletBase</b>()
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="#init">#init</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".CONTENTOBJECT_MENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimletBase.</span><b>CONTENTOBJECT_MENU</b>
+					
+					</div>
+					<div class="description">
+						This defines the Content Object Menu.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="#menuItemSelected">#menuItemSelected</a>}</dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".PANEL_MENU"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimletBase.</span><b>PANEL_MENU</b>
+					
+					</div>
+					<div class="description">
+						This defines the Panel Menu.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="#menuItemSelected">#menuItemSelected</a>}</dd>
+							
+							</dl>
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addCustomMimeHeaders"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addCustomMimeHeaders</b>(customMimeHeaders)
+					
+					</div>
+					<div class="description">
+						This Zimlet hook allows Zimlets to set custom headers to outgoing emails.
+To set a custom header, they need to push header name and header value to
+customMimeHeaders array.
+ Example:
+ customHeaders.push({name:"header1", _content:"headerValue"});
+
+ Note: Header name ("header1" in this case) MUST be one of the valid/allowed values of
+ zimbraCustomMimeHeaderNameAllowed global-config property (set by admin)
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>customMimeHeaders</b>
+									
+								</dt>
+								<dd>The array containing all custom headers</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addSearchDomainItem"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>}</span>
+					<b>addSearchDomainItem</b>(icon, label, listener, id)
+					
+					</div>
+					<div class="description">
+						Adds an item to the search toolbar drop-down. A listener (if specified)
+will be called when the item is selected.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>icon</b>
+									
+								</dt>
+								<dd>the icon (style class) to use or <code>null</code> for no icon</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>label</b>
+									
+								</dt>
+								<dd>the label for the item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>the listener or <code>null</code> for none</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>the unique id of the item to add</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>}</span> <code>null</code> if item not created</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="appActive"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>appActive</b>(appName, active)
+					
+					</div>
+					<div class="description">
+						This method gets called each time the "tab" application is opened or closed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the application name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>active</b>
+									
+								</dt>
+								<dd>if <code>true</code>, the application status is open; otherwise, <code>false</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#createApp">#createApp</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="appendExtraSignature"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>appendExtraSignature</b>(contact, oldMsg)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when adding a signature to an email message.
+
+<p>
+To append extra signature information, the zimlet should push text into the <code>bufferArray</code>.
+
+<pre>
+bufferArray.push("Have fun, write a Zimlet!");
+</pre>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the clicked message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>oldMsg</b>
+									
+								</dt>
+								<dd>the previous clicked message or <code>null</code> if this is the first message clicked</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="appLaunch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>appLaunch</b>(appName)
+					
+					</div>
+					<div class="description">
+						This method gets called when the "tab" application is opened for the first time.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the application name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#createApp">#createApp</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="applyXslt"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/AjxXmlDoc.html">AjxXmlDoc</a>}</span>
+					<b>applyXslt</b>(xsltUrl, doc)
+					
+					</div>
+					<div class="description">
+						This method will apply and XSL transformation to an XML document. For example, content
+returned from a services call.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>xsltUrl</b>
+									
+								</dt>
+								<dd>the URL to the XSLT style sheet</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string|<a href="../symbols/AjxXmlDoc.html">AjxXmlDoc</a>}</span> <b>doc</b>
+									
+								</dt>
+								<dd>the XML document to apply the style sheet</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/AjxXmlDoc.html">AjxXmlDoc</a>}</span> the XML document representing the transformed document</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="checkProperties"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>checkProperties</b>(props)
+					
+					</div>
+					<div class="description">
+						This method is called by the zimlet framework prior to user properties being saved.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>props</b>
+									
+								</dt>
+								<dd>an array of objects with the following properties:
+<ul>
+<li>props[...].label {string} the property label</li>
+<li>props[...].name {string} the property name</li>
+<li>props[...].type {string} the property type</li>
+<li>props[...].value {string} the property value</li>
+</ul></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if properties are valid; otherwise, <code>false</code> or {String} if an error message will be displayed in the standard error dialog.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clicked"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clicked</b>(spanElement, contentObjText, matchContent, event)
+					
+					</div>
+					<div class="description">
+						This method is called when a zimlet content object is clicked.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>spanElement</b>
+									
+								</dt>
+								<dd>the enclosing span element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contentObjText</b>
+									
+								</dt>
+								<dd>the content object text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>matchContent</b>
+									
+								</dt>
+								<dd>the match content</dd>
+							
+								<dt>
+									<span class="light fixedFont">{DwtMouseEvent}</span> <b>event</b>
+									
+								</dt>
+								<dd>the mouse click event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="createApp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>createApp</b>(label, image, tooltip, index, style)
+					
+					</div>
+					<div class="description">
+						Creates a "tab" application and registers this zimlet to
+receive <a href="#appActive">#appActive</a> and <a href="#appLaunch">#appLaunch</a> events.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>label</b>
+									
+								</dt>
+								<dd>the label to use on the application tab</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>image</b>
+									
+								</dt>
+								<dd>the image (style class) to use on the application tab</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>tooltip</b>
+									
+								</dt>
+								<dd>the tool tip to display when hover-over the application tab</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>index</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the index to insert the tab (must be > 0). 0 is first location. Default is last location.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>style</b>
+									
+								</dt>
+								<dd>the button positioning style (see <a href="../symbols/DwtControl.html">DwtControl</a>)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the name of the newly created application</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="createPropertyEditor"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>createPropertyEditor</b>(callback)
+					
+					</div>
+					<div class="description">
+						This method is called if there are <code>&lt;userProperties&gt;</code> elements specified in the
+Zimlet Definition File. When the zimlet panel item is double-clicked, the property
+editor will be presented to the user.
+
+<p>
+This method creates the property editor for the set of <code>&lt;property&gt;</code> elements defined
+in the <code>&lt;userProperties&gt;</code> element. The default implementation of this
+method will auto-create a property editor based on the attributes of the user properties.
+</p>
+<p>
+Override this method if a custom property editor is required.
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback method for saving user properties</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="displayErrorMessage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>displayErrorMessage</b>(msg, data, title)
+					
+					</div>
+					<div class="description">
+						Displays the specified error message in the standard error dialog.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the error message to display</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>data</b>
+									
+								</dt>
+								<dd>the error message details</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>title</b>
+									
+								</dt>
+								<dd>the error message dialog title</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="displayStatusMessage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>displayStatusMessage</b>(msg)
+					
+					</div>
+					<div class="description">
+						Displays the specified status message.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the status message to display</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="doDrag"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>doDrag</b>(zmObject)
+					
+					</div>
+					<div class="description">
+						This method is called when an item is dragged on the Zimlet drop target
+in the panel. This method is only called for the valid types that the
+Zimlet accepts as defined by the <code>&lt;dragSource&gt;</code> Zimlet Definition File XML.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmAppt.html">ZmAppt</a>|<a href="../symbols/ZmConv.html">ZmConv</a>|<a href="../symbols/ZmContact.html">ZmContact</a>|<a href="../symbols/ZmFolder.html">ZmFolder</a>|<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>|<a href="../symbols/ZmTask.html">ZmTask</a>}</span> <b>zmObject</b>
+									
+								</dt>
+								<dd>the dragged object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> <code>true</code> if the drag should be allowed; otherwise, <code>false</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="doDrop"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>doDrop</b>(zmObject)
+					
+					</div>
+					<div class="description">
+						This method is called when an item is dropped on the Zimlet in the panel.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmAppt.html">ZmAppt</a>|<a href="../symbols/ZmConv.html">ZmConv</a>|<a href="../symbols/ZmContact.html">ZmContact</a>|<a href="../symbols/ZmFolder.html">ZmFolder</a>|<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>|<a href="../symbols/ZmTask.html">ZmTask</a>}</span> <b>zmObject</b>
+									
+								</dt>
+								<dd>the dropped object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="doubleClicked"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>doubleClicked</b>(canvas)
+					
+					</div>
+					<div class="description">
+						This method gets called when a double-click is performed. By default, this method
+will create the default property editor for editing user properties.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#singleClicked">#singleClicked</a></dd>
+							
+								<dd><a href="#createPropertyEditor">#createPropertyEditor</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="emailErrorCheck"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>emailErrorCheck</b>(msg, boolAndErrorMsgArray)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a message is about to be sent.
+
+<p>
+To fail the error check, the zimlet must return a <code>boolAndErrorMsgArray</code> array
+with the following syntax:
+<br />
+<br />
+<code>{hasError:&lt;true or false&gt;, errorMsg:&lt;error msg&gt;, zimletName:&lt;zimlet name&gt;}</code>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>boolAndErrorMsgArray</b>
+									
+								</dt>
+								<dd>an array of error messages, if any</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="enableContextMenuItem"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>enableContextMenuItem</b>(contextMenu, menuItemId, enabled)
+					
+					</div>
+					<div class="description">
+						Enables the specified context menu item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmZimletBase.html#.PANEL_MENU">ZmZimletBase.PANEL_MENU</a>|<a href="../symbols/ZmZimletBase.html#.CONTENTOBJECT_MENU">ZmZimletBase.CONTENTOBJECT_MENU</a>}</span> <b>contextMenu</b>
+									
+								</dt>
+								<dd>the context menu</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>menuItemId</b>
+									
+								</dt>
+								<dd>the menu item Id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>enabled</b>
+									
+								</dt>
+								<dd><code>true</code> to enable the menu item; <code>false</code> to disable the menu item</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getConfigProperty"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getConfigProperty</b>(propertyName)
+					
+					</div>
+					<div class="description">
+						Gets the configuration property.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>propertyName</b>
+									
+								</dt>
+								<dd>the name of the property to retrieve</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the value of the property or <code>null</code> if no such property exists</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMessage"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getMessage</b>(msg)
+					
+					</div>
+					<div class="description">
+						Gets the message property.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the message property or <code>"???" + msg + "???"</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMessages"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string[]}</span>
+					<b>getMessages</b>()
+					
+					</div>
+					<div class="description">
+						Gets the message properties.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string[]}</span> an array of message properties</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMsgsForConv"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getMsgsForConv</b>(callback, conv)
+					
+					</div>
+					<div class="description">
+						Gets the mail messages for the conversation.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback method</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmConv.html">ZmConv</a>}</span> <b>conv</b>
+									
+								</dt>
+								<dd>the conversation</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getResource"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getResource</b>(resourceName)
+					
+					</div>
+					<div class="description">
+						Gets the fully qualified resource Url.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>resourceName</b>
+									
+								</dt>
+								<dd>the resource name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the fully qualified resource Url</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSearchQuery"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getSearchQuery</b>()
+					
+					</div>
+					<div class="description">
+						Gets the text field value entered in the search bar.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the search field value or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getShell"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/DwtShell.html">DwtShell</a>}</span>
+					<b>getShell</b>()
+					
+					</div>
+					<div class="description">
+						Gets the shell for the zimlet.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/DwtShell.html">DwtShell</a>}</span> the shell</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUserID"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getUserID</b>()
+					
+					</div>
+					<div class="description">
+						Gets the current user id.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the current user id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUsername"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getUsername</b>()
+					
+					</div>
+					<div class="description">
+						Gets the current username.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the current username</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUserProperty"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getUserProperty</b>(propertyName)
+					
+					</div>
+					<div class="description">
+						Gets the user property.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>propertyName</b>
+									
+								</dt>
+								<dd>the name of the property to retrieve</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the value of the property or <code>null</code> if no such property exists</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUserPropertyInfo"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>getUserPropertyInfo</b>(propertyName)
+					
+					</div>
+					<div class="description">
+						Gets the user property info for the specified property.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>propertyName</b>
+									
+								</dt>
+								<dd>the property</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> the value of the user property</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getZimletContext"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{ZimletContext}</span>
+					<b>getZimletContext</b>()
+					
+					</div>
+					<div class="description">
+						Gets the zimlet context.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{ZimletContext}</span> the context</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getZimletManager"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmZimletMgr.html">ZmZimletMgr</a>}</span>
+					<b>getZimletManager</b>()
+					
+					</div>
+					<div class="description">
+						Gets the zimlet manager.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmZimletMgr.html">ZmZimletMgr</a>}</span> the zimlet manager</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="init"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>init</b>()
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework to indicate that
+the zimlet it being initialized. This method can be overridden to initialize the zimlet.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="initializeToolbar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initializeToolbar</b>(app, toolbar, controller, viewId)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when application toolbars are initialized.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> <b>app</b>
+									
+								</dt>
+								<dd>the application</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>}</span> <b>toolbar</b>
+									
+								</dt>
+								<dd>the toolbar</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>the application controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>viewId</b>
+									
+								</dt>
+								<dd>the view Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="match"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{array}</span>
+					<b>match</b>(content, startIndex)
+					
+					</div>
+					<div class="description">
+						This method is called when content (e.g. a mail message) is being parsed.
+The match method may be called multiple times for a given piece of content and
+should apply the pattern matching as defined for a given zimlet <code>&lt;regex&gt;</code>.
+Zimlets should also use the "g" option when constructing their <code>&lt;regex&gt;</code>.
+
+<p>
+The return should be an array in the form:
+ 
+<pre>
+result[0...n] // should be matched string(s)
+result.index // should be location within line where match occurred
+result.input // should be the input parameter content
+</pre>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>content</b>
+									
+								</dt>
+								<dd>the content line to perform a match against</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>startIndex</b>
+									
+								</dt>
+								<dd>the start index (i.e. where to begin the search)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{array}</span> the matching content object from the <code>startIndex</code> if the content matched the specified zimlet handler regular expression; otherwise <code>null</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="menuItemSelected"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>menuItemSelected</b>(contextMenu, menuItemId, spanElement, contentObjText, canvas)
+					
+					</div>
+					<div class="description">
+						This method is called when a context menu item is selected.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmZimletBase.html#.PANEL_MENU">ZmZimletBase.PANEL_MENU</a>|<a href="../symbols/ZmZimletBase.html#.CONTENTOBJECT_MENU">ZmZimletBase.CONTENTOBJECT_MENU</a>}</span> <b>contextMenu</b>
+									
+								</dt>
+								<dd>the context menu</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>menuItemId</b>
+									
+								</dt>
+								<dd>the selected menu item Id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>spanElement</b>
+									
+								</dt>
+								<dd>the enclosing span element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contentObjText</b>
+									
+								</dt>
+								<dd>the content object text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onAction</b>(type, action, currentViewId, lastViewId)
+					
+					</div>
+					<div class="description">
+						This method by the Zimlet framework when an application action occurs.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type of action (for example: "app", "menuitem", "treeitem")</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>action</b>
+									
+								</dt>
+								<dd>the action</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>currentViewId</b>
+									
+								</dt>
+								<dd>the current view Id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>lastViewId</b>
+									
+								</dt>
+								<dd>the last view Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onActionMenuInitialized"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onActionMenuInitialized</b>(controller, actionMenu)
+					
+					</div>
+					<div class="description">
+						This method gets called by the Zimlet framework when the action menu is initialized
+on the subject/fragment of an email message.
+
+<p>
+This method is called twice:
+<ul>
+<li>The first-time a right-click is performed on a message in Conversation View.</li>
+<li>The first-time a right-click is performed on a message in Message View.</li>
+</ul>
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>the controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> <b>actionMenu</b>
+									
+								</dt>
+								<dd>the action menu</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onContactEdit"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onContactEdit</b>(view, contact, elementId)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a contact is edited.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmEditContactView.html">ZmEditContactView</a>}</span> <b>view</b>
+									
+								</dt>
+								<dd>the edit contact view</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the contact being edited</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>elementId</b>
+									
+								</dt>
+								<dd>the element Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onContactView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onContactView</b>(contact, elementId)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a contact is clicked-on in the contact list view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmContact.html">ZmContact</a>}</span> <b>contact</b>
+									
+								</dt>
+								<dd>the contact being viewed</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>elementId</b>
+									
+								</dt>
+								<dd>the element Id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onFindMsgObjects"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onFindMsgObjects</b>(msg, objMgr)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a user clicks-on a message in either the message or conversation view).
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the clicked message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmObjectManager.html">ZmObjectManager</a>}</span> <b>objMgr</b>
+									
+								</dt>
+								<dd>the object manager</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onKeyPressSearchField"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onKeyPressSearchField</b>(queryStr)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when enter is pressed in the search field.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>queryStr</b>
+									
+								</dt>
+								<dd>the search query string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#onSearchButtonClick">#onSearchButtonClick</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="onMailConfirm"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onMailConfirm</b>(confirmView, msg)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when the message confirmation dialog is presented.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{ZmMailConfirmView}</span> <b>confirmView</b>
+									
+								</dt>
+								<dd>the confirm view</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onMailFlagClick"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onMailFlagClick</b>(items, on)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when an email message is flagged.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>[]|ZmConv[]}</span> <b>items</b>
+									
+								</dt>
+								<dd>an array of items</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>on</b>
+									
+								</dt>
+								<dd><code>true</code> if the flag is being set; <code>false</code> if the flag is being unset</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onMsgView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onMsgView</b>(msg, oldMsg)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a user clicks-on a message in the mail application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>msg</b>
+									
+								</dt>
+								<dd>the clicked message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>}</span> <b>oldMsg</b>
+									
+								</dt>
+								<dd>the previous clicked message or <code>null</code> if this is the first message clicked</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onNewChatWidget"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onNewChatWidget</b>(widget)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a new chat widget is initialized.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{ZmChatWidget}</span> <b>widget</b>
+									
+								</dt>
+								<dd>the chat widget</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onParticipantActionMenuInitialized"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onParticipantActionMenuInitialized</b>(controller, actionMenu)
+					
+					</div>
+					<div class="description">
+						This method gets called by the Zimlet framework when the action menu is initialized on the from/sender of an email message.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmController.html">ZmController</a>}</span> <b>controller</b>
+									
+								</dt>
+								<dd>the controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> <b>actionMenu</b>
+									
+								</dt>
+								<dd>the action menu</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onSearch"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onSearch</b>(queryStr)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when a search is performed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>queryStr</b>
+									
+								</dt>
+								<dd>the search query string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onSearchButtonClick"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onSearchButtonClick</b>(queryStr)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when the search button is clicked.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>queryStr</b>
+									
+								</dt>
+								<dd>the search query string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#onKeyPressSearchField">#onKeyPressSearchField</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="onSelectApp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onSelectApp</b>(id)
+					
+					</div>
+					<div class="description">
+						This method by the Zimlet framework when an application button is pressed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id of the application button</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onShowView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onShowView</b>(view)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when showing an application view.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>view</b>
+									
+								</dt>
+								<dd>the name of the view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="onTagAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>onTagAction</b>(items, tag, doTag)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when an email message is tagged.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmMailMsg.html">ZmMailMsg</a>[]|ZmConv[]}</span> <b>items</b>
+									
+								</dt>
+								<dd>an array of items</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmTag.html">ZmTag</a>}</span> <b>tag</b>
+									
+								</dt>
+								<dd>the tag</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>doTag</b>
+									
+								</dt>
+								<dd><code>true</code> if the tag is being set; <code>false</code> if the tag is being removed</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="portletCreated"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>portletCreated</b>(portlet)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when the portlet is created.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmPortlet.html">ZmPortlet</a>}</span> <b>portlet</b>
+									
+								</dt>
+								<dd>the portlet</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="portletRefreshed"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>portletRefreshed</b>(portlet)
+					
+					</div>
+					<div class="description">
+						This method is called by the Zimlet framework when the portlet is refreshed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmPortlet.html">ZmPortlet</a>}</span> <b>portlet</b>
+									
+								</dt>
+								<dd>the portlet</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resetToolbarOperations"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resetToolbarOperations</b>(parent, enable)
+					
+					</div>
+					<div class="description">
+						Reset the toolbar
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a>|<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the toolbar or action menu</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>enable</b>
+									
+								</dt>
+								<dd>number of items selected</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="saveUserProperties"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>saveUserProperties</b>(callback)
+					
+					</div>
+					<div class="description">
+						Saves the user properties.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to invoke after the save</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> an empty string or an error message</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendRequest"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>sendRequest</b>(requestStr, serverURL, requestHeaders, callback, useGet, passErrors)
+					
+					</div>
+					<div class="description">
+						Sends the request content (via Ajax) to the specified server.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>requestStr</b>
+									
+								</dt>
+								<dd>the request content to send</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>serverURL</b>
+									
+								</dt>
+								<dd>the server url</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string[]}</span> <b>requestHeaders</b>
+									
+								</dt>
+								<dd>the request headers (may be <code>null</code>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback for asynchronous requests or <code>null</code> for none</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>useGet</b>
+									
+								</dt>
+								<dd><code>true</code> to use HTTP GET; <code>null</code> or <code>false</code> otherwise</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>passErrors</b>
+									
+								</dt>
+								<dd><code>true</code> to pass errors; <code>null</code> or <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the return value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setUserProperty"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setUserProperty</b>(propertyName, value, save, callback)
+					
+					</div>
+					<div class="description">
+						Sets the value of a given user property
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>propertyName</b>
+									
+								</dt>
+								<dd>the name of the property</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>value</b>
+									
+								</dt>
+								<dd>the property value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>save</b>
+									
+								</dt>
+								<dd>if <code>true</code>, the property will be saved (along with any other modified properties)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to invoke after the user properties save</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Throws:</dt>
+							
+								<dt>
+									 <b></b>
+								</dt>
+								<dd>ZimletException		if no such property exists or if the value is not valid for the property type</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#saveUserProperties">#saveUserProperties</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="singleClicked"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>singleClicked</b>(canvas)
+					
+					</div>
+					<div class="description">
+						This method gets called when a single-click is performed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="#doubleClicked">#doubleClicked</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="toolTipPoppedDown"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toolTipPoppedDown</b>(spanElement, contentObjText, matchContent, canvas)
+					
+					</div>
+					<div class="description">
+						This method is called when the tool tip is popping-down.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>spanElement</b>
+									
+								</dt>
+								<dd>the enclosing span element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contentObjText</b>
+									
+								</dt>
+								<dd>the content object text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>matchContent</b>
+									
+								</dt>
+								<dd>the matched content</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> <code>null</code> if the tool tip may be popped-down; otherwise, a string indicating why the tool tip should not be popped-down</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="toolTipPoppedUp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>toolTipPoppedUp</b>(spanElement, contentObjText, matchContent, canvas)
+					
+					</div>
+					<div class="description">
+						This method is called when the tool tip is popping-up.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>spanElement</b>
+									
+								</dt>
+								<dd>the enclosing span element</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>contentObjText</b>
+									
+								</dt>
+								<dd>the content object text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{array}</span> <b>matchContent</b>
+									
+								</dt>
+								<dd>the matched content</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{string}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the zimlet.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{string}</span> a string representation of the zimlet</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:46 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

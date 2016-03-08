@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmResource</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmResource
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmContact.html">ZmContact</a>.<br />
+				
+				<br>
+				This class represents a resource.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_model_ZmResource.js.html">ZmResource.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmResource.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmResource.html#constructor">ZmResource</a></b>(id, list, resType)
+							</div>
+							<div class="description">Creates a resource.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmResource.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmResource.<b><a href="../symbols/ZmResource.html#.createFromDom">createFromDom</a></b>(node, args)
+								</div>
+								<div class="description">Creates a resource from an XML node.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResource.html#getEmail">getEmail</a></b>()
+								</div>
+								<div class="description">Gets the resource email.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResource.html#getFullName">getFullName</a></b>()
+								</div>
+								<div class="description">Gets the resource full name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResource.html#initFromEmail">initFromEmail</a></b>(email)
+								</div>
+								<div class="description">Initializes from an email address.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmResource.html#isLocation">isLocation</a></b>()
+								</div>
+								<div class="description">Checks if the resource is a location.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmContact.html">ZmContact</a>: </dt><dd><a href="../symbols/ZmContact.html#create">create</a>, <a href="../symbols/ZmContact.html#createFromVCard">createFromVCard</a>, <a href="../symbols/ZmContact.html#getAddressBook">getAddressBook</a>, <a href="../symbols/ZmContact.html#getAllDLMembers">getAllDLMembers</a>, <a href="../symbols/ZmContact.html#getAttendeeKey">getAttendeeKey</a>, <a href="../symbols/ZmContact.html#getAttendeeText">getAttendeeText</a>, <a href="../symbols/ZmContact.html#getAttr">getAttr</a>, <a href="../symbols/ZmContact.html#getAttrs">getAttrs</a>, <a href="../symbols/ZmContact.html#getBuddy">getBuddy</a>, <a href="../symbols/ZmContact.html#getCompanyField">getCompanyField</a>, <a href="../symbols/ZmContact.html#getDLMembers">getDLMembers</a>, <a href="../symbols/ZmContact.html#getEmails">getEmails</a>, <a href="../symbols/ZmContact.html#getFields">getFields</a>, <a href="../symbols/ZmContact.html#getFileAs">getFileAs</a>, <a href="../symbols/ZmContact.html#getFileAsNoName">getFileAsNoName</a>, <a href="../symbols/ZmContact.html#getFolderId">getFolderId</a>, <a href="../symbols/ZmContact.html#getGroupMembers">getGroupMembers</a>, <a href="../symbols/ZmContact.html#getGroupMembersObj">getGroupMembersObj</a>, <a href="../symbols/ZmContact.html#getHeader">getHeader</a>, <a href="../symbols/ZmContact.html#getHomeAddrField">getHomeAddrField</a>, <a href="../symbols/ZmContact.html#getIcon">getIcon</a>, <a href="../symbols/ZmContact.html#getId">getId</a>, <a href="../symbols/ZmContact.html#getIMAddress">getIMAddress</a>, <a href="../symbols/ZmContact.html#getImageUrl">getImageUrl</a>, <a href="../symbols/ZmContact.html#getImPresence">getImPresence</a>, <a href="../symbols/ZmContact.html#getLookupEmail">getLookupEmail</a>, <a href="../symbols/ZmContact.html#getNormalizedAttrs">getNormalizedAttrs</a>, <a href="../symbols/ZmContact.html#getOtherAddrField">getOtherAddrField</a>, <a href="../symbols/ZmContact.html#getParticipantRole">getParticipantRole</a>, <a href="../symbols/ZmContact.html#getParticipantStatus">getParticipantStatus</a>, <a href="../symbols/ZmContact.html#getPhone">getPhone</a>, <a href="../symbols/ZmContact.html#getToolTip">getToolTip</a>, <a href="../symbols/ZmContact.html#getUnknownFields">getUnknownFields</a>, <a href="../symbols/ZmContact.html#getWorkAddrField">getWorkAddrField</a>, <a href="../symbols/ZmContact.html#initFromPhone">initFromPhone</a>, <a href="../symbols/ZmContact.html#isDistributionList">isDistributionList</a>, <a href="../symbols/ZmContact.html#isEmpty">isEmpty</a>, <a href="../symbols/ZmContact.html#isGroup">isGroup</a>, <a href="../symbols/ZmContact.html#isLocked">isLocked</a>, <a href="../symbols/ZmContact.html#isReadOnly">isReadOnly</a>, <a href="../symbols/ZmContact.html#isShared">isShared</a>, <a href="../symbols/ZmContact.html#modify">modify</a>, <a href="../symbols/ZmContact.html#removeAttr">removeAttr</a>, <a href="../symbols/ZmContact.html#setAttr">setAttr</a>, <a href="../symbols/ZmContact.html#setParticipantRole">setParticipantRole</a>, <a href="../symbols/ZmContact.html#setParticipantStatus">setParticipantStatus</a>, <a href="../symbols/ZmContact.html#toString">toString</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmItem.html">ZmItem</a>: </dt><dd><a href="../symbols/ZmItem.html#cache">cache</a>, <a href="../symbols/ZmItem.html#clear">clear</a>, <a href="../symbols/ZmItem.html#deleteLocal">deleteLocal</a>, <a href="../symbols/ZmItem.html#flagLocal">flagLocal</a>, <a href="../symbols/ZmItem.html#getById">getById</a>, <a href="../symbols/ZmItem.html#getDefaultDndAction">getDefaultDndAction</a>, <a href="../symbols/ZmItem.html#getRestUrl">getRestUrl</a>, <a href="../symbols/ZmItem.html#getTagImageFromIds">getTagImageFromIds</a>, <a href="../symbols/ZmItem.html#getTagImageInfo">getTagImageInfo</a>, <a href="../symbols/ZmItem.html#hasTag">hasTag</a>, <a href="../symbols/ZmItem.html#move">move</a>, <a href="../symbols/ZmItem.html#moveLocal">moveLocal</a>, <a href="../symbols/ZmItem.html#removeAllTagsLocal">removeAllTagsLocal</a>, <a href="../symbols/ZmItem.html#rename">rename</a>, <a href="../symbols/ZmItem.html#setFlag">setFlag</a>, <a href="../symbols/ZmItem.html#tagLocal">tagLocal</a></dd><dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmResource</b>(id, list, resType)
+				</div>
+				
+				<div class="description">
+					Creates a resource.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>id</b>
+								
+							</dt>
+								<dd>the id</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmList.html">ZmList</a>}</span>  <b>list</b>
+								
+							</dt>
+								<dd>the list</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>resType</b>
+								
+							</dt>
+								<dd>the resource type</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/ZmCalBaseItem.html">ZmCalBaseItem</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".createFromDom"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmResource.</span><b>createFromDom</b>(node, args)
+					
+					</div>
+					<div class="description">
+						Creates a resource from an XML node.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>node</b>
+									
+								</dt>
+								<dd>a "calresource" XML node</dd>
+							
+								<dt>
+									<b>args</b>
+									
+								</dt>
+								<dd>args to pass to the constructor</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getEmail"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getEmail</b>()
+					
+					</div>
+					<div class="description">
+						Gets the resource email.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the email</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFullName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFullName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the resource full name.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the full name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="initFromEmail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initFromEmail</b>(email)
+					
+					</div>
+					<div class="description">
+						Initializes from an email address.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a>|String}</span> <b>email</b>
+									
+								</dt>
+								<dd>an email address object an email string</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isLocation"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isLocation</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the resource is a location.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if is location</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Wed Aug 22 2012 13:01:38 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

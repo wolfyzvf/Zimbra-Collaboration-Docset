@@ -1,0 +1,382 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * 
+<span class='line'>  4</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  5</span>  * Copyright (C) 2012 VMware, Inc.
+<span class='line'>  6</span>  * 
+<span class='line'>  7</span>  * The contents of this file are subject to the Zimbra Public License
+<span class='line'>  8</span>  * Version 1.3 ("License"); you may not use this file except in
+<span class='line'>  9</span>  * compliance with the License.  You may obtain a copy of the License at
+<span class='line'> 10</span>  * http://www.zimbra.com/license.
+<span class='line'> 11</span>  * 
+<span class='line'> 12</span>  * Software distributed under the License is distributed on an "AS IS"
+<span class='line'> 13</span>  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 14</span>  * 
+<span class='line'> 15</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 16</span>  */</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="COMM">/**
+<span class='line'> 18</span>  * AddOnManager.js
+<span class='line'> 19</span>  *
+<span class='line'> 20</span>  * Copyright, Moxiecode Systems AB
+<span class='line'> 21</span>  * Released under LGPL License.
+<span class='line'> 22</span>  *
+<span class='line'> 23</span>  * License: http://www.tinymce.com/license
+<span class='line'> 24</span>  * Contributing: http://www.tinymce.com/contributing
+<span class='line'> 25</span>  */</span><span class="WHIT">
+<span class='line'> 26</span> 
+<span class='line'> 27</span> </span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">tinymce</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Dispatcher</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinymce.util.Dispatcher</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">each</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinymce.each</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'> 31</span> 	 * This class handles the loading of themes/plugins or other add-ons and their language packs.
+<span class='line'> 32</span> 	 *
+<span class='line'> 33</span> 	 * @class tinymce.AddOnManager
+<span class='line'> 34</span> 	 */</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">	</span><span class="NAME">tinymce.create</span><span class="PUNC">(</span><span class="STRN">'tinymce.AddOnManager'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="WHIT">		</span><span class="NAME">AddOnManager</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">self</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 38</span> 
+<span class='line'> 39</span> </span><span class="WHIT">			</span><span class="NAME">self.items</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">			</span><span class="NAME">self.urls</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">			</span><span class="NAME">self.lookup</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">			</span><span class="NAME">self.onAdd</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Dispatcher</span><span class="PUNC">(</span><span class="NAME">self</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 44</span> 
+<span class='line'> 45</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 46</span> 		 * Fires when a item is added.
+<span class='line'> 47</span> 		 *
+<span class='line'> 48</span> 		 * @event onAdd
+<span class='line'> 49</span> 		 */</span><span class="WHIT">
+<span class='line'> 50</span> 
+<span class='line'> 51</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 52</span> 		 * Returns the specified add on by the short name.
+<span class='line'> 53</span> 		 *
+<span class='line'> 54</span> 		 * @method get
+<span class='line'> 55</span> 		 * @param {String} n Add-on to look for.
+<span class='line'> 56</span> 		 * @return {tinymce.Theme/tinymce.Plugin} Theme or plugin add-on instance or undefined.
+<span class='line'> 57</span> 		 */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">		</span><span class="NAME">get</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.lookup</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.lookup</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">instance</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 65</span> 
+<span class='line'> 66</span> </span><span class="WHIT">		</span><span class="NAME">dependencies</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">result</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.lookup</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">				</span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.lookup</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">dependencies</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 73</span> 
+<span class='line'> 74</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 75</span> 		 * Loads a language pack for the specified add-on.
+<span class='line'> 76</span> 		 *
+<span class='line'> 77</span> 		 * @method requireLangPack
+<span class='line'> 78</span> 		 * @param {String} n Short name of the add-on.
+<span class='line'> 79</span> 		 */</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">		</span><span class="NAME">requireLangPack</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinymce.settings</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> 
+<span class='line'> 83</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">s</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">s.language</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">s.language_load</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="WHIT">				</span><span class="NAME">tinymce.ScriptLoader.add</span><span class="PUNC">(</span><span class="NAME">this.urls</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'/langs/'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">s.language</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'.js'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 86</span> 
+<span class='line'> 87</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 88</span> 		 * Adds a instance of the add-on by it's short name.
+<span class='line'> 89</span> 		 *
+<span class='line'> 90</span> 		 * @method add
+<span class='line'> 91</span> 		 * @param {String} id Short name/id for the add-on.
+<span class='line'> 92</span> 		 * @param {tinymce.Theme/tinymce.Plugin} o Theme or plugin to add.
+<span class='line'> 93</span> 		 * @return {tinymce.Theme/tinymce.Plugin} The same theme or plugin instance that got passed in.
+<span class='line'> 94</span> 		 * @example
+<span class='line'> 95</span> 		 * // Create a simple plugin
+<span class='line'> 96</span> 		 * tinymce.create('tinymce.plugins.TestPlugin', {
+<span class='line'> 97</span> 		 *     TestPlugin : function(ed, url) {
+<span class='line'> 98</span> 		 *         ed.onClick.add(function(ed, e) {
+<span class='line'> 99</span> 		 *             ed.windowManager.alert('Hello World!');
+<span class='line'>100</span> 		 *         });
+<span class='line'>101</span> 		 *     }
+<span class='line'>102</span> 		 * });
+<span class='line'>103</span> 		 * 
+<span class='line'>104</span> 		 * // Register plugin using the add method
+<span class='line'>105</span> 		 * tinymce.PluginManager.add('test', tinymce.plugins.TestPlugin);
+<span class='line'>106</span> 		 * 
+<span class='line'>107</span> 		 * // Initialize TinyMCE
+<span class='line'>108</span> 		 * tinyMCE.init({
+<span class='line'>109</span> 		 *    ...
+<span class='line'>110</span> 		 *    plugins : '-test' // Init the plugin but don't try to load it
+<span class='line'>111</span> 		 * });
+<span class='line'>112</span> 		 */</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">		</span><span class="NAME">add</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">dependencies</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="WHIT">			</span><span class="NAME">this.items.push</span><span class="PUNC">(</span><span class="NAME">o</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>115</span> </span><span class="WHIT">			</span><span class="NAME">this.lookup</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">instance</span><span class="PUNC">:</span><span class="NAME">o</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">dependencies</span><span class="PUNC">:</span><span class="NAME">dependencies</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>116</span> </span><span class="WHIT">			</span><span class="NAME">this.onAdd.dispatch</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>117</span> 
+<span class='line'>118</span> </span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">o</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>120</span> </span><span class="WHIT">		</span><span class="NAME">createUrl</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">baseUrl</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">dep</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>121</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">dep</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">"object"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">dep</span><span class="WHIT">
+<span class='line'>123</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>124</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">prefix</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">baseUrl.prefix</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">resource</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">dep</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">suffix</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">baseUrl.suffix</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>127</span> 
+<span class='line'>128</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>129</span> 		 * Add a set of components that will make up the add-on. Using the url of the add-on name as the base url.
+<span class='line'>130</span> 		 * This should be used in development mode.  A new compressor/javascript munger process will ensure that the 
+<span class='line'>131</span> 		 * components are put together into the editor_plugin.js file and compressed correctly.
+<span class='line'>132</span> 		 * @param pluginName {String} name of the plugin to load scripts from (will be used to get the base url for the plugins).
+<span class='line'>133</span> 		 * @param scripts {Array} Array containing the names of the scripts to load.
+<span class='line'>134</span> 		 */</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">		</span><span class="NAME">addComponents</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">pluginName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">scripts</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">pluginUrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.urls</span><span class="PUNC">[</span><span class="NAME">pluginName</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>137</span> </span><span class="WHIT">			</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">scripts</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">script</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="WHIT">				</span><span class="NAME">tinymce.ScriptLoader.add</span><span class="PUNC">(</span><span class="NAME">pluginUrl</span><span class="PUNC">+</span><span class="STRN">"/"</span><span class="PUNC">+</span><span class="NAME">script</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">	</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>140</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>141</span> 
+<span class='line'>142</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'>143</span> 		 * Loads an add-on from a specific url.
+<span class='line'>144</span> 		 *
+<span class='line'>145</span> 		 * @method load
+<span class='line'>146</span> 		 * @param {String} n Short name of the add-on that gets loaded.
+<span class='line'>147</span> 		 * @param {String} u URL to the add-on that will get loaded.
+<span class='line'>148</span> 		 * @param {function} cb Optional callback to execute ones the add-on is loaded.
+<span class='line'>149</span> 		 * @param {Object} s Optional scope to execute the callback in.
+<span class='line'>150</span> 		 * @example
+<span class='line'>151</span> 		 * // Loads a plugin from an external URL
+<span class='line'>152</span> 		 * tinymce.PluginManager.load('myplugin', '/some/dir/someplugin/editor_plugin.js');
+<span class='line'>153</span> 		 *
+<span class='line'>154</span> 		 * // Initialize TinyMCE
+<span class='line'>155</span> 		 * tinyMCE.init({
+<span class='line'>156</span> 		 *    ...
+<span class='line'>157</span> 		 *    plugins : '-myplugin' // Don't try to load it again
+<span class='line'>158</span> 		 * });
+<span class='line'>159</span> 		 */</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="WHIT">		</span><span class="NAME">load</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">u</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">cb</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="WHIT">			</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">t</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">url</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">u</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>162</span> 
+<span class='line'>163</span> </span><span class="WHIT">			</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">loadDependencies</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="WHIT">				</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">dependencies</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.dependencies</span><span class="PUNC">(</span><span class="NAME">n</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">				</span><span class="NAME">tinymce.each</span><span class="PUNC">(</span><span class="NAME">dependencies</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">dep</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">					</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">newUrl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">t.createUrl</span><span class="PUNC">(</span><span class="NAME">u</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">dep</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">					</span><span class="NAME">t.load</span><span class="PUNC">(</span><span class="NAME">newUrl.resource</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">newUrl</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="WHIT">				</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cb</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>170</span> </span><span class="WHIT">					</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>171</span> </span><span class="WHIT">						</span><span class="NAME">cb.call</span><span class="PUNC">(</span><span class="NAME">s</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>172</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="WHIT">						</span><span class="NAME">cb.call</span><span class="PUNC">(</span><span class="NAME">tinymce.ScriptLoader</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>174</span> </span><span class="WHIT">					</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>175</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>176</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>177</span> 
+<span class='line'>178</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">t.urls</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>179</span> </span><span class="WHIT">				</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>180</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">u</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">"object"</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>181</span> </span><span class="WHIT">				</span><span class="NAME">url</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">u.prefix</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">u.resource</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">u.suffix</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>182</span> 
+<span class='line'>183</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url.indexOf</span><span class="PUNC">(</span><span class="STRN">'/'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">url.indexOf</span><span class="PUNC">(</span><span class="STRN">'://'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="WHIT">				</span><span class="NAME">url</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tinymce.baseURL</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'/'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">url</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>185</span> 
+<span class='line'>186</span> </span><span class="WHIT">			</span><span class="NAME">t.urls</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">url.substring</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">url.lastIndexOf</span><span class="PUNC">(</span><span class="STRN">'/'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>187</span> 
+<span class='line'>188</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">t.lookup</span><span class="PUNC">[</span><span class="NAME">n</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">				</span><span class="NAME">loadDependencies</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>190</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="WHIT">				</span><span class="NAME">tinymce.ScriptLoader.add</span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">loadDependencies</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">s</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>193</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>194</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>195</span> 
+<span class='line'>196</span> </span><span class="WHIT">	</span><span class="COMM">// Create plugin and theme managers</span><span class="WHIT">
+<span class='line'>197</span> </span><span class="WHIT">	</span><span class="NAME">tinymce.PluginManager</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">tinymce.AddOnManager</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="WHIT">	</span><span class="NAME">tinymce.ThemeManager</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">tinymce.AddOnManager</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="PUNC">}</span><span class="PUNC">(</span><span class="NAME">tinymce</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>200</span> 
+<span class='line'>201</span> </span><span class="COMM">/**
+<span class='line'>202</span>  * TinyMCE theme class.
+<span class='line'>203</span>  *
+<span class='line'>204</span>  * @class tinymce.Theme
+<span class='line'>205</span>  */</span><span class="WHIT">
+<span class='line'>206</span> 
+<span class='line'>207</span> </span><span class="COMM">/**
+<span class='line'>208</span>  * Initializes the theme.
+<span class='line'>209</span>  *
+<span class='line'>210</span>  * @method init
+<span class='line'>211</span>  * @param {tinymce.Editor} editor Editor instance that created the theme instance.
+<span class='line'>212</span>  * @param {String} url Absolute URL where the theme is located. 
+<span class='line'>213</span>  */</span><span class="WHIT">
+<span class='line'>214</span> 
+<span class='line'>215</span> </span><span class="COMM">/**
+<span class='line'>216</span>  * Meta info method, this method gets executed when TinyMCE wants to present information about the theme for example in the about/help dialog.
+<span class='line'>217</span>  *
+<span class='line'>218</span>  * @method getInfo
+<span class='line'>219</span>  * @return {Object} Returns an object with meta information about the theme the current items are longname, author, authorurl, infourl and version.
+<span class='line'>220</span>  */</span><span class="WHIT">
+<span class='line'>221</span> 
+<span class='line'>222</span> </span><span class="COMM">/**
+<span class='line'>223</span>  * This method is responsible for rendering/generating the overall user interface with toolbars, buttons, iframe containers etc.
+<span class='line'>224</span>  *
+<span class='line'>225</span>  * @method renderUI
+<span class='line'>226</span>  * @param {Object} obj Object parameter containing the targetNode DOM node that will be replaced visually with an editor instance. 
+<span class='line'>227</span>  * @return {Object} an object with items like iframeContainer, editorContainer, sizeContainer, deltaWidth, deltaHeight. 
+<span class='line'>228</span>  */</span><span class="WHIT">
+<span class='line'>229</span> 
+<span class='line'>230</span> </span><span class="COMM">/**
+<span class='line'>231</span>  * Plugin base class, this is a pseudo class that describes how a plugin is to be created for TinyMCE. The methods below are all optional.
+<span class='line'>232</span>  *
+<span class='line'>233</span>  * @class tinymce.Plugin
+<span class='line'>234</span>  * @example
+<span class='line'>235</span>  * // Create a new plugin class
+<span class='line'>236</span>  * tinymce.create('tinymce.plugins.ExamplePlugin', {
+<span class='line'>237</span>  *     init : function(ed, url) {
+<span class='line'>238</span>  *         // Register an example button
+<span class='line'>239</span>  *         ed.addButton('example', {
+<span class='line'>240</span>  *             title : 'example.desc',
+<span class='line'>241</span>  *             onclick : function() {
+<span class='line'>242</span>  *                  // Display an alert when the user clicks the button
+<span class='line'>243</span>  *                  ed.windowManager.alert('Hello world!');
+<span class='line'>244</span>  *             },
+<span class='line'>245</span>  *             'class' : 'bold' // Use the bold icon from the theme
+<span class='line'>246</span>  *         });
+<span class='line'>247</span>  *     }
+<span class='line'>248</span>  * });
+<span class='line'>249</span>  * 
+<span class='line'>250</span>  * // Register plugin with a short name
+<span class='line'>251</span>  * tinymce.PluginManager.add('example', tinymce.plugins.ExamplePlugin);
+<span class='line'>252</span>  * 
+<span class='line'>253</span>  * // Initialize TinyMCE with the new plugin and button
+<span class='line'>254</span>  * tinyMCE.init({
+<span class='line'>255</span>  *    ...
+<span class='line'>256</span>  *    plugins : '-example', // - means TinyMCE will not try to load it
+<span class='line'>257</span>  *    theme_advanced_buttons1 : 'example' // Add the new example button to the toolbar
+<span class='line'>258</span>  * });
+<span class='line'>259</span>  */</span><span class="WHIT">
+<span class='line'>260</span> 
+<span class='line'>261</span> </span><span class="COMM">/**
+<span class='line'>262</span>  * Initialization function for the plugin. This will be called when the plugin is created. 
+<span class='line'>263</span>  *
+<span class='line'>264</span>  * @method init
+<span class='line'>265</span>  * @param {tinymce.Editor} editor Editor instance that created the plugin instance. 
+<span class='line'>266</span>  * @param {String} url Absolute URL where the plugin is located. 
+<span class='line'>267</span>  * @example
+<span class='line'>268</span>  * // Creates a new plugin class
+<span class='line'>269</span>  * tinymce.create('tinymce.plugins.ExamplePlugin', {
+<span class='line'>270</span>  *     init : function(ed, url) {
+<span class='line'>271</span>  *         // Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
+<span class='line'>272</span>  *         ed.addCommand('mceExample', function() {
+<span class='line'>273</span>  *             ed.windowManager.open({
+<span class='line'>274</span>  *                 file : url + '/dialog.htm',
+<span class='line'>275</span>  *                 width : 320 + ed.getLang('example.delta_width', 0),
+<span class='line'>276</span>  *                 height : 120 + ed.getLang('example.delta_height', 0),
+<span class='line'>277</span>  *                 inline : 1
+<span class='line'>278</span>  *             }, {
+<span class='line'>279</span>  *                 plugin_url : url, // Plugin absolute URL
+<span class='line'>280</span>  *                 some_custom_arg : 'custom arg' // Custom argument
+<span class='line'>281</span>  *             });
+<span class='line'>282</span>  *         });
+<span class='line'>283</span>  * 
+<span class='line'>284</span>  *         // Register example button
+<span class='line'>285</span>  *         ed.addButton('example', {
+<span class='line'>286</span>  *             title : 'example.desc',
+<span class='line'>287</span>  *             cmd : 'mceExample',
+<span class='line'>288</span>  *             image : url + '/img/example.gif'
+<span class='line'>289</span>  *         });
+<span class='line'>290</span>  * 
+<span class='line'>291</span>  *         // Add a node change handler, selects the button in the UI when a image is selected
+<span class='line'>292</span>  *         ed.onNodeChange.add(function(ed, cm, n) {
+<span class='line'>293</span>  *             cm.setActive('example', n.nodeName == 'IMG');
+<span class='line'>294</span>  *         });
+<span class='line'>295</span>  *     }
+<span class='line'>296</span>  * });
+<span class='line'>297</span>  * 
+<span class='line'>298</span>  * // Register plugin
+<span class='line'>299</span>  * tinymce.PluginManager.add('example', tinymce.plugins.ExamplePlugin);
+<span class='line'>300</span>  */</span><span class="WHIT">
+<span class='line'>301</span> 
+<span class='line'>302</span> </span><span class="COMM">/**
+<span class='line'>303</span>  * Meta info method, this method gets executed when TinyMCE wants to present information about the plugin for example in the about/help dialog.
+<span class='line'>304</span>  *
+<span class='line'>305</span>  * @method getInfo
+<span class='line'>306</span>  * @return {Object} Returns an object with meta information about the plugin the current items are longname, author, authorurl, infourl and version.
+<span class='line'>307</span>  * @example 
+<span class='line'>308</span>  * // Creates a new plugin class
+<span class='line'>309</span>  * tinymce.create('tinymce.plugins.ExamplePlugin', {
+<span class='line'>310</span>  *     // Meta info method
+<span class='line'>311</span>  *     getInfo : function() {
+<span class='line'>312</span>  *         return {
+<span class='line'>313</span>  *             longname : 'Example plugin',
+<span class='line'>314</span>  *             author : 'Some author',
+<span class='line'>315</span>  *             authorurl : 'http://www.tinymce.com',
+<span class='line'>316</span>  *             infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
+<span class='line'>317</span>  *             version : "1.0"
+<span class='line'>318</span>  *         };
+<span class='line'>319</span>  *     }
+<span class='line'>320</span>  * });
+<span class='line'>321</span>  * 
+<span class='line'>322</span>  * // Register plugin
+<span class='line'>323</span>  * tinymce.PluginManager.add('example', tinymce.plugins.ExamplePlugin);
+<span class='line'>324</span>  * 
+<span class='line'>325</span>  * // Initialize TinyMCE with the new plugin
+<span class='line'>326</span>  * tinyMCE.init({
+<span class='line'>327</span>  *    ...
+<span class='line'>328</span>  *    plugins : '-example' // - means TinyMCE will not try to load it
+<span class='line'>329</span>  * });
+<span class='line'>330</span>  */</span><span class="WHIT">
+<span class='line'>331</span> 
+<span class='line'>332</span> </span><span class="COMM">/**
+<span class='line'>333</span>  * Gets called when a new control instance is created.
+<span class='line'>334</span>  *
+<span class='line'>335</span>  * @method createControl
+<span class='line'>336</span>  * @param {String} name Control name to create for example "mylistbox" 
+<span class='line'>337</span>  * @param {tinymce.ControlManager} controlman Control manager/factory to use to create the control. 
+<span class='line'>338</span>  * @return {tinymce.ui.Control} Returns a new control instance or null.
+<span class='line'>339</span>  * @example 
+<span class='line'>340</span>  * // Creates a new plugin class
+<span class='line'>341</span>  * tinymce.create('tinymce.plugins.ExamplePlugin', {
+<span class='line'>342</span>  *     createControl: function(n, cm) {
+<span class='line'>343</span>  *         switch (n) {
+<span class='line'>344</span>  *             case 'mylistbox':
+<span class='line'>345</span>  *                 var mlb = cm.createListBox('mylistbox', {
+<span class='line'>346</span>  *                      title : 'My list box',
+<span class='line'>347</span>  *                      onselect : function(v) {
+<span class='line'>348</span>  *                          tinyMCE.activeEditor.windowManager.alert('Value selected:' + v);
+<span class='line'>349</span>  *                      }
+<span class='line'>350</span>  *                 });
+<span class='line'>351</span>  * 
+<span class='line'>352</span>  *                 // Add some values to the list box
+<span class='line'>353</span>  *                 mlb.add('Some item 1', 'val1');
+<span class='line'>354</span>  *                 mlb.add('some item 2', 'val2');
+<span class='line'>355</span>  *                 mlb.add('some item 3', 'val3');
+<span class='line'>356</span>  * 
+<span class='line'>357</span>  *                 // Return the new listbox instance
+<span class='line'>358</span>  *                 return mlb;
+<span class='line'>359</span>  *         }
+<span class='line'>360</span>  * 
+<span class='line'>361</span>  *         return null;
+<span class='line'>362</span>  *     }
+<span class='line'>363</span>  * });
+<span class='line'>364</span>  * 
+<span class='line'>365</span>  * // Register plugin
+<span class='line'>366</span>  * tinymce.PluginManager.add('example', tinymce.plugins.ExamplePlugin);
+<span class='line'>367</span>  * 
+<span class='line'>368</span>  * // Initialize TinyMCE with the new plugin and button
+<span class='line'>369</span>  * tinyMCE.init({
+<span class='line'>370</span>  *    ...
+<span class='line'>371</span>  *    plugins : '-example', // - means TinyMCE will not try to load it
+<span class='line'>372</span>  *    theme_advanced_buttons1 : 'mylistbox' // Add the new mylistbox control to the toolbar
+<span class='line'>373</span>  * });
+<span class='line'>374</span>  */</span><span class="WHIT">
+<span class='line'>375</span> </span></pre></body></html>

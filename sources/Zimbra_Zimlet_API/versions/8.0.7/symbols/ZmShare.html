@@ -1,0 +1,3064 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmShare</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmShare
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				A share comprises information about an object that is shared by one user with
+another user. Currently, only organizers may be shared.
+<br/>
+<br/>
+XML representation:
+<pre>
+&lt;!ELEMENT share (grantee,grantor,link)>
+&lt;!ATTLIST share xmlns CDATA #FIXED "urn:zimbraShare">
+&lt;!ATTLIST share version NMTOKEN #FIXED "0.1">
+&lt;!ATTLIST share action (new|edit|delete|accept|decline) #REQUIRED>
+
+&lt;!ELEMENT grantee EMPTY>
+&lt;!ATTLIST grantee id CDATA #REQUIRED>
+&lt;!ATTLIST grantee name CDATA #REQUIRED>
+&lt;!ATTLIST grantee email CDATA #REQUIRED>
+
+&lt;!ELEMENT grantor EMPTY>
+&lt;!ATTLIST grantor id CDATA #REQUIRED>
+&lt;!ATTLIST grantor name CDATA #REQUIRED>
+&lt;!ATTLIST grantor email CDATA #REQUIRED>
+
+&lt;!ELEMENT link EMPTY>
+&lt;!ATTLIST link id NMTOKEN #REQUIRED>
+&lt;!ATTLIST link name CDATA #REQUIRED>
+&lt;!ATTLIST link view (appointment|...) #REQUIRED>
+&lt;!ATTLISt link perm CDATA #REQUIRED>
+</pre>
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmShare.js.html">ZmShare.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmShare.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmShare.html#constructor">ZmShare</a></b>(params, granteePwd)
+							</div>
+							<div class="description">Creates a share with the given information about the sharer, the sharee, and
+what is being shared.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmShare.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.ACCEPT">ACCEPT</a></b>
+								</div>
+								<div class="description">Defines the "accept" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.DECLINE">DECLINE</a></b>
+								</div>
+								<div class="description">Defines the "decline" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.DELETE">DELETE</a></b>
+								</div>
+								<div class="description">Defines the "delete" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.EDIT">EDIT</a></b>
+								</div>
+								<div class="description">Defines the "edit" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.NEW">NEW</a></b>
+								</div>
+								<div class="description">Defines the "new" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.NOTIFY">NOTIFY</a></b>
+								</div>
+								<div class="description">Defines the "notify" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_ADMIN">PERM_ADMIN</a></b>
+								</div>
+								<div class="description">Defines the "admin" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_DELETE">PERM_DELETE</a></b>
+								</div>
+								<div class="description">Defines the "delete" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_INSERT">PERM_INSERT</a></b>
+								</div>
+								<div class="description">Defines the "insert" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NOADMIN">PERM_NOADMIN</a></b>
+								</div>
+								<div class="description">Defines the "no admin" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NODELETE">PERM_NODELETE</a></b>
+								</div>
+								<div class="description">Defines the "no delete" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NOINSERT">PERM_NOINSERT</a></b>
+								</div>
+								<div class="description">Defines the "no insert" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NOREAD">PERM_NOREAD</a></b>
+								</div>
+								<div class="description">Defines the "no read" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NOWORKFLOW">PERM_NOWORKFLOW</a></b>
+								</div>
+								<div class="description">Defines the "no workflow" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_NOWRITE">PERM_NOWRITE</a></b>
+								</div>
+								<div class="description">Defines the "no write" restricted permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_PRIVATE">PERM_PRIVATE</a></b>
+								</div>
+								<div class="description">Defines the "private" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_READ">PERM_READ</a></b>
+								</div>
+								<div class="description">Defines the "read" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_WORKFLOW">PERM_WORKFLOW</a></b>
+								</div>
+								<div class="description">Defines the "workflow" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.PERM_WRITE">PERM_WRITE</a></b>
+								</div>
+								<div class="description">Defines the "write" allowed permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.RESEND">RESEND</a></b>
+								</div>
+								<div class="description">Defines the "resend" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.REVOKE">REVOKE</a></b>
+								</div>
+								<div class="description">Defines the "revoke" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.ROLE_ADMIN">ROLE_ADMIN</a></b>
+								</div>
+								<div class="description">Defines the "admin" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.ROLE_MANAGER">ROLE_MANAGER</a></b>
+								</div>
+								<div class="description">Defines the "manager" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.ROLE_NONE">ROLE_NONE</a></b>
+								</div>
+								<div class="description">Defines the "none" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.ROLE_VIEWER">ROLE_VIEWER</a></b>
+								</div>
+								<div class="description">Defines the "viewer" role.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_ALL">TYPE_ALL</a></b>
+								</div>
+								<div class="description">Defines the "all" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_COS">TYPE_COS</a></b>
+								</div>
+								<div class="description">Defines the "COS" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_DOMAIN">TYPE_DOMAIN</a></b>
+								</div>
+								<div class="description">Defines the "domain" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_GROUP">TYPE_GROUP</a></b>
+								</div>
+								<div class="description">Defines the "group" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_GUEST">TYPE_GUEST</a></b>
+								</div>
+								<div class="description">Defines the "guest" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_PUBLIC">TYPE_PUBLIC</a></b>
+								</div>
+								<div class="description">Defines the "public" type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmShare.<b><a href="../symbols/ZmShare.html#.TYPE_USER">TYPE_USER</a></b>
+								</div>
+								<div class="description">Defines the "user" type.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmShare.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#accept">accept</a></b>(name, color, replyType, notes, callback, owner)
+								</div>
+								<div class="description">Accepts the share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.createFromDom">createFromDom</a></b>(doc)
+								</div>
+								<div class="description">Creates the share from the DOM.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.createFromJs">createFromJs</a></b>(, grant)
+								</div>
+								<div class="description">Creates the share from JS.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.getRoleActions">getRoleActions</a></b>(role)
+								</div>
+								<div class="description">Gets the role actions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.getRoleName">getRoleName</a></b>(role)
+								</div>
+								<div class="description">Gets the role name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.getShareFromGrant">getShareFromGrant</a></b>(share, oldShare)
+								</div>
+								<div class="description">Updates a ZmShare that represents a grant</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.getShareFromLink">getShareFromLink</a></b>(link, share)
+								</div>
+								<div class="description">Creates or updates a ZmShare from a ZmOrganizer that's a mountpoint.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.getShareFromShareInfo">getShareFromShareInfo</a></b>(shareInfo, share)
+								</div>
+								<div class="description">Creates or updates a ZmShare from share info that comes in JSON form from
+GetShareInfoResponse.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#grant">grant</a></b>(perm, pw, replyType, shareAction, batchCmd, batchCmd)
+								</div>
+								<div class="description">Grants the permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#hasPrivateAccess">hasPrivateAccess</a></b>()
+								</div>
+								<div class="description">Checks if the private permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isAdmin">isAdmin</a></b>()
+								</div>
+								<div class="description">Checks if the admin permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isAll">isAll</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "all".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isDelete">isDelete</a></b>()
+								</div>
+								<div class="description">Checks if the delete permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isDomain">isDomain</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "domain".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isGroup">isGroup</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "group".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isGuest">isGuest</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "guest".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isInsert">isInsert</a></b>()
+								</div>
+								<div class="description">Checks if the insert permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isPermAllowed">isPermAllowed</a></b>(perm)
+								</div>
+								<div class="description">Checks if the given permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isPermRestricted">isPermRestricted</a></b>(perm)
+								</div>
+								<div class="description">Checks if the given permission is restricted for this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isPublic">isPublic</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "public".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isRead">isRead</a></b>()
+								</div>
+								<div class="description">Checks if the read permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isUser">isUser</a></b>()
+								</div>
+								<div class="description">Checks if the grantee type is "user".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isWorkflow">isWorkflow</a></b>()
+								</div>
+								<div class="description">Checks if the workflow permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#isWrite">isWrite</a></b>()
+								</div>
+								<div class="description">Checks if the write permission exists on this share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#revoke">revoke</a></b>(callback)
+								</div>
+								<div class="description">Revokes the share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#revokeMultiple">revokeMultiple</a></b>(callback, args, batchCmd)
+								</div>
+								<div class="description">Revokes multiple shares.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmShare.<b><a href="../symbols/ZmShare.html#.revokeOrphanGrants">revokeOrphanGrants</a></b>(zid, granteeType, callback, batchCmd)
+								</div>
+								<div class="description">Revokes all grants for the given zid (one whose account has been
+removed).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#sendMessage">sendMessage</a></b>(mode, addrs, owner, batchCmd)
+								</div>
+								<div class="description">Sends a message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#setPermissions">setPermissions</a></b>(perm)
+								</div>
+								<div class="description">Sets the permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmShare.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmShare</b>(params, granteePwd)
+				</div>
+				
+				<div class="description">
+					Creates a share with the given information about the sharer, the sharee, and
+what is being shared.
+					<br /><i>Author: </i>Andy Clark.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>params.object</b>
+								
+							</dt>
+								<dd>the object being shared</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.granteeType</b>
+								
+							</dt>
+								<dd>the grantee type (see <code>ZmShare.TYPE_</code> constants) (everyone, or a single user)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.granteeId</b>
+								
+							</dt>
+								<dd>a unique ID for the grantee</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.granteeName</b>
+								
+							</dt>
+								<dd>the grantee's name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>granteePwd</b>
+								
+							</dt>
+								<dd>the grantee's password</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.perm</b>
+								
+							</dt>
+								<dd>the grantee's permissions on the shared object</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.inherit</b>
+								
+							</dt>
+								<dd>if <code>true</code>, children inherit share info</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.invalid</b>
+								
+							</dt>
+								<dd>if <code>true</code>, the share is invalid</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ACCEPT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>ACCEPT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "accept" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DECLINE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>DECLINE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "decline" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".DELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>DELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".EDIT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>EDIT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "edit" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NEW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>NEW</b>
+					
+					</div>
+					<div class="description">
+						Defines the "new" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".NOTIFY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>NOTIFY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "notify" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_ADMIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_ADMIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "admin" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_DELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_DELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_INSERT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_INSERT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "insert" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NOADMIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NOADMIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no admin" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NODELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NODELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no delete" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NOINSERT"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NOINSERT</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no insert" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NOREAD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NOREAD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no read" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NOWORKFLOW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NOWORKFLOW</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no workflow" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_NOWRITE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_NOWRITE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "no write" restricted permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_PRIVATE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_PRIVATE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "private" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_READ"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_READ</b>
+					
+					</div>
+					<div class="description">
+						Defines the "read" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_WORKFLOW"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_WORKFLOW</b>
+					
+					</div>
+					<div class="description">
+						Defines the "workflow" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".PERM_WRITE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>PERM_WRITE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "write" allowed permission.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".RESEND"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>RESEND</b>
+					
+					</div>
+					<div class="description">
+						Defines the "resend" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".REVOKE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>REVOKE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "revoke" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_ADMIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>ROLE_ADMIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "admin" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_MANAGER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>ROLE_MANAGER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "manager" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_NONE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>ROLE_NONE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "none" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".ROLE_VIEWER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>ROLE_VIEWER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "viewer" role.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_ALL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_ALL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "all" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_COS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_COS</b>
+					
+					</div>
+					<div class="description">
+						Defines the "COS" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_DOMAIN"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_DOMAIN</b>
+					
+					</div>
+					<div class="description">
+						Defines the "domain" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_GROUP"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_GROUP</b>
+					
+					</div>
+					<div class="description">
+						Defines the "group" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_GUEST"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_GUEST</b>
+					
+					</div>
+					<div class="description">
+						Defines the "guest" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_PUBLIC"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_PUBLIC</b>
+					
+					</div>
+					<div class="description">
+						Defines the "public" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".TYPE_USER"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>TYPE_USER</b>
+					
+					</div>
+					<div class="description">
+						Defines the "user" type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="accept"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>accept</b>(name, color, replyType, notes, callback, owner)
+					
+					</div>
+					<div class="description">
+						Accepts the share.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>name</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>color</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>replyType</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>notes</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>callback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>owner</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createFromDom"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmShare.html">ZmShare</a>}</span>
+					<span class="light">ZmShare.</span><b>createFromDom</b>(doc)
+					
+					</div>
+					<div class="description">
+						Creates the share from the DOM.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>doc</b>
+									
+								</dt>
+								<dd>the document</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmShare.html">ZmShare</a>}</span> the resulting share</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createFromJs"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmShare.html">ZmShare</a>}</span>
+					<span class="light">ZmShare.</span><b>createFromJs</b>(, grant)
+					
+					</div>
+					<div class="description">
+						Creates the share from JS.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b></b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>grant</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmShare.html">ZmShare</a>}</span> the resulting share</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getRoleActions"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmShare.</span><b>getRoleActions</b>(role)
+					
+					</div>
+					<div class="description">
+						Gets the role actions.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>role</b>
+									
+								</dt>
+								<dd>the role (see <code>ZmShare.ROLE_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the actions</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getRoleName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmShare.</span><b>getRoleName</b>(role)
+					
+					</div>
+					<div class="description">
+						Gets the role name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>role</b>
+									
+								</dt>
+								<dd>the role (see <code>ZmShare.ROLE_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getShareFromGrant"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>getShareFromGrant</b>(share, oldShare)
+					
+					</div>
+					<div class="description">
+						Updates a ZmShare that represents a grant
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>share</b>
+									
+								</dt>
+								<dd>[ZmShare]		folder grant</dd>
+							
+								<dt>
+									<b>oldShare</b>
+									
+								</dt>
+								<dd>[ZmShare]*		share to update</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getShareFromLink"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>getShareFromLink</b>(link, share)
+					
+					</div>
+					<div class="description">
+						Creates or updates a ZmShare from a ZmOrganizer that's a mountpoint. The grantee is
+the current user.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>link</b>
+									
+								</dt>
+								<dd>[ZmFolder]		mountpoint</dd>
+							
+								<dt>
+									<b>share</b>
+									
+								</dt>
+								<dd>[ZmShare]*		share to update</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getShareFromShareInfo"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>getShareFromShareInfo</b>(shareInfo, share)
+					
+					</div>
+					<div class="description">
+						Creates or updates a ZmShare from share info that comes in JSON form from
+GetShareInfoResponse.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>shareInfo</b>
+									
+								</dt>
+								<dd>[object]		JSON representing share info</dd>
+							
+								<dt>
+									<b>share</b>
+									
+								</dt>
+								<dd>[ZmShare]*		share to update</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="grant"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>grant</b>(perm, pw, replyType, shareAction, batchCmd, batchCmd)
+					
+					</div>
+					<div class="description">
+						Grants the permission.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>perm</b>
+									
+								</dt>
+								<dd>the permission (see <code>ZmShare.PERM_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>pw</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>replyType</b>
+									
+								</dt>
+								<dd>ZmShareReply.NONE, ZmShareReply.STANDARD or ZmShareReply.QUICK</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>shareAction</b>
+									
+								</dt>
+								<dd>the share action, e.g. ZmShare.NEW or ZmShare.EDIT</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+								<dt>
+									<b>batchCmd</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasPrivateAccess"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasPrivateAccess</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the private permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the private permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_PRIVATE">ZmShare.PERM_PRIVATE</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isAdmin"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isAdmin</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the admin permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the admin permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_ADMIN">ZmShare.PERM_ADMIN</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isAll"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isAll</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "all".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "all"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_ALL">ZmShare.TYPE_ALL</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isDelete"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isDelete</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the delete permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the delete permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_DELETE">ZmShare.PERM_DELETE</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isDomain"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isDomain</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "domain".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "domain"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_DOMAIN">ZmShare.TYPE_DOMAIN</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isGroup"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isGroup</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "group".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "group"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_GROUP">ZmShare.TYPE_GROUP</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isGuest"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isGuest</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "guest".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "guest"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_GUEST">ZmShare.TYPE_GUEST</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isInsert"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isInsert</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the insert permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the insert permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_INSERT">ZmShare.PERM_INSERT</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isPermAllowed"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isPermAllowed</b>(perm)
+					
+					</div>
+					<div class="description">
+						Checks if the given permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>perm</b>
+									
+								</dt>
+								<dd>the permission (see <code>ZmShare.PERM_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isPermRestricted"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isPermRestricted</b>(perm)
+					
+					</div>
+					<div class="description">
+						Checks if the given permission is restricted for this share.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>perm</b>
+									
+								</dt>
+								<dd>the permission (see <code>ZmShare.PERM_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the permission is restricted on this share</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isPublic"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isPublic</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "public".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "public"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_PUBLIC">ZmShare.TYPE_PUBLIC</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isRead"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isRead</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the read permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the read permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_READ">ZmShare.PERM_READ</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isUser"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isUser</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the grantee type is "user".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if type "user"</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.TYPE_USER">ZmShare.TYPE_USER</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isWorkflow"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isWorkflow</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the workflow permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the workflow permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_WORKFLOW">ZmShare.PERM_WORKFLOW</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isWrite"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isWrite</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the write permission exists on this share.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the write permission is allowed on this share</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmShare.html#.PERM_WRITE">ZmShare.PERM_WRITE</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="revoke"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>revoke</b>(callback)
+					
+					</div>
+					<div class="description">
+						Revokes the share.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="revokeMultiple"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>revokeMultiple</b>(callback, args, batchCmd)
+					
+					</div>
+					<div class="description">
+						Revokes multiple shares.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>not used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".revokeOrphanGrants"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmShare.</span><b>revokeOrphanGrants</b>(zid, granteeType, callback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Revokes all grants for the given zid (one whose account has been
+removed).
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>zid</b>
+									
+								</dt>
+								<dd>the zimbra ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>granteeType</b>
+									
+								</dt>
+								<dd>the grantee type (see <code>ZmShare.TYPE_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the client callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendMessage"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendMessage</b>(mode, addrs, owner, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sends a message.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>mode</b>
+									
+								</dt>
+								<dd>the request mode</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxVector.html">AjxVector</a>}</span> <b>addrs</b>
+									
+								</dt>
+								<dd>a vector of <a href="../symbols/AjxEmailAddress.html">AjxEmailAddress</a> objects or <code>null</code> to send to the grantee</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>owner</b>
+									
+								</dt>
+								<dd>the message owner</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>batchCommand to put the SendMsgRequest into or <code>null</code> to send the message immediately</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setPermissions"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setPermissions</b>(perm)
+					
+					</div>
+					<div class="description">
+						Sets the permission.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>perm</b>
+									
+								</dt>
+								<dd>the permission (see <code>ZmShare.PERM_</code> constants)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Apr 08 2014 13:13:20 GMT-0500 (CDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

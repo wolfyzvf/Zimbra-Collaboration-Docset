@@ -1,0 +1,2992 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmZimbraMail</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmZimbraMail
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmController.html">ZmController</a>.<br />
+				
+				<br>
+				This class is the "ubercontroller", as it manages all the apps as well as bootstrapping
+the ZimbraMail application.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_core_ZmZimbraMail.js.html">ZmZimbraMail.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmZimbraMail.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmZimbraMail.html#constructor">ZmZimbraMail</a></b>(params)
+							</div>
+							<div class="description">Creates a controller to run ZimbraMail.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmZimbraMail.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#activateApp">activateApp</a></b>(appName, force, callback, errorCallback, params)
+								</div>
+								<div class="description">Activates the given application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#addApp">addApp</a></b>(app)
+								</div>
+								<div class="description">Adds the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#addAppListener">addAppListener</a></b>(app, type, listener)
+								</div>
+								<div class="description">Adds a listener for the given event type and app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.addAppListener">addAppListener</a></b>(appName, type, listener)
+								</div>
+								<div class="description">Static function to add an app listener before this class has been
+instantiated.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.addListener">addListener</a></b>(type, listener)
+								</div>
+								<div class="description">Static function to add a listener before this class has been instantiated.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#addListener">addListener</a></b>(type, listener)
+								</div>
+								<div class="description">Adds a listener for the given event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#addPostRenderCallback">addPostRenderCallback</a></b>(callback, order, delay, runNow)
+								</div>
+								<div class="description">Sets up a callback to be run after the starting app has rendered, if we're doing
+post-render callbacks.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#appRendered">appRendered</a></b>(appName)
+								</div>
+								<div class="description">An app calls this once it has fully rendered, so that we may notify
+any listeners.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#cancelRequest">cancelRequest</a></b>(reqId, errorCallback, noBusyOverlay)
+								</div>
+								<div class="description">Cancels the request.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#dismissStatusMsg">dismissStatusMsg</a></b>(all)
+								</div>
+								<div class="description">Dismisses the displayed status message, if any</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.exitSession">exitSession</a></b>()
+								</div>
+								<div class="description">Logs user off when session has expired and user has choosen to stay on page when prompted</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#focusContentPane">focusContentPane</a></b>()
+								</div>
+								<div class="description">Focuses on the content pane.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#focusToolbar">focusToolbar</a></b>()
+								</div>
+								<div class="description">Focuses on the toolbar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getActiveApp">getActiveApp</a></b>()
+								</div>
+								<div class="description">Gets the active app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getApp">getApp</a></b>(appName)
+								</div>
+								<div class="description">Gets a handle to the given app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getAppChooser">getAppChooser</a></b>()
+								</div>
+								<div class="description">Gets the application chooser.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getAppChooserButton">getAppChooserButton</a></b>(id)
+								</div>
+								<div class="description">Gets the app chooser button.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getAppViewMgr">getAppViewMgr</a></b>()
+								</div>
+								<div class="description">Gets a handle to the app view manager.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getDropMenuOptions">getDropMenuOptions</a></b>(parent, parentElement, adminUrl)
+								</div>
+								<div class="description">Adds a "help" submenu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getHelpButton">getHelpButton</a></b>(parent)
+								</div>
+								<div class="description">Adds a "help" submenu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getInstantNotify">getInstantNotify</a></b>()
+								</div>
+								<div class="description">Gets the "instant notification" setting.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getKeyMapMgr">getKeyMapMgr</a></b>()
+								</div>
+								<div class="description">Gets the key map manager.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getKeyMapName">getKeyMapName</a></b>()
+								</div>
+								<div class="description">Gets the key map name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#getPreviousApp">getPreviousApp</a></b>()
+								</div>
+								<div class="description">Gets the previous application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#handleKeyAction">handleKeyAction</a></b>(actionCode, ev)
+								</div>
+								<div class="description">Handles the key action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.hashSortCompare">hashSortCompare</a></b>(hash, a, b)
+								</div>
+								<div class="description">Returns sort order using a and b as keys into given hash.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.killSplash">killSplash</a></b>()
+								</div>
+								<div class="description">Hides the splash screen.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.logOff">logOff</a></b>(ev, relogin)
+								</div>
+								<div class="description">Logs off the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.redir">redir</a></b>(locationStr)
+								</div>
+								<div class="description">Redirect.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#removeAppListener">removeAppListener</a></b>(app, type, listener)
+								</div>
+								<div class="description">Removes a listener for the given event type and app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#removeListener">removeListener</a></b>(type, listener)
+								</div>
+								<div class="description">Removes a listener for the given event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.run">run</a></b>(params)
+								</div>
+								<div class="description">Sets up ZimbraMail, and then starts it by calling its constructor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#runAppFunction">runAppFunction</a></b>(funcName, force)
+								</div>
+								<div class="description">Runs the given function for all enabled apps, passing args.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#sendClientEventNotify">sendClientEventNotify</a></b>(event, isNetworkOn)
+								</div>
+								<div class="description">Sends a <code>&lt;ClientEventNotifyRequest&gt;</code> to the server.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#sendNoOp">sendNoOp</a></b>()
+								</div>
+								<div class="description">Sends a <code>&lt;NoOpRequest&gt;</code> to the server.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.sendRedirect">sendRedirect</a></b>(locationStr)
+								</div>
+								<div class="description">Sends a redirect.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#sendRequest">sendRequest</a></b>(params)
+								</div>
+								<div class="description">Sends the request.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setActiveApp">setActiveApp</a></b>(appName, view, isTabView)
+								</div>
+								<div class="description">Handles a change in which app is current.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setActiveTabId">setActiveTabId</a></b>(id)
+								</div>
+								<div class="description">Sets the active tab.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.setExitTimer">setExitTimer</a></b>(startTimer)
+								</div>
+								<div class="description">If a user has been prompted and elects to stay on page, this timer automatically logs them off after an interval of time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setInstantNotify">setInstantNotify</a></b>(on)
+								</div>
+								<div class="description">Sets the client into "instant notifications" mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setNewButtonProps">setNewButtonProps</a></b>(params)
+								</div>
+								<div class="description">Set up the New button based on the current app.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setPollInterval">setPollInterval</a></b>(kickMe)
+								</div>
+								<div class="description">Resets the interval between poll requests, based on what's in the settings,
+only if we are not in instant notify mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setSessionTimer">setSessionTimer</a></b>(bStartTimer)
+								</div>
+								<div class="description">Sets the session timer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setStatusMsg">setStatusMsg</a></b>(params, force, dismissCallback, finishCallback)
+								</div>
+								<div class="description">Displays a status message.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#setUserInfo">setUserInfo</a></b>()
+								</div>
+								<div class="description">Sets the user info.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#showMiniCalendar">showMiniCalendar</a></b>()
+								</div>
+								<div class="description">Shows the mini-calendar.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#showReminder">showReminder</a></b>()
+								</div>
+								<div class="description">Shows reminders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#showTaskReminder">showTaskReminder</a></b>()
+								</div>
+								<div class="description">Shows reminders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#startup">startup</a></b>(params, app, settings)
+								</div>
+								<div class="description">Startup the mail controller.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmZimbraMail.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmZimbraMail.<b><a href="../symbols/ZmZimbraMail.html#.unload">unload</a></b>()
+								</div>
+								<div class="description">Unloads the controller.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmController.html">ZmController</a>: </dt><dd><a href="../symbols/ZmController.html#getCurrentViewId">getCurrentViewId</a>, <a href="../symbols/ZmController.html#getCurrentViewType">getCurrentViewType</a>, <a href="../symbols/ZmController.html#getNewFolderCallback">getNewFolderCallback</a>, <a href="../symbols/ZmController.html#getSessionId">getSessionId</a>, <a href="../symbols/ZmController.html#getTabGroup">getTabGroup</a>, <a href="../symbols/ZmController.html#getViewElements">getViewElements</a>, <a href="../symbols/ZmController.html#isTransient">isTransient</a>, <a href="../symbols/ZmController.html#mapSupported">mapSupported</a>, <a href="../symbols/ZmController.html#popupErrorDialog">popupErrorDialog</a>, <a href="../symbols/ZmController.html#setCurrentViewId">setCurrentViewId</a>, <a href="../symbols/ZmController.html#setCurrentViewType">setCurrentViewType</a>, <a href="../symbols/ZmController.html#setSessionId">setSessionId</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmZimbraMail</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates a controller to run ZimbraMail. Do not call directly, instead use the run()
+factory method.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.app</b>
+								
+							</dt>
+								<dd>the starting app</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Element}</span>  <b>params.userShell</b>
+								
+							</dt>
+								<dd>the top-level skin container</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="activateApp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>activateApp</b>(appName, force, callback, errorCallback, params)
+					
+					</div>
+					<div class="description">
+						Activates the given application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the application name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd>if <code>true</code>, launch the app</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters		(see <a href="#startup">#startup</a> for full list)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.checkQS</b>
+									
+								</dt>
+								<dd>if <code>true</code>, check query string for launch args</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmCsfeResult.html">ZmCsfeResult</a>}</span> <b>params.result</b>
+									
+								</dt>
+								<dd>the result object from load of user settings</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addApp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addApp</b>(app)
+					
+					</div>
+					<div class="description">
+						Adds the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> <b>app</b>
+									
+								</dt>
+								<dd>the app</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addAppListener"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>addAppListener</b>(app, type, listener)
+					
+					</div>
+					<div class="description">
+						Adds a listener for the given event type and app.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>app</b>
+									
+								</dt>
+								<dd>the app name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the listener is added</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addAppListener"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>addAppListener</b>(appName, type, listener)
+					
+					</div>
+					<div class="description">
+						Static function to add an app listener before this class has been
+instantiated. This is separate from <a href="../symbols/ZmZimbraMail.html#addListener">ZmZimbraMail#addListener</a>
+so that the caller doesn't need to know the specifics of how we
+twiddle the type name for app events.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the application name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addListener"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>addListener</b>(type, listener)
+					
+					</div>
+					<div class="description">
+						Static function to add a listener before this class has been instantiated.
+During construction, listeners are copied to the event manager. This function
+could be used by a skin, for example.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addListener"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>addListener</b>(type, listener)
+					
+					</div>
+					<div class="description">
+						Adds a listener for the given event type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the listener is added</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="addPostRenderCallback"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addPostRenderCallback</b>(callback, order, delay, runNow)
+					
+					</div>
+					<div class="description">
+						Sets up a callback to be run after the starting app has rendered, if we're doing
+post-render callbacks. The callback is registered with an order that determines
+when it will run relative to other callbacks. A delay can also be given, so that
+the UI has a chance to do some work between callbacks.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>order</b>
+									
+								</dt>
+								<dd>the run order for the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>delay</b>
+									
+								</dt>
+								<dd>how long to pause before running the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>runNow</b>
+									
+								</dt>
+								<dd>if <code>true</code>, we are not doing post-render callbacks, run the callback now and don't add it to the list</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="appRendered"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>appRendered</b>(appName)
+					
+					</div>
+					<div class="description">
+						An app calls this once it has fully rendered, so that we may notify
+any listeners.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the app name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="cancelRequest"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>cancelRequest</b>(reqId, errorCallback, noBusyOverlay)
+					
+					</div>
+					<div class="description">
+						Cancels the request.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>reqId</b>
+									
+								</dt>
+								<dd>the request id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noBusyOverlay</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not show busy overlay</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmRequestMgr.html#cancelRequest">ZmRequestMgr#cancelRequest</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="dismissStatusMsg"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>dismissStatusMsg</b>(all)
+					
+					</div>
+					<div class="description">
+						Dismisses the displayed status message, if any
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>all</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".exitSession"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>exitSession</b>()
+					
+					</div>
+					<div class="description">
+						Logs user off when session has expired and user has choosen to stay on page when prompted
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="focusContentPane"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>focusContentPane</b>()
+					
+					</div>
+					<div class="description">
+						Focuses on the content pane.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="focusToolbar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>focusToolbar</b>()
+					
+					</div>
+					<div class="description">
+						Focuses on the toolbar.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getActiveApp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span>
+					<b>getActiveApp</b>()
+					
+					</div>
+					<div class="description">
+						Gets the active app.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> the app</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getApp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span>
+					<b>getApp</b>(appName)
+					
+					</div>
+					<div class="description">
+						Gets a handle to the given app.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the app name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> the app</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAppChooser"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmAppChooser.html">ZmAppChooser</a>}</span>
+					<b>getAppChooser</b>()
+					
+					</div>
+					<div class="description">
+						Gets the application chooser.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmAppChooser.html">ZmAppChooser</a>}</span> the chooser</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAppChooserButton"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmAppButton.html">ZmAppButton</a>}</span>
+					<b>getAppChooserButton</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the app chooser button.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmAppButton.html">ZmAppButton</a>}</span> the button</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAppViewMgr"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmAppViewMgr.html">ZmAppViewMgr</a>}</span>
+					<b>getAppViewMgr</b>()
+					
+					</div>
+					<div class="description">
+						Gets a handle to the app view manager.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmAppViewMgr.html">ZmAppViewMgr</a>}</span> the app view manager</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDropMenuOptions"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span>
+					<b>getDropMenuOptions</b>(parent, parentElement, adminUrl)
+					
+					</div>
+					<div class="description">
+						Adds a "help" submenu.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the parent widget</dd>
+							
+								<dt>
+									<b>parentElement</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>adminUrl</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getHelpButton"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span>
+					<b>getHelpButton</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a "help" submenu.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the parent widget</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getInstantNotify"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>getInstantNotify</b>()
+					
+					</div>
+					<div class="description">
+						Gets the "instant notification" setting.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if instant notification is "ON"</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getKeyMapMgr"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{DwtKeyMapMgr}</span>
+					<b>getKeyMapMgr</b>()
+					
+					</div>
+					<div class="description">
+						Gets the key map manager.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{DwtKeyMapMgr}</span> the key map manager</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getKeyMapName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getKeyMapName</b>()
+					
+					</div>
+					<div class="description">
+						Gets the key map name.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the key map name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getPreviousApp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span>
+					<b>getPreviousApp</b>()
+					
+					</div>
+					<div class="description">
+						Gets the previous application.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmApp.html">ZmApp</a>}</span> the app</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="handleKeyAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>handleKeyAction</b>(actionCode, ev)
+					
+					</div>
+					<div class="description">
+						Handles the key action.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>actionCode</b>
+									
+								</dt>
+								<dd>the action code</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>ev</b>
+									
+								</dt>
+								<dd>the event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>ZmApp.ACTION_CODES_R</dd>
+							
+								<dd><a href="../symbols/ZmKeyMap.html">ZmKeyMap</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".hashSortCompare"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmZimbraMail.</span><b>hashSortCompare</b>(hash, a, b)
+					
+					</div>
+					<div class="description">
+						Returns sort order using a and b as keys into given hash.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>hash</b>
+									
+								</dt>
+								<dd>a hash with sort values</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>a</b>
+									
+								</dt>
+								<dd>a key into hash</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>b</b>
+									
+								</dt>
+								<dd>a key into hash</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> 0 if the items are the same; 1 if "a" is before "b"; -1 if "b" is before "a"</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".killSplash"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>killSplash</b>()
+					
+					</div>
+					<div class="description">
+						Hides the splash screen.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".logOff"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>logOff</b>(ev, relogin)
+					
+					</div>
+					<div class="description">
+						Logs off the application.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>relogin</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".redir"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>redir</b>(locationStr)
+					
+					</div>
+					<div class="description">
+						Redirect.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>locationStr</b>
+									
+								</dt>
+								<dd>the redirect location</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAppListener"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>removeAppListener</b>(app, type, listener)
+					
+					</div>
+					<div class="description">
+						Removes a listener for the given event type and app.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>app</b>
+									
+								</dt>
+								<dd>the app name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the listener is removed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeListener"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>removeListener</b>(type, listener)
+					
+					</div>
+					<div class="description">
+						Removes a listener for the given event type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the event type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>listener</b>
+									
+								</dt>
+								<dd>a listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the listener is removed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".run"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>run</b>(params)
+					
+					</div>
+					<div class="description">
+						Sets up ZimbraMail, and then starts it by calling its constructor. It is assumed that the
+CSFE is on the same host.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.app</b>
+									
+								</dt>
+								<dd>te starting app</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.offlineMode</b>
+									
+								</dt>
+								<dd>if <code>true</code>, this is the offline client</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.devMode</b>
+									
+								</dt>
+								<dd>if <code>true</code>, we are in development environment</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params.settings</b>
+									
+								</dt>
+								<dd>the server prefs/attrs</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.protocolMode</b>
+									
+								</dt>
+								<dd>the protocal mode (http, https or mixed)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>params.noSplashScreen</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not show splash screen during startup</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="runAppFunction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>runAppFunction</b>(funcName, force)
+					
+					</div>
+					<div class="description">
+						Runs the given function for all enabled apps, passing args.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>funcName</b>
+									
+								</dt>
+								<dd>the function name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd>if <code>true</code>, run func for disabled apps as well</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendClientEventNotify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendClientEventNotify</b>(event, isNetworkOn)
+					
+					</div>
+					<div class="description">
+						Sends a <code>&lt;ClientEventNotifyRequest&gt;</code> to the server.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>event</b>
+									
+								</dt>
+								<dd>the event</dd>
+							
+								<dt>
+									<b>isNetworkOn</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendNoOp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendNoOp</b>()
+					
+					</div>
+					<div class="description">
+						Sends a <code>&lt;NoOpRequest&gt;</code> to the server. Used for '$set:noop'
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".sendRedirect"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>sendRedirect</b>(locationStr)
+					
+					</div>
+					<div class="description">
+						Sends a redirect.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>locationStr</b>
+									
+								</dt>
+								<dd>the redirect location</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendRequest"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendRequest</b>(params)
+					
+					</div>
+					<div class="description">
+						Sends the request.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/ZmRequestMgr.html#sendRequest">ZmRequestMgr#sendRequest</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name="setActiveApp"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setActiveApp</b>(appName, view, isTabView)
+					
+					</div>
+					<div class="description">
+						Handles a change in which app is current. The change will be reflected in the
+current app toolbar and the overview. The previous and newly current apps are
+notified of the change. This method is called after a new view is pushed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>appName</b>
+									
+								</dt>
+								<dd>the app</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>view</b>
+									
+								</dt>
+								<dd>the view</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>isTabView</b>
+									
+								</dt>
+								<dd>if <code>true</code>, the app has a tab view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setActiveTabId"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setActiveTabId</b>(id)
+					
+					</div>
+					<div class="description">
+						Sets the active tab.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the tab id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setExitTimer"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>setExitTimer</b>(startTimer)
+					
+					</div>
+					<div class="description">
+						If a user has been prompted and elects to stay on page, this timer automatically logs them off after an interval of time.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>startTimer</b>
+									
+								</dt>
+								<dd>{boolean} true to start timer, false to cancel</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setInstantNotify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setInstantNotify</b>(on)
+					
+					</div>
+					<div class="description">
+						Sets the client into "instant notifications" mode.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>on</b>
+									
+								</dt>
+								<dd>if <code>true</code>, turn on instant notify</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setNewButtonProps"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setNewButtonProps</b>(params)
+					
+					</div>
+					<div class="description">
+						Set up the New button based on the current app.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>params</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setPollInterval"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>setPollInterval</b>(kickMe)
+					
+					</div>
+					<div class="description">
+						Resets the interval between poll requests, based on what's in the settings,
+only if we are not in instant notify mode.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>kickMe</b>
+									
+								</dt>
+								<dd>if <code>true</code>, start the poll timer</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if poll interval started; <code>false</code> if in "instant notification" mode</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setSessionTimer"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setSessionTimer</b>(bStartTimer)
+					
+					</div>
+					<div class="description">
+						Sets the session timer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>bStartTimer</b>
+									
+								</dt>
+								<dd>if <code>true</code>, start the timer</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setStatusMsg"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setStatusMsg</b>(params, force, dismissCallback, finishCallback)
+					
+					</div>
+					<div class="description">
+						Displays a status message.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.msg</b>
+									
+								</dt>
+								<dd>the message</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.level</b>
+									<i>Optional</i>
+								</dt>
+								<dd>ZmStatusView.LEVEL_INFO, ZmStatusView.LEVEL_WARNING, or ZmStatusView.LEVEL_CRITICAL</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.detail</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the details</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.transitions</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the transitions</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.toast</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the toast control</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>force</b>
+									<i>Optional</i>
+								</dt>
+								<dd>force any displayed toasts out of the way (dismiss them and run their dismissCallback). Enqueued messages that are not yet displayed will not be displayed</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>dismissCallback</b>
+									<i>Optional</i>
+								</dt>
+								<dd>callback to run when the toast is dismissed (by another message using [force], or explicitly calling ZmStatusView.prototype.dismiss())</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>finishCallback</b>
+									<i>Optional</i>
+								</dt>
+								<dd>callback to run when the toast finishes its transitions by itself (not when dismissed)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setUserInfo"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setUserInfo</b>()
+					
+					</div>
+					<div class="description">
+						Sets the user info.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showMiniCalendar"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showMiniCalendar</b>()
+					
+					</div>
+					<div class="description">
+						Shows the mini-calendar.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showReminder"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showReminder</b>()
+					
+					</div>
+					<div class="description">
+						Shows reminders.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="showTaskReminder"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>showTaskReminder</b>()
+					
+					</div>
+					<div class="description">
+						Shows reminders.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="startup"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>startup</b>(params, app, settings)
+					
+					</div>
+					<div class="description">
+						Startup the mail controller.
+
+<p>
+The following steps are performed:
+<ul>
+<li>check for skin, show it</li>
+<li>create app view mgr</li>
+<li>create components (sash, banner, user info, toolbar above overview, status view)</li>
+<li>create apps</li>
+<li>load user settings (using a <code>&lt;GetInfoRequest&gt;</code>)</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>app</b>
+									
+								</dt>
+								<dd>the starting app</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>settings</b>
+									
+								</dt>
+								<dd>a hash of settings overrides</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".unload"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmZimbraMail.</span><b>unload</b>()
+					
+					</div>
+					<div class="description">
+						Unloads the controller. Allows parent window to walk list of open child windows and either "delete" 
+or "disable" them.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Dec 03 2013 11:11:44 GMT-0800 (PST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

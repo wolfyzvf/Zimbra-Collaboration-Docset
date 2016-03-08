@@ -1,0 +1,89 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2007, 2008, 2009, 2010, 2011, 2012, 2013 Zimbra Software, LLC.
+<span class='line'>  5</span>  * 
+<span class='line'>  6</span>  * The contents of this file are subject to the Zimbra Public License
+<span class='line'>  7</span>  * Version 1.4 ("License"); you may not use this file except in
+<span class='line'>  8</span>  * compliance with the License.  You may obtain a copy of the License at
+<span class='line'>  9</span>  * http://www.zimbra.com/license.
+<span class='line'> 10</span>  * 
+<span class='line'> 11</span>  * Software distributed under the License is distributed on an "AS IS"
+<span class='line'> 12</span>  * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 13</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 14</span>  */</span><span class="WHIT">
+<span class='line'> 15</span> 
+<span class='line'> 16</span> </span><span class="COMM">/**
+<span class='line'> 17</span>  * @overview
+<span class='line'> 18</span>  * 
+<span class='line'> 19</span>  * This file defines an application event.
+<span class='line'> 20</span>  *
+<span class='line'> 21</span>  */</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="COMM">/**
+<span class='line'> 24</span>  * Creates an empty application event.
+<span class='line'> 25</span>  * @class
+<span class='line'> 26</span>  * This class represents an event related to a change of state for an individual
+<span class='line'> 27</span>  * application or for ZCS as a whole.
+<span class='line'> 28</span>  * 
+<span class='line'> 29</span>  * @param {Object}	the application to which this event applies; if &lt;code>null&lt;/code>, the event applies to ZCS
+<span class='line'> 30</span>  * 
+<span class='line'> 31</span>  * @extends		ZmEvent
+<span class='line'> 32</span>  */</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="NAME">ZmAppEvent</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">app</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">	</span><span class="NAME">ZmEvent.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 36</span> 
+<span class='line'> 37</span> </span><span class="NAME">ZmAppEvent.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">ZmEvent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="NAME">ZmAppEvent.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmAppEvent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 39</span> 
+<span class='line'> 40</span> </span><span class="COMM">/**
+<span class='line'> 41</span>  * Event used to notify listeners before startup (i.e. before the first
+<span class='line'> 42</span>  * app is activated). This is a bit of a misnomer because this event occurs
+<span class='line'> 43</span>  * after the apps are initialized but before the first app is shown. This
+<span class='line'> 44</span>  * allows code to be executed after the apps have registered settings
+<span class='line'> 45</span>  * but before the app actually acts on those settings.
+<span class='line'> 46</span>  *
+<span class='line'> 47</span>  * @see ZmAppEvent.POST_STARTUP
+<span class='line'> 48</span>  */</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="NAME">ZmAppEvent.PRE_STARTUP</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"PRESTARTUP"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> 
+<span class='line'> 51</span> </span><span class="COMM">/**
+<span class='line'> 52</span>  * Defines the event used to notify listeners post-startup.
+<span class='line'> 53</span>  */</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="NAME">ZmAppEvent.POST_STARTUP</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"POSTSTARTUP"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 55</span> </span><span class="COMM">/**
+<span class='line'> 56</span>  * Defines the event used to notify listeners pre-launch.
+<span class='line'> 57</span>  */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="NAME">ZmAppEvent.PRE_LAUNCH</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"PRELAUNCH"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="COMM">/**
+<span class='line'> 60</span>  * Defines the event used to notify listeners post-launch.
+<span class='line'> 61</span>  */</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="NAME">ZmAppEvent.POST_LAUNCH</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"POSTLAUNCH"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="COMM">/**
+<span class='line'> 64</span>  * Defines the event used to notify listeners post-render.
+<span class='line'> 65</span>  */</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="NAME">ZmAppEvent.POST_RENDER</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"POSTRENDER"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 67</span> 
+<span class='line'> 68</span> </span><span class="NAME">ZmAppEvent.ACTIVATE</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"ACTIVATE"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> 
+<span class='line'> 70</span> </span><span class="COMM">// Triggered after processing of an async response finishes</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="NAME">ZmAppEvent.RESPONSE</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"RESPONSE"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 72</span> 
+<span class='line'> 73</span> </span><span class="COMM">/**
+<span class='line'> 74</span>  * Returns a string representation of the object.
+<span class='line'> 75</span>  * 
+<span class='line'> 76</span>  * @return		{String}		a string representation of the object
+<span class='line'> 77</span>  */</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="NAME">ZmAppEvent.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"ZmAppEvent"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> </span></pre></body></html>

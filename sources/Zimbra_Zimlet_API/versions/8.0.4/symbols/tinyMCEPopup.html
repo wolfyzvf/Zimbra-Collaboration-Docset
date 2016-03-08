@@ -1,0 +1,1847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - tinyMCEPopup</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * 
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012 VMware, Inc.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.3 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * 
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center">
+<a href="../index.html">All Classes</a>
+</div>
+<hr />
+<h2>Class List</h2>
+<ul class="classList">
+	
+	<li><a href="../symbols/Function.html">Function</a></li>
+	
+	<li></li>
+	
+	<li><a href="../symbols/tinymce.EditorCommands.html">ajax.3rdparty.tinymce.classes.tinymce.EditorCommands</a></li>
+	
+	<li><a href="../symbols/tinymce.Formatter.html">ajax.3rdparty.tinymce.classes.tinymce.Formatter</a></li>
+	
+	<li><a href="../symbols/tinyMCEPopup.html">ajax.3rdparty.tinymce.classes.tinyMCEPopup</a></li>
+	
+	<li><a href="../symbols/tinymce.UndoManager.html">ajax.3rdparty.tinymce.classes.tinymce.UndoManager</a></li>
+	
+	<li><a href="../symbols/AjxCallback.html">ajax.boot.AjxCallback</a></li>
+	
+	<li><a href="../symbols/AjxDispatcher.html">ajax.boot.AjxDispatcher</a></li>
+	
+	<li><a href="../symbols/AjxEnv.html">ajax.boot.AjxEnv</a></li>
+	
+	<li><a href="../symbols/AjxTemplate.html">ajax.boot.AjxTemplate</a></li>
+	
+	<li><a href="../symbols/AjxColor.html">ajax.core.AjxColor</a></li>
+	
+	<li><a href="../symbols/AjxException.html">ajax.core.AjxException</a></li>
+	
+	<li><a href="../symbols/Dwt.html">ajax.dwt.core.Dwt</a></li>
+	
+	<li><a href="../symbols/DwtException.html">ajax.dwt.core.DwtException</a></li>
+	
+	<li><a href="../symbols/DwtId.html">ajax.dwt.core.DwtId</a></li>
+	
+	<li><a href="../symbols/DwtDragBox.html">ajax.dwt.dnd.DwtDragBox</a></li>
+	
+	<li><a href="../symbols/DwtDragEvent.html">ajax.dwt.dnd.DwtDragEvent</a></li>
+	
+	<li><a href="../symbols/DwtDragSource.html">ajax.dwt.dnd.DwtDragSource</a></li>
+	
+	<li><a href="../symbols/DwtDropEvent.html">ajax.dwt.dnd.DwtDropEvent</a></li>
+	
+	<li><a href="../symbols/DwtDropTarget.html">ajax.dwt.dnd.DwtDropTarget</a></li>
+	
+	<li><a href="../symbols/DwtEvent.html">ajax.dwt.events.DwtEvent</a></li>
+	
+	<li><a href="../symbols/DwtOutsideMouseEventMgr.html">ajax.dwt.events.DwtOutsideMouseEventMgr</a></li>
+	
+	<li><a href="../symbols/DwtPoint.html">ajax.dwt.graphics.DwtPoint</a></li>
+	
+	<li><a href="../symbols/DwtRectangle.html">ajax.dwt.graphics.DwtRectangle</a></li>
+	
+	<li><a href="../symbols/DwtKeyMap.html">ajax.dwt.keyboard.DwtKeyMap</a></li>
+	
+	<li><a href="../symbols/DwtTabGroup.html">ajax.dwt.keyboard.DwtTabGroup</a></li>
+	
+	<li><a href="../symbols/DwtAccordion.html">ajax.dwt.widgets.DwtAccordion</a></li>
+	
+	<li><a href="../symbols/DwtAccordionItem.html">ajax.dwt.widgets.DwtAccordionItem</a></li>
+	
+	<li><a href="../symbols/DwtAlert.html">ajax.dwt.widgets.DwtAlert</a></li>
+	
+	<li><a href="../symbols/DwtBaseDialog.html">ajax.dwt.widgets.DwtBaseDialog</a></li>
+	
+	<li><a href="../symbols/DwtBorderlessButton.html">ajax.dwt.widgets.DwtBorderlessButton</a></li>
+	
+	<li><a href="../symbols/DwtButton.html">ajax.dwt.widgets.DwtButton</a></li>
+	
+	<li><a href="../symbols/DwtButtonColorPicker.html">ajax.dwt.widgets.DwtButtonColorPicker</a></li>
+	
+	<li><a href="../symbols/DwtCalendar.html">ajax.dwt.widgets.DwtCalendar</a></li>
+	
+	<li><a href="../symbols/DwtCheckbox.html">ajax.dwt.widgets.DwtCheckbox</a></li>
+	
+	<li><a href="../symbols/DwtChooser.html">ajax.dwt.widgets.DwtChooser</a></li>
+	
+	<li><a href="../symbols/DwtChooserListView.html">ajax.dwt.widgets.DwtChooserListView</a></li>
+	
+	<li><a href="../symbols/DwtColorPicker.html">ajax.dwt.widgets.DwtColorPicker</a></li>
+	
+	<li><a href="../symbols/DwtComboBox.html">ajax.dwt.widgets.DwtComboBox</a></li>
+	
+	<li><a href="../symbols/DwtComposite.html">ajax.dwt.widgets.DwtComposite</a></li>
+	
+	<li><a href="../symbols/DwtConfirmDialog.html">ajax.dwt.widgets.DwtConfirmDialog</a></li>
+	
+	<li><a href="../symbols/DwtControl.html">ajax.dwt.widgets.DwtControl</a></li>
+	
+	<li><a href="../symbols/DwtDialog.html">ajax.dwt.widgets.DwtDialog</a></li>
+	
+	<li><a href="../symbols/DwtDialog_ButtonDescriptor.html">ajax.dwt.widgets.DwtDialog_ButtonDescriptor</a></li>
+	
+	<li><a href="../symbols/DwtGridSizePicker.html">ajax.dwt.widgets.DwtGridSizePicker</a></li>
+	
+	<li><a href="../symbols/DwtHeaderTreeItem.html">ajax.dwt.widgets.DwtHeaderTreeItem</a></li>
+	
+	<li><a href="../symbols/DwtHtmlEditor.html">ajax.dwt.widgets.DwtHtmlEditor</a></li>
+	
+	<li><a href="../symbols/DwtIframe.html">ajax.dwt.widgets.DwtIframe</a></li>
+	
+	<li><a href="../symbols/DwtInputField.html">ajax.dwt.widgets.DwtInputField</a></li>
+	
+	<li><a href="../symbols/DwtLabel.html">ajax.dwt.widgets.DwtLabel</a></li>
+	
+	<li><a href="../symbols/DwtListView.html">ajax.dwt.widgets.DwtListView</a></li>
+	
+	<li><a href="../symbols/DwtMenu.html">ajax.dwt.widgets.DwtMenu</a></li>
+	
+	<li><a href="../symbols/DwtMenuItem.html">ajax.dwt.widgets.DwtMenuItem</a></li>
+	
+	<li><a href="../symbols/DwtMessageComposite.html">ajax.dwt.widgets.DwtMessageComposite</a></li>
+	
+	<li><a href="../symbols/DwtMessageDialog.html">ajax.dwt.widgets.DwtMessageDialog</a></li>
+	
+	<li><a href="../symbols/DwtPasswordField.html">ajax.dwt.widgets.DwtPasswordField</a></li>
+	
+	<li><a href="../symbols/DwtProgressBar.html">ajax.dwt.widgets.DwtProgressBar</a></li>
+	
+	<li><a href="../symbols/DwtPropertyPage.html">ajax.dwt.widgets.DwtPropertyPage</a></li>
+	
+	<li><a href="../symbols/DwtRadioButton.html">ajax.dwt.widgets.DwtRadioButton</a></li>
+	
+	<li><a href="../symbols/DwtSash.html">ajax.dwt.widgets.DwtSash</a></li>
+	
+	<li><a href="../symbols/DwtSelectMenuItem.html">ajax.dwt.widgets.DwtSelectMenuItem</a></li>
+	
+	<li><a href="../symbols/DwtSelectOption.html">ajax.dwt.widgets.DwtSelectOption</a></li>
+	
+	<li><a href="../symbols/DwtSelectMenu.html">ajax.dwt.widgets.DwtSelectMenu</a></li>
+	
+	<li><a href="../symbols/DwtSelect.html">ajax.dwt.widgets.DwtSelect</a></li>
+	
+	<li><a href="../symbols/DwtShell.html">ajax.dwt.widgets.DwtShell</a></li>
+	
+	<li><a href="../symbols/DwtSlider.html">ajax.dwt.widgets.DwtSlider</a></li>
+	
+	<li><a href="../symbols/DwtSoundPlugin.html">ajax.dwt.widgets.DwtSoundPlugin</a></li>
+	
+	<li><a href="../symbols/DwtSpinner.html">ajax.dwt.widgets.DwtSpinner</a></li>
+	
+	<li><a href="../symbols/DwtTabViewPage.html">ajax.dwt.widgets.DwtTabViewPage</a></li>
+	
+	<li><a href="../symbols/DwtTabButton.html">ajax.dwt.widgets.DwtTabButton</a></li>
+	
+	<li><a href="../symbols/DwtTabView.html">ajax.dwt.widgets.DwtTabView</a></li>
+	
+	<li><a href="../symbols/DwtTabBar.html">ajax.dwt.widgets.DwtTabBar</a></li>
+	
+	<li><a href="../symbols/DwtText.html">ajax.dwt.widgets.DwtText</a></li>
+	
+	<li><a href="../symbols/DwtToolBar.html">ajax.dwt.widgets.DwtToolBar</a></li>
+	
+	<li><a href="../symbols/DwtToolBarButton.html">ajax.dwt.widgets.DwtToolBarButton</a></li>
+	
+	<li><a href="../symbols/DwtTree.html">ajax.dwt.widgets.DwtTree</a></li>
+	
+	<li><a href="../symbols/DwtTreeItem.html">ajax.dwt.widgets.DwtTreeItem</a></li>
+	
+	<li><a href="../symbols/AjxListener.html">ajax.events.AjxListener</a></li>
+	
+	<li><a href="../symbols/AjxRpc.html">ajax.net.AjxRpc</a></li>
+	
+	<li><a href="../symbols/AjxRpcRequest.html">ajax.net.AjxRpcRequest</a></li>
+	
+	<li><a href="../symbols/AjxSoapDoc.html">ajax.soap.AjxSoapDoc</a></li>
+	
+	<li><a href="../symbols/AjxEmailAddress.html">ajax.util.AjxEmailAddress</a></li>
+	
+	<li><a href="../symbols/AjxStringUtil.html">ajax.util.AjxStringUtil</a></li>
+	
+	<li><a href="../symbols/AjxChoiceFormat.html">ajax.util.AjxChoiceFormat</a></li>
+	
+	<li><a href="../symbols/AjxNumberFormat.html">ajax.util.AjxNumberFormat</a></li>
+	
+	<li><a href="../symbols/AjxDateFormat.html">ajax.util.AjxDateFormat</a></li>
+	
+	<li><a href="../symbols/AjxMessageFormat.html">ajax.util.AjxMessageFormat</a></li>
+	
+	<li><a href="../symbols/AjxTimezone.html">ajax.util.AjxTimezone</a></li>
+	
+	<li><a href="../symbols/AjxVector.html">ajax.util.AjxVector</a></li>
+	
+	<li><a href="../symbols/AjxXmlDoc.html">ajax.xml.AjxXmlDoc</a></li>
+	
+	<li><a href="../symbols/ZmErrorDialog.html">zimbra.common.ZmErrorDialog</a></li>
+	
+	<li><a href="../symbols/ZmBatchCommand.html">zimbra.csfe.ZmBatchCommand</a></li>
+	
+	<li><a href="../symbols/ZmCsfeCommand.html">zimbra.csfe.ZmCsfeCommand</a></li>
+	
+	<li><a href="../symbols/ZmCsfeException.html">zimbra.csfe.ZmCsfeException</a></li>
+	
+	<li><a href="../symbols/ZmCsfeResult.html">zimbra.csfe.ZmCsfeResult</a></li>
+	
+	<li><a href="../symbols/ZmAddrBookTreeController.html">zimbraMail.abook.controller.ZmAddrBookTreeController</a></li>
+	
+	<li><a href="../symbols/ZmContactController.html">zimbraMail.abook.controller.ZmContactController</a></li>
+	
+	<li><a href="../symbols/ZmContactListController.html">zimbraMail.abook.controller.ZmContactListController</a></li>
+	
+	<li><a href="../symbols/ZmAddrBook.html">zimbraMail.abook.model.ZmAddrBook</a></li>
+	
+	<li><a href="../symbols/ZmContact.html">zimbraMail.abook.model.ZmContact</a></li>
+	
+	<li><a href="../symbols/ZmContactList.html">zimbraMail.abook.model.ZmContactList</a></li>
+	
+	<li><a href="../symbols/ZmContactGroupMenu.html">zimbraMail.abook.view.ZmContactGroupMenu</a></li>
+	
+	<li><a href="../symbols/ZmContactPicker.html">zimbraMail.abook.view.ZmContactPicker</a></li>
+	
+	<li><a href="../symbols/ZmContactAlphabetBar.html">zimbraMail.abook.view.ZmContactAlphabetBar</a></li>
+	
+	<li><a href="../symbols/ZmContactsBaseView.html">zimbraMail.abook.view.ZmContactsBaseView</a></li>
+	
+	<li><a href="../symbols/ZmContactSearch.html">zimbraMail.abook.view.ZmContactSearch</a></li>
+	
+	<li><a href="../symbols/ZmContactsHelper.html">zimbraMail.abook.view.ZmContactsHelper</a></li>
+	
+	<li><a href="../symbols/ZmContactSimpleView.html">zimbraMail.abook.view.ZmContactSimpleView</a></li>
+	
+	<li><a href="../symbols/ZmContactSplitView.html">zimbraMail.abook.view.ZmContactSplitView</a></li>
+	
+	<li><a href="../symbols/ZmEditContactView.html">zimbraMail.abook.view.ZmEditContactView</a></li>
+	
+	<li><a href="../symbols/ZmDlMembersTabView.html">zimbraMail.abook.view.ZmDlMembersTabView</a></li>
+	
+	<li><a href="../symbols/ZmDlPropertiesTabView.html">zimbraMail.abook.view.ZmDlPropertiesTabView</a></li>
+	
+	<li><a href="../symbols/ZmGroupView.html">zimbraMail.abook.view.ZmGroupView</a></li>
+	
+	<li><a href="../symbols/ZmNewAddrBookDialog.html">zimbraMail.abook.view.ZmNewAddrBookDialog</a></li>
+	
+	<li><a href="../symbols/ZmNewContactGroupDialog.html">zimbraMail.abook.view.ZmNewContactGroupDialog</a></li>
+	
+	<li><a href="../symbols/ZmContactsApp.html">zimbraMail.abook.ZmContactsApp</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseController.html">zimbraMail.briefcase.controller.ZmBriefcaseController</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseTreeController.html">zimbraMail.briefcase.controller.ZmBriefcaseTreeController</a></li>
+	
+	<li><a href="../symbols/ZmBriefcase.html">zimbraMail.briefcase.model.ZmBriefcase</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseItem.html">zimbraMail.briefcase.model.ZmBriefcaseItem</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseBaseItem.html">zimbraMail.briefcase.model.ZmBriefcaseBaseItem</a></li>
+	
+	<li><a href="../symbols/ZmDocletMgr.html">zimbraMail.briefcase.model.ZmDocletMgr</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseTabView.html">zimbraMail.briefcase.view.dialog.ZmBriefcaseTabView</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseBaseView.html">zimbraMail.briefcase.view.ZmBriefcaseBaseView</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseIconView.html">zimbraMail.briefcase.view.ZmBriefcaseIconView</a></li>
+	
+	<li><a href="../symbols/ZmDetailListView.html">zimbraMail.briefcase.view.ZmDetailListView</a></li>
+	
+	<li><a href="../symbols/ZmNewBriefcaseDialog.html">zimbraMail.briefcase.view.ZmNewBriefcaseDialog</a></li>
+	
+	<li><a href="../symbols/ZmPreviewView.html">zimbraMail.briefcase.view.ZmPreviewView</a></li>
+	
+	<li><a href="../symbols/ZmBriefcaseApp.html">zimbraMail.briefcase.ZmBriefcaseApp</a></li>
+	
+	<li><a href="../symbols/ZmApptComposeController.html">zimbraMail.calendar.controller.ZmApptComposeController</a></li>
+	
+	<li><a href="../symbols/ZmApptController.html">zimbraMail.calendar.controller.ZmApptController</a></li>
+	
+	<li><a href="../symbols/ZmCalendarTreeController.html">zimbraMail.calendar.controller.ZmCalendarTreeController</a></li>
+	
+	<li><a href="../symbols/ZmCalItemComposeController.html">zimbraMail.calendar.controller.ZmCalItemComposeController</a></li>
+	
+	<li><a href="../symbols/ZmCalViewController.html">zimbraMail.calendar.controller.ZmCalViewController</a></li>
+	
+	<li><a href="../symbols/ZmReminderController.html">zimbraMail.calendar.controller.ZmReminderController</a></li>
+	
+	<li><a href="../symbols/ZmAppt.html">zimbraMail.calendar.model.ZmAppt</a></li>
+	
+	<li><a href="../symbols/ZmApptList.html">zimbraMail.calendar.model.ZmApptList</a></li>
+	
+	<li><a href="../symbols/ZmCalBaseItem.html">zimbraMail.calendar.model.ZmCalBaseItem</a></li>
+	
+	<li><a href="../symbols/ZmCalendar.html">zimbraMail.calendar.model.ZmCalendar</a></li>
+	
+	<li><a href="../symbols/ZmCalItem.html">zimbraMail.calendar.model.ZmCalItem</a></li>
+	
+	<li><a href="../symbols/ZmRecurrence.html">zimbraMail.calendar.model.ZmRecurrence</a></li>
+	
+	<li><a href="../symbols/ZmResource.html">zimbraMail.calendar.model.ZmResource</a></li>
+	
+	<li><a href="../symbols/ZmResourceList.html">zimbraMail.calendar.model.ZmResourceList</a></li>
+	
+	<li><a href="../symbols/ZmApptAssistantView.html">zimbraMail.calendar.view.ZmApptAssistantView</a></li>
+	
+	<li><a href="../symbols/ZmApptComposeView.html">zimbraMail.calendar.view.ZmApptComposeView</a></li>
+	
+	<li><a href="../symbols/ZmApptDeleteNotifyDialog.html">zimbraMail.calendar.view.ZmApptDeleteNotifyDialog</a></li>
+	
+	<li><a href="../symbols/ZmApptQuickAddDialog.html">zimbraMail.calendar.view.ZmApptQuickAddDialog</a></li>
+	
+	<li><a href="../symbols/ZmApptRecurDialog.html">zimbraMail.calendar.view.ZmApptRecurDialog</a></li>
+	
+	<li><a href="../symbols/ZmAttendeePicker.html">zimbraMail.calendar.view.ZmAttendeePicker</a></li>
+	
+	<li><a href="../symbols/ZmWorkHours.html">zimbraMail.calendar.view.ZmWorkHours</a></li>
+	
+	<li><a href="../symbols/ZmCalViewMgr.html">zimbraMail.calendar.view.ZmCalViewMgr</a></li>
+	
+	<li><a href="../symbols/ZmFreeBusySchedulerView.html">zimbraMail.calendar.view.ZmFreeBusySchedulerView</a></li>
+	
+	<li><a href="../symbols/ZmLocationAssistantView.html">zimbraMail.calendar.view.ZmLocationAssistantView</a></li>
+	
+	<li><a href="../symbols/ZmLocationSuggestionView.html">zimbraMail.calendar.view.ZmLocationSuggestionView</a></li>
+	
+	<li><a href="../symbols/ZmResolveLocationConflictDialog.html">zimbraMail.calendar.view.ZmResolveLocationConflictDialog</a></li>
+	
+	<li><a href="../symbols/ZmResolveLocationView.html">zimbraMail.calendar.view.ZmResolveLocationView</a></li>
+	
+	<li><a href="../symbols/ZmScheduleAssistantView.html">zimbraMail.calendar.view.ZmScheduleAssistantView</a></li>
+	
+	<li><a href="../symbols/ZmSuggestionsView.html">zimbraMail.calendar.view.ZmSuggestionsView</a></li>
+	
+	<li><a href="../symbols/ZmTimeSuggestionPrefDialog.html">zimbraMail.calendar.view.ZmTimeSuggestionPrefDialog</a></li>
+	
+	<li><a href="../symbols/ZmTimeSuggestionView.html">zimbraMail.calendar.view.ZmTimeSuggestionView</a></li>
+	
+	<li><a href="../symbols/ZmCalendarApp.html">zimbraMail.calendar.ZmCalendarApp</a></li>
+	
+	<li><a href="../symbols/ZmApp.html">zimbraMail.core.ZmApp</a></li>
+	
+	<li><a href="../symbols/ZmAppCtxt.html">zimbraMail.core.ZmAppCtxt</a></li>
+	
+	<li><a href="../symbols/ZmAppViewMgr.html">zimbraMail.core.ZmAppViewMgr</a></li>
+	
+	<li><a href="../symbols/ZmClientCmdHandler.html">zimbraMail.core.ZmClientCmdHandler</a></li>
+	
+	<li><a href="../symbols/ZmId.html">zimbraMail.core.ZmId</a></li>
+	
+	<li><a href="../symbols/ZmMimeTable.html">zimbraMail.core.ZmMimeTable</a></li>
+	
+	<li><a href="../symbols/ZmNewWindow.html">zimbraMail.core.ZmNewWindow</a></li>
+	
+	<li><a href="../symbols/ZmOperation.html">zimbraMail.core.ZmOperation</a></li>
+	
+	<li><a href="../symbols/ZmRequestMgr.html">zimbraMail.core.ZmRequestMgr</a></li>
+	
+	<li><a href="../symbols/ZmToolTipMgr.html">zimbraMail.core.ZmToolTipMgr</a></li>
+	
+	<li><a href="../symbols/ZmZimbraMail.html">zimbraMail.core.ZmZimbraMail</a></li>
+	
+	<li><a href="../symbols/ZmComposeController.html">zimbraMail.mail.controller.ZmComposeController</a></li>
+	
+	<li><a href="../symbols/ZmConvController.html">zimbraMail.mail.controller.ZmConvController</a></li>
+	
+	<li><a href="../symbols/ZmConvListController.html">zimbraMail.mail.controller.ZmConvListController</a></li>
+	
+	<li><a href="../symbols/ZmDoublePaneController.html">zimbraMail.mail.controller.ZmDoublePaneController</a></li>
+	
+	<li><a href="../symbols/ZmMailConfirmController.html">zimbraMail.mail.controller.ZmMailConfirmController</a></li>
+	
+	<li><a href="../symbols/ZmMailListController.html">zimbraMail.mail.controller.ZmMailListController</a></li>
+	
+	<li><a href="../symbols/ZmMsgController.html">zimbraMail.mail.controller.ZmMsgController</a></li>
+	
+	<li><a href="../symbols/ZmConv.html">zimbraMail.mail.model.ZmConv</a></li>
+	
+	<li><a href="../symbols/ZmDataSource.html">zimbraMail.mail.model.ZmDataSource</a></li>
+	
+	<li><a href="../symbols/ZmDataSourceCollection.html">zimbraMail.mail.model.ZmDataSourceCollection</a></li>
+	
+	<li><a href="../symbols/ZmIdentity.html">zimbraMail.mail.model.ZmIdentity</a></li>
+	
+	<li><a href="../symbols/ZmIdentityCollection.html">zimbraMail.mail.model.ZmIdentityCollection</a></li>
+	
+	<li><a href="../symbols/ZmImapAccount.html">zimbraMail.mail.model.ZmImapAccount</a></li>
+	
+	<li><a href="../symbols/ZmMailItem.html">zimbraMail.mail.model.ZmMailItem</a></li>
+	
+	<li><a href="../symbols/ZmMailList.html">zimbraMail.mail.model.ZmMailList</a></li>
+	
+	<li><a href="../symbols/ZmMailMsg.html">zimbraMail.mail.model.ZmMailMsg</a></li>
+	
+	<li><a href="../symbols/ZmMimePart.html">zimbraMail.mail.model.ZmMimePart</a></li>
+	
+	<li><a href="../symbols/ZmPopAccount.html">zimbraMail.mail.model.ZmPopAccount</a></li>
+	
+	<li><a href="../symbols/ZmSignature.html">zimbraMail.mail.model.ZmSignature</a></li>
+	
+	<li><a href="../symbols/ZmSignatureCollection.html">zimbraMail.mail.model.ZmSignatureCollection</a></li>
+	
+	<li><a href="../symbols/ZmGrantRightsDialog.html">zimbraMail.mail.view.prefs.ZmGrantRightsDialog</a></li>
+	
+	<li><a href="../symbols/ZmConvView2.html">zimbraMail.mail.view.ZmConvView2</a></li>
+	
+	<li><a href="../symbols/ZmInviteMsgView.html">zimbraMail.mail.view.ZmInviteMsgView</a></li>
+	
+	<li><a href="../symbols/ZmMailRedirectDialog.html">zimbraMail.mail.view.ZmMailRedirectDialog</a></li>
+	
+	<li><a href="../symbols/ZmRecipients.html">zimbraMail.mail.view.ZmRecipients</a></li>
+	
+	<li><a href="../symbols/ZmRetentionWarningDialog.html">zimbraMail.mail.view.ZmRetentionWarningDialog</a></li>
+	
+	<li><a href="../symbols/ZmSelectAddrDialog.html">zimbraMail.mail.view.ZmSelectAddrDialog</a></li>
+	
+	<li><a href="../symbols/ZmMailApp.html">zimbraMail.mail.ZmMailApp</a></li>
+	
+	<li><a href="../symbols/ZmPortalController.html">zimbraMail.portal.controller.ZmPortalController</a></li>
+	
+	<li><a href="../symbols/ZmPortlet.html">zimbraMail.portal.model.ZmPortlet</a></li>
+	
+	<li><a href="../symbols/ZmPortletMgr.html">zimbraMail.portal.model.ZmPortletMgr</a></li>
+	
+	<li><a href="../symbols/ZmPortalView.html">zimbraMail.portal.view.ZmPortalView</a></li>
+	
+	<li><a href="../symbols/ZmPortletView.html">zimbraMail.portal.view.ZmPortletView</a></li>
+	
+	<li><a href="../symbols/ZmPortalApp.html">zimbraMail.portal.ZmPortalApp</a></li>
+	
+	<li><a href="../symbols/ZmFilterController.html">zimbraMail.prefs.controller.ZmFilterController</a></li>
+	
+	<li><a href="../symbols/ZmFilterRulesController.html">zimbraMail.prefs.controller.ZmFilterRulesController</a></li>
+	
+	<li><a href="../symbols/ZmMobileDevicesController.html">zimbraMail.prefs.controller.ZmMobileDevicesController</a></li>
+	
+	<li><a href="../symbols/ZmPrefController.html">zimbraMail.prefs.controller.ZmPrefController</a></li>
+	
+	<li><a href="../symbols/ZmPrefPageTreeController.html">zimbraMail.prefs.controller.ZmPrefPageTreeController</a></li>
+	
+	<li><a href="../symbols/ZmFilterRule.html">zimbraMail.prefs.model.ZmFilterRule</a></li>
+	
+	<li><a href="../symbols/ZmFilterRules.html">zimbraMail.prefs.model.ZmFilterRules</a></li>
+	
+	<li><a href="../symbols/ZmLocale.html">zimbraMail.prefs.model.ZmLocale</a></li>
+	
+	<li><a href="../symbols/ZmMobileDevice.html">zimbraMail.prefs.model.ZmMobileDevice</a></li>
+	
+	<li><a href="../symbols/ZmPersona.html">zimbraMail.prefs.model.ZmPersona</a></li>
+	
+	<li><a href="../symbols/ZmPrefPage.html">zimbraMail.prefs.model.ZmPrefPage</a></li>
+	
+	<li><a href="../symbols/ZmFilterRuleDialog.html">zimbraMail.prefs.view.ZmFilterRuleDialog</a></li>
+	
+	<li><a href="../symbols/ZmFilterRulesView.html">zimbraMail.prefs.view.ZmFilterRulesView</a></li>
+	
+	<li><a href="../symbols/ZmFont.html">zimbraMail.prefs.view.ZmFont</a></li>
+	
+	<li><a href="../symbols/ZmPreferencesPage.html">zimbraMail.prefs.view.ZmPreferencesPage</a></li>
+	
+	<li><a href="../symbols/ZmPrefView.html">zimbraMail.prefs.view.ZmPrefView</a></li>
+	
+	<li><a href="../symbols/ZmPreferencesApp.html">zimbraMail.prefs.ZmPreferencesApp</a></li>
+	
+	<li><a href="../symbols/ZmActionController.html">zimbraMail.share.controller.ZmActionController</a></li>
+	
+	<li><a href="../symbols/ZmController.html">zimbraMail.share.controller.ZmController</a></li>
+	
+	<li><a href="../symbols/ZmFolderTreeController.html">zimbraMail.share.controller.ZmFolderTreeController</a></li>
+	
+	<li><a href="../symbols/ZmImportExportController.html">zimbraMail.share.controller.ZmImportExportController</a></li>
+	
+	<li><a href="../symbols/ZmOverviewController.html">zimbraMail.share.controller.ZmOverviewController</a></li>
+	
+	<li><a href="../symbols/ZmSearchController.html">zimbraMail.share.controller.ZmSearchController</a></li>
+	
+	<li><a href="../symbols/ZmSearchResultsController.html">zimbraMail.share.controller.ZmSearchResultsController</a></li>
+	
+	<li><a href="../symbols/ZmSearchTreeController.html">zimbraMail.share.controller.ZmSearchTreeController</a></li>
+	
+	<li><a href="../symbols/ZmTagTreeController.html">zimbraMail.share.controller.ZmTagTreeController</a></li>
+	
+	<li><a href="../symbols/ZmTreeController.html">zimbraMail.share.controller.ZmTreeController</a></li>
+	
+	<li><a href="../symbols/ZmZimletAppController.html">zimbraMail.share.controller.ZmZimletAppController</a></li>
+	
+	<li><a href="../symbols/ZmZimletTreeController.html">zimbraMail.share.controller.ZmZimletTreeController</a></li>
+	
+	<li><a href="../symbols/ZmAppEvent.html">zimbraMail.share.model.events.ZmAppEvent</a></li>
+	
+	<li><a href="../symbols/ZmEvent.html">zimbraMail.share.model.events.ZmEvent</a></li>
+	
+	<li><a href="../symbols/ZmAccessControlEntry.html">zimbraMail.share.model.ZmAccessControlEntry</a></li>
+	
+	<li><a href="../symbols/ZmAccessControlList.html">zimbraMail.share.model.ZmAccessControlList</a></li>
+	
+	<li><a href="../symbols/ZmAccount.html">zimbraMail.share.model.ZmAccount</a></li>
+	
+	<li><a href="../symbols/ZmAccountList.html">zimbraMail.share.model.ZmAccountList</a></li>
+	
+	<li><a href="../symbols/ZmCompositeAction.html">zimbraMail.share.model.ZmCompositeAction</a></li>
+	
+	<li><a href="../symbols/ZmOrganizerMoveAction.html">zimbraMail.share.model.ZmOrganizerMoveAction</a></li>
+	
+	<li><a href="../symbols/ZmItemMoveAction.html">zimbraMail.share.model.ZmItemMoveAction</a></li>
+	
+	<li><a href="../symbols/ZmOrganizerAction.html">zimbraMail.share.model.ZmOrganizerAction</a></li>
+	
+	<li><a href="../symbols/ZmItemAction.html">zimbraMail.share.model.ZmItemAction</a></li>
+	
+	<li><a href="../symbols/ZmAction.html">zimbraMail.share.model.ZmAction</a></li>
+	
+	<li><a href="../symbols/ZmActionStack.html">zimbraMail.share.model.ZmActionStack</a></li>
+	
+	<li><a href="../symbols/ZmAttachmentTypeList.html">zimbraMail.share.model.ZmAttachmentTypeList</a></li>
+	
+	<li><a href="../symbols/ZmAuthenticate.html">zimbraMail.share.model.ZmAuthenticate</a></li>
+	
+	<li><a href="../symbols/ZmPeopleSearchAutocomplete.html">zimbraMail.share.model.ZmPeopleSearchAutocomplete</a></li>
+	
+	<li><a href="../symbols/ZmSearchAutocomplete.html">zimbraMail.share.model.ZmSearchAutocomplete</a></li>
+	
+	<li><a href="../symbols/ZmAutocompleteMatch.html">zimbraMail.share.model.ZmAutocompleteMatch</a></li>
+	
+	<li><a href="../symbols/ZmAutocomplete.html">zimbraMail.share.model.ZmAutocomplete</a></li>
+	
+	<li><a href="../symbols/ZmDomain.html">zimbraMail.share.model.ZmDomain</a></li>
+	
+	<li><a href="../symbols/ZmDomain.html">zimbraMail.share.model.ZmDomain</a></li>
+	
+	<li><a href="../symbols/ZmDomainList.html">zimbraMail.share.model.ZmDomainList</a></li>
+	
+	<li><a href="../symbols/ZmFolder.html">zimbraMail.share.model.ZmFolder</a></li>
+	
+	<li><a href="../symbols/ZmFolderTree.html">zimbraMail.share.model.ZmFolderTree</a></li>
+	
+	<li><a href="../symbols/ZmImAddress.html">zimbraMail.share.model.ZmImAddress</a></li>
+	
+	<li><a href="../symbols/ZmInvite.html">zimbraMail.share.model.ZmInvite</a></li>
+	
+	<li><a href="../symbols/ZmItem.html">zimbraMail.share.model.ZmItem</a></li>
+	
+	<li><a href="../symbols/ZmKeyMap.html">zimbraMail.share.model.ZmKeyMap</a></li>
+	
+	<li><a href="../symbols/ZmList.html">zimbraMail.share.model.ZmList</a></li>
+	
+	<li><a href="../symbols/ZmMetaData.html">zimbraMail.share.model.ZmMetaData</a></li>
+	
+	<li><a href="../symbols/ZmModel.html">zimbraMail.share.model.ZmModel</a></li>
+	
+	<li><a href="../symbols/ZmMountpoint.html">zimbraMail.share.model.ZmMountpoint</a></li>
+	
+	<li><a href="../symbols/ZmObjectHandler.html">zimbraMail.share.model.ZmObjectHandler</a></li>
+	
+	<li><a href="../symbols/ZmObjectManager.html">zimbraMail.share.model.ZmObjectManager</a></li>
+	
+	<li><a href="../symbols/ZmOrganizer.html">zimbraMail.share.model.ZmOrganizer</a></li>
+	
+	<li><a href="../symbols/ZmSearch.html">zimbraMail.share.model.ZmSearch</a></li>
+	
+	<li><a href="../symbols/ZmSearchFolder.html">zimbraMail.share.model.ZmSearchFolder</a></li>
+	
+	<li><a href="../symbols/ZmSearchResult.html">zimbraMail.share.model.ZmSearchResult</a></li>
+	
+	<li><a href="../symbols/ZmSetting.html">zimbraMail.share.model.ZmSetting</a></li>
+	
+	<li><a href="../symbols/ZmSettings.html">zimbraMail.share.model.ZmSettings</a></li>
+	
+	<li><a href="../symbols/ZmShare.html">zimbraMail.share.model.ZmShare</a></li>
+	
+	<li><a href="../symbols/ZmTag.html">zimbraMail.share.model.ZmTag</a></li>
+	
+	<li><a href="../symbols/ZmTagTree.html">zimbraMail.share.model.ZmTagTree</a></li>
+	
+	<li><a href="../symbols/ZmTimezone.html">zimbraMail.share.model.ZmTimezone</a></li>
+	
+	<li><a href="../symbols/ZmTree.html">zimbraMail.share.model.ZmTree</a></li>
+	
+	<li><a href="../symbols/ZmZimbraAccount.html">zimbraMail.share.model.ZmZimbraAccount</a></li>
+	
+	<li><a href="../symbols/ZmZimlet.html">zimbraMail.share.model.ZmZimlet</a></li>
+	
+	<li><a href="../symbols/ZmZimletBase.html">zimbraMail.share.model.ZmZimletBase</a></li>
+	
+	<li><a href="../symbols/ZmZimletContext.html">zimbraMail.share.model.ZmZimletContext</a></li>
+	
+	<li><a href="../symbols/ZmZimletMgr.html">zimbraMail.share.model.ZmZimletMgr</a></li>
+	
+	<li><a href="../symbols/ZmAcceptShareDialog.html">zimbraMail.share.view.dialog.ZmAcceptShareDialog</a></li>
+	
+	<li><a href="../symbols/ZmAttachDialog.html">zimbraMail.share.view.dialog.ZmAttachDialog</a></li>
+	
+	<li><a href="../symbols/ZmChooseAccountDialog.html">zimbraMail.share.view.dialog.ZmChooseAccountDialog</a></li>
+	
+	<li><a href="../symbols/ZmChooseFolderDialog.html">zimbraMail.share.view.dialog.ZmChooseFolderDialog</a></li>
+	
+	<li><a href="../symbols/ZmDebugLogDialog.html">zimbraMail.share.view.dialog.ZmDebugLogDialog</a></li>
+	
+	<li><a href="../symbols/ZmDeclineShareDialog.html">zimbraMail.share.view.dialog.ZmDeclineShareDialog</a></li>
+	
+	<li><a href="../symbols/ZmDialog.html">zimbraMail.share.view.dialog.ZmDialog</a></li>
+	
+	<li><a href="../symbols/ZmDumpsterDialog.html">zimbraMail.share.view.dialog.ZmDumpsterDialog</a></li>
+	
+	<li><a href="../symbols/ZmFindnReplaceDialog.html">zimbraMail.share.view.dialog.ZmFindnReplaceDialog</a></li>
+	
+	<li><a href="../symbols/ZmFolderDialogTabView.html">zimbraMail.share.view.dialog.ZmFolderDialogTabView</a></li>
+	
+	<li><a href="../symbols/ZmFolderNotifyDialog.html">zimbraMail.share.view.dialog.ZmFolderNotifyDialog</a></li>
+	
+	<li><a href="../symbols/ZmFolderPropertyView.html">zimbraMail.share.view.dialog.ZmFolderPropertyView</a></li>
+	
+	<li><a href="../symbols/ZmFolderPropsDialog.html">zimbraMail.share.view.dialog.ZmFolderPropsDialog</a></li>
+	
+	<li><a href="../symbols/ZmLinkPropsDialog.html">zimbraMail.share.view.dialog.ZmLinkPropsDialog</a></li>
+	
+	<li><a href="../symbols/ZmNewOrganizerDialog.html">zimbraMail.share.view.dialog.ZmNewOrganizerDialog</a></li>
+	
+	<li><a href="../symbols/ZmNewSearchDialog.html">zimbraMail.share.view.dialog.ZmNewSearchDialog</a></li>
+	
+	<li><a href="../symbols/ZmNewTagDialog.html">zimbraMail.share.view.dialog.ZmNewTagDialog</a></li>
+	
+	<li><a href="../symbols/ZmPasswordUpdateDialog.html">zimbraMail.share.view.dialog.ZmPasswordUpdateDialog</a></li>
+	
+	<li><a href="../symbols/ZmPickTagDialog.html">zimbraMail.share.view.dialog.ZmPickTagDialog</a></li>
+	
+	<li><a href="../symbols/ZmPromptDialog.html">zimbraMail.share.view.dialog.ZmPromptDialog</a></li>
+	
+	<li><a href="../symbols/ZmQuickAddDialog.html">zimbraMail.share.view.dialog.ZmQuickAddDialog</a></li>
+	
+	<li><a href="../symbols/ZmRenameFolderDialog.html">zimbraMail.share.view.dialog.ZmRenameFolderDialog</a></li>
+	
+	<li><a href="../symbols/ZmRenameTagDialog.html">zimbraMail.share.view.dialog.ZmRenameTagDialog</a></li>
+	
+	<li><a href="../symbols/ZmRevokeShareDialog.html">zimbraMail.share.view.dialog.ZmRevokeShareDialog</a></li>
+	
+	<li><a href="../symbols/ZmSharePropsDialog.html">zimbraMail.share.view.dialog.ZmSharePropsDialog</a></li>
+	
+	<li><a href="../symbols/ZmTimeDialog.html">zimbraMail.share.view.dialog.ZmTimeDialog</a></li>
+	
+	<li><a href="../symbols/ZmTimezonePicker.html">zimbraMail.share.view.dialog.ZmTimezonePicker</a></li>
+	
+	<li><a href="../symbols/ZmUploadDialog.html">zimbraMail.share.view.dialog.ZmUploadDialog</a></li>
+	
+	<li><a href="../symbols/ZmHtmlEditor.html">zimbraMail.share.view.htmlEditor.ZmHtmlEditor</a></li>
+	
+	<li><a href="../symbols/ZmLiteHtmlEditor.html">zimbraMail.share.view.htmlEditor.ZmLiteHtmlEditor</a></li>
+	
+	<li><a href="../symbols/ZmSpellChecker.html">zimbraMail.share.view.htmlEditor.ZmSpellChecker</a></li>
+	
+	<li><a href="../symbols/ZmAccountAlert.html">zimbraMail.share.view.ZmAccountAlert</a></li>
+	
+	<li><a href="../symbols/ZmAccountOverviewContainer.html">zimbraMail.share.view.ZmAccountOverviewContainer</a></li>
+	
+	<li><a href="../symbols/ZmActionMenu.html">zimbraMail.share.view.ZmActionMenu</a></li>
+	
+	<li><a href="../symbols/ZmAddressBubbleList.html">zimbraMail.share.view.ZmAddressBubbleList</a></li>
+	
+	<li><a href="../symbols/ZmAddressBubble.html">zimbraMail.share.view.ZmAddressBubble</a></li>
+	
+	<li><a href="../symbols/ZmAddressInputField.html">zimbraMail.share.view.ZmAddressInputField</a></li>
+	
+	<li><a href="../symbols/ZmAlert.html">zimbraMail.share.view.ZmAlert</a></li>
+	
+	<li><a href="../symbols/ZmAppButton.html">zimbraMail.share.view.ZmAppButton</a></li>
+	
+	<li><a href="../symbols/ZmAppChooser.html">zimbraMail.share.view.ZmAppChooser</a></li>
+	
+	<li><a href="../symbols/ZmAutocompleteListView.html">zimbraMail.share.view.ZmAutocompleteListView</a></li>
+	
+	<li><a href="../symbols/ZmBrowserAlert.html">zimbraMail.share.view.ZmBrowserAlert</a></li>
+	
+	<li><a href="../symbols/ZmButtonToolBar.html">zimbraMail.share.view.ZmButtonToolBar</a></li>
+	
+	<li><a href="../symbols/ZmDLAutocompleteListView.html">zimbraMail.share.view.ZmDLAutocompleteListView</a></li>
+	
+	<li><a href="../symbols/ZmFolderChooser.html">zimbraMail.share.view.ZmFolderChooser</a></li>
+	
+	<li><a href="../symbols/ZmImAddressEntry.html">zimbraMail.share.view.ZmImAddressEntry</a></li>
+	
+	<li><a href="../symbols/ZmListView.html">zimbraMail.share.view.ZmListView</a></li>
+	
+	<li><a href="../symbols/ZmNavToolBar.html">zimbraMail.share.view.ZmNavToolBar</a></li>
+	
+	<li><a href="../symbols/ZmOverview.html">zimbraMail.share.view.ZmOverview</a></li>
+	
+	<li><a href="../symbols/ZmOverviewContainer.html">zimbraMail.share.view.ZmOverviewContainer</a></li>
+	
+	<li><a href="../symbols/ZmPopupMenu.html">zimbraMail.share.view.ZmPopupMenu</a></li>
+	
+	<li><a href="../symbols/ZmSearchResultsFilterPanel.html">zimbraMail.share.view.ZmSearchResultsFilterPanel</a></li>
+	
+	<li><a href="../symbols/ZmSearchResultsToolBar.html">zimbraMail.share.view.ZmSearchResultsToolBar</a></li>
+	
+	<li><a href="../symbols/ZmSearchToolBar.html">zimbraMail.share.view.ZmSearchToolBar</a></li>
+	
+	<li><a href="../symbols/ZmShareReply.html">zimbraMail.share.view.ZmShareReply</a></li>
+	
+	<li><a href="../symbols/ZmToast.html">zimbraMail.share.view.ZmToast</a></li>
+	
+	<li><a href="../symbols/ZmStatusView.html">zimbraMail.share.view.ZmStatusView</a></li>
+	
+	<li><a href="../symbols/ZmTagMenu.html">zimbraMail.share.view.ZmTagMenu</a></li>
+	
+	<li><a href="../symbols/ZmToolBar.html">zimbraMail.share.view.ZmToolBar</a></li>
+	
+	<li><a href="../symbols/ZmTreeView.html">zimbraMail.share.view.ZmTreeView</a></li>
+	
+	<li><a href="../symbols/ZmZimletApp.html">zimbraMail.share.view.ZmZimletApp</a></li>
+	
+	<li><a href="../symbols/ZmSearchApp.html">zimbraMail.share.ZmSearchApp</a></li>
+	
+	<li><a href="../symbols/ZmTaskController.html">zimbraMail.tasks.controller.ZmTaskController</a></li>
+	
+	<li><a href="../symbols/ZmTaskListController.html">zimbraMail.tasks.controller.ZmTaskListController</a></li>
+	
+	<li><a href="../symbols/ZmTaskTreeController.html">zimbraMail.tasks.controller.ZmTaskTreeController</a></li>
+	
+	<li><a href="../symbols/ZmTask.html">zimbraMail.tasks.model.ZmTask</a></li>
+	
+	<li><a href="../symbols/ZmTaskFolder.html">zimbraMail.tasks.model.ZmTaskFolder</a></li>
+	
+	<li><a href="../symbols/ZmNewTaskFolderDialog.html">zimbraMail.tasks.view.ZmNewTaskFolderDialog</a></li>
+	
+	<li><a href="../symbols/ZmTaskEditView.html">zimbraMail.tasks.view.ZmTaskEditView</a></li>
+	
+	<li><a href="../symbols/ZmTaskListView.html">zimbraMail.tasks.view.ZmTaskListView</a></li>
+	
+	<li><a href="../symbols/ZmTaskView.html">zimbraMail.tasks.view.ZmTaskView</a></li>
+	
+	<li><a href="../symbols/ZmTasksApp.html">zimbraMail.tasks.ZmTasksApp</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+			</td>	
+			<td valign="top">
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Namespace tinyMCEPopup
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				tinyMCEPopup
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_ajax_3rdparty_tinymce_classes_Popup.js.html">Popup.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class tinyMCEPopup.">
+				<caption>Namespace Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/tinyMCEPopup.html#constructor">tinyMCEPopup</a></b>
+							</div>
+							<div class="description">TinyMCE popup/dialog helper class.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class tinyMCEPopup.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.alert">alert</a></b>(t, cb, s)
+								</div>
+								<div class="description">Creates a alert dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.close">close</a></b>()
+								</div>
+								<div class="description">Closes the current window.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.confirm">confirm</a></b>(t, cb, s)
+								</div>
+								<div class="description">Creates a confirm dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.execCommand">execCommand</a></b>(cmd, ui, val, a)
+								</div>
+								<div class="description">Executed a command on editor that opened the dialog/popup.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.executeOnLoad">executeOnLoad</a></b>(s)
+								</div>
+								<div class="description">Will executed the specified string when the page has been loaded.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.getLang">getLang</a></b>(n, dv)
+								</div>
+								<div class="description">Returns a language item by key.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.getParam">getParam</a></b>(n, dv)
+								</div>
+								<div class="description">Returns a editor parameter/config option value.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.getWin">getWin</a></b>()
+								</div>
+								<div class="description">Returns the reference to the parent window that opened the dialog.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.getWindowArg">getWindowArg</a></b>(n, dv)
+								</div>
+								<div class="description">Returns a window argument/parameter by name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.init">init</a></b>()
+								</div>
+								<div class="description">Initializes the popup this will be called automatically.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.openBrowser">openBrowser</a></b>(element_id, type, option)
+								</div>
+								<div class="description">Opens a filebrowser/imagebrowser this will set the output value fromthe browser as a value on the specified element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.pickColor">pickColor</a></b>(e, element_id)
+								</div>
+								<div class="description">Executes a color picker on the specified element id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.requireLangPack">requireLangPack</a></b>()
+								</div>
+								<div class="description">Loads a specific dialog language pack.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.resizeToInnerSize">resizeToInnerSize</a></b>()
+								</div>
+								<div class="description">Resizes the dialog to the inner size of the window.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.restoreSelection">restoreSelection</a></b>()
+								</div>
+								<div class="description">Restores any stored selection.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">tinyMCEPopup.<b><a href="../symbols/tinyMCEPopup.html#.storeSelection">storeSelection</a></b>()
+								</div>
+								<div class="description">Stores the current editor selection for later restoration.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Namespace Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>tinyMCEPopup</b>
+				</div>
+				
+				<div class="description">
+					TinyMCE popup/dialog helper class. This gives you easy access to theparent editor instance and a bunch of other things. It's higly recommendedthat you load this script into your dialogs.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".alert"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>alert</b>(t, cb, s)
+					
+					</div>
+					<div class="description">
+						Creates a alert dialog. Please don't use the blocking behavior of thisnative version use the callback method instead then it can be extended.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>t</b>
+									
+								</dt>
+								<dd>Title for the new alert dialog.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>cb</b>
+									
+								</dt>
+								<dd>Callback function to be executed after the user has selected ok.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>s</b>
+									
+								</dt>
+								<dd>Optional scope to execute the callback in.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".close"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>close</b>()
+					
+					</div>
+					<div class="description">
+						Closes the current window.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".confirm"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>confirm</b>(t, cb, s)
+					
+					</div>
+					<div class="description">
+						Creates a confirm dialog. Please don't use the blocking behavior of thisnative version use the callback method instead then it can be extended.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>t</b>
+									
+								</dt>
+								<dd>Title for the new confirm dialog.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>cb</b>
+									
+								</dt>
+								<dd>Callback function to be executed after the user has selected ok or cancel.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>s</b>
+									
+								</dt>
+								<dd>Optional scope to execute the callback in.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".execCommand"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>execCommand</b>(cmd, ui, val, a)
+					
+					</div>
+					<div class="description">
+						Executed a command on editor that opened the dialog/popup.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>cmd</b>
+									
+								</dt>
+								<dd>Command to execute.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>ui</b>
+									
+								</dt>
+								<dd>Optional boolean value if the UI for the command should be presented or not.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>val</b>
+									
+								</dt>
+								<dd>Optional value to pass with the comman like an URL.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>a</b>
+									
+								</dt>
+								<dd>Optional arguments object.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".executeOnLoad"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>executeOnLoad</b>(s)
+					
+					</div>
+					<div class="description">
+						Will executed the specified string when the page has been loaded. This functionwas added for compatibility with the 2.x branch.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>s</b>
+									
+								</dt>
+								<dd>String to evalutate on init.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getLang"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">tinyMCEPopup.</span><b>getLang</b>(n, dv)
+					
+					</div>
+					<div class="description">
+						Returns a language item by key.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>n</b>
+									
+								</dt>
+								<dd>Language item like mydialog.something.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>dv</b>
+									
+								</dt>
+								<dd>Optional default value to return.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Language value for the item like "my string" or the default value if it wasn't found.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getParam"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">tinyMCEPopup.</span><b>getParam</b>(n, dv)
+					
+					</div>
+					<div class="description">
+						Returns a editor parameter/config option value.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>n</b>
+									
+								</dt>
+								<dd>Name of the editor config option to retrive.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>dv</b>
+									
+								</dt>
+								<dd>Optional default value to return.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Parameter value or default value if it wasn't found.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getWin"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Window}</span>
+					<span class="light">tinyMCEPopup.</span><b>getWin</b>()
+					
+					</div>
+					<div class="description">
+						Returns the reference to the parent window that opened the dialog.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Window}</span> Reference to the parent window that opened the dialog.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getWindowArg"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">tinyMCEPopup.</span><b>getWindowArg</b>(n, dv)
+					
+					</div>
+					<div class="description">
+						Returns a window argument/parameter by name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>n</b>
+									
+								</dt>
+								<dd>Name of the window argument to retrive.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>dv</b>
+									
+								</dt>
+								<dd>Optional default value to return.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Argument value or default value if it wasn't found.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".init"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>init</b>()
+					
+					</div>
+					<div class="description">
+						Initializes the popup this will be called automatically.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".openBrowser"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>openBrowser</b>(element_id, type, option)
+					
+					</div>
+					<div class="description">
+						Opens a filebrowser/imagebrowser this will set the output value fromthe browser as a value on the specified element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>element_id</b>
+									
+								</dt>
+								<dd>Id of the element to set value in.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>type</b>
+									
+								</dt>
+								<dd>Type of browser to open image/file/flash.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>option</b>
+									
+								</dt>
+								<dd>Option name to get the file_broswer_callback function name from.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".pickColor"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>pickColor</b>(e, element_id)
+					
+					</div>
+					<div class="description">
+						Executes a color picker on the specified element id. When the userthen selects a color it will be set as the value of the specified element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{DOMEvent}</span> <b>e</b>
+									
+								</dt>
+								<dd>DOM event object.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{string}</span> <b>element_id</b>
+									
+								</dt>
+								<dd>Element id to be filled with the color value from the picker.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".requireLangPack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>requireLangPack</b>()
+					
+					</div>
+					<div class="description">
+						Loads a specific dialog language pack. If you pass in plugin_url as a arugmentwhen you open the window it will load the <plugin url>/langs/<code>_dlg.js lang pack file.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".resizeToInnerSize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>resizeToInnerSize</b>()
+					
+					</div>
+					<div class="description">
+						Resizes the dialog to the inner size of the window. This is needed since various browsershave different border sizes on windows.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".restoreSelection"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>restoreSelection</b>()
+					
+					</div>
+					<div class="description">
+						Restores any stored selection. This can be useful since some browserslooses it's selection if a control element is selected/focused inside the dialogs.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".storeSelection"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">tinyMCEPopup.</span><b>storeSelection</b>()
+					
+					</div>
+					<div class="description">
+						Stores the current editor selection for later restoration. This can be useful since some browserslooses it's selection if a control element is selected/focused inside the dialogs.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Fri May 24 2013 12:52:24 GMT-0700 (PDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

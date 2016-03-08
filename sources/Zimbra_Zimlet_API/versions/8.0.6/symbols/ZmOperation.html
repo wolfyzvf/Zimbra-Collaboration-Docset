@@ -1,0 +1,1417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmOperation</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2012, 2013 Zimbra Software, LLC.
+ * 
+ * The contents of this file are subject to the Zimbra Public License
+ * Version 1.4 ("License"); you may not use this file except in
+ * compliance with the License.  You may obtain a copy of the License at
+ * http://www.zimbra.com/license.
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmOperation
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class provides the idea of an "operation", which is a user-initiated action
+exposed through a button or menu item. Many operations (such as Delete) are shared
+across applications/controllers. An operation gets defined by specifying its name,
+tool tip, and image. Then controllers can simply select which operations they'd like
+to support.
+<br/>
+<br/>
+The two primary clients of this class are <a href="../symbols/ZmButtonToolBar.html">ZmButtonToolBar</a> and <a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>. Clients 
+should support <a href="#createOp">#createOp</a> and <a href="#getOp">#getOp</a> methods. See the two aforementioned clients for
+examples.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_core_ZmOperation.js.html">ZmOperation.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmOperation.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmOperation.html#constructor">ZmOperation</a></b>()
+							</div>
+							<div class="description">Creates the operation object.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmOperation.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addColorMenu">addColorMenu</a></b>(parent, hideNoFill)
+								</div>
+								<div class="description">Adds a color submenu for choosing tag color.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addContactGroupMenu">addContactGroupMenu</a></b>(parent)
+								</div>
+								<div class="description">Adds a contact group menu for creating a contacts from the contact list</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addDeferredMenu">addDeferredMenu</a></b>(addMenuFunc, parent)
+								</div>
+								<div class="description">Adds a deferred menu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addMoveMenu">addMoveMenu</a></b>(parent)
+								</div>
+								<div class="description">Adds a "Move" submenu for tagging items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addNewMenu">addNewMenu</a></b>(parent)
+								</div>
+								<div class="description">Adds a "New" submenu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addOperation">addOperation</a></b>(parent, id, opHash, index, htmlElId)
+								</div>
+								<div class="description">Adds the operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addSearchMenu">addSearchMenu</a></b>(parent)
+								</div>
+								<div class="description">Adds a "Search" submenu for searching from/to sender/recipient.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.addTagMenu">addTagMenu</a></b>(parent)
+								</div>
+								<div class="description">Adds a "Tag" submenu for tagging items.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.createOperations">createOperations</a></b>(parent, operations, overrides)
+								</div>
+								<div class="description">Creates operation descriptors for the given operation IDs,
+then creates the appropriate widget for each operation based on the type of
+the parent.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.defineOperation">defineOperation</a></b>(baseId, overrides)
+								</div>
+								<div class="description">Creates an operation descriptor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.filterOperations">filterOperations</a></b>(list)
+								</div>
+								<div class="description">Takes a list of operations and removes any who have a corresponding setting that's
+not set.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.getProp">getProp</a></b>(id, prop)
+								</div>
+								<div class="description">Gets the value of a given property for a given operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.getToolTip">getToolTip</a></b>(id, keyMap, tooltip)
+								</div>
+								<div class="description">Gets the tooltip for the operation with the given ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.initialize">initialize</a></b>()
+								</div>
+								<div class="description">Initializes and creates standard operations.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.isSep">isSep</a></b>(id)
+								</div>
+								<div class="description">Checks if the operation is a separator or spacer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.registerOp">registerOp</a></b>(op, text, tooltip, image, disImage, setting, callback)
+								</div>
+								<div class="description">Defines the aspects of an operation, and the ID that refers to it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.removeOperation">removeOperation</a></b>(parent, id, opHash)
+								</div>
+								<div class="description">Removes the operation.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOperation.<b><a href="../symbols/ZmOperation.html#.setOperation">setOperation</a></b>(parent, oldOp, newOp, text, image, disImage)
+								</div>
+								<div class="description">Replaces the attributes of one operation with those of another, wholly or in part.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmOperation</b>()
+				</div>
+				
+				<div class="description">
+					Creates the operation object.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".addColorMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmPopupMenu.html">ZmPopupMenu</a>}</span>
+					<span class="light">ZmOperation.</span><b>addColorMenu</b>(parent, hideNoFill)
+					
+					</div>
+					<div class="description">
+						Adds a color submenu for choosing tag color.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent widget (a toolbar or action menu)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>hideNoFill</b>
+									
+								</dt>
+								<dd>True to hide the no-fill/use-default option.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmPopupMenu.html">ZmPopupMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addContactGroupMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>addContactGroupMenu</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a contact group menu for creating a contacts from the contact list
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent widget (a toolbar or action menu)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>{ZmActionMenu) the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addDeferredMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>addDeferredMenu</b>(addMenuFunc, parent)
+					
+					</div>
+					<div class="description">
+						Adds a deferred menu.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>addMenuFunc</b>
+									
+								</dt>
+								<dd>the add menu function</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the containing widget (toolbar or menu)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addMoveMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmTagMenu.html">ZmTagMenu</a>}</span>
+					<span class="light">ZmOperation.</span><b>addMoveMenu</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a "Move" submenu for tagging items.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent widget (a toolbar or action menu)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmTagMenu.html">ZmTagMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addNewMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span>
+					<span class="light">ZmOperation.</span><b>addNewMenu</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a "New" submenu. Overrides are used because we don't want "New" at the
+beginning of each label.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the parent widget</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addOperation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>addOperation</b>(parent, id, opHash, index, htmlElId)
+					
+					</div>
+					<div class="description">
+						Adds the operation.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the containing widget (toolbar or menu)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>opHash</b>
+									
+								</dt>
+								<dd>a hash</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>index</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the index</dd>
+							
+								<dt>
+									<b>htmlElId</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addSearchMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span>
+					<span class="light">ZmOperation.</span><b>addSearchMenu</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a "Search" submenu for searching from/to sender/recipient.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent widget (a toolbar or action menu)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".addTagMenu"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/ZmTagMenu.html">ZmTagMenu</a>}</span>
+					<span class="light">ZmOperation.</span><b>addTagMenu</b>(parent)
+					
+					</div>
+					<div class="description">
+						Adds a "Tag" submenu for tagging items.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>parent widget (a toolbar or action menu)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmTagMenu.html">ZmTagMenu</a>}</span> the menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createOperations"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Hash}</span>
+					<span class="light">ZmOperation.</span><b>createOperations</b>(parent, operations, overrides)
+					
+					</div>
+					<div class="description">
+						Creates operation descriptors for the given operation IDs,
+then creates the appropriate widget for each operation based on the type of
+the parent. If it's a toolbar, then buttons are created. If it's a menu, menu items are
+created.
+<p>
+To override or add properties to a particular operation, pass in a hash of properties and
+values as a value in overrides, with the operation ID as the key.
+</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the containing widget (toolbar or menu)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>operations</b>
+									
+								</dt>
+								<dd>a list of operation IDs</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>overrides</b>
+									
+								</dt>
+								<dd>a hash of overrides by op ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> a hash of operations by ID</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".defineOperation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>defineOperation</b>(baseId, overrides)
+					
+					</div>
+					<div class="description">
+						Creates an operation descriptor. The ID of an existing operation can be passed
+in to use as a base, with overridden properties passed in a hash. A new operation
+can be defined by passing its properties in a hash.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>baseId</b>
+									
+								</dt>
+								<dd>the ID of an existing operation</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>overrides</b>
+									
+								</dt>
+								<dd>the property overrides for the operation</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".filterOperations"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">ZmOperation.</span><b>filterOperations</b>(list)
+					
+					</div>
+					<div class="description">
+						Takes a list of operations and removes any who have a corresponding setting that's
+not set. Also deals with the fact that you don't want a separator or a spacer unless
+there's stuff on either side of it.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>list</b>
+									
+								</dt>
+								<dd>a list of {ZmOperation} objects</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> a list of {ZmOperation} objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getProp"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object}</span>
+					<span class="light">ZmOperation.</span><b>getProp</b>(id, prop)
+					
+					</div>
+					<div class="description">
+						Gets the value of a given property for a given operation.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the operation ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>prop</b>
+									
+								</dt>
+								<dd>the name of an operation property</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> the value</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getToolTip"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOperation.</span><b>getToolTip</b>(id, keyMap, tooltip)
+					
+					</div>
+					<div class="description">
+						Gets the tooltip for the operation with the given ID. If the operation has a shortcut associated
+with it, a shortcut hint is appended to the end of the tooltip.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the operation ID</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>keyMap</b>
+									
+								</dt>
+								<dd>the key map (for resolving shortcut)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tooltip</b>
+									
+								</dt>
+								<dd>the tooltip override</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tool tip</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".initialize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>initialize</b>()
+					
+					</div>
+					<div class="description">
+						Initializes and creates standard operations.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isSep"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Boolean}</span>
+					<span class="light">ZmOperation.</span><b>isSep</b>(id)
+					
+					</div>
+					<div class="description">
+						Checks if the operation is a separator or spacer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the operation is a spacer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerOp"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>registerOp</b>(op, text, tooltip, image, disImage, setting, callback)
+					
+					</div>
+					<div class="description">
+						Defines the aspects of an operation, and the ID that refers to it.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>op</b>
+									
+								</dt>
+								<dd>the name of the operation</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>text</b>
+									
+								</dt>
+								<dd>the msg key for button or menu item text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tooltip</b>
+									
+								</dt>
+								<dd>the msg key for tooltip text</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>image</b>
+									
+								</dt>
+								<dd>the icon class for the button or menu item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>disImage</b>
+									
+								</dt>
+								<dd>the disabled version of image; defaults to image + "Dis"</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>setting</b>
+									
+								</dt>
+								<dd>the setting which acts as a precondition for this operation</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback to run after this operation has been created</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".removeOperation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>removeOperation</b>(parent, id, opHash)
+					
+					</div>
+					<div class="description">
+						Removes the operation.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the containing widget (toolbar or menu)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>opHash</b>
+									
+								</dt>
+								<dd>a hash</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setOperation"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOperation.</span><b>setOperation</b>(parent, oldOp, newOp, text, image, disImage)
+					
+					</div>
+					<div class="description">
+						Replaces the attributes of one operation with those of another, wholly or in part.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/DwtComposite.html">DwtComposite</a>}</span> <b>parent</b>
+									
+								</dt>
+								<dd>the parent widget</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>oldOp</b>
+									
+								</dt>
+								<dd>the ID of operation to replace</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>newOp</b>
+									
+								</dt>
+								<dd>the ID of new operation to get replacement attributes from</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>text</b>
+									
+								</dt>
+								<dd>the new text (overrides text of newOp)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>image</b>
+									
+								</dt>
+								<dd>the new image (overrides image of newOp)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>disImage</b>
+									
+								</dt>
+								<dd>the new disabled image (overrides that of newOp)</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Dec 03 2013 11:11:44 GMT-0800 (PST)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>
