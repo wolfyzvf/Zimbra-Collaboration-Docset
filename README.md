@@ -15,9 +15,9 @@ You will find then in the contribution section
 You can download them using the following URL, sadly you will only have access to the latest one as Zeal only support one version of the docset installed.
 If you want a previous version, you can download the tgz file and extract it in the zeal folder.
 
-[Zimbra_SOAP_API] (dash-feed://https://raw.githubusercontent.com/wolfyzvf/Zimbra-Collaboration-Docset/master/build/Zimbra_SOAP_API/Zimbra_SOAP_API.xml)
+[Zimbra_SOAP_API] (https://raw.githubusercontent.com/wolfyzvf/Zimbra-Collaboration-Docset/master/build/Zimbra_SOAP_API/Zimbra_SOAP_API.xml)
 
-[Zimbra_Zimlet_API] (dash-feed://https://raw.githubusercontent.com/wolfyzvf/Zimbra-Collaboration-Docset/master/build/Zimbra_Zimlet_API/Zimbra_Zimlet_API.xml)
+[Zimbra_Zimlet_API] (https://raw.githubusercontent.com/wolfyzvf/Zimbra-Collaboration-Docset/master/build/Zimbra_Zimlet_API/Zimbra_Zimlet_API.xml)
 
 # Build from Sources
 
