@@ -24,7 +24,7 @@ If you want a previous version, you can download the tgz file and extract it in 
 Both docset where generated using dashing.
 
 ## Zimbra SOAP API
-Get the [official documentation] (https://wiki.zimbra.com/wiki/SOAP_API_Reference_Material_Beginning_with_ZCS_8) and extract it into a new folder in the sources/versions/
+Get the [official documentation] (https://wiki.zimbra.com/wiki/SOAP_API_Reference_Material_Beginning_with_ZCS_8) and extract it into a new folder in the sources/Zimbra_SOAP_API/versions/
 
 Create a new dashing.json inside with the following parameters :
 ```
@@ -46,8 +46,8 @@ Create a new dashing.json inside with the following parameters :
 ```
 Then build the docset with the following commands :
 ```
-  cd sources/Zimbra_SOAP_API/versions/8.6/  
-  ../../../../../dashing build && tar --exclude='.DS_Store' -cvzf zimbra-js-api.tgz zimbra-js-api.docset  
+  cd sources/Zimbra_SOAP_API/versions/8.7/  
+  ../../../../../dashing build && tar --exclude='.DS_Store' -cvzf zimbra-soap-api.tgz zimbra-soap-api.docset  
 ```
 Once build you can put it into a new folder in the build section.  
 
