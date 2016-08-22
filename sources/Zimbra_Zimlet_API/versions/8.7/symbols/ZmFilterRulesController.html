@@ -1,0 +1,724 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmFilterRulesController</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmFilterRulesController
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmController.html">ZmController</a>.<br />
+				
+				<br>
+				This class represents the filter rules controller. This controller manages
+the filter rules page, which has a button toolbar and a list view of the rules.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_prefs_controller_ZmFilterRulesController.js.html">ZmFilterRulesController.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmFilterRulesController.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmFilterRulesController.html#constructor">ZmFilterRulesController</a></b>(container, prefsApp, prefsView, parent, outgoing)
+							</div>
+							<div class="description">Creates a new, empty filter rules controller.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmFilterRulesController.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#getActionMenu">getActionMenu</a></b>()
+								</div>
+								<div class="description">Gets the action menu.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#getFilterRulesView">getFilterRulesView</a></b>()
+								</div>
+								<div class="description">Gets the filter rules view, which is comprised of a toolbar and a list view.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#initialize">initialize</a></b>(toolbar, listView, listView)
+								</div>
+								<div class="description">Initializes the controller.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#moveDownListener">moveDownListener</a></b>(ev)
+								</div>
+								<div class="description">The "Move Down" button has been pressed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#moveUpListener">moveUpListener</a></b>(ev)
+								</div>
+								<div class="description">The "Move Up" button has been pressed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmFilterRulesController.html#runFilter">runFilter</a></b>(container, filterSel, isOutgoing)
+								</div>
+								<div class="description">runs a specified list of filters</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmController.html">ZmController</a>: </dt><dd><a href="../symbols/ZmController.html#getApp">getApp</a>, <a href="../symbols/ZmController.html#getCurrentViewId">getCurrentViewId</a>, <a href="../symbols/ZmController.html#getCurrentViewType">getCurrentViewType</a>, <a href="../symbols/ZmController.html#getKeyMapName">getKeyMapName</a>, <a href="../symbols/ZmController.html#getNewFolderCallback">getNewFolderCallback</a>, <a href="../symbols/ZmController.html#getSessionId">getSessionId</a>, <a href="../symbols/ZmController.html#getTabGroup">getTabGroup</a>, <a href="../symbols/ZmController.html#getViewElements">getViewElements</a>, <a href="../symbols/ZmController.html#handleKeyAction">handleKeyAction</a>, <a href="../symbols/ZmController.html#isTransient">isTransient</a>, <a href="../symbols/ZmController.html#mapSupported">mapSupported</a>, <a href="../symbols/ZmController.html#popupErrorDialog">popupErrorDialog</a>, <a href="../symbols/ZmController.html#popupUploadErrorDialog">popupUploadErrorDialog</a>, <a href="../symbols/ZmController.html#setCurrentViewId">setCurrentViewId</a>, <a href="../symbols/ZmController.html#setCurrentViewType">setCurrentViewType</a>, <a href="../symbols/ZmController.html#setSessionId">setSessionId</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmFilterRulesController</b>(container, prefsApp, prefsView, parent, outgoing)
+				</div>
+				
+				<div class="description">
+					Creates a new, empty filter rules controller.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/DwtShell.html">DwtShell</a>}</span>  <b>container</b>
+								
+							</dt>
+								<dd>the shell</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmPreferencesApp.html">ZmPreferencesApp</a>}</span>  <b>prefsApp</b>
+								
+							</dt>
+								<dd>the preferences application</dd>
+						
+							<dt>
+								 <b>prefsView</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>parent</b>
+								
+							</dt>
+								<dd></dd>
+						
+							<dt>
+								 <b>outgoing</b>
+								
+							</dt>
+								<dd></dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getActionMenu"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span>
+					<b>getActionMenu</b>()
+					
+					</div>
+					<div class="description">
+						Gets the action menu.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmActionMenu.html">ZmActionMenu</a>}</span> the action menu</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFilterRulesView"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmFilterRulesView.html">ZmFilterRulesView</a>}</span>
+					<b>getFilterRulesView</b>()
+					
+					</div>
+					<div class="description">
+						Gets the filter rules view, which is comprised of a toolbar and a list view.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmFilterRulesView.html">ZmFilterRulesView</a>}</span> the filter rules view</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="initialize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initialize</b>(toolbar, listView, listView)
+					
+					</div>
+					<div class="description">
+						Initializes the controller.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmToolBar.html">ZmToolBar</a>}</span> <b>toolbar</b>
+									
+								</dt>
+								<dd>the toolbar</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmListView.html">ZmListView</a>}</span> <b>listView</b>
+									
+								</dt>
+								<dd>active list view</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmListView.html">ZmListView</a>}</span> <b>listView</b>
+									
+								</dt>
+								<dd>not active list view</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="moveDownListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>moveDownListener</b>(ev)
+					
+					</div>
+					<div class="description">
+						The "Move Down" button has been pressed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="moveUpListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>moveUpListener</b>(ev)
+					
+					</div>
+					<div class="description">
+						The "Move Up" button has been pressed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>ev</b>
+									
+								</dt>
+								<dd>[DwtEvent]		the click event</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="runFilter"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>runFilter</b>(container, filterSel, isOutgoing)
+					
+					</div>
+					<div class="description">
+						runs a specified list of filters
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>container</b>
+									
+								</dt>
+								<dd>{DwtControl} container reference</dd>
+							
+								<dt>
+									<b>filterSel</b>
+									
+								</dt>
+								<dd>{Array} array of ZmFilterRule</dd>
+							
+								<dt>
+									<b>isOutgoing</b>
+									
+								</dt>
+								<dd>{Boolean}</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Jun 28 2016 21:01:36 GMT-0400 (EDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

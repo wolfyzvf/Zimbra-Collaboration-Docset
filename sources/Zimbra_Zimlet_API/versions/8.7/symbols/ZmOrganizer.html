@@ -1,0 +1,4659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmOrganizer</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmOrganizer
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class represents an "organizer", which is something used to classify or contain
+items. So far, that's either a tag or a folder. Tags and folders are represented as
+a tree structure, though tags are flat and have only one level below the root. Folders
+can be nested.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmOrganizer.js.html">ZmOrganizer.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmOrganizer.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmOrganizer.html#constructor">ZmOrganizer</a></b>(params)
+							</div>
+							<div class="description">Creates an empty organizer.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmOrganizer.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.ADDRBOOK">ADDRBOOK</a></b>
+								</div>
+								<div class="description">Defines the "address book" organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.BRIEFCASE">BRIEFCASE</a></b>
+								</div>
+								<div class="description">Defines the "briefcase" organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.CALENDAR">CALENDAR</a></b>
+								</div>
+								<div class="description">Defines the "calendar" organizer.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmOrganizer.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#addChangeListener">addChangeListener</a></b>(the)
+								</div>
+								<div class="description">Adds a change listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#addShare">addShare</a></b>(share)
+								</div>
+								<div class="description">Adds the share.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.checkName">checkName</a></b>(name)
+								</div>
+								<div class="description">Checks an organizer (folder or tag) name for validity.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.checkUrl">checkUrl</a></b>(url)
+								</div>
+								<div class="description">Checks a URL (a folder or calendar feed, for example) for validity.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.checkWebOfflineSyncDays">checkWebOfflineSyncDays</a></b>(value)
+								</div>
+								<div class="description">Checks an organizer (folder or tag) offlineSyncInterval for validity.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#clearShares">clearShares</a></b>()
+								</div>
+								<div class="description">Clears all shares.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.create">create</a></b>(params)
+								</div>
+								<div class="description">Creates an organizer via <code>&lt;CreateFolderRequest&gt;</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#deleteLocal">deleteLocal</a></b>()
+								</div>
+								<div class="description">Deletes the organizer (local).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#empty">empty</a></b>(doRecursive, batchCmd, callback, timeout, errorCallback, noBusyOverlay)
+								</div>
+								<div class="description">Empties the organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getAccount">getAccount</a></b>()
+								</div>
+								<div class="description">Gets the account.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getActionSummary">getActionSummary</a></b>(params)
+								</div>
+								<div class="description">Returns a string describing an action, intended for display as toast to tell the
+user what they just did.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getById">getById</a></b>(id)
+								</div>
+								<div class="description">Gets the organizer with the given ID, searching recursively through
+child organizers.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getByName">getByName</a></b>(name, skipImap)
+								</div>
+								<div class="description">Gets the first organizer found with the given name, starting from the root.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getByPath">getByPath</a></b>(path, useSystemName)
+								</div>
+								<div class="description">Gets the organizer with the given path.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getByType">getByType</a></b>(type)
+								</div>
+								<div class="description">Gets a list of organizers with the given type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getChild">getChild</a></b>(name)
+								</div>
+								<div class="description">Gets the child with the given name</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getChildByPath">getChildByPath</a></b>(path)
+								</div>
+								<div class="description">Gets the child with the given path</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getColor">getColor</a></b>()
+								</div>
+								<div class="description">Gets the color of the organizer</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getColorValue">getColorValue</a></b>(value, type)
+								</div>
+								<div class="description">nulls value that is the default color for the type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getDataSources">getDataSources</a></b>(type, checkParent)
+								</div>
+								<div class="description">Gets the data sources this folder maps to.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getFolder">getFolder</a></b>(id, callback, batchCmd)
+								</div>
+								<div class="description">Gets the folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getFolder">getFolder</a></b>(callback, batchCmd)
+								</div>
+								<div class="description">Gets the folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getIcon">getIcon</a></b>()
+								</div>
+								<div class="description">Gets the icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getIconWithColor">getIconWithColor</a></b>()
+								</div>
+								<div class="description">Gets the icon with color</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getMainShare">getMainShare</a></b>()
+								</div>
+								<div class="description">Gets the share granted to the current user.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getName">getName</a></b>(showUnread, maxLength, noMarkup, useSystemName, useOwnerName, defaultRootType)
+								</div>
+								<div class="description">Gets the name of this organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getOwner">getOwner</a></b>()
+								</div>
+								<div class="description">Gets the owner.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getOwnerRestUrl">getOwnerRestUrl</a></b>()
+								</div>
+								<div class="description">Gets the OWNER'S REST URL,used to fetch resturl of shared folders.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getPath">getPath</a></b>(includeRoot, showUnread, maxLength, noMarkup, useSystemName, useOwnerName)
+								</div>
+								<div class="description">Gets the full path as a string.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getRemoteId">getRemoteId</a></b>()
+								</div>
+								<div class="description">Gets the remote ID.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getRestUrl">getRestUrl</a></b>(noRemote)
+								</div>
+								<div class="description">Gets the REST URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getSearchPath">getSearchPath</a></b>(useOwnerName)
+								</div>
+								<div class="description">Gets the full path, suitable for use in search expressions.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getShares">getShares</a></b>()
+								</div>
+								<div class="description">Gets the shares.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getSortIndex">getSortIndex</a></b>(child, sortFunction)
+								</div>
+								<div class="description">Gets the sort index.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getStandardColorNumber">getStandardColorNumber</a></b>(color)
+								</div>
+								<div class="description">Returns color number b/w 0-9 for a given color code</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getSyncUrl">getSyncUrl</a></b>()
+								</div>
+								<div class="description">Gets the sync URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getSystemId">getSystemId</a></b>(id, account, force)
+								</div>
+								<div class="description">Gets the system ID for the given system ID and account.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getToolTip">getToolTip</a></b>(force)
+								</div>
+								<div class="description">Gets the tooltip.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#getUrl">getUrl</a></b>()
+								</div>
+								<div class="description">Gets the URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.getViewName">getViewName</a></b>(organizerType)
+								</div>
+								<div class="description">Gets the view name by organizer type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#hasChild">hasChild</a></b>(name)
+								</div>
+								<div class="description">Checks if the organizer has a child with the given name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#hasFeeds">hasFeeds</a></b>()
+								</div>
+								<div class="description">Returns true if organizer has feeds.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#hasPrivateAccess">hasPrivateAccess</a></b>()
+								</div>
+								<div class="description">Checks if the organizer has private access.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#hasUnreadDescendent">hasUnreadDescendent</a></b>()
+								</div>
+								<div class="description">Returns true if any descendent folders have unread messages.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isAdmin">isAdmin</a></b>()
+								</div>
+								<div class="description">Checks if admin.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isChildOf">isChildOf</a></b>(organizer)
+								</div>
+								<div class="description">Checks if the given organizer is a descendant of this one.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isColorChanged">isColorChanged</a></b>(color)
+								</div>
+								<div class="description">Returns true if the color is changed</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isDataSource">isDataSource</a></b>(type, checkParent)
+								</div>
+								<div class="description">Checks if this folder maps to a datasource.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isFeed">isFeed</a></b>()
+								</div>
+								<div class="description">Checks if the organizer gets its contents from an external feed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isInTrash">isInTrash</a></b>()
+								</div>
+								<div class="description">Checks if this organizer is in "Trash".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isPermAllowed">isPermAllowed</a></b>(perm)
+								</div>
+								<div class="description">Checks if permissions are allowed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if the organizer is read-only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isRemote">isRemote</a></b>()
+								</div>
+								<div class="description">Checks if the organizer is "remote".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isSystem">isSystem</a></b>()
+								</div>
+								<div class="description">Checks if the organizer is a system tag or folder.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#isUnder">isUnder</a></b>(id)
+								</div>
+								<div class="description">Checks if the organizer with the given ID is under this organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#markAllRead">markAllRead</a></b>(batchCmd)
+								</div>
+								<div class="description">Marks all items as "read".</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#move">move</a></b>(newParent, noUndo, batchCmd)
+								</div>
+								<div class="description">Assigns the organizer a new parent, moving it within its tree.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.normalizeId">normalizeId</a></b>(id, type)
+								</div>
+								<div class="description">Normalizes the id by stripping the account ID portion from a system ID for a child account, which
+can then be used to check against known system IDs.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#notifyCreate">notifyCreate</a></b>()
+								</div>
+								<div class="description">Handles create notification.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#notifyDelete">notifyDelete</a></b>()
+								</div>
+								<div class="description">Handles delete notification.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#notifyModify">notifyModify</a></b>(obj, details)
+								</div>
+								<div class="description">Handles modifications to fields that organizers have in general.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.parseId">parseId</a></b>(id, result)
+								</div>
+								<div class="description">Parses an id into an object with fields for account and normalized id</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmOrganizer.<b><a href="../symbols/ZmOrganizer.html#.registerOrg">registerOrg</a></b>(org, params, app, nameKey, precondition, defaultFolder, soapCmd, firstUserId, orgClass, orgPackage, treeController, labelKey, itemsKey, hasColor, defaultColor, orgColor, treeType, views, folderKey, mountKey, createFunc, compareFunc, deferrable, pathInName, openSetting, displayOrder, hideEmpty)
+								</div>
+								<div class="description">Stores information about the given organizer type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#removeChangeListener">removeChangeListener</a></b>(the)
+								</div>
+								<div class="description">Removes a change listener.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#rename">rename</a></b>(name, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Renames the organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#reparent">reparent</a></b>(newParent)
+								</div>
+								<div class="description">Changes the parent of this organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#setColor">setColor</a></b>(color, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the color.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#setGlobalMarkRead">setGlobalMarkRead</a></b>(globalMarkRead, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the Global Mark Read flag.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#setOfflineSyncInterval">setOfflineSyncInterval</a></b>(interval, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the web offline sync interval.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#setRetentionPolicy">setRetentionPolicy</a></b>(retentionPolicy, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the Retention Policy.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#setRGB">setRGB</a></b>(rgb, callback, errorCallback, batchCmd)
+								</div>
+								<div class="description">Sets the RGB color.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#size">size</a></b>()
+								</div>
+								<div class="description">Gets the number of children of this organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#supportsPrivatePermission">supportsPrivatePermission</a></b>()
+								</div>
+								<div class="description">Checks if the organizer supports private permission.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#supportsPublicAccess">supportsPublicAccess</a></b>()
+								</div>
+								<div class="description">Checks if the organizer supports pulbic access.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#supportsSharing">supportsSharing</a></b>()
+								</div>
+								<div class="description">Checks if the organizer supports sharing.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#sync">sync</a></b>()
+								</div>
+								<div class="description">Synchronizes the organizer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmOrganizer.html#update">update</a></b>(attrs)
+								</div>
+								<div class="description">Updates the folder.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmOrganizer</b>(params)
+				</div>
+				
+				<div class="description">
+					Creates an empty organizer.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Hash}</span>  <b>params</b>
+								
+							</dt>
+								<dd>a hash of parameters</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.type</b>
+								
+							</dt>
+								<dd>the organizer type</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.id</b>
+								
+							</dt>
+								<dd>the numeric ID</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.name</b>
+								
+							</dt>
+								<dd>the name</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>  <b>params.parent</b>
+								
+							</dt>
+								<dd>the parent organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmTree.html">ZmTree</a>}</span>  <b>params.tree</b>
+								
+							</dt>
+								<dd>the tree model that contains this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>params.color</b>
+								
+							</dt>
+								<dd>the color for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.rgb</b>
+								
+							</dt>
+								<dd>the color for this organizer, as HTML RGB value</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.link</b>
+								
+							</dt>
+								<dd><code>true</code> if this organizer is shared</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.broken</b>
+								
+							</dt>
+								<dd><code>true</code> if this link is broken</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.numUnread</b>
+								
+							</dt>
+								<dd>the number of unread items for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.numTotal</b>
+								
+							</dt>
+								<dd>the number of items for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>params.noTooltip</b>
+								
+							</dt>
+								<dd>do not show tooltip</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>params.sizeTotal</b>
+								
+							</dt>
+								<dd>the total size of organizer's items</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.url</b>
+								
+							</dt>
+								<dd>the URL for this organizer's feed</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.owner</b>
+								
+							</dt>
+								<dd>the owner for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.oname</b>
+								
+							</dt>
+								<dd>the owner's name for this organizer</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.zid</b>
+								
+							</dt>
+								<dd>the Zimbra ID of owner, if remote folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.rid</b>
+								
+							</dt>
+								<dd>the remote ID of organizer, if remote folder</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.restUrl</b>
+								
+							</dt>
+								<dd>the REST URL of this organizer.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>params.newOp</b>
+								
+							</dt>
+								<dd>the name of operation run by button in overview header</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span>  <b>params.account</b>
+								
+							</dt>
+								<dd>the account this organizer belongs to</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".ADDRBOOK"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>ADDRBOOK</b>
+					
+					</div>
+					<div class="description">
+						Defines the "address book" organizer.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_abook_ZmContactsApp.js.html">ZmContactsApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".BRIEFCASE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>BRIEFCASE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "briefcase" organizer.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_briefcase_ZmBriefcaseApp.js.html">ZmBriefcaseApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".CALENDAR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>CALENDAR</b>
+					
+					</div>
+					<div class="description">
+						Defines the "calendar" organizer.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_calendar_ZmCalendarApp.js.html">ZmCalendarApp.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="addChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addChangeListener</b>(the)
+					
+					</div>
+					<div class="description">
+						Adds a change listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>the</b>
+									
+								</dt>
+								<dd>listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="addShare"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>addShare</b>(share)
+					
+					</div>
+					<div class="description">
+						Adds the share.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>share</b>
+									
+								</dt>
+								<dd>the share to add</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".checkName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>checkName</b>(name)
+					
+					</div>
+					<div class="description">
+						Checks an organizer (folder or tag) name for validity.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>an organizer name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> <code>null</code> if the name is valid or an error message if the name is invalid</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".checkUrl"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>checkUrl</b>(url)
+					
+					</div>
+					<div class="description">
+						Checks a URL (a folder or calendar feed, for example) for validity.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>url</b>
+									
+								</dt>
+								<dd>a URL</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> <code>null</code> if valid or an error message</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".checkWebOfflineSyncDays"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>checkWebOfflineSyncDays</b>(value)
+					
+					</div>
+					<div class="description">
+						Checks an organizer (folder or tag) offlineSyncInterval for validity.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>value</b>
+									
+								</dt>
+								<dd>offlineSyncInterval</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> <code>null</code> if the offlineSyncInterval is valid or an error message if the name is invalid</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clearShares"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clearShares</b>()
+					
+					</div>
+					<div class="description">
+						Clears all shares.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".create"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>create</b>(params)
+					
+					</div>
+					<div class="description">
+						Creates an organizer via <code>&lt;CreateFolderRequest&gt;</code>. Attribute pairs can
+be passed in and will become attributes of the folder node in the request.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="deleteLocal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>deleteLocal</b>()
+					
+					</div>
+					<div class="description">
+						Deletes the organizer (local). Cleans up a deleted organizer:
+
+<ul>
+<li>remove from parent's list of children</li>
+<li>remove from item cache</li>
+<li>perform above two steps for each child</li>
+<li>clear list of children</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="empty"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>empty</b>(doRecursive, batchCmd, callback, timeout, errorCallback, noBusyOverlay)
+					
+					</div>
+					<div class="description">
+						Empties the organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>doRecursive</b>
+									
+								</dt>
+								<dd><code>true</code> to recursively empty the organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>timeout</b>
+									
+								</dt>
+								<dd>the timeout(in seconds)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback to run after timeout</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noBusyOverlay</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not show busy overlay</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getAccount"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span>
+					<b>getAccount</b>()
+					
+					</div>
+					<div class="description">
+						Gets the account.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span> the account</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getActionSummary"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>getActionSummary</b>(params)
+					
+					</div>
+					<div class="description">
+						Returns a string describing an action, intended for display as toast to tell the
+user what they just did.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>params</b>
+									
+								</dt>
+								<dd>hash of params:
+         {String}        type            organizer type (ZmOrganizer.*)
+         {String}        actionTextKey   ZmMsg key for text string describing action
+         {String}        orgName         name of the organizer that was affected
+         {String}        actionArg       (optional) additional argument</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> action summary</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getById"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>
+					<b>getById</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the organizer with the given ID, searching recursively through
+child organizers. The preferred method for getting an organizer by ID
+is to use <code>appCtxt.getById()</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the ID to search for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> the organizer or <code>null</code> if not found</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getByName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>
+					<b>getByName</b>(name, skipImap)
+					
+					</div>
+					<div class="description">
+						Gets the first organizer found with the given name, starting from the root.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name to search for</dd>
+							
+								<dt>
+									<b>skipImap</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> the organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getByPath"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span>
+					<b>getByPath</b>(path, useSystemName)
+					
+					</div>
+					<div class="description">
+						Gets the organizer with the given path.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>path</b>
+									
+								</dt>
+								<dd>the path to search for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>useSystemName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, use untranslated version of system folder names</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> the organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getByType"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getByType</b>(type)
+					
+					</div>
+					<div class="description">
+						Gets a list of organizers with the given type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the desired organizer type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of {ZmOrganizer} objects</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getChild"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getChild</b>(name)
+					
+					</div>
+					<div class="description">
+						Gets the child with the given name
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name of the organizer to look for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name of the child or <code>null</code> if no child has the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getChildByPath"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getChildByPath</b>(path)
+					
+					</div>
+					<div class="description">
+						Gets the child with the given path
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>path</b>
+									
+								</dt>
+								<dd>the path of the organizer to look for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the child or <code>null</code> if no child has the path</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getColor"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getColor</b>()
+					
+					</div>
+					<div class="description">
+						Gets the color of the organizer
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the color</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getColorValue"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>getColorValue</b>(value, type)
+					
+					</div>
+					<div class="description">
+						nulls value that is the default color for the type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>value</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDataSources"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getDataSources</b>(type, checkParent)
+					
+					</div>
+					<div class="description">
+						Gets the data sources this folder maps to. If type is given,
+returns non-null result only if folder maps to datasource(s) *and* is of the
+given type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type (see <a href="../symbols/ZmAccount.html#.TYPE_POP">ZmAccount.TYPE_POP</a> or <a href="../symbols/ZmAccount.html#.TYPE_IMAP">ZmAccount.TYPE_IMAP</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>checkParent</b>
+									
+								</dt>
+								<dd>if <code>true</code>, walk-up the parent chain</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> the data sources this folder maps to or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getFolder"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>getFolder</b>(id, callback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Gets the folder.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the folder id</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFolder"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getFolder</b>(callback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Gets the folder.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIcon"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIcon</b>()
+					
+					</div>
+					<div class="description">
+						Gets the icon.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getIconWithColor"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getIconWithColor</b>()
+					
+					</div>
+					<div class="description">
+						Gets the icon with color
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the icon</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getMainShare"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getMainShare</b>()
+					
+					</div>
+					<div class="description">
+						Gets the share granted to the current user.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the main share</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getName"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getName</b>(showUnread, maxLength, noMarkup, useSystemName, useOwnerName, defaultRootType)
+					
+					</div>
+					<div class="description">
+						Gets the name of this organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>showUnread</b>
+									
+								</dt>
+								<dd><code>true</code> to display the number of unread items (in parens)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>maxLength</b>
+									
+								</dt>
+								<dd>the length (in chars) to truncate the name to</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noMarkup</b>
+									
+								</dt>
+								<dd>if <code>true</code>, don't return any HTML</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>useSystemName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, don't use translated version of name</dd>
+							
+								<dt>
+									<b>useOwnerName</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>defaultRootType</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the name</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOwner"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOwner</b>()
+					
+					</div>
+					<div class="description">
+						Gets the owner.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the owner</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getOwnerRestUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getOwnerRestUrl</b>()
+					
+					</div>
+					<div class="description">
+						Gets the OWNER'S REST URL,used to fetch resturl of shared folders.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getPath"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getPath</b>(includeRoot, showUnread, maxLength, noMarkup, useSystemName, useOwnerName)
+					
+					</div>
+					<div class="description">
+						Gets the full path as a string.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>includeRoot</b>
+									
+								</dt>
+								<dd><code>true</code> to include root name at the beginning of the path</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>showUnread</b>
+									
+								</dt>
+								<dd><code>true</code> to display the number of unread items (in parens)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>maxLength</b>
+									
+								</dt>
+								<dd>the length (in chars) to truncate the name to</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>noMarkup</b>
+									
+								</dt>
+								<dd>if <code>true</code>, do not return any HTML</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>useSystemName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, use untranslated version of system folder names</dd>
+							
+								<dt>
+									<b>useOwnerName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the path</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRemoteId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRemoteId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the remote ID.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the ID</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRestUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRestUrl</b>(noRemote)
+					
+					</div>
+					<div class="description">
+						Gets the REST URL.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>noRemote</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSearchPath"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSearchPath</b>(useOwnerName)
+					
+					</div>
+					<div class="description">
+						Gets the full path, suitable for use in search expressions.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>useOwnerName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the path</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getShares"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getShares</b>()
+					
+					</div>
+					<div class="description">
+						Gets the shares.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of shares</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSortIndex"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmOrganizer.</span><b>getSortIndex</b>(child, sortFunction)
+					
+					</div>
+					<div class="description">
+						Gets the sort index.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>child</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>sortFunction</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> the sort index</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getStandardColorNumber"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{int}</span>
+					<span class="light">ZmOrganizer.</span><b>getStandardColorNumber</b>(color)
+					
+					</div>
+					<div class="description">
+						Returns color number b/w 0-9 for a given color code
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>color</b>
+									
+								</dt>
+								<dd>The color (usually in #43eded format</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> Returns 0-9 for a standard color and returns -1 for custom color</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getSyncUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getSyncUrl</b>()
+					
+					</div>
+					<div class="description">
+						Gets the sync URL.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSystemId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>getSystemId</b>(id, account, force)
+					
+					</div>
+					<div class="description">
+						Gets the system ID for the given system ID and account. Unless this
+is a child account, the system ID is returned unchanged. For child
+accounts, the ID consists of the account ID and the local ID.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>id</b>
+									
+								</dt>
+								<dd>the ID of a system organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmZimbraAccount.html">ZmZimbraAccount</a>}</span> <b>account</b>
+									
+								</dt>
+								<dd>the account</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd><code>true</code> to generate the fully qualified ID even if this is the main account</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the ID</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getToolTip"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getToolTip</b>(force)
+					
+					</div>
+					<div class="description">
+						Gets the tooltip. The tooltip shows number of unread items, total messages and the total size.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>force</b>
+									
+								</dt>
+								<dd>if <code>true</code>, don't use cached tooltip</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tooltip</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getUrl</b>()
+					
+					</div>
+					<div class="description">
+						Gets the URL.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Deprecated:</dt>
+							<dt>
+								use getRestUrl
+							</dt>
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the URL</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getViewName"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>getViewName</b>(organizerType)
+					
+					</div>
+					<div class="description">
+						Gets the view name by organizer type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>organizerType</b>
+									
+								</dt>
+								<dd>the organizer type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the view</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasChild"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasChild</b>(name)
+					
+					</div>
+					<div class="description">
+						Checks if the organizer has a child with the given name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name of the organizer to look for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer has a child</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasFeeds"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>hasFeeds</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if organizer has feeds.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasPrivateAccess"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasPrivateAccess</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer has private access.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if has private access</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasUnreadDescendent"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>hasUnreadDescendent</b>()
+					
+					</div>
+					<div class="description">
+						Returns true if any descendent folders have unread messages.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> true if any descendent folders have unread messages</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isAdmin"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isAdmin</b>()
+					
+					</div>
+					<div class="description">
+						Checks if admin.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this organizer is admin</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isChildOf"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isChildOf</b>(organizer)
+					
+					</div>
+					<div class="description">
+						Checks if the given organizer is a descendant of this one.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> <b>organizer</b>
+									
+								</dt>
+								<dd>a possible descendant of ours</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>if the given organizer is a descendant; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isColorChanged"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isColorChanged</b>(color)
+					
+					</div>
+					<div class="description">
+						Returns true if the color is changed
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String/int}</span> <b>color</b>
+									
+								</dt>
+								<dd>The color (usually in #rgb format or numeric color code</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Returns true if the color is changed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isDataSource"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isDataSource</b>(type, checkParent)
+					
+					</div>
+					<div class="description">
+						Checks if this folder maps to a datasource. If type is given, returns
+true if folder maps to a datasource *and* is of the given type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type (see <a href="../symbols/ZmAccount.html#.TYPE_POP">ZmAccount.TYPE_POP</a> or <a href="../symbols/ZmAccount.html#.TYPE_IMAP">ZmAccount.TYPE_IMAP</a>)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>checkParent</b>
+									
+								</dt>
+								<dd>if <code>true</code>, walk-up the parent chain</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this folder maps to a datasource</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isFeed"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isFeed</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer gets its contents from an external feed.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code>  if from external feed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isInTrash"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isInTrash</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this organizer is in "Trash".
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if in "Trash"</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isPermAllowed"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isPermAllowed</b>(perm)
+					
+					</div>
+					<div class="description">
+						Checks if permissions are allowed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>perm</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if permissions are allowed</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer is read-only.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if read-only</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isRemote"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isRemote</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer is "remote". That applies to mountpoints (links),
+the folders they represent, and any subfolders we know about.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer is "remote"</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isSystem"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isSystem</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer is a system tag or folder.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if system tag or folder</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isUnder"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isUnder</b>(id)
+					
+					</div>
+					<div class="description">
+						Checks if the organizer with the given ID is under this organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer is under this organizer</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="markAllRead"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>markAllRead</b>(batchCmd)
+					
+					</div>
+					<div class="description">
+						Marks all items as "read".
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="move"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>move</b>(newParent, noUndo, batchCmd)
+					
+					</div>
+					<div class="description">
+						Assigns the organizer a new parent, moving it within its tree.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> <b>newParent</b>
+									
+								</dt>
+								<dd>the new parent of this organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{boolean}</span> <b>noUndo</b>
+									
+								</dt>
+								<dd>if true, action is not undoable</dd>
+							
+								<dt>
+									<b>batchCmd</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".normalizeId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmOrganizer.</span><b>normalizeId</b>(id, type)
+					
+					</div>
+					<div class="description">
+						Normalizes the id by stripping the account ID portion from a system ID for a child account, which
+can then be used to check against known system IDs. Any non-system ID is
+returned unchanged (if type is provided).
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>ID of an organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>type</b>
+									
+								</dt>
+								<dd>the type of organizer</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the resulting id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyCreate"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyCreate</b>()
+					
+					</div>
+					<div class="description">
+						Handles create notification.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyDelete"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyDelete</b>()
+					
+					</div>
+					<div class="description">
+						Handles delete notification.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyModify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyModify</b>(obj, details)
+					
+					</div>
+					<div class="description">
+						Handles modifications to fields that organizers have in general. Note that
+the notification object may contain multiple notifications.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>obj</b>
+									
+								</dt>
+								<dd>a "modified" notification</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>details</b>
+									
+								</dt>
+								<dd>the event details</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".parseId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<span class="light">ZmOrganizer.</span><b>parseId</b>(id, result)
+					
+					</div>
+					<div class="description">
+						Parses an id into an object with fields for account and normalized id
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the ID of an organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>result</b>
+									
+								</dt>
+								<dd>an optional object in which the result is stored</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the resulting ID</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerOrg"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmOrganizer.</span><b>registerOrg</b>(org, params, app, nameKey, precondition, defaultFolder, soapCmd, firstUserId, orgClass, orgPackage, treeController, labelKey, itemsKey, hasColor, defaultColor, orgColor, treeType, views, folderKey, mountKey, createFunc, compareFunc, deferrable, pathInName, openSetting, displayOrder, hideEmpty)
+					
+					</div>
+					<div class="description">
+						Stores information about the given organizer type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>org</b>
+									
+								</dt>
+								<dd>the organizer type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>app</b>
+									
+								</dt>
+								<dd>the app that handles this org type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>nameKey</b>
+									
+								</dt>
+								<dd>the msg key for org name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>precondition</b>
+									
+								</dt>
+								<dd>the setting that this org type depends on</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>defaultFolder</b>
+									
+								</dt>
+								<dd>the folder ID of default folder for this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>soapCmd</b>
+									
+								</dt>
+								<dd>the SOAP command for acting on this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>firstUserId</b>
+									
+								</dt>
+								<dd>the minimum ID for a user instance of this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>orgClass</b>
+									
+								</dt>
+								<dd>the name of constructor for this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>orgPackage</b>
+									
+								</dt>
+								<dd>the name of smallest package with org class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>treeController</b>
+									
+								</dt>
+								<dd>the name of associated tree controller</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>labelKey</b>
+									
+								</dt>
+								<dd>the msg key for label in overview</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>itemsKey</b>
+									
+								</dt>
+								<dd>the msg key for text describing contents</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>hasColor</b>
+									
+								</dt>
+								<dd><code>true</code> if org has color associated with it</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>defaultColor</b>
+									
+								</dt>
+								<dd>the default color for org in overview</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Array}</span> <b>orgColor</b>
+									
+								</dt>
+								<dd>the color override by ID (in pairs)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>treeType</b>
+									
+								</dt>
+								<dd>the type of data tree (from server) that contains this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>views</b>
+									
+								</dt>
+								<dd>the associated folder views (JSON)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderKey</b>
+									
+								</dt>
+								<dd>the msg key for folder props dialog</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mountKey</b>
+									
+								</dt>
+								<dd>the msg key for folder mount dialog</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>createFunc</b>
+									
+								</dt>
+								<dd>the name of function for creating this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>compareFunc</b>
+									
+								</dt>
+								<dd>the name of function for comparing instances of this org</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>deferrable</b>
+									
+								</dt>
+								<dd>if <code>true</code>, creation can be deferred to app launch</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>pathInName</b>
+									
+								</dt>
+								<dd>if <code>true</code>, provide full path when asked for name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>openSetting</b>
+									
+								</dt>
+								<dd>the setting that controls whether the tree view is open</dd>
+							
+								<dt>
+									<span class="light fixedFont">{int}</span> <b>displayOrder</b>
+									
+								</dt>
+								<dd>the number that is used when sorting the display of trees. (Lower number means higher display.)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>hideEmpty</b>
+									
+								</dt>
+								<dd>if <code>true</code>, hide tree header if tree is empty</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeChangeListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeChangeListener</b>(the)
+					
+					</div>
+					<div class="description">
+						Removes a change listener.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxListener.html">AjxListener</a>}</span> <b>the</b>
+									
+								</dt>
+								<dd>listener</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="rename"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>rename</b>(name, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Renames the organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>name</b>
+									
+								</dt>
+								<dd>the name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>the batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="reparent"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>reparent</b>(newParent)
+					
+					</div>
+					<div class="description">
+						Changes the parent of this organizer. Note that the new parent passed
+in may be <code>null</code>, which makes this organizer an orphan.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmOrganizer.html">ZmOrganizer</a>}</span> <b>newParent</b>
+									
+								</dt>
+								<dd>the new parent</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setColor"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setColor</b>(color, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the color.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>color</b>
+									
+								</dt>
+								<dd>the color</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setGlobalMarkRead"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setGlobalMarkRead</b>(globalMarkRead, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the Global Mark Read flag.  When the user sets this flag, read flags are global for all
+shared instances of the folder. When not set, each user accessing the shared folder will maintain
+their own read/unread flag.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmFolder.js.html">ZmFolder.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>globalMarkRead</b>
+									
+								</dt>
+								<dd>the globalMarkRead boolean flag</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setOfflineSyncInterval"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setOfflineSyncInterval</b>(interval, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the web offline sync interval.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>interval</b>
+									
+								</dt>
+								<dd>the web offline sync interval</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setRetentionPolicy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setRetentionPolicy</b>(retentionPolicy, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the Retention Policy.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>retentionPolicy</b>
+									
+								</dt>
+								<dd>the new retention policy</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setRGB"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setRGB</b>(rgb, callback, errorCallback, batchCmd)
+					
+					</div>
+					<div class="description">
+						Sets the RGB color.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>rgb</b>
+									
+								</dt>
+								<dd>the rgb</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the error callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/ZmBatchCommand.html">ZmBatchCommand</a>}</span> <b>batchCmd</b>
+									
+								</dt>
+								<dd>optional batch command</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="size"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{int}</span>
+					<b>size</b>()
+					
+					</div>
+					<div class="description">
+						Gets the number of children of this organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{int}</span> the size</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="supportsPrivatePermission"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>supportsPrivatePermission</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer supports private permission.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer supports private permission</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="supportsPublicAccess"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>supportsPublicAccess</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer supports pulbic access.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer supports public access</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="supportsSharing"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>supportsSharing</b>()
+					
+					</div>
+					<div class="description">
+						Checks if the organizer supports sharing.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the organizer supports sharing</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="sync"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sync</b>()
+					
+					</div>
+					<div class="description">
+						Synchronizes the organizer.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="update"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>update</b>(attrs)
+					
+					</div>
+					<div class="description">
+						Updates the folder. Although it is possible to use this method to change just about any folder
+attribute, it should only be used to set multiple attributes at once since it
+has extra overhead on the server.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>attrs</b>
+									
+								</dt>
+								<dd>the attributes</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Jun 28 2016 21:01:39 GMT-0400 (EDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

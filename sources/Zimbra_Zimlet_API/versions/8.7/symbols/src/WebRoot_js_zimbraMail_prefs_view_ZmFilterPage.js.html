@@ -1,0 +1,104 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2010, 2012, 2013, 2014, 2016 Synacor, Inc.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+<span class='line'>  7</span>  * you may not use this file except in compliance with the License.
+<span class='line'>  8</span>  * You may obtain a copy of the License at: https://www.zimbra.com/license
+<span class='line'>  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+<span class='line'> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution
+<span class='line'> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * Software distributed under the License is distributed on an "AS IS" basis,
+<span class='line'> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 15</span>  * See the License for the specific language governing rights and limitations under the License.
+<span class='line'> 16</span>  * The Original Code is Zimbra Open Source Web Client.
+<span class='line'> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+<span class='line'> 18</span>  * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+<span class='line'> 19</span>  *
+<span class='line'> 20</span>  * All portions of the code are Copyright (C) 2010, 2012, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+<span class='line'> 21</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 22</span>  */</span><span class="WHIT">
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span><span class="COMM">/**
+<span class='line'> 25</span>  * Creates the filters page, with tabs for incoming and outgoing filters.
+<span class='line'> 26</span>  * @class
+<span class='line'> 27</span>  * This class represents the filters page.
+<span class='line'> 28</span>  * 
+<span class='line'> 29</span>  * @param {DwtControl}	            parent			the containing widget
+<span class='line'> 30</span>  * @param {Object}	                section			the page
+<span class='line'> 31</span>  * @param {ZmFilterController}	    controller		the filter controller
+<span class='line'> 32</span>  * 
+<span class='line'> 33</span>  * @extends	ZmPreferencesPage
+<span class='line'> 34</span>  * 
+<span class='line'> 35</span>  * @private
+<span class='line'> 36</span>  */</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="NAME">ZmFilterPage</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">parent</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">section</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">controller</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">	</span><span class="NAME">ZmPreferencesPage.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> 
+<span class='line'> 41</span> </span><span class="NAME">ZmFilterPage.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">ZmPreferencesPage</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="NAME">ZmFilterPage.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmFilterPage</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 43</span> 
+<span class='line'> 44</span> </span><span class="NAME">ZmFilterPage.prototype.isZmFilterPage</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="NAME">ZmFilterPage.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"ZmFilterPage"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="NAME">ZmFilterPage.prototype._createControls</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">appCtxt.get</span><span class="PUNC">(</span><span class="NAME">ZmSetting.PRIORITY_INBOX_ENABLED</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">		</span><span class="NAME">this._activityStreamsButton</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtButton</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="NAME">parent</span><span class="PUNC">:</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parentElement</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this._htmlElId</span><span class="PUNC">+</span><span class="STRN">"_ACTIVITY_STREAM_BUTTON"</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">		</span><span class="NAME">this._activityStreamsButton.setText</span><span class="PUNC">(</span><span class="NAME">ZmMsg.activityStreamSettings</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">		</span><span class="NAME">this._activityStreamsButton.addSelectionListener</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxListener</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this._activityStreamDialog</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="WHIT">	</span><span class="NAME">this._tabView</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtTabView</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="NAME">parent</span><span class="PUNC">:</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">posStyle</span><span class="PUNC">:</span><span class="NAME">Dwt.STATIC_STYLE</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 55</span> </span><span class="WHIT">	</span><span class="NAME">this._tabView.reparentHtmlElement</span><span class="PUNC">(</span><span class="NAME">this._htmlElId</span><span class="PUNC">+</span><span class="STRN">"_tabview"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">incomingController</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._controller.getIncomingFilterRulesController</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="WHIT">	</span><span class="NAME">this._tabView.addTab</span><span class="PUNC">(</span><span class="NAME">ZmMsg.incomingMessageFilters</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">incomingController.getFilterRulesView</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">outgoingController</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._controller.getOutgoingFilterRulesController</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">	</span><span class="NAME">this._tabView.addTab</span><span class="PUNC">(</span><span class="NAME">ZmMsg.outgoingMessageFilters</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">outgoingController.getFilterRulesView</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">	</span><span class="NAME">this.setVisible</span><span class="PUNC">(</span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">	
+<span class='line'> 62</span> 	</span><span class="NAME">this.hasRendered</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 64</span> 
+<span class='line'> 65</span> </span><span class="NAME">ZmFilterPage.prototype.reset</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">	</span><span class="NAME">ZmPreferencesPage.prototype.reset.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">	</span><span class="NAME">this._controller._stateChangeListener</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 70</span> 
+<span class='line'> 71</span> </span><span class="NAME">ZmFilterPage.prototype.getTabView</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this._tabView</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 75</span> 
+<span class='line'> 76</span> </span><span class="NAME">ZmFilterPage.prototype.hasResetButton</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 80</span> 
+<span class='line'> 81</span> 
+<span class='line'> 82</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="COMM">// Protected methods</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="COMM">//</span><span class="WHIT">
+<span class='line'> 85</span> 
+<span class='line'> 86</span> </span><span class="NAME">ZmFilterPage.prototype._setupCustom</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">setup</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">value</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">id</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"FILTER_TABS"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.getTabView</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 89</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 90</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmPreferencesPage.prototype._setupCustom.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 92</span> 
+<span class='line'> 93</span> </span><span class="NAME">ZmFilterPage.prototype._activityStreamDialog</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 94</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">priorityFilterDialog</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">appCtxt.getPriorityMessageFilterDialog</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 95</span> </span><span class="WHIT">	</span><span class="NAME">ZmController.showDialog</span><span class="PUNC">(</span><span class="NAME">priorityFilterDialog</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 96</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 97</span> </span></pre></body></html>

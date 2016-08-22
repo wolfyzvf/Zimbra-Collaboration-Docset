@@ -1,0 +1,219 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2009, 2010, 2013, 2014, 2015, 2016 Synacor, Inc.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+<span class='line'>  7</span>  * you may not use this file except in compliance with the License.
+<span class='line'>  8</span>  * You may obtain a copy of the License at: https://www.zimbra.com/license
+<span class='line'>  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+<span class='line'> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution
+<span class='line'> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * Software distributed under the License is distributed on an "AS IS" basis,
+<span class='line'> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 15</span>  * See the License for the specific language governing rights and limitations under the License.
+<span class='line'> 16</span>  * The Original Code is Zimbra Open Source Web Client.
+<span class='line'> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+<span class='line'> 18</span>  * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+<span class='line'> 19</span>  *
+<span class='line'> 20</span>  * All portions of the code are Copyright (C) 2009, 2010, 2013, 2014, 2015, 2016 Synacor, Inc. All Rights Reserved.
+<span class='line'> 21</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 22</span>  */</span><span class="WHIT">
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span><span class="COMM">/**
+<span class='line'> 25</span>  * Creates an empty mobile device object.
+<span class='line'> 26</span>  * @constructor
+<span class='line'> 27</span>  * @class
+<span class='line'> 28</span>  * This class represents  mobile device.
+<span class='line'> 29</span>  * 
+<span class='line'> 30</span>  * @author Parag Shah
+<span class='line'> 31</span>  *
+<span class='line'> 32</span>  * @param	{Hash}		params		a hash of parameters
+<span class='line'> 33</span>  * @param	{Date}		params.lastPolicyUpdate		the last policy update time
+<span class='line'> 34</span>  * @param	{Date}		params.firstReqReceived		the first request received time
+<span class='line'> 35</span>  * @param	{Date}		params.remoteWipeAckTime		the remote wipe acknowledged time
+<span class='line'> 36</span>  * @param	{Date}		params.remoteWipeReqTime		the remote wipe requested time
+<span class='line'> 37</span>  * @param	{constant}	params.status			the status (see &lt;code>ZmMobileDevice.STATUS_&lt;/code>)
+<span class='line'> 38</span>  */</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="NAME">ZmMobileDevice</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">	</span><span class="NAME">this.lastPolicyUpdate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.lastPolicyUpdate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">	</span><span class="NAME">this.firstReqReceived</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.firstReqReceived</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">	</span><span class="NAME">this.remoteWipeAckTime</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.remoteWipeAckTime</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">	</span><span class="NAME">this.remoteWipeReqTime</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.remoteWipeReqTime</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">	</span><span class="NAME">this.status</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.status</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="WHIT">	</span><span class="NAME">this.provisionable</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.provisionable</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">	</span><span class="NAME">this.protocol</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.protocol</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="NAME">this.ua</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.ua</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">	</span><span class="NAME">this.type</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.type</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="NAME">this.id</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.id</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> 
+<span class='line'> 52</span> </span><span class="NAME">ZmOAuthConsumerApp</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">    </span><span class="NAME">this.accessToken</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.accessToken</span><span class="WHIT"> </span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="WHIT">    </span><span class="NAME">this.appName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.appName</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 55</span> </span><span class="WHIT">    </span><span class="NAME">this.approvedOn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.approvedOn</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="WHIT">    </span><span class="NAME">this.device</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">params.device</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 58</span> 
+<span class='line'> 59</span> 
+<span class='line'> 60</span> </span><span class="COMM">// Consts</span><span class="WHIT">
+<span class='line'> 61</span> 
+<span class='line'> 62</span> </span><span class="COMM">/**
+<span class='line'> 63</span>  * Defines the "need provision" status.
+<span class='line'> 64</span>  */</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="NAME">ZmMobileDevice.STATUS_NEED_PROVISION</span><span class="WHIT">		</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="COMM">/**
+<span class='line'> 67</span>  * Defines the "OK" status.
+<span class='line'> 68</span>  */</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="NAME">ZmMobileDevice.STATUS_OK</span><span class="WHIT">					</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="COMM">/**
+<span class='line'> 71</span>  * Defines the "suspended" status.
+<span class='line'> 72</span>  */</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="NAME">ZmMobileDevice.STATUS_SUSPENDED</span><span class="WHIT">				</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="COMM">/**
+<span class='line'> 75</span>  * Defines the "remote wipe requested" status.
+<span class='line'> 76</span>  */</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="NAME">ZmMobileDevice.STATUS_REMOTE_WIPE_REQUESTED</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="COMM">/**
+<span class='line'> 79</span>  * Defines the "remote wipe complete" status.
+<span class='line'> 80</span>  */</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="NAME">ZmMobileDevice.STATUS_REMOTE_WIPE_COMPLETE</span><span class="WHIT">	</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="COMM">/**
+<span class='line'> 83</span>  * Defines the "OAuth Consumer App" status.
+<span class='line'> 84</span>  */</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="NAME">ZmMobileDevice.TYPE_OAUTH</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'oauth'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 86</span> 
+<span class='line'> 87</span> 
+<span class='line'> 88</span> </span><span class="COMM">// Public methods</span><span class="WHIT">
+<span class='line'> 89</span> 
+<span class='line'> 90</span> </span><span class="NAME">ZmMobileDevice.prototype.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 91</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 92</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">"ZmMobileDevice"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 93</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 94</span> 
+<span class='line'> 95</span> </span><span class="COMM">/**
+<span class='line'> 96</span>  * Gets the status.
+<span class='line'> 97</span>  * 
+<span class='line'> 98</span>  * @return	{constant}	the status (see &lt;code>ZmMobileDevice.STATUS_&lt;/code> constants)
+<span class='line'> 99</span>  */</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="NAME">ZmMobileDevice.prototype.getStatus</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>102</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.provisionable</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.status</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_NEED_PROVISION</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>103</span> </span><span class="WHIT">		</span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_OK</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.status</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>104</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>105</span> 
+<span class='line'>106</span> </span><span class="COMM">/**
+<span class='line'>107</span>  * Gets the status string.
+<span class='line'>108</span>  * 
+<span class='line'>109</span>  * @return	{String}	the status string
+<span class='line'>110</span>  */</span><span class="WHIT">
+<span class='line'>111</span> </span><span class="NAME">ZmMobileDevice.prototype.getStatusString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">status</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getStatus</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> 
+<span class='line'>115</span> </span><span class="WHIT">	</span><span class="KEYW">switch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">status</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>116</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_NEED_PROVISION</span><span class="PUNC">:</span><span class="WHIT">			</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmMsg.mobileStatusNeedProvision</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>117</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_OK</span><span class="PUNC">:</span><span class="WHIT">						</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmMsg.mobileStatusOk</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_SUSPENDED</span><span class="PUNC">:</span><span class="WHIT">				</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmMsg.mobileStatusSuspended</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_REMOTE_WIPE_REQUESTED</span><span class="PUNC">:</span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmMsg.mobileStatusWipe</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>120</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmMobileDevice.STATUS_REMOTE_WIPE_COMPLETE</span><span class="PUNC">:</span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ZmMsg.mobileStatusWipeComplete</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>121</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>123</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>124</span> 
+<span class='line'>125</span> </span><span class="COMM">/**
+<span class='line'>126</span>  * Gets the last policy update time as a string.
+<span class='line'>127</span>  * 
+<span class='line'>128</span>  * @return	{String}	the last policy update string
+<span class='line'>129</span>  */</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="NAME">ZmMobileDevice.prototype.getLastPolicyUpdateString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>132</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.lastPolicyUpdate</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">AjxDateUtil.computeDateTimeString</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Date</span><span class="PUNC">(</span><span class="NAME">this.lastPolicyUpdate</span><span class="PUNC">*</span><span class="NUMB">1000</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>133</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>134</span> 
+<span class='line'>135</span> </span><span class="COMM">/**
+<span class='line'>136</span>  * Gets the first request received time as a string.
+<span class='line'>137</span>  * 
+<span class='line'>138</span>  * @return	{String}	the first request received string
+<span class='line'>139</span>  */</span><span class="WHIT">
+<span class='line'>140</span> </span><span class="NAME">ZmMobileDevice.prototype.getFirstReqReceivedString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>141</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>142</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.firstReqReceived</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">AjxDateUtil.computeDateTimeString</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Date</span><span class="PUNC">(</span><span class="NAME">this.firstReqReceived</span><span class="PUNC">*</span><span class="NUMB">1000</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>143</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>144</span> 
+<span class='line'>145</span> </span><span class="COMM">/**
+<span class='line'>146</span>  * Gets the remote wipe acknowledged time as a string.
+<span class='line'>147</span>  * 
+<span class='line'>148</span>  * @return	{String}	the remote wipe acknowledged string
+<span class='line'>149</span>  */</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="NAME">ZmMobileDevice.prototype.getRemoteWipeAckTimeString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>152</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.remoteWipeAckTime</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">AjxDateUtil.computeDateTimeString</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Date</span><span class="PUNC">(</span><span class="NAME">this.remoteWipeAckTime</span><span class="PUNC">*</span><span class="NUMB">1000</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>154</span> 
+<span class='line'>155</span> </span><span class="COMM">/**
+<span class='line'>156</span>  * Gets the remote wipe requested time as a string.
+<span class='line'>157</span>  * 
+<span class='line'>158</span>  * @return	{String}	the remote wipe requested string
+<span class='line'>159</span>  */</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="NAME">ZmMobileDevice.prototype.getRemoteWipeReqTimeString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>162</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.remoteWipeReqTime</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NAME">AjxDateUtil.computeDateTimeString</span><span class="PUNC">(</span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Date</span><span class="PUNC">(</span><span class="NAME">this.remoteWipeReqTime</span><span class="PUNC">*</span><span class="NUMB">1000</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">""</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>163</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>164</span> 
+<span class='line'>165</span> </span><span class="NAME">ZmMobileDevice.prototype.doAction</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">request</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">	</span><span class="KEYW">switch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmOperation.MOBILE_REMOVE</span><span class="PUNC">:</span><span class="WHIT"> 		</span><span class="NAME">request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"RemoveDeviceRequest"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>170</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmOperation.MOBILE_RESUME_SYNC</span><span class="PUNC">:</span><span class="WHIT">	</span><span class="NAME">request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"ResumeDeviceRequest"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>171</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmOperation.MOBILE_SUSPEND_SYNC</span><span class="PUNC">:</span><span class="WHIT">	</span><span class="NAME">request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"SuspendDeviceRequest"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>172</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmOperation.MOBILE_WIPE</span><span class="PUNC">:</span><span class="WHIT">			</span><span class="NAME">request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"RemoteWipeRequest"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="WHIT">		</span><span class="KEYW">case</span><span class="WHIT"> </span><span class="NAME">ZmOperation.MOBILE_CANCEL_WIPE</span><span class="PUNC">:</span><span class="WHIT">	</span><span class="NAME">request</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"CancelPendingRemoteWipeRequest"</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="KEYW">break</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>174</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>175</span> 
+<span class='line'>176</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">request</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>177</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">soapDoc</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">AjxSoapDoc.create</span><span class="PUNC">(</span><span class="NAME">request</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"urn:zimbraSync"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>178</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">node</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">soapDoc.set</span><span class="PUNC">(</span><span class="STRN">"device"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>179</span> </span><span class="WHIT">		</span><span class="NAME">node.setAttribute</span><span class="PUNC">(</span><span class="STRN">"id"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.id</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>180</span> 
+<span class='line'>181</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">respCallback</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">AjxCallback</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this._handleDoAction</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>182</span> </span><span class="WHIT">		</span><span class="NAME">appCtxt.getAppController</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">sendRequest</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="NAME">soapDoc</span><span class="PUNC">:</span><span class="NAME">soapDoc</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">asyncMode</span><span class="PUNC">:</span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="PUNC">:</span><span class="NAME">respCallback</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>183</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>185</span> 
+<span class='line'>186</span> </span><span class="NAME">ZmMobileDevice.prototype._handleDoAction</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>187</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">callback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">results</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">resp</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">results.getResponse</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>189</span> </span><span class="WHIT">	</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">resp</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>190</span> </span><span class="WHIT">		</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">device</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">resp</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">device</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">resp</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">device</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">device</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">device.id</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">this.id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="WHIT">			</span><span class="NAME">this.status</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">device.status</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>193</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">device.lastPolicyUpdate</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>194</span> </span><span class="WHIT">				</span><span class="NAME">this.lastPolicyUpdate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">device.lastPolicyUpdate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>195</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>196</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">device.firstReqReceived</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>197</span> </span><span class="WHIT">				</span><span class="NAME">this.firstReqReceived</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">device.firstReqReceived</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">device.remoteWipeAckTime</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">				</span><span class="NAME">this.remoteWipeAckTime</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">device.remoteWipeAckTime</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>202</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">device.remoteWipeReqTime</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>203</span> </span><span class="WHIT">				</span><span class="NAME">this.remoteWipeReqTime</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">device.remoteWipeReqTime</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>205</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>206</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>207</span> 
+<span class='line'>208</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">callback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>209</span> </span><span class="WHIT">		</span><span class="NAME">callback.run</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>210</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>211</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>212</span> </span></pre></body></html>

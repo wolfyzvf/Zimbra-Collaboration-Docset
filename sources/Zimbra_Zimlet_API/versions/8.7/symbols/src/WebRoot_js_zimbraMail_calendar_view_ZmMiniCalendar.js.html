@@ -1,0 +1,94 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * ***** BEGIN LICENSE BLOCK *****
+<span class='line'>  3</span>  * Zimbra Collaboration Suite Web Client
+<span class='line'>  4</span>  * Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc.
+<span class='line'>  5</span>  *
+<span class='line'>  6</span>  * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+<span class='line'>  7</span>  * you may not use this file except in compliance with the License.
+<span class='line'>  8</span>  * You may obtain a copy of the License at: https://www.zimbra.com/license
+<span class='line'>  9</span>  * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+<span class='line'> 10</span>  * have been added to cover use of software over a computer network and provide for limited attribution
+<span class='line'> 11</span>  * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+<span class='line'> 12</span>  *
+<span class='line'> 13</span>  * Software distributed under the License is distributed on an "AS IS" basis,
+<span class='line'> 14</span>  * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+<span class='line'> 15</span>  * See the License for the specific language governing rights and limitations under the License.
+<span class='line'> 16</span>  * The Original Code is Zimbra Open Source Web Client.
+<span class='line'> 17</span>  * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+<span class='line'> 18</span>  * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+<span class='line'> 19</span>  *
+<span class='line'> 20</span>  * All portions of the code are Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+<span class='line'> 21</span>  * ***** END LICENSE BLOCK *****
+<span class='line'> 22</span>  */</span><span class="WHIT">
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span><span class="NAME">ZmMiniCalendar</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">arguments.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">    </span><span class="NAME">DwtCalendar.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> 
+<span class='line'> 29</span> </span><span class="NAME">ZmMiniCalendar.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">DwtCalendar</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="NAME">ZmMiniCalendar.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">ZmMiniCalendar</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> 
+<span class='line'> 32</span> </span><span class="NAME">ZmMiniCalendar.COLOR_GREEN</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'green'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="NAME">ZmMiniCalendar.COLOR_RED</span><span class="WHIT">     </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'red'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="NAME">ZmMiniCalendar.COLOR_ORANGE</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'orange'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 35</span> 
+<span class='line'> 36</span> </span><span class="COMM">//override class name selection to include color code into consideration</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="NAME">ZmMiniCalendar.prototype._setCellClassName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">cell</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">mode</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">className</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">DwtCalendar.prototype._setCellClassName.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">cell</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">mode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">cell._colorCode</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">        </span><span class="NAME">className</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._getSuggestionClassName</span><span class="PUNC">(</span><span class="NAME">cell._colorCode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">className</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> 
+<span class='line'> 46</span> </span><span class="NAME">ZmMiniCalendar.prototype._getSuggestionClassName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">colorCode</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="STRN">" "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this._origDayClassName</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">"-"</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">colorCode</span><span class="PUNC">;</span><span class="WHIT">        
+<span class='line'> 49</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> 
+<span class='line'> 51</span> </span><span class="COMM">/**
+<span class='line'> 52</span>  * Enables/disables the highlight (i.e. "bolding") on the dates in &lt;code>&lt;dates&gt;&lt;/code>.
+<span class='line'> 53</span>  *
+<span class='line'> 54</span>  * @param {array}	dates	an array of {@link Date} objects for which to enable/disable highlighting
+<span class='line'> 55</span>  * @param {boolean}	clear 	if &lt;code>true&lt;/code>, clear current highlighting 
+<span class='line'> 56</span>  * @param {array}	string  an array of strings representing color codes array ZmMiniCalendar.COLOR_GREEN, ZmMiniCalendar.COLOR_RED, ZmMiniCalendar.COLOR_ORANGE
+<span class='line'> 57</span>  */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="NAME">ZmMiniCalendar.prototype.setColor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">dates</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">clear</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">color</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this._date2CellId</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT"> </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 61</span> 
+<span class='line'> 62</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cell</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">aDate</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">clear</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">		</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">aDate</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">this._date2CellId</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">			</span><span class="NAME">cell</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">this._date2CellId</span><span class="PUNC">[</span><span class="NAME">aDate</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cell._colorCode</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">                </span><span class="NAME">cell._colorCode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">				</span><span class="NAME">this._setClassName</span><span class="PUNC">(</span><span class="NAME">cell</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtCalendar._NORMAL</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 73</span> 
+<span class='line'> 74</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cellId</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">	</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">dates</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="WHIT">		</span><span class="NAME">aDate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">dates</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="WHIT">		</span><span class="NAME">cellId</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this._date2CellId</span><span class="PUNC">[</span><span class="NAME">aDate.getFullYear</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NUMB">10000</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">aDate.getMonth</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NUMB">100</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">aDate.getDate</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 78</span> 
+<span class='line'> 79</span> </span><span class="WHIT">		</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cellId</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">			</span><span class="NAME">cell</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="NAME">cellId</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">			</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">color</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">                </span><span class="NAME">cell._colorCode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">color</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">				</span><span class="NAME">this._setClassName</span><span class="PUNC">(</span><span class="NAME">cell</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">DwtCalendar._NORMAL</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

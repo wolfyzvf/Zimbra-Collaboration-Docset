@@ -1,0 +1,1959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmItem</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmItem
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				<br />Extends
+					<a href="../symbols/ZmModel.html">ZmModel</a>.<br />
+				
+				<br>
+				An item is a piece of data that may contain user content. Most items are taggable. Currently,
+the following things are items: conversation, message, attachment, appointment, and contact.
+<br/>
+<br/>
+An item typically appears in the context of a containing list. Its event handling
+is generally handled by the list so we avoid having the same listeners on each item. If we
+create a context where an item stands alone outside a list context, then the item will have
+its own listeners and do its own notification handling.
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_ZmItem.js.html">ZmItem.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmItem.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmItem.html#constructor">ZmItem</a></b>(type, id, list, noCache)
+							</div>
+							<div class="description">Creates an item.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmItem.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmItem.<b><a href="../symbols/ZmItem.html#.DND_ACTION_BOTH">DND_ACTION_BOTH</a></b>
+								</div>
+								<div class="description">Defines the "move & copy" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmItem.<b><a href="../symbols/ZmItem.html#.DND_ACTION_COPY">DND_ACTION_COPY</a></b>
+								</div>
+								<div class="description">Defines the "copy" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmItem.<b><a href="../symbols/ZmItem.html#.DND_ACTION_MOVE">DND_ACTION_MOVE</a></b>
+								</div>
+								<div class="description">Defines the "move" action.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmItem.<b><a href="../symbols/ZmItem.html#.NOTES_SEPARATOR">NOTES_SEPARATOR</a></b>
+								</div>
+								<div class="description">Defines the notes separator which is used by items
+(such as calendar or share invites) that have notes.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmItem.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#cache">cache</a></b>()
+								</div>
+								<div class="description">Caches the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#canAddTag">canAddTag</a></b>(tagName)
+								</div>
+								<div class="description">is it possible to add a tag to this item?</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#clear">clear</a></b>()
+								</div>
+								<div class="description">Clears the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#create">create</a></b>(args)
+								</div>
+								<div class="description">Creates an item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#deleteLocal">deleteLocal</a></b>()
+								</div>
+								<div class="description">Deletes local, in case an item wants to do something while being deleted.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#flagLocal">flagLocal</a></b>(flag, on)
+								</div>
+								<div class="description">Applies the given flag change to this item by setting a boolean property.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getById">getById</a></b>(id)
+								</div>
+								<div class="description">Gets the item by id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getDefaultDndAction">getDefaultDndAction</a></b>(forceCopy)
+								</div>
+								<div class="description">Gets the default action to use when dragging this item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getFolderId">getFolderId</a></b>()
+								</div>
+								<div class="description">Gets the folder id that contains this item, if available.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmItem.<b><a href="../symbols/ZmItem.html#.getItemId">getItemId</a></b>(id)
+								</div>
+								<div class="description">Gets an item id by taking a normalized id (or an item id) and returning the item id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getRestUrl">getRestUrl</a></b>()
+								</div>
+								<div class="description">Gets the rest url for this item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getTagImageFromIds">getTagImageFromIds</a></b>(tagIds)
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#getTagImageInfo">getTagImageInfo</a></b>()
+								</div>
+								<div class="description">Gets the appropriate tag image info for this item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#hasTag">hasTag</a></b>(tagName)
+								</div>
+								<div class="description">Checks if the item has a given tag.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#isReadOnly">isReadOnly</a></b>()
+								</div>
+								<div class="description">Checks if this item is read-only.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#isShared">isShared</a></b>()
+								</div>
+								<div class="description">Checks if this item is shared.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#modify">modify</a></b>(mods)
+								</div>
+								<div class="description">Modifies an item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmItem.<b><a href="../symbols/ZmItem.html#.move">move</a></b>(itemId, folderId, callback, errorCallback, accountName)
+								</div>
+								<div class="description">Moves the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#move">move</a></b>(folderId, callback, errorCallback)
+								</div>
+								<div class="description">Moves the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#moveLocal">moveLocal</a></b>(folderId)
+								</div>
+								<div class="description">Updates the folder for this item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmItem.<b><a href="../symbols/ZmItem.html#.registerItem">registerItem</a></b>(item, params)
+								</div>
+								<div class="description">Registers an item and stores information about the given item type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#removeAllTagsLocal">removeAllTagsLocal</a></b>()
+								</div>
+								<div class="description">Removes all tags.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">ZmItem.<b><a href="../symbols/ZmItem.html#.rename">rename</a></b>(itemId, newName, callback, errorCallback, accountName)
+								</div>
+								<div class="description">Rename the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#rename">rename</a></b>(newName, callback, errorCallback)
+								</div>
+								<div class="description">Rename the item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#setFlag">setFlag</a></b>(flag, on)
+								</div>
+								<div class="description">Sets the given flag change to this item.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmItem.html#tagLocal">tagLocal</a></b>(tag, doTag)
+								</div>
+								<div class="description">Adds or removes the given tag for this item.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/ZmModel.html">ZmModel</a>: </dt><dd><a href="../symbols/ZmModel.html#addChangeListener">addChangeListener</a>, <a href="../symbols/ZmModel.html#removeAllChangeListeners">removeAllChangeListeners</a>, <a href="../symbols/ZmModel.html#removeChangeListener">removeChangeListener</a></dd>
+				</dl>
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmItem</b>(type, id, list, noCache)
+				</div>
+				
+				<div class="description">
+					Creates an item.
+					<br /><i>Author: </i>Conrad Damon.
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>type</b>
+								
+							</dt>
+								<dd>type of object (conv, msg, etc)</dd>
+						
+							<dt>
+								<span class="light fixedFont">{int}</span>  <b>id</b>
+								
+							</dt>
+								<dd>the unique id</dd>
+						
+							<dt>
+								<span class="light fixedFont">{<a href="../symbols/ZmList.html">ZmList</a>}</span>  <b>list</b>
+								
+							</dt>
+								<dd>a list that contains this item</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Boolean}</span>  <b>noCache</b>
+								
+							</dt>
+								<dd>if <code>true</code>, do not cache this item</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".DND_ACTION_BOTH"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmItem.</span><b>DND_ACTION_BOTH</b>
+					
+					</div>
+					<div class="description">
+						Defines the "move & copy" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="#getDefaultDndAction">#getDefaultDndAction</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".DND_ACTION_COPY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmItem.</span><b>DND_ACTION_COPY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "copy" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="#getDefaultDndAction">#getDefaultDndAction</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".DND_ACTION_MOVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmItem.</span><b>DND_ACTION_MOVE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "move" action.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="#getDefaultDndAction">#getDefaultDndAction</a></dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".NOTES_SEPARATOR"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmItem.</span><b>NOTES_SEPARATOR</b>
+					
+					</div>
+					<div class="description">
+						Defines the notes separator which is used by items
+(such as calendar or share invites) that have notes.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="cache"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>cache</b>()
+					
+					</div>
+					<div class="description">
+						Caches the item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if the item is placed into cache; <code>false</code> otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="canAddTag"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>canAddTag</b>(tagName)
+					
+					</div>
+					<div class="description">
+						is it possible to add a tag to this item?
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>tagName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{boolean}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clear"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>clear</b>()
+					
+					</div>
+					<div class="description">
+						Clears the item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="create"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>create</b>(args)
+					
+					</div>
+					<div class="description">
+						Creates an item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>args</b>
+									
+								</dt>
+								<dd>the arguments</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="deleteLocal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>deleteLocal</b>()
+					
+					</div>
+					<div class="description">
+						Deletes local, in case an item wants to do something while being deleted.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="flagLocal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>flagLocal</b>(flag, on)
+					
+					</div>
+					<div class="description">
+						Applies the given flag change to this item by setting a boolean property.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>flag</b>
+									
+								</dt>
+								<dd>the flag that changed</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>on</b>
+									
+								</dt>
+								<dd><code>true</code> if the flag is now set</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getById"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/ZmItem.html">ZmItem</a>}</span>
+					<b>getById</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets the item by id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>an item id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/ZmItem.html">ZmItem</a>}</span> the item</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDefaultDndAction"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<b>getDefaultDndAction</b>(forceCopy)
+					
+					</div>
+					<div class="description">
+						Gets the default action to use when dragging this item. This method
+is meant to be overloaded for items that are read-only and can only be copied.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>forceCopy</b>
+									
+								</dt>
+								<dd>If set, default DnD action is a copy</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the action</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getFolderId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getFolderId</b>()
+					
+					</div>
+					<div class="description">
+						Gets the folder id that contains this item, if available.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the folder id or <code>null</code> for none</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getItemId"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">ZmItem.</span><b>getItemId</b>(id)
+					
+					</div>
+					<div class="description">
+						Gets an item id by taking a normalized id (or an item id) and returning the item id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>id</b>
+									
+								</dt>
+								<dd>the normalized id</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the item id</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getRestUrl"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getRestUrl</b>()
+					
+					</div>
+					<div class="description">
+						Gets the rest url for this item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the url</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTagImageFromIds"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getTagImageFromIds</b>(tagIds)
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>tagIds</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getTagImageInfo"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>getTagImageInfo</b>()
+					
+					</div>
+					<div class="description">
+						Gets the appropriate tag image info for this item.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the tag image info</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasTag"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasTag</b>(tagName)
+					
+					</div>
+					<div class="description">
+						Checks if the item has a given tag.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>tagName</b>
+									
+								</dt>
+								<dd>tag name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> is this item has the given tag.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isReadOnly"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isReadOnly</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is read-only. This method should be
+overloaded by the derived object to determine what "read-only" means.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> the read-only status</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="isShared"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>isShared</b>()
+					
+					</div>
+					<div class="description">
+						Checks if this item is shared.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> if this item is shared (remote)</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="modify"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>modify</b>(mods)
+					
+					</div>
+					<div class="description">
+						Modifies an item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>mods</b>
+									
+								</dt>
+								<dd>the arguments</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".move"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<span class="light">ZmItem.</span><b>move</b>(itemId, folderId, callback, errorCallback, accountName)
+					
+					</div>
+					<div class="description">
+						Moves the item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>itemId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>folderId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>callback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>errorCallback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>accountName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the result of the move</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="move"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<b>move</b>(folderId, callback, errorCallback)
+					
+					</div>
+					<div class="description">
+						Moves the item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback on error</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the result of the move</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="moveLocal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>moveLocal</b>(folderId)
+					
+					</div>
+					<div class="description">
+						Updates the folder for this item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>folderId</b>
+									
+								</dt>
+								<dd>the new folder ID</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerItem"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmItem.</span><b>registerItem</b>(item, params)
+					
+					</div>
+					<div class="description">
+						Registers an item and stores information about the given item type.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>item</b>
+									
+								</dt>
+								<dd>the item type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>params</b>
+									
+								</dt>
+								<dd>a hash of parameters</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.app</b>
+									
+								</dt>
+								<dd>the app that handles this item type</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.nameKey</b>
+									
+								</dt>
+								<dd>the message key for item name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.icon</b>
+									
+								</dt>
+								<dd>the name of item icon class</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.soapCmd</b>
+									
+								</dt>
+								<dd>the SOAP command for acting on this item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.itemClass</b>
+									
+								</dt>
+								<dd>the name of class that represents this item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.node</b>
+									
+								</dt>
+								<dd>the SOAP response node for this item</dd>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>params.organizer</b>
+									
+								</dt>
+								<dd>the associated organizer</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>params.searchType</b>
+									
+								</dt>
+								<dd>the associated type in SearchRequest</dd>
+							
+								<dt>
+									<span class="light fixedFont">{function}</span> <b>params.resultsList</b>
+									
+								</dt>
+								<dd>the function that returns a <a href="../symbols/ZmList.html">ZmList</a> for holding search results of this type</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeAllTagsLocal"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeAllTagsLocal</b>()
+					
+					</div>
+					<div class="description">
+						Removes all tags.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".rename"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<span class="light">ZmItem.</span><b>rename</b>(itemId, newName, callback, errorCallback, accountName)
+					
+					</div>
+					<div class="description">
+						Rename the item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>itemId</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>newName</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>callback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>errorCallback</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>accountName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the result of the move</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="rename"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<b>rename</b>(newName, callback, errorCallback)
+					
+					</div>
+					<div class="description">
+						Rename the item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>newName</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>callback</b>
+									
+								</dt>
+								<dd>the callback</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/AjxCallback.html">AjxCallback</a>}</span> <b>errorCallback</b>
+									
+								</dt>
+								<dd>the callback on error</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the result of the move</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="setFlag"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>setFlag</b>(flag, on)
+					
+					</div>
+					<div class="description">
+						Sets the given flag change to this item. Both the flags string and the
+flag properties are affected.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>flag</b>
+									
+								</dt>
+								<dd>the flag that changed</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>on</b>
+									
+								</dt>
+								<dd><code>true</code> if the flag is now set</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> the new flags string</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="tagLocal"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>tagLocal</b>(tag, doTag)
+					
+					</div>
+					<div class="description">
+						Adds or removes the given tag for this item.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>tag</b>
+									
+								</dt>
+								<dd>tag name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>doTag</b>
+									
+								</dt>
+								<dd><code>true</code> if tag is being added; <code>false</code> if it is being removed</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> <code>true</code> to notify</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Jun 28 2016 21:01:38 GMT-0400 (EDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>

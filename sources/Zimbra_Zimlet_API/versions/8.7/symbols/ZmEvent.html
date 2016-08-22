@@ -1,0 +1,1106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>Zimlet JavaScript API Reference - ZmEvent</title>
+
+		<style type="text/css">
+			/*
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2013, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+ */
+/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	padding-left: 10px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.container {
+	margin:0 auto;
+}
+.super-nav {
+	background: #3d3d3d url(./images/super_nav_bg.png) 0 0 repeat-x;
+	border-bottom: 1px solid #FFF;
+}
+.super-nav ul {
+	margin-bottom: 1px;
+}
+.super-nav li {
+	background: url(./images/super_nav_separator.png) 100% 60% no-repeat;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #e1e1e1;
+	display: inline;
+	line-height: 23px;
+	padding-right: 8px;
+}
+.super-nav li.last {
+	background: none;
+	padding-right: 0;
+}
+.super-nav li a {
+	color: #e1e1e1;
+	text-decoration: none;
+	padding-right: 4px;
+}
+.super-nav li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+		</style>
+	</head>
+
+	<body>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2" valign="top">
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<!--
+ * ***** BEGIN LICENSE BLOCK *****
+ * Zimbra Collaboration Suite Web Client
+ * Copyright (C) 2010, 2014, 2016 Synacor, Inc.
+ *
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at: https://www.zimbra.com/license
+ * The License is based on the Mozilla Public License Version 1.1 but Sections 14 and 15
+ * have been added to cover use of software over a computer network and provide for limited attribution
+ * for the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ * See the License for the specific language governing rights and limitations under the License.
+ * The Original Code is Zimbra Open Source Web Client.
+ * The Initial Developer of the Original Code is Zimbra, Inc.  All rights to the Original Code were
+ * transferred by Zimbra, Inc. to Synacor, Inc. on September 14, 2015.
+ *
+ * All portions of the code are Copyright (C) 2010, 2014, 2016 Synacor, Inc. All Rights Reserved.
+ * ***** END LICENSE BLOCK *****
+-->
+
+		<!-- end static/header.html -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+<!-- ============================== classes index ============================ -->
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class ZmEvent
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				<br>
+				This class represents an event that encapsulates some sort of change to a model (data).
+The event has a data type (for example, conversation), an event type (for example, delete), a source (the
+data object generating the event), and a hash of arbitrary information (details).
+				<br>
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/WebRoot_js_zimbraMail_share_model_events_ZmEvent.js.html">ZmEvent.js</a>.<br />
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class ZmEvent.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/ZmEvent.html#constructor">ZmEvent</a></b>(type)
+							</div>
+							<div class="description">Creates an empty event of the given type.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class ZmEvent.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_COMPLETE">E_COMPLETE</a></b>
+								</div>
+								<div class="description">Defines the "complete" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_CREATE">E_CREATE</a></b>
+								</div>
+								<div class="description">Defines the "create" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_DELETE">E_DELETE</a></b>
+								</div>
+								<div class="description">Defines the "delete" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_FLAGS">E_FLAGS</a></b>
+								</div>
+								<div class="description">Defines the "flags" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_LOAD">E_LOAD</a></b>
+								</div>
+								<div class="description">Defines the "load" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_MODIFY">E_MODIFY</a></b>
+								</div>
+								<div class="description">Defines the "modify" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_MOVE">E_MOVE</a></b>
+								</div>
+								<div class="description">Defines the "move" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_REMOVE">E_REMOVE</a></b>
+								</div>
+								<div class="description">Defines the "remove" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_REMOVE_ALL">E_REMOVE_ALL</a></b>
+								</div>
+								<div class="description">Defines the "remove all" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_TAGS">E_TAGS</a></b>
+								</div>
+								<div class="description">Defines the "tags" event type.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								ZmEvent.<b><a href="../symbols/ZmEvent.html#.E_ZIMLETS">E_ZIMLETS</a></b>
+								</div>
+								<div class="description">Defines the "zimlets" event type.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class ZmEvent.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#getDetail">getDetail</a></b>(field)
+								</div>
+								<div class="description">Gets info from the event details.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#getDetails">getDetails</a></b>()
+								</div>
+								<div class="description">Gets the event details.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#getItems">getItems</a></b>()
+								</div>
+								<div class="description">Gets items by checking for a detail with a name of "items" and returning it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#set">set</a></b>(event, source)
+								</div>
+								<div class="description">Sets the event type and source.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#setDetail">setDetail</a></b>(field, value)
+								</div>
+								<div class="description">Adds info to the event details.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#setDetails">setDetails</a></b>(details)
+								</div>
+								<div class="description">Sets the event details.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/ZmEvent.html#toString">toString</a></b>()
+								</div>
+								<div class="description">Returns a string representation of the object.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>ZmEvent</b>(type)
+				</div>
+				
+				<div class="description">
+					Creates an empty event of the given type.
+					
+				</div>
+				
+				
+				
+				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{constant}</span>  <b>type</b>
+								
+							</dt>
+								<dd>the source of the event</dd>
+						
+						</dl>
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".E_COMPLETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_COMPLETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "complete" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_CREATE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_CREATE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "create" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_DELETE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_DELETE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "delete" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_FLAGS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_FLAGS</b>
+					
+					</div>
+					<div class="description">
+						Defines the "flags" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_LOAD"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_LOAD</b>
+					
+					</div>
+					<div class="description">
+						Defines the "load" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_MODIFY"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_MODIFY</b>
+					
+					</div>
+					<div class="description">
+						Defines the "modify" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_MOVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_MOVE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "move" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_REMOVE"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_REMOVE</b>
+					
+					</div>
+					<div class="description">
+						Defines the "remove" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_REMOVE_ALL"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_REMOVE_ALL</b>
+					
+					</div>
+					<div class="description">
+						Defines the "remove all" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_TAGS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_TAGS</b>
+					
+					</div>
+					<div class="description">
+						Defines the "tags" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".E_ZIMLETS"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">ZmEvent.</span><b>E_ZIMLETS</b>
+					
+					</div>
+					<div class="description">
+						Defines the "zimlets" event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getDetail"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Object.html">Object</a>}</span>
+					<b>getDetail</b>(field)
+					
+					</div>
+					<div class="description">
+						Gets info from the event details.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>field</b>
+									
+								</dt>
+								<dd>the detail field name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> the details</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getDetails"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Hash}</span>
+					<b>getDetails</b>()
+					
+					</div>
+					<div class="description">
+						Gets the event details.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Hash}</span> the event details</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getItems"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>getItems</b>()
+					
+					</div>
+					<div class="description">
+						Gets items by checking for a detail with a name of "items" and returning it.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> an array of items or empty array if "items" does not exist</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="set"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>set</b>(event, source)
+					
+					</div>
+					<div class="description">
+						Sets the event type and source.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{constant}</span> <b>event</b>
+									
+								</dt>
+								<dd>the event type (see <code>ZmEvent.E_</code> constants)</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>source</b>
+									
+								</dt>
+								<dd>the object that generated the event (typically "this")</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDetail"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDetail</b>(field, value)
+					
+					</div>
+					<div class="description">
+						Adds info to the event details.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>field</b>
+									
+								</dt>
+								<dd>the detail name</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Object.html">Object</a>}</span> <b>value</b>
+									
+								</dt>
+								<dd>the detail value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setDetails"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setDetails</b>(details)
+					
+					</div>
+					<div class="description">
+						Sets the event details. Any existing details will be lost.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Hash}</span> <b>details</b>
+									
+								</dt>
+								<dd>a hash representing event details</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="toString"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>toString</b>()
+					
+					</div>
+					<div class="description">
+						Returns a string representation of the object.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> a string representation of the object</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Jun 28 2016 21:01:37 GMT-0400 (EDT)
+		</div>
+		</td>
+	</tr>
+	</table>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-228165-10");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+	</body>
+</html>
