@@ -1,0 +1,15 @@
+{
+    "name": "Zimbra SOAP API",
+    "package": "zimbra-soap-api",
+    "index": "index.html",
+    "selectors": {
+        "code": {
+          "type":"Command",
+          "regexp": "<(.*?)>",
+          "replacement": "$1"
+        }
+    },
+    "icon32x32": "icon.png",
+    "allowJS": false,
+    "ExternalURL": "https://wiki.zimbra.com/wiki/SOAP_API_Reference_Material_Beginning_with_ZCS_8"
+}
