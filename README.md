@@ -47,7 +47,7 @@ Create a new dashing.json inside with the following parameters :
 Then build the docset with the following commands :
 ```
   cd sources/Zimbra_SOAP_API/versions/8.7/  
-  ../../../../../dashing build && tar --exclude='.DS_Store' -cvzf zimbra-soap-api.tgz zimbra-soap-api.docset  
+  ../../../../dashing build && tar --exclude='.DS_Store' -cvzf zimbra-soap-api.tgz zimbra-soap-api.docset  
 ```
 Once build you can put it into a new folder in the build section.  
 
